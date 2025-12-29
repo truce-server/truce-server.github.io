@@ -17,8 +17,8 @@
     }
     .layout { display:flex; height: calc(100vh - 56px); }
     .sidebar {
-      width:320px; border-right:1px solid #e5e5e5;
-      padding:12px; overflow:auto; background:#fbfbfb;
+      width:320px; border-right:2px solid #d0d7de;
+      padding:12px; overflow:auto; background:#f3f6f9;
     }
     .main { flex:1; overflow:hidden; background:white; }
     .section { margin-bottom:12px; }
@@ -38,4 +38,117 @@
 <body>
   <div class="topbar">
     <div class="title">Truce Server • Sitemap</div>
-    <input id=
+    <input id="search" placeholder="Search pages..." />
+  </div>
+
+  <div class="layout">
+    <div class="sidebar" id="sidebar">
+      <div class="hint">Loading…</div>
+    </div>
+
+    <div class="main">
+      <iframe id="viewer"
+        srcdoc="<h2 style='font-family:system-ui;padding:24px'>Pick a page on the left.</h2>">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const viewer = document.getElementById("viewer");
+    const search = document.getElementById("search");
+
+    let data = {};
+
+    function enc(s){ return encodeURIComponent(s); }
+
+    // Turn your long filenames into clean sidebar labels
+    function prettyName(file) {
+      let s = file.replace(/\.html$/i, "");
+
+      // Keep only what's after the last " - "
+      const parts = s.split(" - ");
+      if (parts.length >= 2) s = parts[parts.length - 1];
+
+      // Remove trailing [digits]
+      s = s.replace(/\s*\[\d+\]\s*$/, "");
+
+      return s.trim();
+    }
+
+    function buildUI(filter="") {
+      sidebar.innerHTML = "";
+      filter = filter.trim().toLowerCase();
+
+      const folders = Object.keys(data)
+        .filter(f => f && !f.startsWith(".") && f !== "workflows") // hide junk
+        .sort((a,b)=>a.localeCompare(b));
+
+      if (folders.length === 0) {
+        sidebar.innerHTML = "<div class='hint'>No folders found in sitemap.json.</div>";
+        return;
+      }
+
+      let totalShown = 0;
+
+      for (const folder of folders) {
+        const pages = (data[folder] || []).slice().sort((a,b)=>a.localeCompare(b));
+
+        const filtered = filter
+          ? pages.filter(p => (folder + " " + p + " " + prettyName(p)).toLowerCase().includes(filter))
+          : pages;
+
+        if (filter && filtered.length === 0) continue;
+
+        const sec = document.createElement("div");
+        sec.className = "section";
+
+        const h = document.createElement("h3");
+        h.textContent = folder;
+        sec.appendChild(h);
+
+        if (filtered.length === 0) {
+          const empty = document.createElement("div");
+          empty.className = "hint";
+          empty.textContent = "No pages.";
+          sec.appendChild(empty);
+        } else {
+          for (const file of filtered) {
+            const a = document.createElement("a");
+            a.className = "item";
+            a.textContent = prettyName(file);
+            a.href = "#";
+            a.onclick = (e) => {
+              e.preventDefault();
+              viewer.src = `${enc(folder)}/${enc(file)}`;
+            };
+            sec.appendChild(a);
+            totalShown++;
+          }
+        }
+
+        sidebar.appendChild(sec);
+      }
+
+      if (filter && totalShown === 0) {
+        sidebar.innerHTML = "<div class='hint'>No results found.</div>";
+      }
+    }
+
+    fetch("sitemap.json")
+      .then(r => {
+        if (!r.ok) throw new Error("Missing sitemap.json");
+        return r.json();
+      })
+      .then(json => {
+        data = json || {};
+        buildUI();
+      })
+      .catch(() => {
+        sidebar.innerHTML = "<div class='hint'>Couldn’t load sitemap.json (make sure it exists in the repo root).</div>";
+      });
+
+    search.addEventListener("input", () => buildUI(search.value));
+  </script>
+</body>
+</html>
