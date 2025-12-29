@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Truce Server Sitemap</title>
+  <style>
+    body { margin:0; font-family: system-ui, Arial; }
+    .topbar {
+      height:56px; background:#2c9bd6; color:white;
+      display:flex; align-items:center; padding:0 16px; gap:16px;
+    }
+    .topbar .title { font-size:18px; font-weight:600; white-space:nowrap; }
+    .topbar input {
+      margin-left:auto; width:420px; max-width:50vw;
+      border:none; border-radius:18px; padding:10px 12px; outline:none;
+    }
+    .layout { display:flex; height: calc(100vh - 56px); }
+    .sidebar {
+      width:320px; border-right:1px solid #e5e5e5;
+      padding:12px; overflow:auto; background:#fbfbfb;
+    }
+    .main { flex:1; overflow:hidden; background:white; }
+    .section { margin-bottom:12px; }
+    .section h3 {
+      margin:12px 0 6px; font-size:13px; color:#444;
+      text-transform: uppercase; letter-spacing:.05em;
+    }
+    .item {
+      display:block; padding:6px 8px; border-radius:8px;
+      color:#0b6aa8; text-decoration:none; word-break:break-word;
+    }
+    .item:hover { background:#eaf6ff; }
+    .hint { color:#666; font-size:14px; padding:8px; }
+    iframe { width:100%; height:100%; border:0; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="title">Truce Server • Sitemap</div>
+    <input id=
