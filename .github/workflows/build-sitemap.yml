@@ -18,7 +18,12 @@ jobs:
         run: |
           python3 - << 'PY'
           import os, json
-          folders = [d for d in os.listdir(".") if os.path.isdir(d) and not d.startswith(".")]
+          ignore = {".git", ".github", "workflows", "assets", "css", "js"}
+          folders = [
+              d for d in os.listdir(".")
+              if os.path.isdir(d) and not d.startswith(".") and d not in ignore
+          ]
+
           folders.sort(key=str.lower)
 
           site = {}
