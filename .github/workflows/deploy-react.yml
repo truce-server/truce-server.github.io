@@ -1,0 +1,93 @@
+name: Build and Deploy React App
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Copy chatlog folders to public
+        run: |
+          # Copy all chatlog directories to public folder
+          mkdir -p public
+          for dir in */; do
+            if [[ "$dir" != ".git/" && "$dir" != ".github/" && "$dir" != "node_modules/" && "$dir" != "public/" && "$dir" != "src/" && "$dir" != "build/" ]]; then
+              cp -r "$dir" public/
+            fi
+          done
+          
+      - name: Generate sitemap.json
+        run: |
+          python3 - << 'PY'
+          import os, json
+          
+          # Look in public directory for chatlog folders
+          public_dir = "public"
+          ignore = {".git", ".github", "workflows", "assets", "css", "js", "node_modules", "src", "build"}
+          
+          folders = [
+              d for d in os.listdir(public_dir)
+              if os.path.isdir(os.path.join(public_dir, d)) and not d.startswith(".") and d not in ignore
+          ]
+
+          folders.sort(key=str.lower)
+
+          site = {}
+          for d in folders:
+            folder_path = os.path.join(public_dir, d)
+            files = [f for f in os.listdir(folder_path) if f.lower().endswith(".html")]
+            files.sort(key=str.lower)
+            site[d] = files
+
+          with open("public/sitemap.json", "w", encoding="utf-8") as f:
+            json.dump(site, f, ensure_ascii=False, indent=2)
+
+          print("Generated sitemap.json")
+          print(f"Found folders: {folders}")
+          PY
+          
+      - name: Build React app
+        run: npm run build
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './build'
+          
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
