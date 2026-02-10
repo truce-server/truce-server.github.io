@@ -94,8 +94,15 @@ function AppContent() {
       <AppShell.Header>
         <Group h="100%" px="md" justify="space-between">
           <Group>
-            <Text size="xl" fw={700}>Truce Server</Text>
-            <Text size="sm" c="dimmed">Chatlog Archives</Text>
+            <img 
+              src="/TruceLogo.png" 
+              alt="Truce Logo" 
+              style={{ height: '40px', width: 'auto' }}
+            />
+            <Box>
+              <Text size="xl" fw={700}>Truce: Survivor Series</Text>
+              <Text size="sm" c="gray.4">Chatlog Archives</Text>
+            </Box>
           </Group>
           <Group>
             <ActionIcon
@@ -181,16 +188,28 @@ function App() {
         fontFamily: 'gg sans, system-ui, sans-serif',
         colors: {
           brand: [
-            '#F0F2F9',
-            '#D9DFE8',
-            '#C1CAD8',
-            '#A8B5C8',
-            '#7B68EE',
-            '#5A9FD4',
-            '#373F74',
-            '#2A2D58',
-            '#1F213E',
-            '#141524',
+            '#E8F0FB',
+            '#C5D9F0',
+            '#A2C1E4',
+            '#7FA9D9',
+            '#5C91CD',
+            '#3979C2',
+            '#2a5a8f',
+            '#1e3a5f',
+            '#0a1f3f',
+            '#050f1f',
+          ],
+          gold: [
+            '#FEF3E2',
+            '#FCE5C7',
+            '#FAD6A5',
+            '#F7C883',
+            '#F5BA6B',
+            '#F2AC53',
+            '#d4af37',
+            '#b8941a',
+            '#8a6f1a',
+            '#5c4916',
           ],
           gray: [
             '#F9FAFB',
