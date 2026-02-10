@@ -5,11 +5,9 @@ import {
   Group,
   Badge,
   Paper,
-  Stack,
   Grid,
   Card,
   ActionIcon,
-  Tooltip,
   ScrollArea
 } from '@mantine/core';
 import { IconMessageCircle, IconCalendar, IconExternalLink } from '@tabler/icons-react';
@@ -181,8 +179,6 @@ function ChannelView({ channelName, chatlogs, onSelectChatlog }) {
                     <iframe
                       src={chatlogPath}
                       style={{
-                        width: '100%',
-                        height: '100%',
                         border: 'none',
                         pointerEvents: 'none', // Prevent interaction in preview
                         transform: 'scale(0.8)',
