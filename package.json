@@ -2,7 +2,7 @@
   "name": "truce-chatlog-archive",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://truce-server.github.io/truce-server.github.io",
+  "homepage": "https://truce-server.github.io",
   "dependencies": {
     "@mantine/core": "^7.5.2",
     "@mantine/hooks": "^7.5.2",
