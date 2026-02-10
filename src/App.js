@@ -195,7 +195,7 @@ function App() {
         }
       }}
     >
-      <Router basename={process.env.NODE_ENV === 'production' ? '/truce-server.github.io' : ''}>
+      <Router basename="">
         <Routes>
           <Route path="/*" element={<AppContent />} />
         </Routes>
