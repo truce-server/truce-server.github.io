@@ -4,6 +4,8 @@ import { IconSun, IconMoonStars } from '@tabler/icons-react';
 
 function SeasonSelector({ onSelectSeason }) {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const [season1Particles, setSeason1Particles] = React.useState([]);
+  const [season2Particles, setSeason2Particles] = React.useState([]);
 
   return (
     <Box
@@ -65,42 +67,203 @@ function SeasonSelector({ onSelectSeason }) {
       />
 
       {/* Main content */}
-      <Container size="sm" style={{ textAlign: 'center', position: 'relative', zIndex: 5 }}>
+      <Container size="lg" style={{ textAlign: 'center', position: 'relative', zIndex: 5 }}>
         <Box
-          component="img"
-          src="/TruceLogo.png"
-          alt="Truce Logo"
           style={{
-            height: '120px',
-            width: 'auto',
-            marginBottom: '40px',
-            animation: 'pulse 2s ease-in-out infinite'
+            fontSize: '72px',
+            fontWeight: 700,
+            color: '#d4af37',
+            marginBottom: '15px',
+            letterSpacing: '3px',
+            fontFamily: 'Georgia, serif',
+            textShadow: '0 0 30px rgba(212, 175, 55, 0.4), 0 2px 10px rgba(0, 0, 0, 0.5)',
+            lineHeight: 1.2
           }}
-        />
+        >
+          Truce: Survivor ORG
+        </Box>
 
-        {/* Season selector with click animation */}
         <Box
-          component="img"
-          src="/Season1.png"
-          alt="Season 1"
-          onClick={() => onSelectSeason('season1')}
           style={{
-            height: '300px',
-            width: 'auto',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            filter: 'drop-shadow(0 8px 20px rgba(212, 175, 55, 0.3))',
-            marginBottom: '30px'
+            fontSize: '20px',
+            fontWeight: 400,
+            color: 'rgba(255, 255, 255, 0.85)',
+            marginBottom: '60px',
+            letterSpacing: '2px',
+            fontFamily: 'Georgia, serif',
+            fontStyle: 'italic',
+            textTransform: 'uppercase'
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'scale(1.05)';
-            e.currentTarget.style.filter = 'drop-shadow(0 12px 30px rgba(212, 175, 55, 0.5))';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'scale(1)';
-            e.currentTarget.style.filter = 'drop-shadow(0 8px 20px rgba(212, 175, 55, 0.3))';
-          }}
-        />
+        >
+          Choose Your Season
+        </Box>
+
+        {/* Season cards container - side by side */}
+        <Group justify="center" gap="60px" style={{ marginBottom: '60px' }}>
+          {/* Season 1 */}
+          <Box style={{ textAlign: 'center', position: 'relative' }}>
+            <Box
+              component="img"
+              src="/Season1.png"
+              alt="Season 1"
+              onClick={() => onSelectSeason('season1')}
+              className="season-1-image"
+              style={{
+                height: '250px',
+                width: 'auto',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                filter: 'drop-shadow(0 8px 20px rgba(212, 175, 55, 0.3))',
+                marginBottom: '15px'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.filter = 'drop-shadow(0 12px 30px rgba(212, 175, 55, 0.5))';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.filter = 'drop-shadow(0 8px 20px rgba(212, 175, 55, 0.3))';
+              }}
+            />
+
+
+
+            <Box
+              style={{
+                fontSize: '24px',
+                fontWeight: 600,
+                color: '#d4af37',
+                letterSpacing: '2px',
+                fontFamily: 'Georgia, serif',
+                fontStyle: 'italic',
+                textTransform: 'uppercase'
+              }}
+            >
+              Season One
+            </Box>
+          </Box>
+
+          {/* Season 2 */}
+          <Box style={{ textAlign: 'center', position: 'relative', overflow: 'visible' }}>
+            <Box
+              component="img"
+              src="/Season2.png"
+              alt="Season 2"
+              onClick={() => onSelectSeason('season2')}
+              className="season-2-image"
+              style={{
+                height: '250px',
+                width: 'auto',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                filter: 'drop-shadow(0 8px 20px rgba(212, 175, 55, 0.3))',
+                marginBottom: '15px',
+                display: 'block',
+                position: 'relative',
+                zIndex: 2
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.filter = 'drop-shadow(0 0 40px rgba(255, 255, 255, 1)), drop-shadow(0 0 80px rgba(150, 200, 240, 0.8)), drop-shadow(0 8px 20px rgba(212, 175, 55, 0.3))';
+                e.currentTarget.parentElement.parentElement.classList.add('season-2-hover');
+                
+                // Create snow particles
+                const particles = [];
+                for (let i = 0; i < 12; i++) {
+                  const angle = (i / 12) * Math.PI * 2;
+                  particles.push({
+                    id: i,
+                    angle,
+                    delay: i * 0.2
+                  });
+                }
+                setSeason2Particles(particles);
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.filter = 'drop-shadow(0 8px 20px rgba(212, 175, 55, 0.3))';
+                e.currentTarget.parentElement.parentElement.classList.remove('season-2-hover');
+                setSeason2Particles([]);
+              }}
+            />
+
+            {/* Snow particles container */}
+            <Box style={{ position: 'absolute', top: '50%', left: '50%', width: 0, height: 0 }}>
+              {season2Particles.map((particle) => {
+                // Start particles at the edge of image (Season 2 image is ~250px, so edge is ~135px)
+                const edgeDistance = 135;
+                const startX = Math.cos(particle.angle) * edgeDistance;
+                const startY = Math.sin(particle.angle) * edgeDistance;
+                // Emit to much further distance
+                const endX = Math.cos(particle.angle) * 320;
+                const endY = Math.sin(particle.angle) * 320;
+                const tx = endX - startX;
+                const ty = endY - startY;
+                
+                return (
+                  <Box
+                    key={particle.id}
+                    style={{
+                      position: 'absolute',
+                      top: startY,
+                      left: startX,
+                      width: '8px',
+                      height: '8px',
+                      background: 'radial-gradient(circle, rgba(200, 230, 245, 0.9) 0%, rgba(150, 200, 240, 0.4) 100%)',
+                      borderRadius: '50%',
+                      boxShadow: '0 0 8px rgba(200, 230, 245, 0.8)',
+                      zIndex: 3,
+                      pointerEvents: 'none',
+                      marginTop: '-4px',
+                      marginLeft: '-4px',
+                      animation: `snowParticle${particle.id} 0.8s ease-out infinite`,
+                      animationDelay: `${particle.delay}s`
+                    }}
+                  />
+                );
+              })}
+            </Box>
+
+            {/* Generate inline keyframes for each particle */}
+            {season2Particles.length > 0 && (
+              <style>{season2Particles.map((particle) => {
+                const edgeDistance = 135;
+                const startX = Math.cos(particle.angle) * edgeDistance;
+                const startY = Math.sin(particle.angle) * edgeDistance;
+                const endX = Math.cos(particle.angle) * 320;
+                const endY = Math.sin(particle.angle) * 320;
+                const tx = endX - startX;
+                const ty = endY - startY;
+                return `
+                  @keyframes snowParticle${particle.id} {
+                    0% {
+                      opacity: 0.9;
+                      transform: translate(0, 0) scale(1);
+                    }
+                    100% {
+                      opacity: 0;
+                      transform: translate(${tx}px, ${ty}px) scale(0.3);
+                    }
+                  }
+                `;
+              }).join('')}</style>
+            )}
+
+            <Box
+              style={{
+                fontSize: '24px',
+                fontWeight: 600,
+                color: '#a8d4f0',
+                letterSpacing: '2px',
+                fontFamily: 'Georgia, serif',
+                fontStyle: 'italic',
+                textTransform: 'uppercase'
+              }}
+            >
+              Season Two
+            </Box>
+          </Box>
+        </Group>
 
         <style>{`
           @keyframes float {
@@ -120,8 +283,68 @@ function SeasonSelector({ onSelectSeason }) {
               opacity: 0.8;
             }
           }
+
+          @keyframes starEmit {
+            0% {
+              opacity: 0;
+              transform: translate(0, 0) scale(0.3);
+            }
+            50% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+              transform: translate(var(--tx), var(--ty)) scale(0);
+            }
+          }
+
+          @keyframes snowEmit {
+            0% {
+              opacity: 0.8;
+              transform: translate(0, 0) scale(0.5);
+            }
+            100% {
+              opacity: 0;
+              transform: translate(var(--tx), var(--ty)) scale(0);
+            }
+          }
+
+          @keyframes snowEmitParticle {
+            0% {
+              opacity: 0.9;
+              transform: translate(0, 0) scale(1);
+            }
+            100% {
+              opacity: 0;
+              transform: translate(var(--tx), var(--ty)) scale(0.3);
+            }
+          }
+
+          .season-1-hover {
+            position: relative;
+          }
+
+          .season-2-hover {
+            position: relative;
+          }
         `}</style>
       </Container>
+
+      {/* Footer credit - bottom of screen */}
+      <Box
+        style={{
+          position: 'absolute',
+          bottom: '20px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          fontSize: '13px',
+          color: 'rgba(255, 255, 255, 0.5)',
+          fontFamily: 'Georgia, serif',
+          letterSpacing: '0.5px'
+        }}
+      >
+        Built and Managed by SJferno
+      </Box>
     </Box>
   );
 }

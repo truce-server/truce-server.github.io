@@ -6,7 +6,8 @@ import {
   Group,
   ActionIcon,
   useMantineColorScheme,
-  Box
+  Box,
+  Transition
 } from '@mantine/core';
 import { Spotlight, spotlight } from '@mantine/spotlight';
 import { IconSearch, IconSun, IconMoonStars } from '@tabler/icons-react';
@@ -15,6 +16,8 @@ import Sidebar from './components/Sidebar';
 import ChatlogViewer from './components/ChatlogViewer';
 import ChannelView from './components/ChannelView';
 import SeasonSelector from './components/SeasonSelector';
+import GateOfHeavenTransition from './components/GateOfHeavenTransition';
+import WinterBreezeTransition from './components/WinterBreezeTransition';
 import '@mantine/core/styles.css';
 import '@mantine/spotlight/styles.css';
 
@@ -101,7 +104,7 @@ function AppContent({ onReturnToSeason }) {
               style={{ height: '40px', width: 'auto', cursor: 'pointer' }}
               onClick={onReturnToSeason}
             />
-            <Box>
+            <Box onClick={onReturnToSeason} style={{ cursor: 'pointer' }}>
               <Text size="xl" fw={700}>Truce: Survivor Series</Text>
               <Text size="sm" c="gray.4">Chatlog Archives</Text>
             </Box>
@@ -138,33 +141,66 @@ function AppContent({ onReturnToSeason }) {
       </AppShell.Navbar>
 
       <AppShell.Main style={{ display: 'flex', flexDirection: 'column', padding: 'md', height: '100%', minHeight: 0 }}>
-        {selectedChatlog ? (
-          <ChatlogViewer 
-            chatlogPath={selectedChatlog} 
-            onGoBack={() => {
-              setSelectedChatlog(null);
-              // If we came from a channel, go back to that channel view
-              if (selectedChatlog) {
-                const [channelName] = selectedChatlog.split('/');
-                setSelectedChannel(channelName);
-              }
-            }}
-          />
-        ) : selectedChannel ? (
-          <ChannelView 
-            channelName={selectedChannel} 
-            chatlogs={sitemap[selectedChannel] || []} 
-            onSelectChatlog={(chatlogPath) => {
-              setSelectedChatlog(chatlogPath);
-              setSelectedChannel(null); // Clear channel selection when viewing specific chatlog
-            }}
-          />
-        ) : (
-          <Box ta="center" mt="xl">
-            <Text size="xl" mb="md">Welcome to Truce Server Archives</Text>
-            <Text c="dimmed">Select a channel to browse conversations or use the search to find specific chatlogs.</Text>
-          </Box>
-        )}
+        <>
+          <Transition
+            mounted={!!selectedChatlog}
+            transition="fade"
+            duration={300}
+            timingFunction="ease-in-out"
+          >
+            {(styles) => selectedChatlog && (
+              <div style={styles}>
+                <ChatlogViewer 
+                  chatlogPath={selectedChatlog} 
+                  onGoBack={() => {
+                    setSelectedChatlog(null);
+                    // If we came from a channel, go back to that channel view
+                    if (selectedChatlog) {
+                      const [channelName] = selectedChatlog.split('/');
+                      setSelectedChannel(channelName);
+                    }
+                  }}
+                />
+              </div>
+            )}
+          </Transition>
+
+          <Transition
+            mounted={!!selectedChannel && !selectedChatlog}
+            transition="fade"
+            duration={300}
+            timingFunction="ease-in-out"
+          >
+            {(styles) => selectedChannel && !selectedChatlog && (
+              <div style={styles}>
+                <ChannelView 
+                  channelName={selectedChannel} 
+                  chatlogs={sitemap[selectedChannel] || []} 
+                  onSelectChatlog={(chatlogPath) => {
+                    setSelectedChatlog(chatlogPath);
+                    setSelectedChannel(null); // Clear channel selection when viewing specific chatlog
+                  }}
+                />
+              </div>
+            )}
+          </Transition>
+
+          <Transition
+            mounted={!selectedChatlog && !selectedChannel}
+            transition="fade"
+            duration={300}
+            timingFunction="ease-in-out"
+          >
+            {(styles) => !selectedChatlog && !selectedChannel && (
+              <div style={styles}>
+                <Box ta="center" mt="xl">
+                  <Text size="xl" mb="md">Welcome to Truce Server Archives</Text>
+                  <Text c="dimmed">Select a channel to browse conversations or use the search to find specific chatlogs.</Text>
+                </Box>
+              </div>
+            )}
+          </Transition>
+        </>
       </AppShell.Main>
 
       <Spotlight
@@ -183,6 +219,20 @@ function AppContent({ onReturnToSeason }) {
 
 function App() {
   const [seasonSelected, setSeasonSelected] = useState(false);
+  const [selectedSeason, setSelectedSeason] = useState(null);
+  const [gateAnimationComplete, setGateAnimationComplete] = useState(false);
+
+  const handleSeasonSelect = (season) => {
+    setSelectedSeason(season);
+    setSeasonSelected(true);
+    setGateAnimationComplete(false);
+  };
+
+  const handleReturnToSeason = () => {
+    setSeasonSelected(false);
+    setSelectedSeason(null);
+    setGateAnimationComplete(false);
+  };
 
   return (
     <MantineProvider 
@@ -290,15 +340,43 @@ function App() {
         }
       }}
     >
-      {!seasonSelected ? (
-        <SeasonSelector onSelectSeason={() => setSeasonSelected(true)} />
-      ) : (
-        <Router basename="">
-          <Routes>
-            <Route path="/*" element={<AppContent onReturnToSeason={() => setSeasonSelected(false)} />} />
-          </Routes>
-        </Router>
+      <Transition
+        mounted={!seasonSelected}
+        transition="fade"
+        duration={400}
+        timingFunction="ease-in-out"
+      >
+        {(styles) => (
+          <div style={styles}>
+            <SeasonSelector onSelectSeason={handleSeasonSelect} />
+          </div>
+        )}
+      </Transition>
+
+      {seasonSelected && !gateAnimationComplete && selectedSeason === 'season1' && (
+        <GateOfHeavenTransition onTransitionComplete={() => setGateAnimationComplete(true)} />
       )}
+
+      {seasonSelected && !gateAnimationComplete && selectedSeason === 'season2' && (
+        <WinterBreezeTransition onTransitionComplete={() => setGateAnimationComplete(true)} />
+      )}
+
+      <Transition
+        mounted={gateAnimationComplete}
+        transition="fade"
+        duration={400}
+        timingFunction="ease-in-out"
+      >
+        {(styles) => (
+          <div style={styles}>
+            <Router basename="">
+              <Routes>
+                <Route path="/*" element={<AppContent onReturnToSeason={handleReturnToSeason} />} />
+              </Routes>
+            </Router>
+          </div>
+        )}
+      </Transition>
     </MantineProvider>
   );
 }
