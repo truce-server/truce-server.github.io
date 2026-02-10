@@ -18,7 +18,7 @@ import SeasonSelector from './components/SeasonSelector';
 import '@mantine/core/styles.css';
 import '@mantine/spotlight/styles.css';
 
-function AppContent() {
+function AppContent({ onReturnToSeason }) {
   const [sitemap, setSitemap] = useState({});
   const [selectedChatlog, setSelectedChatlog] = useState(null);
   const [selectedChannel, setSelectedChannel] = useState(null);
@@ -98,7 +98,8 @@ function AppContent() {
             <img 
               src="/TruceLogo.png" 
               alt="Truce Logo" 
-              style={{ height: '40px', width: 'auto' }}
+              style={{ height: '40px', width: 'auto', cursor: 'pointer' }}
+              onClick={onReturnToSeason}
             />
             <Box>
               <Text size="xl" fw={700}>Truce: Survivor Series</Text>
@@ -294,7 +295,7 @@ function App() {
       ) : (
         <Router basename="">
           <Routes>
-            <Route path="/*" element={<AppContent />} />
+            <Route path="/*" element={<AppContent onReturnToSeason={() => setSeasonSelected(false)} />} />
           </Routes>
         </Router>
       )}
