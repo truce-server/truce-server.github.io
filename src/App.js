@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import ChatlogViewer from './components/ChatlogViewer';
 import ChannelView from './components/ChannelView';
+import SeasonSelector from './components/SeasonSelector';
 import '@mantine/core/styles.css';
 import '@mantine/spotlight/styles.css';
 
@@ -180,6 +181,8 @@ function AppContent() {
 }
 
 function App() {
+  const [seasonSelected, setSeasonSelected] = useState(false);
+
   return (
     <MantineProvider 
       defaultColorScheme="dark"
@@ -286,11 +289,15 @@ function App() {
         }
       }}
     >
-      <Router basename="">
-        <Routes>
-          <Route path="/*" element={<AppContent />} />
-        </Routes>
-      </Router>
+      {!seasonSelected ? (
+        <SeasonSelector onSelectSeason={() => setSeasonSelected(true)} />
+      ) : (
+        <Router basename="">
+          <Routes>
+            <Route path="/*" element={<AppContent />} />
+          </Routes>
+        </Router>
+      )}
     </MantineProvider>
   );
 }
