@@ -4,7 +4,6 @@ import { IconSun, IconMoonStars } from '@tabler/icons-react';
 
 function SeasonSelector({ onSelectSeason }) {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const [season1Particles, setSeason1Particles] = React.useState([]);
   const [season2Particles, setSeason2Particles] = React.useState([]);
 
   return (
@@ -242,11 +241,6 @@ function SeasonSelector({ onSelectSeason }) {
                 const edgeDistance = 135;
                 const startX = Math.cos(particle.angle) * edgeDistance;
                 const startY = Math.sin(particle.angle) * edgeDistance;
-                // Emit to much further distance
-                const endX = Math.cos(particle.angle) * 320;
-                const endY = Math.sin(particle.angle) * 320;
-                const tx = endX - startX;
-                const ty = endY - startY;
                 
                 return (
                   <Box

@@ -146,7 +146,10 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
         `;
         
         // Insert the CSS and base target before the closing head tag
-        html = html.replace('</head>', fitToScreenCSS + '<base target="_blank" />' + '</head>');
+        html = html.replace(
+          '</head>',
+          fitToScreenCSS + '<base target="_blank" /></head>'
+        );
         html = html.replace('</body>', linkTargetScript + '</body>');
         
         setHtmlContent(html);
