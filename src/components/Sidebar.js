@@ -16,11 +16,9 @@ import { IconChevronDown, IconChevronRight, IconSearch } from '@tabler/icons-rea
 function FolderSection({ folder, files, selectedChatlog, selectedChannel, onSelectChatlog, onSelectChannel, searchQuery }) {
   const [opened, setOpened] = useState(selectedChannel === folder);
   
-  // Auto-open if this channel is selected
+  // Sync open state to the active selection
   useEffect(() => {
-    if (selectedChannel === folder) {
-      setOpened(true);
-    }
+    setOpened(selectedChannel === folder);
   }, [selectedChannel, folder]);
   
   // Filter files based on search
@@ -38,6 +36,7 @@ function FolderSection({ folder, files, selectedChatlog, selectedChannel, onSele
     return filename
       .replace(/\.html$/, '')
       .replace(/𝐓𝐫𝐮𝐜𝐞 ✧ - /, '')
+      .replace(/^Varanitlan 1-?on-?/i, '')
       .replace(/[^-]*- /, '') // Remove prefix before first dash
       .replace(/\s*\[\d+\]\s*$/, ''); // Remove ID numbers
   };
@@ -161,6 +160,37 @@ function Sidebar({ sitemap, selectedChatlog, selectedChannel, onSelectChatlog, o
   const [searchQuery, setSearchQuery] = useState('');
   
   const folders = Object.keys(sitemap).sort((a, b) => a.localeCompare(b));
+
+  const eraGroups = [
+    {
+      label: 'Varanitlan Era',
+      folders: [ 'Varanitilan 1on1s', 'Varantilan Alliances', 'Valhalla']
+    },
+    {
+      label: 'Chinese Era',
+      folders: ['Lingshan', 'Chaangan']
+    },
+    {
+      label: 'Norse Era',
+      folders: ['Bifrost', 'Midgard', 'Asgard']
+    },
+    {
+      label: 'Egypt Era',
+      folders: ['Aaru', 'Akhet', 'Nun', 'Across Realms - Egypt']
+    },
+    {
+      label: 'Primordial Era',
+      folders: ['Aether', 'Khaos', 'Pontus', 'Erebus']
+    }
+  ];
+
+  const usedFolders = new Set(eraGroups.flatMap((group) => group.folders));
+  const miscPriority = ['General', 'Eliminations', 'Challenges'];
+  const miscFolders = folders.filter((folder) => !usedFolders.has(folder));
+  const orderedMiscFolders = [
+    ...miscPriority.filter((folder) => miscFolders.includes(folder)),
+    ...miscFolders.filter((folder) => !miscPriority.includes(folder))
+  ];
   
   // Calculate total chatlogs
   const totalChatlogs = Object.values(sitemap).reduce((sum, files) => sum + files.length, 0);
@@ -170,9 +200,9 @@ function Sidebar({ sitemap, selectedChatlog, selectedChannel, onSelectChatlog, o
       <Paper p="sm" mb="md" radius="md" style={{ backgroundColor: 'var(--mantine-color-dark-6)' }}>
         <Group justify="space-between" mb="xs">
           <Text size="sm" fw={500}>Archive Overview</Text>
-          <Badge size="sm" variant="light">{folders.length} channels</Badge>
+          <Badge size="sm" variant="light">{folders.length} Categories</Badge>
         </Group>
-        <Text size="xs" c="dimmed">{totalChatlogs} total conversations</Text>
+        <Text size="xs" c="dimmed">{totalChatlogs} Channels</Text>
       </Paper>
       
       <TextInput
@@ -186,18 +216,67 @@ function Sidebar({ sitemap, selectedChatlog, selectedChannel, onSelectChatlog, o
       
       <ScrollArea style={{ height: 'calc(100vh - 200px)' }}>
         <Stack gap="xs">
-          {folders.map((folder) => (
-            <FolderSection
-              key={folder}
-              folder={folder}
-              files={sitemap[folder] || []}
-              selectedChatlog={selectedChatlog}
-              selectedChannel={selectedChannel}
-              onSelectChatlog={onSelectChatlog}
-              onSelectChannel={onSelectChannel}
-              searchQuery={searchQuery}
-            />
-          ))}
+          {eraGroups.map((group) => {
+            const groupFolders = group.folders.filter((folder) => folders.includes(folder));
+            if (groupFolders.length === 0) {
+              return null;
+            }
+
+            return (
+              <Box key={group.label}>
+                <Box style={{ paddingTop: '6px', paddingBottom: '2px' }}>
+                  <Box
+                    style={{
+                      borderTop: '1px solid var(--mantine-color-dark-5)',
+                      marginBottom: '6px'
+                    }}
+                  />
+                  <Text size="xs" c="dimmed" fw={600} style={{ letterSpacing: '1px' }}>
+                    {group.label}
+                  </Text>
+                </Box>
+                {groupFolders.map((folder) => (
+                  <FolderSection
+                    key={folder}
+                    folder={folder}
+                    files={sitemap[folder] || []}
+                    selectedChatlog={selectedChatlog}
+                    selectedChannel={selectedChannel}
+                    onSelectChatlog={onSelectChatlog}
+                    onSelectChannel={onSelectChannel}
+                    searchQuery={searchQuery}
+                  />
+                ))}
+              </Box>
+            );
+          })}
+          {orderedMiscFolders.length > 0 && (
+            <Box>
+              <Box style={{ paddingTop: '6px', paddingBottom: '2px' }}>
+                <Box
+                  style={{
+                    borderTop: '1px solid var(--mantine-color-dark-5)',
+                    marginBottom: '6px'
+                  }}
+                />
+                <Text size="xs" c="dimmed" fw={600} style={{ letterSpacing: '1px' }}>
+                  Misc
+                </Text>
+              </Box>
+              {orderedMiscFolders.map((folder) => (
+                <FolderSection
+                  key={folder}
+                  folder={folder}
+                  files={sitemap[folder] || []}
+                  selectedChatlog={selectedChatlog}
+                  selectedChannel={selectedChannel}
+                  onSelectChatlog={onSelectChatlog}
+                  onSelectChannel={onSelectChannel}
+                  searchQuery={searchQuery}
+                />
+              ))}
+            </Box>
+          )}
         </Stack>
       </ScrollArea>
     </Box>

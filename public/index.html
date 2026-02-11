@@ -9,6 +9,15 @@
       content="Truce Server Chatlog Archives - Browse Discord conversations"
     />
     <title>Truce Server • Chatlog Archives</title>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var path = params.get('p');
+        if (path) {
+          window.history.replaceState(null, '', path);
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

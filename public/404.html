@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        var l = window.location;
+        var path = l.pathname + l.search + l.hash;
+        var base = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '');
+        var target = base + '/?p=' + encodeURIComponent(path);
+        l.replace(target);
+      })();
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>

@@ -50,7 +50,7 @@ function SeasonSelector({ onSelectSeason }) {
           borderRadius: '50%',
           top: '10%',
           right: '10%',
-          animation: 'float 6s ease-in-out infinite'
+          animation: 'float 6s ease-in-out infinite, driftA 28s ease-in-out infinite'
         }}
       />
       <Box
@@ -62,7 +62,55 @@ function SeasonSelector({ onSelectSeason }) {
           borderRadius: '50%',
           bottom: '15%',
           left: '5%',
-          animation: 'float 8s ease-in-out infinite reverse'
+          animation: 'float 8s ease-in-out infinite reverse, driftB 32s ease-in-out infinite'
+        }}
+      />
+      <Box
+        style={{
+          position: 'absolute',
+          width: '160px',
+          height: '160px',
+          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.07) 0%, transparent 70%)',
+          borderRadius: '50%',
+          top: '22%',
+          left: '18%',
+          animation: 'float 7s ease-in-out infinite, driftC 30s ease-in-out infinite'
+        }}
+      />
+      <Box
+        style={{
+          position: 'absolute',
+          width: '220px',
+          height: '220px',
+          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%)',
+          borderRadius: '50%',
+          top: '55%',
+          right: '12%',
+          animation: 'float 9s ease-in-out infinite reverse, driftD 26s ease-in-out infinite'
+        }}
+      />
+      <Box
+        style={{
+          position: 'absolute',
+          width: '140px',
+          height: '140px',
+          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%)',
+          borderRadius: '50%',
+          bottom: '25%',
+          right: '30%',
+          animation: 'float 6.5s ease-in-out infinite, driftE 29s ease-in-out infinite'
+        }}
+      />
+      <Box
+        style={{
+          position: 'absolute',
+          width: '180px',
+          height: '180px',
+          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%)',
+          borderRadius: '50%',
+          bottom: '8%',
+          left: '35%',
+          animation: 'float 10s ease-in-out infinite reverse, driftF 34s ease-in-out infinite'
         }}
       />
 
@@ -80,7 +128,7 @@ function SeasonSelector({ onSelectSeason }) {
             lineHeight: 1.2
           }}
         >
-          Truce: Survivor ORG
+          Truce: Chatlog Archives
         </Box>
 
         <Box
@@ -273,6 +321,42 @@ function SeasonSelector({ onSelectSeason }) {
             50% {
               transform: translateY(-30px) translateX(10px);
             }
+          }
+
+          @keyframes driftA {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-140px, 80px); }
+            100% { transform: translate(0, 0); }
+          }
+
+          @keyframes driftB {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(150px, -90px); }
+            100% { transform: translate(0, 0); }
+          }
+
+          @keyframes driftC {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(120px, 120px); }
+            100% { transform: translate(0, 0); }
+          }
+
+          @keyframes driftD {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-130px, -80px); }
+            100% { transform: translate(0, 0); }
+          }
+
+          @keyframes driftE {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(110px, -120px); }
+            100% { transform: translate(0, 0); }
+          }
+
+          @keyframes driftF {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-120px, 110px); }
+            100% { transform: translate(0, 0); }
           }
 
           @keyframes pulse {

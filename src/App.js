@@ -7,11 +7,12 @@ import {
   ActionIcon,
   useMantineColorScheme,
   Box,
-  Transition
+  Transition,
+  Button
 } from '@mantine/core';
 import { Spotlight, spotlight } from '@mantine/spotlight';
 import { IconSearch, IconSun, IconMoonStars } from '@tabler/icons-react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import ChatlogViewer from './components/ChatlogViewer';
 import ChannelView from './components/ChannelView';
@@ -27,6 +28,8 @@ function AppContent({ onReturnToSeason }) {
   const [selectedChannel, setSelectedChannel] = useState(null);
   const [opened] = useState(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Load sitemap.json from public folder
@@ -71,6 +74,26 @@ function AppContent({ onReturnToSeason }) {
     console.log('Folders in state:', Object.keys(sitemap));
   }, [sitemap]);
 
+  const handleSelectChatlog = (chatlogPath) => {
+    const [channelName, ...fileParts] = chatlogPath.split('/');
+    const file = fileParts.join('/');
+    setSelectedChatlog(chatlogPath);
+    setSelectedChannel(channelName);
+    const desiredPath = `/season-1/${encodeURIComponent(channelName)}/${encodeURIComponent(file)}`;
+    if (location.pathname !== desiredPath) {
+      navigate(desiredPath, { replace: true });
+    }
+  };
+
+  const handleSelectChannel = (channelName) => {
+    setSelectedChannel(channelName);
+    setSelectedChatlog(null);
+    const desiredPath = `/season-1/${encodeURIComponent(channelName)}`;
+    if (location.pathname !== desiredPath) {
+      navigate(desiredPath, { replace: true });
+    }
+  };
+
   // Create spotlight actions from sitemap
   const spotlightActions = Object.entries(sitemap).flatMap(([folder, files]) =>
     files.map(file => ({
@@ -78,11 +101,51 @@ function AppContent({ onReturnToSeason }) {
       label: file.replace(/\.html$/, '').replace(/𝐓𝐫𝐮𝐜𝐞 ✧ - /, '').replace(/ \[\d+\]$/, ''),
       description: folder,
       onClick: () => {
-        setSelectedChatlog(`${folder}/${file}`);
-        setSelectedChannel(null); // Clear channel selection when using spotlight
+        handleSelectChatlog(`${folder}/${file}`);
       }
     }))
   );
+
+  useEffect(() => {
+    if (!sitemap || Object.keys(sitemap).length === 0) {
+      return;
+    }
+
+    const parts = location.pathname
+      .split('/')
+      .filter(Boolean)
+      .map((part) => decodeURIComponent(part));
+
+    if (parts[0] !== 'season-1') {
+      return;
+    }
+
+    const routeParts = parts.slice(1);
+
+    if (routeParts.length === 0) {
+      return;
+    }
+
+    if (routeParts.length === 1) {
+      if (selectedChatlog) {
+        return;
+      }
+      const folder = routeParts[0];
+      if (sitemap[folder] && selectedChannel !== folder) {
+        setSelectedChannel(folder);
+      }
+      return;
+    }
+
+    const folder = routeParts[0];
+    const file = routeParts.slice(1).join('/');
+    const desired = `${folder}/${file}`;
+
+    if (sitemap[folder]?.includes(file) && selectedChatlog !== desired) {
+      setSelectedChatlog(desired);
+      setSelectedChannel(folder);
+    }
+  }, [location.pathname, sitemap, selectedChannel, selectedChatlog]);
 
   return (
     <AppShell
@@ -92,7 +155,7 @@ function AppContent({ onReturnToSeason }) {
         collapsed: { mobile: !opened }
       }}
       header={{ height: 60 }}
-      padding="md"
+      padding="xs"
       style={{ height: '100vh' }}
     >
       <AppShell.Header>
@@ -105,7 +168,7 @@ function AppContent({ onReturnToSeason }) {
               onClick={onReturnToSeason}
             />
             <Box onClick={onReturnToSeason} style={{ cursor: 'pointer' }}>
-              <Text size="xl" fw={700}>Truce: Survivor Series</Text>
+              <Text size="xl" fw={700}>✧ Truce Server</Text>
               <Text size="sm" c="gray.4">Chatlog Archives</Text>
             </Box>
           </Group>
@@ -135,12 +198,12 @@ function AppContent({ onReturnToSeason }) {
           sitemap={sitemap} 
           selectedChatlog={selectedChatlog}
           selectedChannel={selectedChannel}
-          onSelectChatlog={setSelectedChatlog}
-          onSelectChannel={setSelectedChannel}
+          onSelectChatlog={handleSelectChatlog}
+          onSelectChannel={handleSelectChannel}
         />
       </AppShell.Navbar>
 
-      <AppShell.Main style={{ display: 'flex', flexDirection: 'column', padding: 'md', height: '100%', minHeight: 0 }}>
+      <AppShell.Main style={{ display: 'flex', flexDirection: 'column', padding: 'xs', height: '100%', minHeight: 0 }}>
         <>
           <Transition
             mounted={!!selectedChatlog}
@@ -149,7 +212,7 @@ function AppContent({ onReturnToSeason }) {
             timingFunction="ease-in-out"
           >
             {(styles) => selectedChatlog && (
-              <div style={styles}>
+              <div style={{ ...styles, flex: 1, minHeight: 0, height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <ChatlogViewer 
                   chatlogPath={selectedChatlog} 
                   onGoBack={() => {
@@ -157,7 +220,7 @@ function AppContent({ onReturnToSeason }) {
                     // If we came from a channel, go back to that channel view
                     if (selectedChatlog) {
                       const [channelName] = selectedChatlog.split('/');
-                      setSelectedChannel(channelName);
+                      handleSelectChannel(channelName);
                     }
                   }}
                 />
@@ -172,13 +235,12 @@ function AppContent({ onReturnToSeason }) {
             timingFunction="ease-in-out"
           >
             {(styles) => selectedChannel && !selectedChatlog && (
-              <div style={styles}>
+              <div style={{ ...styles, flex: 1, minHeight: 0, height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <ChannelView 
                   channelName={selectedChannel} 
                   chatlogs={sitemap[selectedChannel] || []} 
                   onSelectChatlog={(chatlogPath) => {
-                    setSelectedChatlog(chatlogPath);
-                    setSelectedChannel(null); // Clear channel selection when viewing specific chatlog
+                    handleSelectChatlog(chatlogPath);
                   }}
                 />
               </div>
@@ -192,7 +254,7 @@ function AppContent({ onReturnToSeason }) {
             timingFunction="ease-in-out"
           >
             {(styles) => !selectedChatlog && !selectedChannel && (
-              <div style={styles}>
+              <div style={{ ...styles, flex: 1, minHeight: 0, height: '100%' }}>
                 <Box ta="center" mt="xl">
                   <Text size="xl" mb="md">Welcome to Truce Server Archives</Text>
                   <Text c="dimmed">Select a channel to browse conversations or use the search to find specific chatlogs.</Text>
@@ -217,53 +279,95 @@ function AppContent({ onReturnToSeason }) {
   );
 }
 
+function ComingSoon({ onReturnToSeason }) {
+  return (
+    <Box
+      style={{
+        height: '100vh',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundImage: 'linear-gradient(135deg, #0a1f3f 0%, #1e3a5f 50%, #2a5a8f 100%)',
+        color: '#ffffff'
+      }}
+    >
+      <Text size="48px" fw={700} style={{ letterSpacing: '2px', color: '#d4af37' }}>
+        Coming Soon
+      </Text>
+      <Text size="md" mt="xs" c="gray.3">
+        Season 2 is on the way.
+      </Text>
+      <Button mt="xl" variant="light" onClick={onReturnToSeason}>
+        Back to Seasons
+      </Button>
+    </Box>
+  );
+}
+
 function App() {
-  const [seasonSelected, setSeasonSelected] = useState(false);
-  const [selectedSeason, setSelectedSeason] = useState(null);
-  const [gateAnimationComplete, setGateAnimationComplete] = useState(false);
+  const initialPath = window.location.pathname || '/';
+  const initialSeason = initialPath.startsWith('/season-1') ? 'season1' : null;
+  const [seasonSelected, setSeasonSelected] = useState(Boolean(initialSeason));
+  const [selectedSeason, setSelectedSeason] = useState(initialSeason);
+  const [gateAnimationComplete, setGateAnimationComplete] = useState(Boolean(initialSeason));
+  const [season2TransitionComplete, setSeason2TransitionComplete] = useState(false);
+
+  useEffect(() => {
+    const path = window.location.pathname || '/';
+    if (!seasonSelected && path.startsWith('/season-1')) {
+      setSelectedSeason('season1');
+      setSeasonSelected(true);
+      setGateAnimationComplete(true);
+    }
+  }, [seasonSelected]);
 
   const handleSeasonSelect = (season) => {
     setSelectedSeason(season);
     setSeasonSelected(true);
     setGateAnimationComplete(false);
+    setSeason2TransitionComplete(false);
   };
 
   const handleReturnToSeason = () => {
     setSeasonSelected(false);
     setSelectedSeason(null);
     setGateAnimationComplete(false);
+    setSeason2TransitionComplete(false);
+    window.history.replaceState({}, '', '/');
   };
 
   return (
     <MantineProvider 
       defaultColorScheme="dark"
       theme={{
-        primaryColor: 'brand',
+        primaryColor: 'navy',
         fontFamily: 'gg sans, system-ui, sans-serif',
         colors: {
-          brand: [
-            '#E8F0FB',
-            '#C5D9F0',
-            '#A2C1E4',
-            '#7FA9D9',
-            '#5C91CD',
-            '#3979C2',
-            '#2a5a8f',
-            '#1e3a5f',
-            '#0a1f3f',
-            '#050f1f',
+          navy: [
+            '#E9EEF6',
+            '#C8D4E6',
+            '#A7BCD7',
+            '#869FC6',
+            '#667FB1',
+            '#4E679C',
+            '#3C4F7D',
+            '#2A3A5D',
+            '#1A2641',
+            '#0B162B',
           ],
           gold: [
-            '#FEF3E2',
-            '#FCE5C7',
-            '#FAD6A5',
-            '#F7C883',
-            '#F5BA6B',
-            '#F2AC53',
-            '#d4af37',
-            '#b8941a',
-            '#8a6f1a',
-            '#5c4916',
+            '#FFF6D8',
+            '#FBE9B5',
+            '#F6DB92',
+            '#F1CD6F',
+            '#EBC04E',
+            '#DDB03A',
+            '#C59A2A',
+            '#A77F1E',
+            '#7E5E15',
+            '#5A420E',
           ],
           gray: [
             '#F9FAFB',
@@ -326,16 +430,16 @@ function App() {
             '#1E3A8A',
           ],
           dark: [
-            '#F9FAFB',
-            '#F3F4F6',
-            '#E5E7EB',
-            '#D1D5DB',
-            '#9CA3AF',
-            '#6B7280',
-            '#4B5563',
-            '#374151',
-            '#1F2937',
-            '#111827',
+            '#E9EEF6',
+            '#C8D4E6',
+            '#A7BCD7',
+            '#869FC6',
+            '#667FB1',
+            '#4E679C',
+            '#3C4F7D',
+            '#2A3A5D',
+            '#1A2641',
+            '#0B162B',
           ],
         }
       }}
@@ -357,12 +461,22 @@ function App() {
         <GateOfHeavenTransition onTransitionComplete={() => setGateAnimationComplete(true)} />
       )}
 
-      {seasonSelected && !gateAnimationComplete && selectedSeason === 'season2' && (
-        <WinterBreezeTransition onTransitionComplete={() => setGateAnimationComplete(true)} />
+      {seasonSelected && selectedSeason === 'season2' && !season2TransitionComplete && (
+        <WinterBreezeTransition onTransitionComplete={() => setSeason2TransitionComplete(true)} />
+      )}
+
+      {seasonSelected && selectedSeason === 'season2' && season2TransitionComplete && (
+        <Transition mounted={seasonSelected} transition="fade" duration={400} timingFunction="ease-in-out">
+          {(styles) => (
+            <div style={styles}>
+              <ComingSoon onReturnToSeason={handleReturnToSeason} />
+            </div>
+          )}
+        </Transition>
       )}
 
       <Transition
-        mounted={gateAnimationComplete}
+        mounted={gateAnimationComplete && selectedSeason === 'season1'}
         transition="fade"
         duration={400}
         timingFunction="ease-in-out"
@@ -371,7 +485,8 @@ function App() {
           <div style={styles}>
             <Router basename="">
               <Routes>
-                <Route path="/*" element={<AppContent onReturnToSeason={handleReturnToSeason} />} />
+                <Route path="/season-1/*" element={<AppContent onReturnToSeason={handleReturnToSeason} />} />
+                <Route path="/" element={<AppContent onReturnToSeason={handleReturnToSeason} />} />
               </Routes>
             </Router>
           </div>

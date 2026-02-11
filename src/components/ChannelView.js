@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Box,
   Text,
@@ -8,11 +8,52 @@ import {
   Grid,
   Card,
   ActionIcon,
-  ScrollArea
+  ScrollArea,
+  SegmentedControl
 } from '@mantine/core';
 import { IconMessageCircle, IconCalendar, IconExternalLink } from '@tabler/icons-react';
 
+function PreviewSentinel({ onVisible, children }) {
+  const sentinelRef = useRef(null);
+
+  useEffect(() => {
+    if (!sentinelRef.current) {
+      return;
+    }
+
+    if (typeof IntersectionObserver === 'undefined') {
+      onVisible();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            onVisible();
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '200px' }
+    );
+
+    observer.observe(sentinelRef.current);
+
+    return () => observer.disconnect();
+  }, [onVisible]);
+
+  return (
+    <div ref={sentinelRef}>
+      {children}
+    </div>
+  );
+}
+
 function ChannelView({ channelName, chatlogs, onSelectChatlog }) {
+  const [loadedPreviews, setLoadedPreviews] = useState(() => new Set());
+  const [previewQuality, setPreviewQuality] = useState('fast');
+
   // Extract metadata from chatlog filename
   const getChatlogMetadata = (filename) => {
     const cleanTitle = filename
@@ -61,12 +102,69 @@ function ChannelView({ channelName, chatlogs, onSelectChatlog }) {
     };
   };
 
-  // Sort chatlogs by date (newest first)
-  const sortedChatlogs = [...chatlogs].sort((a, b) => {
-    const metaA = getChatlogMetadata(a);
-    const metaB = getChatlogMetadata(b);
-    return metaB.id - metaA.id;
-  });
+  const chatlogItems = useMemo(() => {
+    return [...chatlogs]
+      .map((chatlog) => ({ chatlog, metadata: getChatlogMetadata(chatlog) }))
+      .sort((a, b) => b.metadata.id - a.metadata.id);
+  }, [chatlogs]);
+
+  const markPreviewLoaded = useCallback((key) => {
+    setLoadedPreviews((prev) => {
+      if (prev.has(key)) {
+        return prev;
+      }
+
+      const next = new Set(prev);
+      next.add(key);
+      return next;
+    });
+  }, []);
+
+  const applyPreviewStyles = useCallback((iframe) => {
+    try {
+      const doc = iframe?.contentDocument;
+      if (!doc || doc.getElementById('preview-style')) {
+        return;
+      }
+
+      const style = doc.createElement('style');
+      style.id = 'preview-style';
+      style.textContent = `
+        html, body {
+          margin: 0 !important;
+          padding: 0 !important;
+          width: 100% !important;
+          height: auto !important;
+          overflow: hidden !important;
+        }
+        body {
+          display: block !important;
+        }
+        .preamble {
+          padding: 6px 10px !important;
+          margin: 0 !important;
+        }
+        .chatlog {
+          padding: 6px 10px !important;
+          margin: 0 !important;
+          max-height: none !important;
+          height: auto !important;
+          overflow: visible !important;
+        }
+        .chatlog__message-group {
+          margin-bottom: 8px !important;
+        }
+        .chatlog__timestamp a,
+        .chatlog__short-timestamp {
+          pointer-events: none !important;
+          text-decoration: none !important;
+        }
+      `;
+      doc.head.appendChild(style);
+    } catch (err) {
+      // Ignore cross-origin or access errors in preview iframe
+    }
+  }, []);
 
   const formatDate = (date) => {
     if (!date) return 'Unknown date';
@@ -81,7 +179,7 @@ function ChannelView({ channelName, chatlogs, onSelectChatlog }) {
     <Box style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       {/* Header */}
       <Paper p="md" mb="md" radius="md" style={{ backgroundColor: 'var(--mantine-color-dark-6)' }}>
-        <Group justify="space-between" align="center">
+        <Group justify="space-between" align="center" wrap="nowrap">
           <Box>
             <Text size="xl" fw={600} mb={4}>{channelName}</Text>
             <Group gap="xs">
@@ -93,15 +191,29 @@ function ChannelView({ channelName, chatlogs, onSelectChatlog }) {
               </Badge>
             </Group>
           </Box>
+          <Group gap="xs" wrap="nowrap">
+            <Text size="xs" c="dimmed">Preview Quality</Text>
+            <SegmentedControl
+              value={previewQuality}
+              onChange={setPreviewQuality}
+              size="xs"
+              data={[
+                { value: 'fast', label: 'Fast' },
+                { value: 'full', label: 'Full' }
+              ]}
+            />
+          </Group>
         </Group>
       </Paper>
 
       {/* Chatlog Grid with HTML Previews */}
       <ScrollArea style={{ flex: 1 }}>
         <Grid>
-          {sortedChatlogs.map((chatlog, index) => {
-            const metadata = getChatlogMetadata(chatlog);
+          {chatlogItems.map(({ chatlog, metadata }, index) => {
             const chatlogPath = `${channelName}/${chatlog}`;
+            const publicUrl = process.env.PUBLIC_URL || '';
+            const previewKey = chatlogPath;
+            const shouldLoadPreview = previewQuality === 'full' || loadedPreviews.has(previewKey) || index < 4;
             
             return (
               <Grid.Col span={{ base: 12, lg: 6 }} key={index}>
@@ -176,18 +288,28 @@ function ChannelView({ channelName, chatlogs, onSelectChatlog }) {
                       overflow: 'hidden'
                     }}
                   >
-                    <iframe
-                      src={chatlogPath}
-                      style={{
-                        border: 'none',
-                        pointerEvents: 'none', // Prevent interaction in preview
-                        transform: 'scale(0.8)',
-                        transformOrigin: 'top left',
-                        width: '125%', // Compensate for scale
-                        height: '125%'
-                      }}
-                      title={`Preview: ${metadata.title}`}
-                    />
+                    <PreviewSentinel onVisible={() => markPreviewLoaded(previewKey)}>
+                      <Box
+                        onMouseEnter={() => markPreviewLoaded(previewKey)}
+                        style={{ height: '100%' }}
+                      >
+                        <iframe
+                          src={shouldLoadPreview ? `${publicUrl}/${chatlogPath}` : undefined}
+                          loading={previewQuality === 'full' ? 'eager' : 'lazy'}
+                          onLoad={(event) => applyPreviewStyles(event.currentTarget)}
+                          style={{
+                            border: 'none',
+                            pointerEvents: 'none', // Prevent interaction in preview
+                            transform: 'scale(0.6)',
+                            transformOrigin: 'top left',
+                            width: '166.7%', // Compensate for scale
+                            height: '166.7%',
+                            display: 'block'
+                          }}
+                          title={`Preview: ${metadata.title}`}
+                        />
+                      </Box>
+                    </PreviewSentinel>
                     
                     {/* Overlay for click handling */}
                     <Box
