@@ -177,7 +177,7 @@ function AppContent({
       setSelectedChatlog(desired);
       setSelectedChannel(folder);
     }
-  }, [location.pathname, effectiveSitemap, selectedChannel, selectedChatlog]);
+  }, [location.pathname, effectiveSitemap, selectedChannel, selectedChatlog, basePath]);
 
   return (
     <AppShell

@@ -256,7 +256,7 @@ function ChatlogViewer({ chatlogPath, onGoBack, basePath = 'season-1', resolveCh
     };
 
     fetchChatlog();
-  }, [chatlogPath, resolveChatlogPath, themeColors]);
+  }, [chatlogPath, resolveChatlogPath, themeColors, palette]);
 
   // Extract message list from HTML for searching
   useEffect(() => {
