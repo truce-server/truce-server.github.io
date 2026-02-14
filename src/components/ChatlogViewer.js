@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   Box,
   Text,
@@ -19,7 +19,7 @@ import {
 } from '@mantine/core';
 import { IconCopy, IconCheck, IconExternalLink, IconArrowLeft, IconSearch } from '@tabler/icons-react';
 
-function ChatlogViewer({ chatlogPath, onGoBack }) {
+function ChatlogViewer({ chatlogPath, onGoBack, basePath = 'season-1', resolveChatlogPath, themeColors }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [htmlContent, setHtmlContent] = useState('');
@@ -40,6 +40,20 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
     ?.replace(/[^-]*Archives[^-]*- /, '')
     ?.replace(/\s*\[\d+\]\s*$/, '') || 'Unknown';
 
+  const palette = useMemo(() => {
+    if (!themeColors) {
+      return null;
+    }
+
+    return {
+      light: themeColors[0],
+      accent: themeColors[1],
+      mid: themeColors[2],
+      dark: themeColors[3],
+      deepest: themeColors[4]
+    };
+  }, [themeColors]);
+
   useEffect(() => {
     setLoading(true);
     setError(false);
@@ -49,13 +63,45 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
     const fetchChatlog = async () => {
       try {
         const publicUrl = process.env.PUBLIC_URL || '';
-        const response = await fetch(`${publicUrl}/${chatlogPath}`);
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        const resolvedChatlogPath = resolveChatlogPath ? resolveChatlogPath(chatlogPath) : chatlogPath;
+        const safeChatlogPath = resolvedChatlogPath
+          .split('/')
+          .map((segment) => encodeURIComponent(segment))
+          .join('/');
+
+        const isAbsolutePublicUrl = /^https?:\/\//i.test(publicUrl);
+        const normalizedPublicUrl = publicUrl.replace(/\/+$/, '');
+        const baseCandidates = [normalizedPublicUrl, window.location.origin + (!isAbsolutePublicUrl ? normalizedPublicUrl : '')]
+          .filter((base, index, list) => base !== '' ? list.indexOf(base) === index : true);
+
+        const fetchHtml = async (base) => {
+          const url = base ? `${base}/${safeChatlogPath}` : `/${safeChatlogPath}`;
+          const response = await fetch(url, { cache: 'no-store' });
+          const text = await response.text();
+          return { response, text, url };
+        };
+
+        let html = '';
+        let response = null;
+        let lastUrl = '';
+        let resolvedChatlog = false;
+
+        for (const base of baseCandidates) {
+          const result = await fetchHtml(base);
+          response = result.response;
+          html = result.text;
+          lastUrl = result.url;
+
+          const looksLikeAppShell = html.includes('id="root"');
+          if (response.ok && !looksLikeAppShell) {
+            resolvedChatlog = true;
+            break;
+          }
         }
-        
-        let html = await response.text();
+
+        if (!response || !response.ok || !resolvedChatlog) {
+          throw new Error(`HTTP error! status: ${response ? response.status : 'unknown'} (${lastUrl})`);
+        }
 
         // Disable timestamp anchor navigation to avoid hash changes in the iframe
         html = html
@@ -115,6 +161,53 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
           </style>
         `;
 
+        const themeCSS = palette ? `
+          <style>
+            body {
+              background: ${palette.deepest} !important;
+              color: ${palette.light} !important;
+            }
+            .preamble {
+              background: ${palette.dark} !important;
+              color: ${palette.light} !important;
+              border-bottom: 1px solid ${palette.mid} !important;
+            }
+            .chatlog__message-group {
+              border-left: 2px solid ${palette.mid} !important;
+              padding-left: 8px !important;
+            }
+            .chatlog__author-name {
+              color: ${palette.accent} !important;
+            }
+            .chatlog__timestamp,
+            .chatlog__short-timestamp {
+              color: ${palette.mid} !important;
+            }
+            .chatlog__content,
+            .chatlog__message,
+            .chatlog__description,
+            .chatlog__embed-description {
+              color: ${palette.light} !important;
+            }
+            .chatlog__reaction {
+              background: ${palette.dark} !important;
+              border-color: ${palette.mid} !important;
+              color: ${palette.light} !important;
+            }
+            .chatlog__embed {
+              background: ${palette.dark} !important;
+              border-color: ${palette.mid} !important;
+            }
+            .chatlog__message-container.search-highlight {
+              outline: 2px solid ${palette.accent} !important;
+              box-shadow: 0 0 0 3px rgba(199, 153, 211, 0.35) !important;
+            }
+            a {
+              color: ${palette.light} !important;
+            }
+          </style>
+        ` : '';
+
         const linkTargetScript = `
           <script>
             document.addEventListener('DOMContentLoaded', function () {
@@ -148,7 +241,7 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
         // Insert the CSS and base target before the closing head tag
         html = html.replace(
           '</head>',
-          fitToScreenCSS + '<base target="_blank" /></head>'
+          fitToScreenCSS + themeCSS + '<base target="_blank" /></head>'
         );
         html = html.replace('</body>', linkTargetScript + '</body>');
         
@@ -163,7 +256,7 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
     };
 
     fetchChatlog();
-  }, [chatlogPath]);
+  }, [chatlogPath, resolveChatlogPath, themeColors]);
 
   // Extract message list from HTML for searching
   useEffect(() => {
@@ -261,7 +354,7 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
 
   const [currentFolder, ...currentFileParts] = chatlogPath.split('/');
   const currentFile = currentFileParts.join('/');
-  const currentUrl = `${window.location.origin}/season-1/${encodeURIComponent(currentFolder)}/${encodeURIComponent(currentFile)}`;
+  const currentUrl = `${window.location.origin}/${basePath}/${encodeURIComponent(currentFolder)}/${encodeURIComponent(currentFile)}`;
 
   return (
     <Box style={{ height: '100%', display: 'flex', flexDirection: 'column', width: '100%', minHeight: 0 }}>
@@ -270,7 +363,12 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
         p="sm"
         mb="xs"
         radius="md"
-        style={{ backgroundColor: 'var(--mantine-color-dark-6)', flexShrink: 0, marginTop: '8px' }}
+        style={{
+          backgroundColor: palette ? palette.dark : 'var(--mantine-color-dark-6)',
+          border: palette ? `1px solid ${palette.mid}` : undefined,
+          flexShrink: 0,
+          marginTop: '8px'
+        }}
       >
         <Group justify="space-between" align="flex-start">
           <Group align="center" gap="xs">
@@ -311,7 +409,8 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
                 variant="light" 
                 onClick={() => {
                   const publicUrl = process.env.PUBLIC_URL || '';
-                  window.open(`${publicUrl}/${chatlogPath}`, '_blank');
+                  const resolvedChatlogPath = resolveChatlogPath ? resolveChatlogPath(chatlogPath) : chatlogPath;
+                  window.open(`${publicUrl}/${resolvedChatlogPath}`, '_blank');
                 }}
                 size="xs"
               >
@@ -325,7 +424,16 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
       {/* Main Content with Search Sidebar */}
       <Box style={{ flex: 1, display: 'flex', gap: '0', minHeight: 0 }}>
         {/* Chatlog Content Area */}
-        <Box style={{ flex: 1, position: 'relative', display: 'flex', flexDirection: 'column', minHeight: 0, backgroundColor: '#36393e' }}>
+        <Box
+          style={{
+            flex: 1,
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: 0,
+            backgroundColor: palette ? palette.deepest : '#36393e'
+          }}
+        >
           {loading && (
             <Center style={{ 
               position: 'absolute', 
@@ -361,7 +469,7 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
                 width: '100%',
                 height: '100%',
                 border: 'none',
-                backgroundColor: '#36393e'
+                backgroundColor: palette ? palette.deepest : '#36393e'
               }}
               title={`Chatlog: ${cleanTitle}`}
             />
@@ -371,8 +479,8 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
         {/* Search Sidebar */}
         <Box style={{
           width: '240px',
-          borderLeft: '1px solid var(--mantine-color-dark-5)',
-          backgroundColor: 'var(--mantine-color-dark-7)',
+          borderLeft: palette ? `1px solid ${palette.mid}` : '1px solid var(--mantine-color-dark-5)',
+          backgroundColor: palette ? palette.deepest : 'var(--mantine-color-dark-7)',
           display: 'flex',
           flexDirection: 'column',
           minHeight: 0
@@ -390,6 +498,7 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
                 }
               }}
               size="sm"
+              styles={palette ? { input: { backgroundColor: palette.dark, color: palette.light, borderColor: palette.mid } } : undefined}
               rightSection={pendingSearch && (
                 <ActionIcon
                   size="sm"
@@ -426,8 +535,12 @@ function ChatlogViewer({ chatlogPath, onGoBack }) {
                   radius="sm"
                   style={{
                     cursor: 'pointer',
-                    backgroundColor: idx === currentResultIndex ? 'var(--mantine-color-blue-8)' : 'var(--mantine-color-dark-6)',
-                    border: idx === currentResultIndex ? '1px solid var(--mantine-color-blue-5)' : '1px solid var(--mantine-color-dark-5)'
+                    backgroundColor: palette
+                      ? (idx === currentResultIndex ? palette.mid : palette.dark)
+                      : (idx === currentResultIndex ? 'var(--mantine-color-blue-8)' : 'var(--mantine-color-dark-6)'),
+                    border: palette
+                      ? `1px solid ${idx === currentResultIndex ? palette.accent : palette.mid}`
+                      : (idx === currentResultIndex ? '1px solid var(--mantine-color-blue-5)' : '1px solid var(--mantine-color-dark-5)')
                   }}
                   onClick={() => {
                     setCurrentResultIndex(idx);

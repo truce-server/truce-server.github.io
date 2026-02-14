@@ -18,17 +18,22 @@ jobs:
         run: |
           python3 - << 'PY'
           import os, json
-          ignore = {".git", ".github", "workflows", "assets", "css", "js"}
+          ignore = {".git", ".github", "workflows", "assets", "css", "js", "node_modules", "src", "build", "public"}
+          
+          # Look for folders in SeasonOneChat directory
+          base_dir = "SeasonOneChat" if os.path.isdir("SeasonOneChat") else "."
+          
           folders = [
-              d for d in os.listdir(".")
-              if os.path.isdir(d) and not d.startswith(".") and d not in ignore
+              d for d in os.listdir(base_dir)
+              if os.path.isdir(os.path.join(base_dir, d)) and not d.startswith(".") and d not in ignore
           ]
 
           folders.sort(key=str.lower)
 
           site = {}
           for d in folders:
-            files = [f for f in os.listdir(d) if f.lower().endswith(".html")]
+            folder_path = os.path.join(base_dir, d)
+            files = [f for f in os.listdir(folder_path) if f.lower().endswith(".html")]
             files.sort(key=str.lower)
             site[d] = files
 

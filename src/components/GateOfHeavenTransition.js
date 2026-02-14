@@ -134,23 +134,23 @@ function GateOfHeavenTransition({ onTransitionComplete }) {
         Truce: The Apotheion
       </Box>
 
-      {/* Subtitle - Season 1 */}
+      {/* Subtitle - Season One */}
       <Box
         style={{
           position: 'absolute',
-          fontSize: '28px',
-          fontWeight: 500,
-          color: '#d4af37',
-          textShadow: '0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(255, 255, 255, 0.3)',
+          fontSize: '32px',
+          fontWeight: 600,
+          color: '#f7e5a3',
+          textShadow: '0 0 25px rgba(212, 175, 55, 0.8), 0 0 45px rgba(255, 255, 255, 0.35)',
           opacity: phase === 'light' || phase === 'reveal' ? 1 : 0,
           transition: 'opacity 0.6s ease-in-out 0.3s',
           zIndex: 11,
           letterSpacing: '1px',
           fontFamily: 'gg sans, system-ui, sans-serif',
-          marginTop: '80px'
+          marginTop: '90px'
         }}
       >
-        Season 1
+        Season One
       </Box>
 
       {/* Final fade overlay */}

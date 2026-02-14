@@ -31,13 +31,19 @@ jobs:
         
       - name: Copy chatlog folders to public
         run: |
-          # Copy all chatlog directories to public folder
+          # Copy all chatlog directories from SeasonOneChat to public folder
           mkdir -p public
-          for dir in */; do
-            if [[ "$dir" != ".git/" && "$dir" != ".github/" && "$dir" != "node_modules/" && "$dir" != "public/" && "$dir" != "src/" && "$dir" != "build/" ]]; then
-              cp -r "$dir" public/
-            fi
-          done
+          if [ -d "SeasonOneChat" ]; then
+            # Copy contents of SeasonOneChat to public (flattening structure)
+            cp -r SeasonOneChat/* public/
+          fi
+          if [ -d "NEEDIMPLEMENT" ]; then
+            cp -r NEEDIMPLEMENT public/
+          fi
+          # Copy Assets images to public root for React app
+          if [ -d "Assets" ]; then
+            cp Assets/*.png public/ 2>/dev/null || true
+          fi
           
       - name: Generate sitemap.json
         run: |

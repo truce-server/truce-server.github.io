@@ -5,13 +5,12 @@ import {
   Text,
   Group,
   ActionIcon,
-  useMantineColorScheme,
   Box,
   Transition,
   Button
 } from '@mantine/core';
 import { Spotlight, spotlight } from '@mantine/spotlight';
-import { IconSearch, IconSun, IconMoonStars } from '@tabler/icons-react';
+import { IconSearch } from '@tabler/icons-react';
 import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import ChatlogViewer from './components/ChatlogViewer';
@@ -19,19 +18,50 @@ import ChannelView from './components/ChannelView';
 import SeasonSelector from './components/SeasonSelector';
 import GateOfHeavenTransition from './components/GateOfHeavenTransition';
 import WinterBreezeTransition from './components/WinterBreezeTransition';
+import SongOfLifeTransition from './components/SongOfLifeTransition';
 import '@mantine/core/styles.css';
 import '@mantine/spotlight/styles.css';
 
-function AppContent({ onReturnToSeason }) {
+const songOfLifeSitemap = {
+  'Season 1': [
+    '𝐓𝐫𝐮𝐜𝐞 - Truce SOL ☆ - green-room [1455408747060133921].html',
+    '𝐓𝐫𝐮𝐜𝐞 - Truce SOL ☆ - studio [1455409431444721749].html'
+  ]
+};
+
+const songOfLifeTheme = ['#F1E0FF', '#C799D3', '#866293', '#61356B', '#331E3C'];
+
+const songOfLifeResolver = (chatlogPath) => {
+  const [, ...fileParts] = chatlogPath.split('/');
+  const file = fileParts.join('/');
+  return `NEEDIMPLEMENT/SOL/${file}`;
+};
+
+const seasonOneResolver = (chatlogPath) => {
+  const [folder, ...rest] = chatlogPath.split('/');
+  const mappedFolder = folder === 'Main' ? 'The Apotheion' : folder;
+  return `SeasonOneChat/${[mappedFolder, ...rest].join('/')}`;
+};
+
+function AppContent({
+  onReturnToSeason,
+  basePath = 'season-1',
+  sitemapOverride,
+  chatlogPathResolver,
+  chatlogTheme
+}) {
   const [sitemap, setSitemap] = useState({});
   const [selectedChatlog, setSelectedChatlog] = useState(null);
   const [selectedChannel, setSelectedChannel] = useState(null);
   const [opened] = useState(false);
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (sitemapOverride) {
+      setSitemap(sitemapOverride);
+      return;
+    }
     // Load sitemap.json from public folder
     const loadSitemap = async () => {
       try {
@@ -66,7 +96,7 @@ function AppContent({ onReturnToSeason }) {
     };
     
     loadSitemap();
-  }, []);
+  }, [sitemapOverride]);
 
   // Debug log for sitemap state changes
   useEffect(() => {
@@ -79,7 +109,7 @@ function AppContent({ onReturnToSeason }) {
     const file = fileParts.join('/');
     setSelectedChatlog(chatlogPath);
     setSelectedChannel(channelName);
-    const desiredPath = `/season-1/${encodeURIComponent(channelName)}/${encodeURIComponent(file)}`;
+    const desiredPath = `/${basePath}/${encodeURIComponent(channelName)}/${encodeURIComponent(file)}`;
     if (location.pathname !== desiredPath) {
       navigate(desiredPath, { replace: true });
     }
@@ -88,14 +118,16 @@ function AppContent({ onReturnToSeason }) {
   const handleSelectChannel = (channelName) => {
     setSelectedChannel(channelName);
     setSelectedChatlog(null);
-    const desiredPath = `/season-1/${encodeURIComponent(channelName)}`;
+    const desiredPath = `/${basePath}/${encodeURIComponent(channelName)}`;
     if (location.pathname !== desiredPath) {
       navigate(desiredPath, { replace: true });
     }
   };
 
   // Create spotlight actions from sitemap
-  const spotlightActions = Object.entries(sitemap).flatMap(([folder, files]) =>
+  const effectiveSitemap = sitemapOverride || sitemap;
+
+  const spotlightActions = Object.entries(effectiveSitemap).flatMap(([folder, files]) =>
     files.map(file => ({
       id: `${folder}/${file}`,
       label: file.replace(/\.html$/, '').replace(/𝐓𝐫𝐮𝐜𝐞 ✧ - /, '').replace(/ \[\d+\]$/, ''),
@@ -107,7 +139,7 @@ function AppContent({ onReturnToSeason }) {
   );
 
   useEffect(() => {
-    if (!sitemap || Object.keys(sitemap).length === 0) {
+    if (!effectiveSitemap || Object.keys(effectiveSitemap).length === 0) {
       return;
     }
 
@@ -116,7 +148,7 @@ function AppContent({ onReturnToSeason }) {
       .filter(Boolean)
       .map((part) => decodeURIComponent(part));
 
-    if (parts[0] !== 'season-1') {
+    if (parts[0] !== basePath) {
       return;
     }
 
@@ -131,7 +163,7 @@ function AppContent({ onReturnToSeason }) {
         return;
       }
       const folder = routeParts[0];
-      if (sitemap[folder] && selectedChannel !== folder) {
+      if (effectiveSitemap[folder] && selectedChannel !== folder) {
         setSelectedChannel(folder);
       }
       return;
@@ -141,11 +173,11 @@ function AppContent({ onReturnToSeason }) {
     const file = routeParts.slice(1).join('/');
     const desired = `${folder}/${file}`;
 
-    if (sitemap[folder]?.includes(file) && selectedChatlog !== desired) {
+    if (effectiveSitemap[folder]?.includes(file) && selectedChatlog !== desired) {
       setSelectedChatlog(desired);
       setSelectedChannel(folder);
     }
-  }, [location.pathname, sitemap, selectedChannel, selectedChatlog]);
+  }, [location.pathname, effectiveSitemap, selectedChannel, selectedChatlog]);
 
   return (
     <AppShell
@@ -181,21 +213,13 @@ function AppContent({ onReturnToSeason }) {
             >
               <IconSearch size={18} />
             </ActionIcon>
-            <ActionIcon
-              onClick={toggleColorScheme}
-              size="lg"
-              variant="default"
-              aria-label="Toggle theme"
-            >
-              {colorScheme === 'dark' ? <IconSun size={18} /> : <IconMoonStars size={18} />}
-            </ActionIcon>
           </Group>
         </Group>
       </AppShell.Header>
 
       <AppShell.Navbar>
         <Sidebar 
-          sitemap={sitemap} 
+          sitemap={effectiveSitemap} 
           selectedChatlog={selectedChatlog}
           selectedChannel={selectedChannel}
           onSelectChatlog={handleSelectChatlog}
@@ -214,7 +238,10 @@ function AppContent({ onReturnToSeason }) {
             {(styles) => selectedChatlog && (
               <div style={{ ...styles, flex: 1, minHeight: 0, height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <ChatlogViewer 
-                  chatlogPath={selectedChatlog} 
+                  chatlogPath={selectedChatlog}
+                  basePath={basePath}
+                  resolveChatlogPath={chatlogPathResolver}
+                  themeColors={chatlogTheme}
                   onGoBack={() => {
                     setSelectedChatlog(null);
                     // If we came from a channel, go back to that channel view
@@ -238,7 +265,8 @@ function AppContent({ onReturnToSeason }) {
               <div style={{ ...styles, flex: 1, minHeight: 0, height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <ChannelView 
                   channelName={selectedChannel} 
-                  chatlogs={sitemap[selectedChannel] || []} 
+                  chatlogs={effectiveSitemap[selectedChannel] || []} 
+                  resolveChatlogPath={chatlogPathResolver}
                   onSelectChatlog={(chatlogPath) => {
                     handleSelectChatlog(chatlogPath);
                   }}
@@ -308,11 +336,16 @@ function ComingSoon({ onReturnToSeason }) {
 
 function App() {
   const initialPath = window.location.pathname || '/';
-  const initialSeason = initialPath.startsWith('/season-1') ? 'season1' : null;
+  const initialSeason = initialPath.startsWith('/season-1')
+    ? 'season1'
+    : initialPath.startsWith('/song-of-life')
+      ? 'songoflife'
+      : null;
   const [seasonSelected, setSeasonSelected] = useState(Boolean(initialSeason));
   const [selectedSeason, setSelectedSeason] = useState(initialSeason);
-  const [gateAnimationComplete, setGateAnimationComplete] = useState(Boolean(initialSeason));
+  const [gateAnimationComplete, setGateAnimationComplete] = useState(initialSeason === 'season1');
   const [season2TransitionComplete, setSeason2TransitionComplete] = useState(false);
+  const [songOfLifeTransitionComplete, setSongOfLifeTransitionComplete] = useState(initialSeason === 'songoflife');
 
   useEffect(() => {
     const path = window.location.pathname || '/';
@@ -321,13 +354,26 @@ function App() {
       setSeasonSelected(true);
       setGateAnimationComplete(true);
     }
+
+    if (!seasonSelected && path.startsWith('/song-of-life')) {
+      setSelectedSeason('songoflife');
+      setSeasonSelected(true);
+      setSongOfLifeTransitionComplete(true);
+    }
   }, [seasonSelected]);
 
   const handleSeasonSelect = (season) => {
     setSelectedSeason(season);
     setSeasonSelected(true);
-    setGateAnimationComplete(false);
     setSeason2TransitionComplete(false);
+    setSongOfLifeTransitionComplete(false);
+    setGateAnimationComplete(season !== 'season1');
+
+    if (season === 'songoflife') {
+      window.history.replaceState({}, '', '/song-of-life');
+    } else if (season === 'season1') {
+      window.history.replaceState({}, '', '/season-1');
+    }
   };
 
   const handleReturnToSeason = () => {
@@ -335,6 +381,7 @@ function App() {
     setSelectedSeason(null);
     setGateAnimationComplete(false);
     setSeason2TransitionComplete(false);
+    setSongOfLifeTransitionComplete(false);
     window.history.replaceState({}, '', '/');
   };
 
@@ -465,6 +512,10 @@ function App() {
         <WinterBreezeTransition onTransitionComplete={() => setSeason2TransitionComplete(true)} />
       )}
 
+      {seasonSelected && selectedSeason === 'songoflife' && !songOfLifeTransitionComplete && (
+        <SongOfLifeTransition onTransitionComplete={() => setSongOfLifeTransitionComplete(true)} />
+      )}
+
       {seasonSelected && selectedSeason === 'season2' && season2TransitionComplete && (
         <Transition mounted={seasonSelected} transition="fade" duration={400} timingFunction="ease-in-out">
           {(styles) => (
@@ -476,7 +527,10 @@ function App() {
       )}
 
       <Transition
-        mounted={gateAnimationComplete && selectedSeason === 'season1'}
+        mounted={
+          (gateAnimationComplete && selectedSeason === 'season1') ||
+          (songOfLifeTransitionComplete && selectedSeason === 'songoflife')
+        }
         transition="fade"
         duration={400}
         timingFunction="ease-in-out"
@@ -485,8 +539,38 @@ function App() {
           <div style={styles}>
             <Router basename="">
               <Routes>
-                <Route path="/season-1/*" element={<AppContent onReturnToSeason={handleReturnToSeason} />} />
-                <Route path="/" element={<AppContent onReturnToSeason={handleReturnToSeason} />} />
+                <Route
+                  path="/season-1/*"
+                  element={(
+                    <AppContent
+                      onReturnToSeason={handleReturnToSeason}
+                      basePath="season-1"
+                      chatlogPathResolver={seasonOneResolver}
+                    />
+                  )}
+                />
+                <Route
+                  path="/song-of-life/*"
+                  element={(
+                    <AppContent
+                      onReturnToSeason={handleReturnToSeason}
+                      basePath="song-of-life"
+                      sitemapOverride={songOfLifeSitemap}
+                      chatlogPathResolver={songOfLifeResolver}
+                      chatlogTheme={songOfLifeTheme}
+                    />
+                  )}
+                />
+                <Route
+                  path="/"
+                  element={(
+                    <AppContent
+                      onReturnToSeason={handleReturnToSeason}
+                      basePath="season-1"
+                      chatlogPathResolver={seasonOneResolver}
+                    />
+                  )}
+                />
               </Routes>
             </Router>
           </div>

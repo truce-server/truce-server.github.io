@@ -1,0 +1,746 @@
+<!DOCTYPE html><html lang=en><head><title>𝐓𝐫𝐮𝐜𝐞 ✧ - kractus-temple</title><meta charset=utf-8><meta name=viewport content="width=device-width"><style>@font-face{src:url("https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/ggsans-normal-400.woff2");font-family:gg sans;font-weight:400;font-style:normal}@font-face{src:url("https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/ggsans-normal-500.woff2");font-family:gg sans;font-weight:500;font-style:normal}@font-face{src:url("https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/ggsans-normal-600.woff2");font-family:gg sans;font-weight:600;font-style:normal}@font-face{src:url("https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/ggsans-normal-700.woff2");font-family:gg sans;font-weight:700;font-style:normal}@font-face{src:url("https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/ggsans-normal-800.woff2");font-family:gg sans;font-weight:800;font-style:normal}@font-face{src:url("https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/ggsans-italic-400.woff2");font-family:gg sans;font-weight:400;font-style:italic}@font-face{src:url("https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/ggsans-italic-500.woff2");font-family:gg sans;font-weight:500;font-style:italic}@font-face{src:url("https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/ggsans-italic-600.woff2");font-family:gg sans;font-weight:600;font-style:italic}@font-face{src:url("https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/ggsans-italic-700.woff2");font-family:gg sans;font-weight:700;font-style:italic}@font-face{src:url("https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/ggsans-italic-800.woff2");font-family:gg sans;font-weight:800;font-style:italic}html,body{margin:0;padding:0;background-color:#36393e;color:#dcddde;font-family:"gg sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:17px;font-weight:400;scroll-behavior:smooth}a{color:#00aff4;text-decoration:none}a:hover{text-decoration:underline}img{object-fit:contain;image-rendering:high-quality;image-rendering:-webkit-optimize-contrast}.preamble{display:grid;grid-template-columns:auto 1fr;max-width:100%;padding:1rem}.preamble__guild-icon-container{grid-column:1}.preamble__guild-icon{max-width:88px;max-height:88px}.preamble__entries-container{grid-column:2;margin-left:1rem}.preamble__entry{margin-bottom:0.15rem;color:#ffffff;font-size:1.4rem}.preamble__entry--small{font-size:1rem}.chatlog{padding:1rem 0;width:100%;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1)}.chatlog__message-group{margin-bottom:1rem}.chatlog__message-container{background-color:transparent;transition:background-color 1s ease}.chatlog__message-container--highlighted{background-color:rgba(114,137,218,0.2)}.chatlog__message-container--pinned{background-color:rgba(249,168,37,0.05)}.chatlog__message{display:grid;grid-template-columns:auto 1fr;padding:0.15rem 0;direction:ltr;unicode-bidi:bidi-override}.chatlog__message:hover{background-color:#32353b}.chatlog__message:hover .chatlog__short-timestamp{display:block}.chatlog__message-aside{grid-column:1;width:72px;padding:0.15rem 0.15rem 0 0.15rem;text-align:center}.chatlog__reply-symbol{height:10px;margin:6px 4px 4px 36px;border-left:2px solid #4f545c;border-top:2px solid #4f545c;border-radius:8px 0 0 0}.chatlog__avatar{width:40px;height:40px;border-radius:50%}.chatlog__short-timestamp{display:none;color:#a3a6aa;font-size:0.75rem;font-weight:500;direction:ltr;unicode-bidi:bidi-override}.chatlog__message-primary{grid-column:2;min-width:0}.chatlog__reply{display:flex;margin-bottom:0.15rem;align-items:center;color:#b5b6b8;font-size:0.875rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chatlog__reply-avatar{width:16px;height:16px;margin-right:0.25rem;border-radius:50%}.chatlog__reply-author{margin-right:0.3rem;font-weight:600}.chatlog__reply-content{overflow:hidden;text-overflow:ellipsis}.chatlog__reply-link{cursor:pointer}.chatlog__reply-link *{display:inline;pointer-events:none}.chatlog__reply-link .chatlog__markdown-quote{display:inline}.chatlog__reply-link .chatlog__markdown-pre{display:inline}.chatlog__reply-link:hover{color:#ffffff}.chatlog__reply-link:hover *:not(.chatlog__markdown-spoiler){color:inherit}.chatlog__reply-edited-timestamp{margin-left:0.25rem;color:#a3a6aa;font-size:0.75rem;font-weight:500;direction:ltr;unicode-bidi:bidi-override}.chatlog__system-notification-icon{width:18px;height:18px}.chatlog__system-notification-author{font-weight:500;color:#ffffff}.chatlog__system-notification-content{color:#96989d}.chatlog__system-notification-link{font-weight:500;color:#ffffff}.chatlog__system-notification-timestamp{margin-left:0.3rem;color:#a3a6aa;font-size:0.75rem;font-weight:500;direction:ltr;unicode-bidi:bidi-override}.chatlog__system-notification-timestamp a{color:inherit}.chatlog__header{margin-bottom:0.1rem}.chatlog__author{font-weight:500;color:#ffffff}.chatlog__author-tag{position:relative;top:-0.1rem;margin-left:0.3rem;padding:0.05rem 0.3rem;border-radius:3px;background-color:#5865F2;color:#ffffff;font-size:0.625rem;font-weight:500;line-height:1.3}.chatlog__timestamp{margin-left:0.3rem;color:#a3a6aa;font-size:0.75rem;font-weight:500;direction:ltr;unicode-bidi:bidi-override}.chatlog__timestamp a{color:inherit}.chatlog__content{padding-right:1rem;font-size:0.95rem;word-wrap:break-word}.chatlog__edited-timestamp{margin-left:0.15rem;color:#a3a6aa;font-size:0.75rem;font-weight:500}.chatlog__attachment{position:relative;width:fit-content;margin-top:0.3rem;border-radius:3px;overflow:hidden}.chatlog__attachment--hidden{cursor:pointer;box-shadow:0 0 1px 1px rgba(0,0,0,0.1)}.chatlog__attachment--hidden *{pointer-events:none}.chatlog__attachment-spoiler-caption{display:none;position:absolute;left:50%;top:50%;z-index:999;padding:0.4rem 0.8rem;border-radius:20px;transform:translate(-50%,-50%);background-color:rgba(0,0,0,0.9);color:#dcddde;font-size:0.9rem;font-weight:600;letter-spacing:0.05rem}.chatlog__attachment--hidden .chatlog__attachment-spoiler-caption{display:block}.chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption{color:#fff}.chatlog__attachment-media{max-width:45vw;max-height:500px;vertical-align:top;border-radius:3px}.chatlog__attachment--hidden .chatlog__attachment-media{filter:blur(44px)}.chatlog__attachment-generic{max-width:520px;width:100%;height:40px;padding:10px;border:1px solid #292b2f;border-radius:3px;background-color:#2f3136;overflow:hidden}.chatlog__attachment--hidden .chatlog__attachment-generic{filter:blur(44px)}.chatlog__attachment-generic-icon{float:left;width:30px;height:100%;margin-right:10px}.chatlog__attachment-generic-size{color:#72767d;font-size:12px}.chatlog__attachment-generic-name{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.chatlog__embed{display:flex;margin-top:0.3rem;max-width:520px}.chatlog__embed-color-pill{flex-shrink:0;width:0.25rem;border-top-left-radius:3px;border-bottom-left-radius:3px}.chatlog__embed-color-pill--default{background-color:#202225}.chatlog__embed-content-container{display:flex;flex-direction:column;padding:0.5rem 0.6rem;border:1px solid rgba(46,48,54,0.6);border-top-right-radius:3px;border-bottom-right-radius:3px;background-color:rgba(46,48,54,0.3)}.chatlog__embed-content{display:flex;width:100%}.chatlog__embed-text{flex:1}.chatlog__embed-author-container{display:flex;margin-bottom:0.5rem;align-items:center}.chatlog__embed-author-icon{width:20px;height:20px;margin-right:0.5rem;border-radius:50%}.chatlog__embed-author{color:#ffffff;font-size:0.875rem;font-weight:600;direction:ltr;unicode-bidi:bidi-override}.chatlog__embed-author-link{color:#ffffff}.chatlog__embed-title{margin-bottom:0.5rem;color:#ffffff;font-size:0.875rem;font-weight:600}.chatlog__embed-description{color:#dcddde;font-weight:500;font-size:0.85rem}.chatlog__embed-fields{display:flex;flex-wrap:wrap;gap:0 0.5rem}.chatlog__embed-field{flex:0;min-width:100%;max-width:506px;padding-top:0.6rem;font-size:0.875rem}.chatlog__embed-field--inline{flex:1;flex-basis:auto;min-width:50px}.chatlog__embed-field-name{margin-bottom:0.2rem;color:#ffffff;font-weight:600}.chatlog__embed-field-value{color:#dcddde;font-weight:500}.chatlog__embed-thumbnail{flex:0;max-width:80px;max-height:80px;margin-left:1.2rem;border-radius:3px}.chatlog__embed-images{display:grid;margin-top:0.6rem;grid-template-columns:repeat(2,1fr);gap:0.25rem}.chatlog__embed-images--single{display:block}.chatlog__embed-image{object-fit:cover;object-position:center;max-width:500px;max-height:400px;width:100%;height:100%;border-radius:3px}.chatlog__embed-footer{margin-top:0.6rem;color:#dcddde}.chatlog__embed-footer-icon{width:20px;height:20px;margin-right:0.2rem;border-radius:50%;vertical-align:middle}.chatlog__embed-footer-text{vertical-align:middle;font-size:0.75rem;font-weight:500}.chatlog__embed-invite-container{min-width:320px;padding:0.6rem 0.7rem;border:1px solid rgba(46,48,54,0.6);border-radius:3px;background-color:rgba(46,48,54,0.3)}.chatlog__embed-invite-title{margin:0 0 0.8rem 0;color:#b9bbbe;font-size:0.75rem;font-weight:700;text-transform:uppercase}.chatlog__embed-invite{display:flex}.chatlog__embed-invite-guild-icon{width:50px;height:50px;border-radius:0.85rem}.chatlog__embed-invite-info{margin-left:1rem}.chatlog__embed-invite-guild-name{color:#ffffff;font-weight:600}.chatlog__embed-invite-guild-name a{color:inherit}.chatlog__embed-invite-channel-icon{width:18px;height:18px;vertical-align:bottom}.chatlog__embed-invite-channel-name{font-size:0.9rem;font-weight:600}.chatlog__embed-generic-image{object-fit:contain;object-position:left;max-width:45vw;max-height:500px;vertical-align:top;border-radius:3px}.chatlog__embed-generic-video{object-fit:contain;object-position:left;max-width:45vw;max-height:500px;vertical-align:top;border-radius:3px}.chatlog__embed-generic-gifv{object-fit:contain;object-position:left;max-width:45vw;max-height:500px;vertical-align:top;border-radius:3px}.chatlog__embed-spotify{border:0}.chatlog__embed-twitch{border:0}.chatlog__embed-youtube-container{margin-top:0.6rem}.chatlog__embed-youtube{border:0;border-radius:3px}.chatlog__sticker{width:180px;height:180px}.chatlog__sticker--media{max-width:100%;max-height:100%}.chatlog__reactions{display:flex}.chatlog__reaction{display:flex;margin:0.35rem 0.1rem 0.1rem 0;padding:0.125rem 0.375rem;border:1px solid transparent;border-radius:8px;background-color:#2f3136;align-items:center}.chatlog__reaction:hover{border:1px solid hsla(0,0%,100%,.2);background-color:transparent}.chatlog__reaction-count{min-width:9px;margin-left:0.35rem;color:#b9bbbe;font-size:0.875rem}.chatlog__reaction:hover .chatlog__reaction-count{color:#dcddde}.chatlog__markdown{max-width:100%;line-height:1.3;overflow-wrap:break-word}.chatlog__markdown h1{margin:1rem 0 0.5rem;color:#f2f3f5;font-size:1.5rem;line-height:1}.chatlog__markdown h2{margin:1rem 0 0.5rem;color:#f2f3f5;font-size:1.25rem;line-height:1}.chatlog__markdown h3{margin:1rem 0 0.5rem;color:#f2f3f5;font-size:1rem;line-height:1}.chatlog__markdown h1:first-child,h2:first-child,h3:first-child{margin-top:0.5rem}.chatlog__markdown ul,ol{margin:0 0 0 1rem;padding:0}.chatlog__markdown-preserve{white-space:pre-wrap}.chatlog__markdown-spoiler{background-color:rgba(255,255,255,0.1);padding:0 2px;border-radius:3px}.chatlog__markdown-spoiler--hidden{cursor:pointer;background-color:#202225;color:rgba(0,0,0,0)}.chatlog__markdown-spoiler--hidden:hover{background-color:rgba(32,34,37,0.8)}.chatlog__markdown-spoiler--hidden::selection{color:rgba(0,0,0,0)}.chatlog__markdown-quote{display:flex;margin:0.05rem 0}.chatlog__markdown-quote-border{margin-right:0.5rem;border:2px solid #4f545c;border-radius:3px}.chatlog__markdown-pre{background-color:#2f3136;font-family:"Consolas","Courier New",Courier,monospace;font-size:0.85rem;text-decoration:inherit}.chatlog__markdown-pre--multiline{display:block;margin-top:0.25rem;padding:0.5rem;border:2px solid #282b30;border-radius:5px;color:#b9bbbe}.chatlog__markdown-pre--multiline.hljs{background-color:#2f3136;color:#b9bbbe}.chatlog__markdown-pre--inline{display:inline-block;padding:2px;border-radius:3px}.chatlog__markdown-mention{border-radius:3px;padding:0 2px;background-color:rgba(88,101,242,.3);color:#dee0fc;font-weight:500}.chatlog__markdown-mention:hover{background-color:#5865f2;color:#ffffff}.chatlog__markdown-timestamp{background-color:rgba(255,255,255,0.1);padding:0 2px;border-radius:3px}.chatlog__emoji{width:1.325rem;height:1.325rem;margin:0 0.06rem;vertical-align:-0.4rem}.chatlog__emoji--small{width:1rem;height:1rem}.chatlog__emoji--large{width:2.8rem;height:2.8rem}.postamble{padding:1.25rem}.postamble__entry{color:#ffffff}</style><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e=>hljs.highlightBlock(e));});</script><script src=https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e=>{const anim=lottie.loadAnimation({container:e,renderer:'svg',loop:true,autoplay:true,path:e.getAttribute('data-source')});anim.addEventListener('data_failed',()=>e.innerHTML='<strong>[Sticker cannot be rendered]</strong>');});});</script><script>function scrollToMessage(event,id){const element=document.getElementById('chatlog__message-container-'+id);if(!element)
+return;event.preventDefault();element.classList.add('chatlog__message-container--highlighted');window.scrollTo({top:element.getBoundingClientRect().top-document.body.getBoundingClientRect().top-(window.innerHeight/2),behavior:'smooth'});window.setTimeout(()=>element.classList.remove('chatlog__message-container--highlighted'),2000);}
+function showSpoiler(event,element){if(!element)
+return;if(element.classList.contains('chatlog__attachment--hidden')){event.preventDefault();element.classList.remove('chatlog__attachment--hidden');}
+if(element.classList.contains('chatlog__markdown-spoiler--hidden')){event.preventDefault();element.classList.remove('chatlog__markdown-spoiler--hidden');}}</script><svg style=display:none xmlns=http://www.w3.org/2000/svg><defs><symbol id=attachment-icon viewBox="0 0 720 960"><path fill=#f4f5fb d=M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z /><path fill=#7789c4 d=M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z /><path fill=#f4f5fb d=M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z /><path fill=#7789c4 d=M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z /></symbol><symbol id=join-icon viewBox="0 0 18 18"><path fill=#3ba55c d="m0 8h14.2l-3.6-3.6 1.4-1.4 6 6-6 6-1.4-1.4 3.6-3.6h-14.2" /></symbol><symbol id=leave-icon viewBox="0 0 18 18"><path fill=#ed4245 d="m3.8 8 3.6-3.6-1.4-1.4-6 6 6 6 1.4-1.4-3.6-3.6h14.2v-2" /></symbol><symbol id=call-icon viewBox="0 0 18 18"><path fill=#3ba55c fill-rule=evenodd d="M17.7163041 15.36645368c-.0190957.02699568-1.9039523 2.6680735-2.9957762 2.63320406-3.0676659-.09785935-6.6733809-3.07188394-9.15694343-5.548738C3.08002193 9.9740657.09772497 6.3791404 0 3.3061316v-.024746C0 2.2060575 2.61386252.3152347 2.64082114.2972376c.7110335-.4971705 1.4917101-.3149497 1.80959713.1372281.19320342.2744561 2.19712724 3.2811005 2.42290565 3.6489167.09884826.1608492.14714912.3554431.14714912.5702838 0 .2744561-.07975258.5770327-.23701117.8751101-.1527655.2902036-.65262318 1.1664385-.89862055 1.594995.2673396.3768148.94804468 1.26429792 2.351016 2.66357424 1.39173858 1.39027775 2.28923588 2.07641807 2.67002628 2.34187563.4302146-.2452108 1.3086162-.74238132 1.5972981-.89423205.5447887-.28682915 1.0907006-.31944893 1.4568885-.08661115.3459689.2182151 3.3383754 2.21027167 3.6225641 2.41611376.2695862.19234426.4144887.5399137.4144887.91672846 0 .2969525-.089862.61190215-.2808189.88523346" /></symbol><symbol id=pencil-icon viewBox="0 0 18 18"><path fill=#99aab5 d="m0 14.25v3.75h3.75l11.06-11.06-3.75-3.75zm17.71-10.21c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75z" /></symbol><symbol id=pin-icon viewBox="0 0 18 18"><path fill=#b9bbbe d="m16.908 8.39684-8.29587-8.295827-1.18584 1.184157 1.18584 1.18584-4.14834 4.1475v.00167l-1.18583-1.18583-1.185 1.18583 3.55583 3.55502-4.740831 4.74 1.185001 1.185 4.74083-4.74 3.55581 3.555 1.185-1.185-1.185-1.185 4.1475-4.14836h.0009l1.185 1.185z" /></symbol><symbol id=channel-icon viewBox="0 0 24 24"><path fill=#b9bbbe d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z" /></symbol><symbol id=thread-icon viewBox="0 0 24 24"><path fill=#b9bbbe d="M5.43309 21C5.35842 21 5.30189 20.9325 5.31494 20.859L5.99991 17H2.14274C2.06819 17 2.01168 16.9327 2.02453 16.8593L2.33253 15.0993C2.34258 15.0419 2.39244 15 2.45074 15H6.34991L7.40991 9H3.55274C3.47819 9 3.42168 8.93274 3.43453 8.85931L3.74253 7.09931C3.75258 7.04189 3.80244 7 3.86074 7H7.75991L8.45234 3.09903C8.46251 3.04174 8.51231 3 8.57049 3H10.3267C10.4014 3 10.4579 3.06746 10.4449 3.14097L9.75991 7H15.7599L16.4523 3.09903C16.4625 3.04174 16.5123 3 16.5705 3H18.3267C18.4014 3 18.4579 3.06746 18.4449 3.14097L17.7599 7H21.6171C21.6916 7 21.7481 7.06725 21.7353 7.14069L21.4273 8.90069C21.4172 8.95811 21.3674 9 21.3091 9H17.4099L17.0495 11.04H15.05L15.4104 9H9.41035L8.35035 15H10.5599V17H7.99991L7.30749 20.901C7.29732 20.9583 7.24752 21 7.18934 21H5.43309Z" /><path fill=#b9bbbe d="M13.4399 12.96C12.9097 12.96 12.4799 13.3898 12.4799 13.92V20.2213C12.4799 20.7515 12.9097 21.1813 13.4399 21.1813H14.3999C14.5325 21.1813 14.6399 21.2887 14.6399 21.4213V23.4597C14.6399 23.6677 14.8865 23.7773 15.0408 23.6378L17.4858 21.4289C17.6622 21.2695 17.8916 21.1813 18.1294 21.1813H22.5599C23.0901 21.1813 23.5199 20.7515 23.5199 20.2213V13.92C23.5199 13.3898 23.0901 12.96 22.5599 12.96H13.4399Z" /></symbol></defs></svg><body><div class=preamble><div class=preamble__guild-icon-container><img class=preamble__guild-icon src="https://cdn.discordapp.com/icons/1367508442524287077/3d9e76c65a8f04571d542bd77ccbbebe.png?size=512" alt="Guild icon" loading=lazy></div><div class=preamble__entries-container><div class=preamble__entry>𝐓𝐫𝐮𝐜𝐞 ✧</div><div class=preamble__entry>Temple Archives ☆ / kractus-temple</div></div></div>
+<div class="chatlog">
+
+<div class=chatlog__message-group><div id=chatlog__message-container-1422962251941281896 class=chatlog__message-container data-message-id=1422962251941281896><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/433015462062981131/3dc18e778971f4a478dafe6f720959df.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(216,0,47) title=rikaviper data-user-id=433015462062981131>rikav ✞</span> <span class=chatlog__timestamp title="October 1, 2025 11:03 AM"><a href=#chatlog__message-container-1422962251941281896>2025-10-01 11:03 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><span class="chatlog__markdown-mention" title="mrkractus">@Kractus [S1 - 12th]</span> Welcome to your temple! Here is the place to ramble your thoughts, interact with your Patron (once it&#39;s revealed), and just have fun. Spectators won&#39;t have access to this until the game starts.
+
+<strong>Also! </strong>Let me know if you would like a confessional buddy. It can be anyone you would like, but cannot be another player. You can also invite someone to the server for this specific purpose. (I usually invite my husband)
+They won&#39;t be allowed to influence the game, and are more here just to hang out and be some moral support. If you don&#39;t want one, no worries!</span></div><div class=chatlog__reactions><div class=chatlog__reaction title=thumbsup><img class="chatlog__emoji chatlog__emoji--small" alt=👍 src=https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f44d.svg loading=lazy> <span class=chatlog__reaction-count>1</span></div><div class=chatlog__reaction title=volcano><img class="chatlog__emoji chatlog__emoji--small" alt=🌋 src=https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f30b.svg loading=lazy> <span class=chatlog__reaction-count>1</span></div></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1424203498580344842 class=chatlog__message-container data-message-id=1424203498580344842><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 4, 2025 9:16 PM"><a href=#chatlog__message-container-1424203498580344842>2025-10-04 9:16 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>!Azathoth</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1424203499339518003 class=chatlog__message-container data-message-id=1424203499339518003><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/235148962103951360/ed3dac3b6e7a851df781632a4295fcb9.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(99,138,255) title=Carl-bot#1536 data-user-id=235148962103951360>Carl-bot</span> <span class=chatlog__author-tag>BOT</span> <span class=chatlog__timestamp title="October 4, 2025 9:16 PM"><a href=#chatlog__message-container-1424203499339518003>2025-10-04 9:16 PM</a></span></div><div class=chatlog__embed><div class=chatlog__embed-color-pill style=background-color:rgba(32,18,77,255)></div><div class=chatlog__embed-content-container><div class=chatlog__embed-content><div class=chatlog__embed-text><div class=chatlog__embed-title><div class="chatlog__markdown chatlog__markdown-preserve"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐀"
+    title="𝐀"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d400.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐳"
+    title="𝐳"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d433.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐚"
+    title="𝐚"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d41a.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐭"
+    title="𝐭"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d42d.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐡"
+    title="𝐡"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d421.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐨"
+    title="𝐨"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d428.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐭"
+    title="𝐭"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d42d.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐡"
+    title="𝐡"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d421.svg"></div></div><div class=chatlog__embed-description><div class="chatlog__markdown chatlog__markdown-preserve"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗣"
+    title="𝗣"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5e3.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗿"
+    title="𝗿"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ff.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗶"
+    title="𝗶"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f6.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗺"
+    title="𝗺"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5fa.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗼"
+    title="𝗼"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5fc.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗿"
+    title="𝗿"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ff.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗱"
+    title="𝗱"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f1.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗶"
+    title="𝗶"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f6.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗮"
+    title="𝗮"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ee.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗹"
+    title="𝗹"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f9.svg"> <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗨"
+    title="𝗨"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5e8.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗿"
+    title="𝗿"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ff.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗴"
+    title="𝗴"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f4.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗲"
+    title="𝗲"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f2.svg">
+Whenever Azathoth votes during an elimination, the abyssal well of chaos opens up and casts an extra vote on a random Herald; if the Herald that random vote was casted to is eliminated, Azathoth gains a vote parchment as well as immunity next round.
+
+<img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗔"
+    title="𝗔"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5d4.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗯"
+    title="𝗯"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ef.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘆"
+    title="𝘆"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d606.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘀"
+    title="𝘀"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d600.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘀"
+    title="𝘀"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d600.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗮"
+    title="𝗮"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ee.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗹"
+    title="𝗹"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f9.svg"> <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗜"
+    title="𝗜"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5dc.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗱"
+    title="𝗱"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f1.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗶"
+    title="𝗶"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f6.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗼"
+    title="𝗼"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5fc.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘁"
+    title="𝘁"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d601.svg">
+Azathoth is not affected by abilities that restrict, block, or alter his communication. If an ability transports ALL Heralds into new communication spaces, Azathoth maintains his previous channels and also gains the new ones. He may send messages to Heralds in these channels, though they cannot reply.
+Azathoth may choose whether or not to activate this ability each time it would apply, allowing him to benefit from positive communication effects.</div></div></div></div><div class="chatlog__embed-images chatlog__embed-images--single"><div class=chatlog__embed-image-container><a class=chatlog__embed-image-link href=https://images-ext-1.discordapp.net/external/bTIE7P12G4OXgW5MmGaBCDDwhCceBHf1p2XsiMTme8E/https/imgur.com/fKRXlHT.png> <img class=chatlog__embed-image src=https://images-ext-1.discordapp.net/external/bTIE7P12G4OXgW5MmGaBCDDwhCceBHf1p2XsiMTme8E/https/imgur.com/fKRXlHT.png alt=Image loading=lazy> </a></div></div></div></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1424203671469686986 class=chatlog__message-container data-message-id=1424203671469686986><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 4, 2025 9:16 PM"><a href=#chatlog__message-container-1424203671469686986>2025-10-04 9:16 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Just keeping not of certain abilities that I gotta worry about, nothing special here</span></div></div></div></div><div id=chatlog__message-container-1424204368546238516 class=chatlog__message-container data-message-id=1424204368546238516><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 4, 2025 9:19 PM">9:19 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>!anubis</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1424204369762582588 class=chatlog__message-container data-message-id=1424204369762582588><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/235148962103951360/ed3dac3b6e7a851df781632a4295fcb9.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(99,138,255) title=Carl-bot#1536 data-user-id=235148962103951360>Carl-bot</span> <span class=chatlog__author-tag>BOT</span> <span class=chatlog__timestamp title="October 4, 2025 9:19 PM"><a href=#chatlog__message-container-1424204369762582588>2025-10-04 9:19 PM</a></span></div><div class=chatlog__embed><div class=chatlog__embed-color-pill style=background-color:rgba(111,168,220,255)></div><div class=chatlog__embed-content-container><div class=chatlog__embed-content><div class=chatlog__embed-text><div class=chatlog__embed-title><div class="chatlog__markdown chatlog__markdown-preserve"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐀"
+    title="𝐀"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d400.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐧"
+    title="𝐧"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d427.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐮"
+    title="𝐮"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d42e.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐛"
+    title="𝐛"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d41b.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐢"
+    title="𝐢"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d422.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐬"
+    title="𝐬"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d42c.svg"></div></div><div class=chatlog__embed-description><div class="chatlog__markdown chatlog__markdown-preserve"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗦"
+    title="𝗦"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5e6.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗰"
+    title="𝗰"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f0.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗮"
+    title="𝗮"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ee.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗹"
+    title="𝗹"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f9.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗲"
+    title="𝗲"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f2.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘀"
+    title="𝘀"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d600.svg"> <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗼"
+    title="𝗼"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5fc.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗳"
+    title="𝗳"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f3.svg"> <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗝"
+    title="𝗝"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5dd.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘂"
+    title="𝘂"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d602.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘀"
+    title="𝘀"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d600.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘁"
+    title="𝘁"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d601.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗶"
+    title="𝗶"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f6.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗰"
+    title="𝗰"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f0.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗲"
+    title="𝗲"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f2.svg">
+Once per game, Anubis may split the battlefield into two sides of his choice. Heralds on each side may only cast their vote against Heralds on their own side. This ability may only be activated when the total number of Heralds is even. At the end of voting, the Herald with the most votes on each side is eliminated (double elimination). If either side’s vote ends in a tie, Anubis alone decides which of the tied Heralds is eliminated from that side. This ability may be used on other realms.
+
+<img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗡"
+    title="𝗡"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5e1.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗲"
+    title="𝗲"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f2.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗰"
+    title="𝗰"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f0.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗿"
+    title="𝗿"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ff.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗼"
+    title="𝗼"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5fc.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗽"
+    title="𝗽"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5fd.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗼"
+    title="𝗼"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5fc.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗹"
+    title="𝗹"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f9.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗶"
+    title="𝗶"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f6.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘀"
+    title="𝘀"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d600.svg">
+Once per game, Anubis prepares transports for all Heralds to his domain. During the next elimination, no abilities or items that grant immunity or resurrection may be used. Anubis cannot be voted for during this round.</div></div></div></div><div class="chatlog__embed-images chatlog__embed-images--single"><div class=chatlog__embed-image-container><a class=chatlog__embed-image-link href=https://images-ext-1.discordapp.net/external/YrZti7DZ_CsN37myYF2FgUlO4hRIjYfD8o2OWKAo5gg/https/imgur.com/trdpyDx.png> <img class=chatlog__embed-image src=https://images-ext-1.discordapp.net/external/YrZti7DZ_CsN37myYF2FgUlO4hRIjYfD8o2OWKAo5gg/https/imgur.com/trdpyDx.png alt=Image loading=lazy> </a></div></div></div></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1424388043493871760 class=chatlog__message-container data-message-id=1424388043493871760><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/433015462062981131/3dc18e778971f4a478dafe6f720959df.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(216,0,47) title=rikaviper data-user-id=433015462062981131>rikav ✞</span> <span class=chatlog__timestamp title="October 5, 2025 9:29 AM"><a href=#chatlog__message-container-1424388043493871760>2025-10-05 9:29 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><span class="chatlog__markdown-mention" title="mrkractus">@Kractus [S1 - 12th]</span> 
+<strong>Day 0 - The Apotheion - Temple Questions</strong> <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="🔹"
+    title="small_blue_diamond"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f539.svg"> 
+1. Give us a trust ranking, how are you feeling about your tribe so far?
+2. Which Patrons are you instantly looking out for?
+3. Are you excited to meet your Patron?</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1424388916395507793 class=chatlog__message-container data-message-id=1424388916395507793><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 5, 2025 9:33 AM"><a href=#chatlog__message-container-1424388916395507793>2025-10-05 9:33 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Currently as it stands my tribe seems trustworthy. If I were to place bets on who would begin betrayal it would be either mouse or rodeo. Those two fellas seem to be the most experienced and wilm capitalise on my inexperience to playing around that would be difficult.
+
+Patrons wise I am looking out for Zeus mainly as the double votes would allow for some good leverage and control on elimination so I would love to keep that in mind.
+
+Also Azathoth is gonna be a goated patron and I am bouncing off the walls with excitement to meet the patron.</span> <span class=chatlog__edited-timestamp title="October 5, 2025 9:33 AM">(edited)</span></div></div></div></div><div id=chatlog__message-container-1424389205546766468 class=chatlog__message-container data-message-id=1424389205546766468><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 5, 2025 9:34 AM">9:34 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Also side note I think hunter would be the first to go during eliminations, they are the most background out of everyone present.</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1425658144243056661 class=chatlog__message-container data-message-id=1425658144243056661><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/433015462062981131/3dc18e778971f4a478dafe6f720959df.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(216,0,47) title=rikaviper data-user-id=433015462062981131>rikav ✞</span> <span class=chatlog__timestamp title="October 8, 2025 9:36 PM"><a href=#chatlog__message-container-1425658144243056661>2025-10-08 9:36 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><strong>Day 4 - The Apotheion - Temple Questions</strong>
+1. Give us your trust rankings. This should be a numbered list where 1 is your most trusted.</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1425663899272740864 class=chatlog__message-container data-message-id=1425663899272740864><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 8, 2025 9:59 PM"><a href=#chatlog__message-container-1425663899272740864>2025-10-08 9:59 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>1. Kractus
+2. Azathoth</span></div></div></div></div><div id=chatlog__message-container-1425663905866317935 class=chatlog__message-container data-message-id=1425663905866317935><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 8, 2025 9:59 PM">9:59 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Yeah</span></div></div></div></div><div id=chatlog__message-container-1425663914837807145 class=chatlog__message-container data-message-id=1425663914837807145><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 8, 2025 9:59 PM">9:59 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>This list is goated</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1425668491683299491 class=chatlog__message-container data-message-id=1425668491683299491><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/433015462062981131/3dc18e778971f4a478dafe6f720959df.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(216,0,47) title=rikaviper data-user-id=433015462062981131>rikav ✞</span> <span class=chatlog__timestamp title="October 8, 2025 10:17 PM"><a href=#chatlog__message-container-1425668491683299491>2025-10-08 10:17 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>ope i did not mean to send this to you</span></div></div></div></div><div id=chatlog__message-container-1425668496808743015 class=chatlog__message-container data-message-id=1425668496808743015><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 8, 2025 10:17 PM">10:17 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>HAHA</span></div></div></div></div><div id=chatlog__message-container-1425668508263514246 class=chatlog__message-container data-message-id=1425668508263514246><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 8, 2025 10:17 PM">10:17 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>auto pilot</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1425717112910905345 class=chatlog__message-container data-message-id=1425717112910905345><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 9, 2025 1:30 AM"><a href=#chatlog__message-container-1425717112910905345>2025-10-09 1:30 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>All good rikav keep being a goated host</span></div><div class=chatlog__reactions><div class=chatlog__reaction title=blue_heart><img class="chatlog__emoji chatlog__emoji--small" alt=💙 src=https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f499.svg loading=lazy> <span class=chatlog__reaction-count>1</span></div></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1431070543729393664 class=chatlog__message-container data-message-id=1431070543729393664><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 23, 2025 8:03 PM"><a href=#chatlog__message-container-1431070543729393664>2025-10-23 8:03 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>So everyones favourite is back</span></div></div></div></div><div id=chatlog__message-container-1431070562930921494 class=chatlog__message-container data-message-id=1431070562930921494><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 23, 2025 8:03 PM">8:03 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Once again</span></div></div></div></div><div id=chatlog__message-container-1431070597462491206 class=chatlog__message-container data-message-id=1431070597462491206><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 23, 2025 8:03 PM">8:03 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>And we cant lose a comp otherwise I am gonna be</span></div></div></div></div><div id=chatlog__message-container-1431070615716233339 class=chatlog__message-container data-message-id=1431070615716233339><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 23, 2025 8:03 PM">8:03 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>What they call in show biz</span></div></div></div></div><div id=chatlog__message-container-1431070621416296639 class=chatlog__message-container data-message-id=1431070621416296639><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 23, 2025 8:03 PM">8:03 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Fucked</span></div></div></div></div><div id=chatlog__message-container-1431070731755847701 class=chatlog__message-container data-message-id=1431070731755847701><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 23, 2025 8:04 PM">8:04 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Anyways I pulled through azza, tell cathulu that he can eat shit because even death cant stop your herald</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1431424195983704115 class=chatlog__message-container data-message-id=1431424195983704115><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 24, 2025 7:28 PM"><a href=#chatlog__message-container-1431424195983704115>2025-10-24 7:28 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>So uhh</span></div></div></div></div><div id=chatlog__message-container-1431424248613699656 class=chatlog__message-container data-message-id=1431424248613699656><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 24, 2025 7:28 PM">7:28 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Theres patron swaps happenin and all</span></div></div></div></div><div id=chatlog__message-container-1431424278875603017 class=chatlog__message-container data-message-id=1431424278875603017><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 24, 2025 7:29 PM">7:29 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Do I still have azathoth or.....?</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1431424651132928120 class=chatlog__message-container data-message-id=1431424651132928120><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/1431424649656406077/b96cfd49f9bfa48dff2dfa5b7c033c7b.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author title=Azathoth data-user-id=1431424649656406077>Azathoth</span> <span class=chatlog__author-tag>BOT</span> <span class=chatlog__timestamp title="October 24, 2025 7:30 PM"><a href=#chatlog__message-container-1431424651132928120>2025-10-24 7:30 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><img
+    loading="lazy"
+    class="chatlog__emoji chatlog__emoji--large"
+    alt="jumbus"
+    title="jumbus"
+    src="https://cdn.discordapp.com/emojis/1418423146549215322.png"></span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1431424822768042148 class=chatlog__message-container data-message-id=1431424822768042148><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 24, 2025 7:31 PM"><a href=#chatlog__message-container-1431424822768042148>2025-10-24 7:31 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>YESS</span></div></div></div></div><div id=chatlog__message-container-1431424841788948620 class=chatlog__message-container data-message-id=1431424841788948620><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 24, 2025 7:31 PM">7:31 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>WE WIN THESE</span></div></div></div></div><div id=chatlog__message-container-1431424897120338043 class=chatlog__message-container data-message-id=1431424897120338043><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 24, 2025 7:31 PM">7:31 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>The universe cannot seperate me from my goat</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1431786978067877974 class=chatlog__message-container data-message-id=1431786978067877974><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 25, 2025 7:30 PM"><a href=#chatlog__message-container-1431786978067877974>2025-10-25 7:30 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Remember how I said that we are never losing a challenge again</span></div><div class=chatlog__reactions><div class=chatlog__reaction title=sob><img class="chatlog__emoji chatlog__emoji--small" alt=😭 src=https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f62d.svg loading=lazy> <span class=chatlog__reaction-count>1</span></div></div></div></div></div><div id=chatlog__message-container-1431786984879165571 class=chatlog__message-container data-message-id=1431786984879165571><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 7:30 PM">7:30 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>I lied</span></div></div></div></div><div id=chatlog__message-container-1431787008849743957 class=chatlog__message-container data-message-id=1431787008849743957><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 7:30 PM">7:30 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>We lost a challenge again</span></div></div></div></div><div id=chatlog__message-container-1431787045390389328 class=chatlog__message-container data-message-id=1431787045390389328><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 7:30 PM">7:30 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>But I soloed the fuck out of winter bells so I am safe</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1431807757451006056 class=chatlog__message-container data-message-id=1431807757451006056><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="October 25, 2025 8:52 PM"><a href=#chatlog__message-container-1431807757451006056>2025-10-25 8:52 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><span class="chatlog__markdown-mention" style="">@deleted-role</span> 
+
+<img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="clueless"
+    title="clueless"
+    src="https://cdn.discordapp.com/emojis/1429180899899211777.png">  <strong>CONFESSIONAL QUESTIONS! </strong>
+
+1. How are you feeling about your swap and new tribemates?
+
+2. What are your plans for tribal or what would be your plans for tribal?
+
+3. Give a trust rankings of the players on your tribe (excluding the exile players) <strong>TRUST RANKINGS ARE MANDATORY TO DO OTHERWISE YOU WILL BE STRIKED BY SJ</strong></span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1431807868692332706 class=chatlog__message-container data-message-id=1431807868692332706><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/1431424649656406077/b96cfd49f9bfa48dff2dfa5b7c033c7b.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author title=Azathoth data-user-id=1431424649656406077>Azathoth</span> <span class=chatlog__author-tag>BOT</span> <span class=chatlog__timestamp title="October 25, 2025 8:53 PM"><a href=#chatlog__message-container-1431807868692332706>2025-10-25 8:53 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><div class="chatlog__markdown-quote"><div class="chatlog__markdown-quote-border"></div><div class="chatlog__markdown-quote-content"><a href="&lt;https://discord.com/channels/@me/1422962183586713641/1431786978067877974&gt;">Reply to</a>: <span class="chatlog__markdown-mention" title="mrkractus">@Kractus [S1 - 12th]</span>
+Remember how I said that we are never losing a challenge again
+</div></div><code class="chatlog__markdown-pre chatlog__markdown-pre--inline">This is feeling too familiar…</code></span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1431810016133906493 class=chatlog__message-container data-message-id=1431810016133906493><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 25, 2025 9:01 PM"><a href=#chatlog__message-container-1431810016133906493>2025-10-25 9:01 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Ay familiarity is my specialty</span></div></div></div></div><div id=chatlog__message-container-1431810055820542022 class=chatlog__message-container data-message-id=1431810055820542022><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 9:01 PM">9:01 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Anyways we got this in the bag</span></div></div></div></div><div id=chatlog__message-container-1431810148598546623 class=chatlog__message-container data-message-id=1431810148598546623><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 9:02 PM">9:02 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>The new tribemates are chill, nearly shat myself when they saod hubter would be coming into the tribe but dodged a good bullet there</span></div></div></div></div><div id=chatlog__message-container-1431810203791392978 class=chatlog__message-container data-message-id=1431810203791392978><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 9:02 PM">9:02 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Now I got a good round with Cian and then Kaitan as well</span></div></div></div></div><div id=chatlog__message-container-1431810256731770930 class=chatlog__message-container data-message-id=1431810256731770930><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 9:02 PM">9:02 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Remi is good as well, gonna try and lean with them but I dont trust em that much</span></div></div></div></div><div id=chatlog__message-container-1431810465566298113 class=chatlog__message-container data-message-id=1431810465566298113><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 9:03 PM">9:03 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>As for our tribal, ideally I want Lampz out, they didnt do much to support or communicate and I want them out for it. Hopefully thats a just reason</span></div></div></div></div><div id=chatlog__message-container-1431810595002384466 class=chatlog__message-container data-message-id=1431810595002384466><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 9:04 PM">9:04 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Im gonna let everyone else take the floor for this one really, I will shoot messages out to people to see how they are going but keep my intentions locked down</span></div></div></div></div><div id=chatlog__message-container-1431810633522745555 class=chatlog__message-container data-message-id=1431810633522745555><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 9:04 PM">9:04 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Im going bare minimum success rate</span></div></div></div></div><div id=chatlog__message-container-1431810820546760774 class=chatlog__message-container data-message-id=1431810820546760774><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 9:05 PM">9:05 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Rankings right now
+
+1. KAITAN
+
+2. CIAN
+
+3. REMI
+
+4. BLAKE
+
+5. LAMPZ</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1431811805843423415 class=chatlog__message-container data-message-id=1431811805843423415><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="October 25, 2025 9:08 PM"><a href=#chatlog__message-container-1431811805843423415>2025-10-25 9:08 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Ty</span></div></div></div></div><div id=chatlog__message-container-1431811816090243212 class=chatlog__message-container data-message-id=1431811816090243212><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 9:08 PM">9:08 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><img
+    loading="lazy"
+    class="chatlog__emoji chatlog__emoji--large"
+    alt="🐐"
+    title="goat"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f410.svg"></span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1431811844414247025 class=chatlog__message-container data-message-id=1431811844414247025><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 25, 2025 9:09 PM"><a href=#chatlog__message-container-1431811844414247025>2025-10-25 9:09 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>No dramas SJ</span></div></div></div></div><div id=chatlog__message-container-1431811862625783899 class=chatlog__message-container data-message-id=1431811862625783899><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 25, 2025 9:09 PM">9:09 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>My second favourite host</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1431812082461839380 class=chatlog__message-container data-message-id=1431812082461839380><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="October 25, 2025 9:10 PM"><a href=#chatlog__message-container-1431812082461839380>2025-10-25 9:10 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>First is baby SJ right</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1431812310057488505 class=chatlog__message-container data-message-id=1431812310057488505><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 25, 2025 9:10 PM"><a href=#chatlog__message-container-1431812310057488505>2025-10-25 9:10 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>If I said that you could put me at the bottom of the trust ranking</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432374533599264796 class=chatlog__message-container data-message-id=1432374533599264796><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/433015462062981131/3dc18e778971f4a478dafe6f720959df.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(216,0,47) title=rikaviper data-user-id=433015462062981131>rikav ✞</span> <span class=chatlog__timestamp title="October 27, 2025 10:25 AM"><a href=#chatlog__message-container-1432374533599264796>2025-10-27 10:25 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>how&#39;s elim <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="👀"
+    title="eyes"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f440.svg"></span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432467279651541012 class=chatlog__message-container data-message-id=1432467279651541012><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 27, 2025 4:33 PM"><a href=#chatlog__message-container-1432467279651541012>2025-10-27 4:33 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Going better than last time</span></div></div></div></div><div id=chatlog__message-container-1432467317740146749 class=chatlog__message-container data-message-id=1432467317740146749><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 27, 2025 4:33 PM">4:33 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>I got good trust in everybody towards this vote</span></div></div></div></div><div id=chatlog__message-container-1432467361075560511 class=chatlog__message-container data-message-id=1432467361075560511><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 27, 2025 4:33 PM">4:33 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Lampz was missing for the last 2 challenges, this should be a breeze</span></div></div></div></div><div id=chatlog__message-container-1432467434689921066 class=chatlog__message-container data-message-id=1432467434689921066><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 27, 2025 4:34 PM">4:34 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Remi shows fear in the next vote when it comes as well, ill be sure to take note of that</span></div></div></div></div><div id=chatlog__message-container-1432467467845894185 class=chatlog__message-container data-message-id=1432467467845894185><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 27, 2025 4:34 PM">4:34 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Otherwise everything seems under control</span></div></div></div></div><div id=chatlog__message-container-1432467582455255281 class=chatlog__message-container data-message-id=1432467582455255281><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 27, 2025 4:34 PM">4:34 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Im confident Remi will not make it out of this elimination round</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432564899254505653 class=chatlog__message-container data-message-id=1432564899254505653><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 27, 2025 11:01 PM"><a href=#chatlog__message-container-1432564899254505653>2025-10-27 11:01 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Azza did you vote Lampz or Remi?</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432585157000429729 class=chatlog__message-container data-message-id=1432585157000429729><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="October 28, 2025 12:21 AM"><a href=#chatlog__message-container-1432585157000429729>2025-10-28 12:21 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Kractus do u miss the realm of the dead</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432585208187584583 class=chatlog__message-container data-message-id=1432585208187584583><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 28, 2025 12:22 AM"><a href=#chatlog__message-container-1432585208187584583>2025-10-28 12:22 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>No</span></div></div></div></div><div id=chatlog__message-container-1432585228857376901 class=chatlog__message-container data-message-id=1432585228857376901><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 28, 2025 12:22 AM">12:22 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>I miss the guys in it</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432589349584633957 class=chatlog__message-container data-message-id=1432589349584633957><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="October 28, 2025 12:38 AM"><a href=#chatlog__message-container-1432589349584633957>2025-10-28 12:38 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>They asking u to come back gang</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432594399342104601 class=chatlog__message-container data-message-id=1432594399342104601><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 28, 2025 12:58 AM"><a href=#chatlog__message-container-1432594399342104601>2025-10-28 12:58 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Why are they asking for me back?</span></div></div></div></div><div id=chatlog__message-container-1432594440479834225 class=chatlog__message-container data-message-id=1432594440479834225><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 28, 2025 12:58 AM">12:58 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>You should revive em and bring em back here</span></div></div></div></div><div id=chatlog__message-container-1432594548948992082 class=chatlog__message-container data-message-id=1432594548948992082><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 28, 2025 12:59 AM">12:59 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>!Aza</span></div></div></div></div><div id=chatlog__message-container-1432594568359968868 class=chatlog__message-container data-message-id=1432594568359968868><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 28, 2025 12:59 AM">12:59 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>!Azathoth</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432594569358348408 class=chatlog__message-container data-message-id=1432594569358348408><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/235148962103951360/ed3dac3b6e7a851df781632a4295fcb9.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(99,138,255) title=Carl-bot#1536 data-user-id=235148962103951360>Carl-bot</span> <span class=chatlog__author-tag>BOT</span> <span class=chatlog__timestamp title="October 28, 2025 12:59 AM"><a href=#chatlog__message-container-1432594569358348408>2025-10-28 12:59 AM</a></span></div><div class=chatlog__embed><div class=chatlog__embed-color-pill style=background-color:rgba(32,18,77,255)></div><div class=chatlog__embed-content-container><div class=chatlog__embed-content><div class=chatlog__embed-text><div class=chatlog__embed-title><div class="chatlog__markdown chatlog__markdown-preserve"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐀"
+    title="𝐀"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d400.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐳"
+    title="𝐳"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d433.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐚"
+    title="𝐚"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d41a.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐭"
+    title="𝐭"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d42d.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐡"
+    title="𝐡"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d421.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐨"
+    title="𝐨"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d428.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐭"
+    title="𝐭"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d42d.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝐡"
+    title="𝐡"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d421.svg"></div></div><div class=chatlog__embed-description><div class="chatlog__markdown chatlog__markdown-preserve"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗣"
+    title="𝗣"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5e3.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗿"
+    title="𝗿"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ff.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗶"
+    title="𝗶"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f6.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗺"
+    title="𝗺"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5fa.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗼"
+    title="𝗼"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5fc.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗿"
+    title="𝗿"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ff.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗱"
+    title="𝗱"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f1.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗶"
+    title="𝗶"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f6.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗮"
+    title="𝗮"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ee.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗹"
+    title="𝗹"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f9.svg"> <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗨"
+    title="𝗨"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5e8.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗿"
+    title="𝗿"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ff.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗴"
+    title="𝗴"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f4.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗲"
+    title="𝗲"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f2.svg">
+Whenever Azathoth votes during an elimination, the abyssal well of chaos opens up and casts an extra vote on a random Herald; if the Herald that random vote was casted to is eliminated, Azathoth gains a vote parchment as well as immunity next round.
+
+<img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗔"
+    title="𝗔"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5d4.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗯"
+    title="𝗯"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ef.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘆"
+    title="𝘆"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d606.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘀"
+    title="𝘀"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d600.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘀"
+    title="𝘀"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d600.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗮"
+    title="𝗮"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5ee.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗹"
+    title="𝗹"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f9.svg"> <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗜"
+    title="𝗜"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5dc.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗱"
+    title="𝗱"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f1.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗶"
+    title="𝗶"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5f6.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝗼"
+    title="𝗼"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d5fc.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="𝘁"
+    title="𝘁"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1d601.svg">
+Azathoth is not affected by abilities that restrict, block, or alter his communication. If an ability transports ALL Heralds into new communication spaces, Azathoth maintains his previous channels and also gains the new ones. He may send messages to Heralds in these channels, though they cannot reply.
+Azathoth may choose whether or not to activate this ability each time it would apply, allowing him to benefit from positive communication effects.</div></div></div></div><div class="chatlog__embed-images chatlog__embed-images--single"><div class=chatlog__embed-image-container><a class=chatlog__embed-image-link href=https://images-ext-1.discordapp.net/external/bTIE7P12G4OXgW5MmGaBCDDwhCceBHf1p2XsiMTme8E/https/imgur.com/fKRXlHT.png> <img class=chatlog__embed-image src=https://images-ext-1.discordapp.net/external/bTIE7P12G4OXgW5MmGaBCDDwhCceBHf1p2XsiMTme8E/https/imgur.com/fKRXlHT.png alt=Image loading=lazy> </a></div></div></div></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432594781133082665 class=chatlog__message-container data-message-id=1432594781133082665><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 28, 2025 1:00 AM"><a href=#chatlog__message-container-1432594781133082665>2025-10-28 1:00 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Just checkin something real quick</span></div></div></div></div><div id=chatlog__message-container-1432594816373620806 class=chatlog__message-container data-message-id=1432594816373620806><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 28, 2025 1:00 AM">1:00 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Is the extra vote parchment permanent?</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432597606344953928 class=chatlog__message-container data-message-id=1432597606344953928><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/433015462062981131/3dc18e778971f4a478dafe6f720959df.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(216,0,47) title=rikaviper data-user-id=433015462062981131>rikav ✞</span> <span class=chatlog__timestamp title="October 28, 2025 1:11 AM"><a href=#chatlog__message-container-1432597606344953928>2025-10-28 1:11 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>yeah</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432600594052415589 class=chatlog__message-container data-message-id=1432600594052415589><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 28, 2025 1:23 AM"><a href=#chatlog__message-container-1432600594052415589>2025-10-28 1:23 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Sweeeeet</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432880750172176454 class=chatlog__message-container data-message-id=1432880750172176454><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="October 28, 2025 7:56 PM"><a href=#chatlog__message-container-1432880750172176454>2025-10-28 7:56 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><span class="chatlog__markdown-mention" style="">@deleted-role</span> 
+
+<h3>CONFESSIONAL QUESTIONS <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="glungi"
+    title="glungi"
+    src="https://cdn.discordapp.com/emojis/1418421686012870718.png"> </h3>
+1. How do you feel about the eliminations on the other tribes? Were those something you were expecting?
+2. Are there any players in particular that stand out for you? (In a good or a bad way)
+3. Do some trust rankings for this episode <strong>(these are mandatory) </strong></span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432919383302475866 class=chatlog__message-container data-message-id=1432919383302475866><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 28, 2025 10:30 PM"><a href=#chatlog__message-container-1432919383302475866>2025-10-28 10:30 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>1. Currently, I am glad I was able to be apart of the winning tribe for once, its a good feeling. As for the losing tribe I am not keeping track of who is where just yet, since that information hasnt made itself important yet since cross tribe channels aren&#39;t open.</span></div></div></div></div><div id=chatlog__message-container-1432920328824426659 class=chatlog__message-container data-message-id=1432920328824426659><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 28, 2025 10:33 PM">10:33 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>2. Im getting more concerned with Remi more so than usual, while I am on their good side, as far as I am aware, I know they are gonna pose a significant threat to the challenge later on. They themselves say they are unsure of the voting next round, but saying that to me of all people doesnt make sense. Everyones going to be worried about voting, nobody is ever calm about voting, I am now worried that they are trying to get me to underestimate them.</span></div></div></div></div><div id=chatlog__message-container-1432920433694347510 class=chatlog__message-container data-message-id=1432920433694347510><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 28, 2025 10:34 PM">10:34 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>3. Trust rankings are as follows:
+<ul><li>Epoch</li><li>Kaitan</li><li>Blake</li><li>Remi</li></ul></span></div><div class=chatlog__reactions><div class=chatlog__reaction title=heart><img class="chatlog__emoji chatlog__emoji--small" alt=❤️ src=https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/2764.svg loading=lazy> <span class=chatlog__reaction-count>1</span></div></div></div></div></div><div id=chatlog__message-container-1432920493568168107 class=chatlog__message-container data-message-id=1432920493568168107><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 28, 2025 10:34 PM">10:34 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>6/7</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1432920494176469054 class=chatlog__message-container data-message-id=1432920494176469054><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/235148962103951360/ed3dac3b6e7a851df781632a4295fcb9.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(99,138,255) title=Carl-bot#1536 data-user-id=235148962103951360>Carl-bot</span> <span class=chatlog__author-tag>BOT</span> <span class=chatlog__timestamp title="October 28, 2025 10:34 PM"><a href=#chatlog__message-container-1432920494176469054>2025-10-28 10:34 PM</a></span></div><div class=chatlog__embed><video class=chatlog__embed-generic-gifv width=480 height=480 loop onmouseover=this.play() onmouseout=this.pause()><source src=https://images-ext-1.discordapp.net/external/CHHubeihbyW-Iu8rBv4EjN4rNKs44rs1qomvxjGrt8w/https/media2.giphy.com/media/v1.Y2lkPTczYjhmN2IxMGx4NnJqcjdkY3psdWtkbzR6azd4ZGU0emtvcHZ2NWNzdW1odnA2dCZlcD12MV9naWZzX2dpZklkJmN0PWc/LjdbvPRofWVuqCbizc/giphy.mp4 alt="Embedded gifv"></video></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1434019977530314792 class=chatlog__message-container data-message-id=1434019977530314792><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="October 31, 2025 11:23 PM"><a href=#chatlog__message-container-1434019977530314792>2025-10-31 11:23 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>The cards have fallen right into my hands</span></div></div></div></div><div id=chatlog__message-container-1434020121038422066 class=chatlog__message-container data-message-id=1434020121038422066><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="October 31, 2025 11:23 PM">11:23 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Roy AND mouse are in my tribe, and they are now the prime antagonists to this guy right here.</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1434021963239657535 class=chatlog__message-container data-message-id=1434021963239657535><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="October 31, 2025 11:31 PM"><a href=#chatlog__message-container-1434021963239657535>2025-10-31 11:31 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>How we feeling about this tribe bro bro</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1434045965849071768 class=chatlog__message-container data-message-id=1434045965849071768><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="November 1, 2025 1:06 AM"><a href=#chatlog__message-container-1434045965849071768>2025-11-01 1:06 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>This tribe, goated, got majority of my good pals in here so we are gladly popping off</span></div></div></div></div><div id=chatlog__message-container-1434046059923116122 class=chatlog__message-container data-message-id=1434046059923116122><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 1, 2025 1:07 AM">1:07 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>and with that I got the people who I think betrayed me, wont act on any agressions yet until I get perfect confirmation from hunter.</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1434743315479396363 class=chatlog__message-container data-message-id=1434743315479396363><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="November 2, 2025 10:17 PM"><a href=#chatlog__message-container-1434743315479396363>2025-11-02 10:17 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Conf Questions
+1. How do you feel about the new swap? Do you feel safe within your tribe
+2. How do you feel about the double elimination round! If you’re going to tribal what are your plans?
+3. Give me a trust rankings for your tribe! <strong>mandatory</strong></span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1434771136737972224 class=chatlog__message-container data-message-id=1434771136737972224><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="November 3, 2025 12:08 AM"><a href=#chatlog__message-container-1434771136737972224>2025-11-03 12:08 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Im just gonna do the trust ranking right now, ill get to the other stuff later</span></div></div></div></div><div id=chatlog__message-container-1434771359292194879 class=chatlog__message-container data-message-id=1434771359292194879><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 3, 2025 12:09 AM">12:09 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><ul><li>Epoch</li><li>Zan</li><li>Kaitan</li><li>Dumbell</li><li>Leah</li><li>Mouse</li><li>Roy</li></ul></span></div><div class=chatlog__reactions><div class=chatlog__reaction title=heart><img class="chatlog__emoji chatlog__emoji--small" alt=❤️ src=https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/2764.svg loading=lazy> <span class=chatlog__reaction-count>1</span></div></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1435322118110711908 class=chatlog__message-container data-message-id=1435322118110711908><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="November 4, 2025 12:37 PM"><a href=#chatlog__message-container-1435322118110711908>2025-11-04 12:37 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>I forgot to say thank you, but o7</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1436159104879034438 class=chatlog__message-container data-message-id=1436159104879034438><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="November 6, 2025 8:03 PM"><a href=#chatlog__message-container-1436159104879034438>2025-11-06 8:03 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><span class="chatlog__markdown-mention" style="">@deleted-role</span> 
+
+<strong>Hello my favourite player</strong> <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="jumbus"
+    title="jumbus"
+    src="https://cdn.discordapp.com/emojis/1418423146549215322.png"> 
+
+I am personally asking you to answer these questions for me <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="bluethumbsup"
+    title="bluethumbsup"
+    src="https://cdn.discordapp.com/emojis/1417972190510317628.png"> 
+
+1. With an eventual merge coming, how are you preparing yourself for it?
+
+2. What’s your favourite tv show?
+
+3. Give me trust rankings for your tribe! <strong>mandatory</strong></span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1436350474981867632 class=chatlog__message-container data-message-id=1436350474981867632><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="November 7, 2025 8:43 AM"><a href=#chatlog__message-container-1436350474981867632>2025-11-07 8:43 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>1. I am excited for independant challenges, I think they could be great fun all round! My plan is to just propel others to the finish line cause I reckon I aint gonna make it to the end.
+
+2. Neon Genesis Evangelion.
+
+3. 
+<ul><li>Kaitan</li><li>Epoch</li><li>Dumbell</li><li>Zan</li><li>Leah</li><li>Roy</li><li>Mouse</li></ul></span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1436362618859294850 class=chatlog__message-container data-message-id=1436362618859294850><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="November 7, 2025 9:32 AM"><a href=#chatlog__message-container-1436362618859294850>2025-11-07 9:32 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Straight up if I observe a single vote slung towards Epoch, people will need to sleep with both eyes open</span></div></div></div></div><div id=chatlog__message-container-1436362690129035595 class=chatlog__message-container data-message-id=1436362690129035595><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 7, 2025 9:32 AM">9:32 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Also mouse gotta go</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1436519628611256423 class=chatlog__message-container data-message-id=1436519628611256423><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="November 7, 2025 7:56 PM"><a href=#chatlog__message-container-1436519628611256423>2025-11-07 7:56 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Im back</span></div></div></div></div><div id=chatlog__message-container-1436519638400761857 class=chatlog__message-container data-message-id=1436519638400761857><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 7, 2025 7:56 PM">7:56 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Hey temple</span></div></div></div></div><div id=chatlog__message-container-1436519664476754020 class=chatlog__message-container data-message-id=1436519664476754020><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 7, 2025 7:56 PM">7:56 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>I&#39;ve done the challenge</span></div></div></div></div><div id=chatlog__message-container-1436519687314735336 class=chatlog__message-container data-message-id=1436519687314735336><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 7, 2025 7:56 PM">7:56 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>And epoch is dead</span></div></div></div></div><div id=chatlog__message-container-1436519861160378448 class=chatlog__message-container data-message-id=1436519861160378448><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 7, 2025 7:57 PM">7:57 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>I wont rest till Zan, Dumbell, Roy, Mouse, Hunter, Rodeo, all of them are dead.</span></div></div></div></div><div id=chatlog__message-container-1436519901513912435 class=chatlog__message-container data-message-id=1436519901513912435><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 7, 2025 7:57 PM">7:57 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>I dont care about finals</span></div></div></div></div><div id=chatlog__message-container-1436519918618022059 class=chatlog__message-container data-message-id=1436519918618022059><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 7, 2025 7:57 PM">7:57 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>I dont care about erebus</span></div></div></div></div><div id=chatlog__message-container-1436519961756700763 class=chatlog__message-container data-message-id=1436519961756700763><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 7, 2025 7:57 PM">7:57 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>I care about making sure they never see victory again</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1436695031888085063 class=chatlog__message-container data-message-id=1436695031888085063><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="November 8, 2025 7:33 AM"><a href=#chatlog__message-container-1436695031888085063>2025-11-08 7:33 AM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Mouse can be exempt from my call to death. They did indeed defend themselves after all.</span></div></div></div></div><div id=chatlog__message-container-1436695097139007680 class=chatlog__message-container data-message-id=1436695097139007680><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 8, 2025 7:33 AM">7:33 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>However it should of been a lone battle to convince epoch otherwise.</span></div></div></div></div><div id=chatlog__message-container-1436695147722313838 class=chatlog__message-container data-message-id=1436695147722313838><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 8, 2025 7:33 AM">7:33 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Now theres others to deal with</span></div></div></div></div><div id=chatlog__message-container-1436695169284968548 class=chatlog__message-container data-message-id=1436695169284968548><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 8, 2025 7:33 AM">7:33 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>I say roy must go</span></div></div></div></div><div id=chatlog__message-container-1436695233340379227 class=chatlog__message-container data-message-id=1436695233340379227><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 8, 2025 7:33 AM">7:33 AM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>I hold my own personal grudge and now I must gain the upper hand here.</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1436901578765500446 class=chatlog__message-container data-message-id=1436901578765500446><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="November 8, 2025 9:13 PM"><a href=#chatlog__message-container-1436901578765500446>2025-11-08 9:13 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><strong>confessional questions</strong> <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="steamhappy"
+    title="steamhappy"
+    src="https://cdn.discordapp.com/emojis/1429174638742736908.png"> 
+
+1. Who’s a player that’s died in premerge would you like to see comeback? Which player would you not like to see come back?
+
+2. Do you view yourself as a hero or a villain of this game?
+
+3. What’s the main thing you look for in someone to brand them as a threat?</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1436901964616044616 class=chatlog__message-container data-message-id=1436901964616044616><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="November 8, 2025 9:15 PM"><a href=#chatlog__message-container-1436901964616044616>2025-11-08 9:15 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>1. Epoch, straight up, its evil how they took hold of him dipping for just a moment to rip em to shreds.
+
+2. I say I could be seen as a villain at the start but I am arcing into a hero right to now.
+
+3. How often they lie, and how often they have betrayed.</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437242206862839861 class=chatlog__message-container data-message-id=1437242206862839861><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="November 9, 2025 7:47 PM"><a href=#chatlog__message-container-1437242206862839861>2025-11-09 7:47 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>kractus u got robbed so hard icl! but tysm for playing</span></div></div></div></div><div id=chatlog__message-container-1437242247698583562 class=chatlog__message-container data-message-id=1437242247698583562><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 9, 2025 7:47 PM">7:47 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>It was fun seeing you win redemption and return to the game</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437242782459760750 class=chatlog__message-container data-message-id=1437242782459760750><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="November 9, 2025 7:49 PM"><a href=#chatlog__message-container-1437242782459760750>2025-11-09 7:49 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Thanks man I had fun, its all good and  I got no complaints to the hosts with anything that happened nor the players. I had a really good time here and I am very thankful for all the members of staff who had worked hard to put everything together so thank you all for that. Ill stick around if its possible to get into another one of these but even if thats not the case I will stick around just for the hell of it. Thank you so much for the fun minigames and opportunities to meet people and make friends so I am glad to have participated.</span></div><div class=chatlog__reactions><div class=chatlog__reaction title=heart><img class="chatlog__emoji chatlog__emoji--small" alt=❤️ src=https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/2764.svg loading=lazy> <span class=chatlog__reaction-count>1</span></div></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437247451793854487 class=chatlog__message-container data-message-id=1437247451793854487><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/433015462062981131/3dc18e778971f4a478dafe6f720959df.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(216,0,47) title=rikaviper data-user-id=433015462062981131>rikav ✞</span> <span class=chatlog__timestamp title="November 9, 2025 8:08 PM"><a href=#chatlog__message-container-1437247451793854487>2025-11-09 8:08 PM</a></span></div><div class=chatlog__attachment><audio class=chatlog__attachment-media controls><source src="https://cdn.discordapp.com/attachments/1422962183586713641/1437247451630403635/voice-message.ogg?ex=694fda3f&amp;is=694e88bf&amp;hm=cba3b4b977657e4b8fca3b8efa18dfee97e0b84db4c53c51fb961d33007b4c7c&amp;" alt="Audio attachment" title="Audio: voice-message.ogg (144.08 KB)"></audio></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437247452922249387 class=chatlog__message-container data-message-id=1437247452922249387><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__reply-symbol></div><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/811652199100317726/68bc6c21bcae6ec0e5fa91b561410e25.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__reply><img class=chatlog__reply-avatar src="https://cdn.discordapp.com/avatars/433015462062981131/3dc18e778971f4a478dafe6f720959df.png?size=512" alt=Avatar loading=lazy><div class=chatlog__reply-author style=color:rgb(216,0,47) title=rikaviper>rikav ✞</div><div class=chatlog__reply-content><span class=chatlog__reply-link onclick="scrollToMessage(event,'1437247451793854487')"> <em>Click to see attachment</em> <span>🖼️</span> </span></div></div><div class=chatlog__header><span class=chatlog__author style=color:rgb(99,138,255) title=Scripty#6156 data-user-id=811652199100317726>Scripty</span> <span class=chatlog__author-tag>BOT</span> <span class=chatlog__timestamp title="November 9, 2025 8:08 PM"><a href=#chatlog__message-container-1437247452922249387>2025-11-09 8:08 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><div class="chatlog__markdown-quote"><div class="chatlog__markdown-quote-border"></div><div class="chatlog__markdown-quote-content">practice, bro. If you end up wanting to play again in season two, you will probably be an instant cast.
+ Oh my gosh, Newtie, you are so funny, and you put in so much work to the, like, challenges,
+ and even your parkourments. And you have gotten fucked up by patron abilities two times in a row.
+ I&#39;m so sorry, but, um, yeah, I&#39;m glad that you had fun. Uh, I&#39;m glad that you had a good first
+ or a good experience. If you ever need to talk or anything like that, um, I&#39;ll insert me a little
+ So yeah, thank you. Thank you for playing Factors.
+</div></div>-# 8.018 (37.400)</span> <span class=chatlog__edited-timestamp title="November 9, 2025 8:08 PM">(edited)</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437247755914444800 class=chatlog__message-container data-message-id=1437247755914444800><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="November 9, 2025 8:09 PM"><a href=#chatlog__message-container-1437247755914444800>2025-11-09 8:09 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Practice <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="🔥"
+    title="fire"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f525.svg"></span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437247794661425273 class=chatlog__message-container data-message-id=1437247794661425273><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="November 9, 2025 8:09 PM"><a href=#chatlog__message-container-1437247794661425273>2025-11-09 8:09 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>All good, I am very much glad to have been here and continue to be here.</span></div></div></div></div><div id=chatlog__message-container-1437247823664906271 class=chatlog__message-container data-message-id=1437247823664906271><div class=chatlog__message><div class=chatlog__message-aside><div class=chatlog__short-timestamp title="November 9, 2025 8:09 PM">8:09 PM</div></div><div class=chatlog__message-primary><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Practice <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="🗣"
+    title="🗣"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f5e3.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="🗣"
+    title="🗣"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f5e3.svg"><img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="🗣"
+    title="🗣"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f5e3.svg"></span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437247870679126167 class=chatlog__message-container data-message-id=1437247870679126167><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/433015462062981131/3dc18e778971f4a478dafe6f720959df.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(216,0,47) title=rikaviper data-user-id=433015462062981131>rikav ✞</span> <span class=chatlog__timestamp title="November 9, 2025 8:09 PM"><a href=#chatlog__message-container-1437247870679126167>2025-11-09 8:09 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Practice <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="🔥"
+    title="fire"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f525.svg"> ✍️</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437247907261841408 class=chatlog__message-container data-message-id=1437247907261841408><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="November 9, 2025 8:10 PM"><a href=#chatlog__message-container-1437247907261841408>2025-11-09 8:10 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Kractus dm me not Rikav if u need anything</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437247932121481236 class=chatlog__message-container data-message-id=1437247932121481236><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/433015462062981131/3dc18e778971f4a478dafe6f720959df.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(216,0,47) title=rikaviper data-user-id=433015462062981131>rikav ✞</span> <span class=chatlog__timestamp title="November 9, 2025 8:10 PM"><a href=#chatlog__message-container-1437247932121481236>2025-11-09 8:10 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>WHAT THE FREAK</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437247984893952121 class=chatlog__message-container data-message-id=1437247984893952121><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="November 9, 2025 8:10 PM"><a href=#chatlog__message-container-1437247984893952121>2025-11-09 8:10 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Rikav will leave u on read</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437248247788863590 class=chatlog__message-container data-message-id=1437248247788863590><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="November 9, 2025 8:11 PM"><a href=#chatlog__message-container-1437248247788863590>2025-11-09 8:11 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>Intentionally</span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437248322598604861 class=chatlog__message-container data-message-id=1437248322598604861><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/433015462062981131/3dc18e778971f4a478dafe6f720959df.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(216,0,47) title=rikaviper data-user-id=433015462062981131>rikav ✞</span> <span class=chatlog__timestamp title="November 9, 2025 8:11 PM"><a href=#chatlog__message-container-1437248322598604861>2025-11-09 8:11 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>NOOO <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="AJ_Crying"
+    title="AJ_Crying"
+    src="https://cdn.discordapp.com/emojis/1248823929875857520.png"></span></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1437248537107890197 class=chatlog__message-container data-message-id=1437248537107890197><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/454807629391200257/57e37f856455efd9dff456e4a0cd5750.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(107,153,255) title=mrkractus data-user-id=454807629391200257>Kractus [S1 - 12th]</span> <span class=chatlog__timestamp title="November 9, 2025 8:12 PM"><a href=#chatlog__message-container-1437248537107890197>2025-11-09 8:12 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve>&quot;DM if you need anything, ill respond&quot;</span></div><div class=chatlog__attachment><a href="https://cdn.discordapp.com/attachments/1422962183586713641/1437248536747048980/Screenshot_20250930_222308_TikTok.jpg?ex=694fdb41&amp;is=694e89c1&amp;hm=4a5c064dcbefbe40bec75eb7387088837beaa82752d3ba8bcd5f2c103604e5ac&amp;"> <img class=chatlog__attachment-media src="https://cdn.discordapp.com/attachments/1422962183586713641/1437248536747048980/Screenshot_20250930_222308_TikTok.jpg?ex=694fdb41&amp;is=694e89c1&amp;hm=4a5c064dcbefbe40bec75eb7387088837beaa82752d3ba8bcd5f2c103604e5ac&amp;" alt="Image attachment" title="Image: Screenshot_20250930_222308_TikTok.jpg (61.29 KB)" loading=lazy> </a></div><div class=chatlog__reactions><div class=chatlog__reaction title=fire><img class="chatlog__emoji chatlog__emoji--small" alt=🔥 src=https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f525.svg loading=lazy> <span class=chatlog__reaction-count>1</span></div></div></div></div></div></div>
+<div class=chatlog__message-group><div id=chatlog__message-container-1440768699651981475 class=chatlog__message-container data-message-id=1440768699651981475><div class=chatlog__message><div class=chatlog__message-aside><img class=chatlog__avatar src="https://cdn.discordapp.com/avatars/125237424430252033/090163ed70c1cc21c622e561d694adaf.png?size=512" alt=Avatar loading=lazy></div><div class=chatlog__message-primary><div class=chatlog__header><span class=chatlog__author style=color:rgb(76,173,208) title=sjferno data-user-id=125237424430252033>sj’ferno</span> <span class=chatlog__timestamp title="November 19, 2025 1:20 PM"><a href=#chatlog__message-container-1440768699651981475>2025-11-19 1:20 PM</a></span></div><div class="chatlog__content chatlog__markdown"><span class=chatlog__markdown-preserve><span class="chatlog__markdown-mention" style="">@deleted-role</span> 
+
+woah conf q&#39;s jump scare! <img
+    loading="lazy"
+    class="chatlog__emoji "
+    alt="😨"
+    title="fearful"
+    src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f628.svg"> 
+
+1. You have returned (temporarily), but granted you are eliminated, what are you looking to do? Cause chaos or help an ally?
+
+2. Since your elimination, has your perception of any players shifted now that you’ve been able to speak with them again?
+
+3. If you could have one wish, what would it be?
+
+4. Rank the current alive players from who&#39;d you like to see win this game to least like.</span></div></div></div></div></div>
+
+</div>
+<div class=postamble><div class=postamble__entry>Exported 122 message(s)</div><div class=postamble__entry>Timezone: UTC-5</div></div>

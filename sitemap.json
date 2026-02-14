@@ -44,7 +44,6 @@
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Asgard Archives 🦋 - cian-kractus [1431073605587959818].html",
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Asgard Archives 🦋 - cian-remi [1427468828660600922].html"
   ],
-  "Assets": [],
   "Bifrost": [
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Bifröst Archives ❄️ - austin-dumbbell [1431070271946887178].html",
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Bifröst Archives ❄️ - austin-henry [1427469516308480153].html",
@@ -152,6 +151,21 @@
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Erebus Archives 💀 - 🤔-uhhhh [1424902567242104832].html",
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Erebus Archives 💀 - 🧠-no-idea [1426701788484206652].html"
   ],
+  "Finale": [
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - blake-questioning [1443750999075459215].html",
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - dumbbell-quarters [1443458253617893386].html",
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - finale [1443751903581175879].html",
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - grand-hall [1422365235217567836].html",
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - hunter-questioning [1443751001004834947].html",
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - kaitan-questioning [1443751005043949610].html",
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - leah-questioning [1443751002963579002].html",
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - mouse-quarters [1443458548393840681].html",
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - remi-questioning [1443750996873445438].html",
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - rodeo-questioning [1443750984462630944].html",
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - roy-quarters [1443458792929890314].html",
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - shadow-questioning [1443750995036471527].html",
+    "𝐓𝐫𝐮𝐜𝐞 - Finale ☆ - zan-questioning [1443750987570610327].html"
+  ],
   "General": [
     "𝐓𝐫𝐮𝐜𝐞 ✧ - General Archives ☆ - china [1434233453808844941].html",
     "𝐓𝐫𝐮𝐜𝐞 ✧ - General Archives ☆ - judgement-hall [1423312293210357931].html",
@@ -187,6 +201,10 @@
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Lingshan Archives ⛰️ - kractus-leah [1433972505332158544].html",
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Lingshan Archives ⛰️ - kractus-zan [1433972508406583396].html"
   ],
+  "Main": [
+    "𝐓𝐫𝐮𝐜𝐞 - The Apotheion ☆ - chronicles [1422365993673556008].html",
+    "𝐓𝐫𝐮𝐜𝐞 - The Apotheion ☆ - proclamations [1422362260575092816].html"
+  ],
   "Midgard": [
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Midgard Archives 🌼 - aeris-leah [1431070578122559578].html",
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Midgard Archives 🌼 - aeris-zan [1431070582706798672].html",
@@ -198,7 +216,6 @@
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Midgard Archives 🌼 - perma-zan [1431073887063375944].html",
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Midgard Archives 🌼 - ⚔️-damage-per-second [1432146366548807790].html"
   ],
-  "NEEDIMPLEMENT": [],
   "Nun": [
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Nun Archives 🦈 - henry-shadow [1427469542031884421].html",
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Nun Archives 🦈 - 🌧️-ponther [1428172533311602738].html",
@@ -219,11 +236,6 @@
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Pontus Archives 🌊 - 🌖-twilight [1425665214694559887].html",
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Pontus Archives 🌊 - 💸-vowel-squad [1424226681983471666].html"
   ],
-  "public": [
-    "404.html",
-    "index.html"
-  ],
-  "src": [],
   "Temples": [
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Finale Temples + Submissions 🌙 - dumbbell-temple [1422666769729847328].html",
     "𝐓𝐫𝐮𝐜𝐞 ✧ - Finale Temples + Submissions 🌙 - mouse-temple [1422700223653871727].html",

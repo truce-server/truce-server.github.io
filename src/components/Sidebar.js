@@ -163,6 +163,14 @@ function Sidebar({ sitemap, selectedChatlog, selectedChannel, onSelectChatlog, o
 
   const eraGroups = [
     {
+      label: 'Truce: The Apotheion',
+      folders: [ 'The Apotheion', 'Temples']
+    },
+    {
+      label: 'Finale',
+      folders: [ 'Finale']
+    },
+    {
       label: 'Varanitlan Era',
       folders: [ 'Varanitilan 1on1s', 'Varantilan Alliances', 'Valhalla']
     },
@@ -175,11 +183,11 @@ function Sidebar({ sitemap, selectedChatlog, selectedChannel, onSelectChatlog, o
       folders: ['Bifrost', 'Midgard', 'Asgard']
     },
     {
-      label: 'Egypt Era',
+      label: 'Egyptian Era',
       folders: ['Aaru', 'Akhet', 'Nun', 'Across Realms - Egypt']
     },
     {
-      label: 'Primordial Era',
+      label: 'Greek Era',
       folders: ['Aether', 'Khaos', 'Pontus', 'Erebus']
     }
   ];
