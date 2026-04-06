@@ -310,7 +310,7 @@ function SeasonSelector({ onSelectSeason }) {
             fontSize: '20px',
             fontWeight: 400,
             color: 'rgba(255, 255, 255, 0.85)',
-            marginBottom: 'clamp(50px, 12vw, 130px)',
+            marginBottom: 'clamp(20px, 6vw, 70px)',
             letterSpacing: '2px',
             fontFamily: 'Georgia, serif',
             fontStyle: 'italic',

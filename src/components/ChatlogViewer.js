@@ -33,7 +33,9 @@ function ChatlogViewer({ chatlogPath, onGoBack, basePath = 'season-1', resolveCh
   const scrollStopTimerRef = useRef(null);
   
   // Extract info from chatlog path
-  const [folder, filename] = chatlogPath.split('/');
+  const pathParts = chatlogPath.split('/');
+  const folder = pathParts[0];
+  const filename = pathParts[pathParts.length - 1];
   const cleanTitle = filename
     ?.replace(/\.html$/, '')
     ?.replace(/𝐓𝐫𝐮𝐜𝐞 ✧ - /, '')

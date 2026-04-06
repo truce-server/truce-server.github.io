@@ -26,14 +26,69 @@ const songOfLifeSitemap = {
   'Season 1': [
     '𝐓𝐫𝐮𝐜𝐞 - Truce SOL ☆ - green-room [1455408747060133921].html',
     '𝐓𝐫𝐮𝐜𝐞 - Truce SOL ☆ - studio [1455409431444721749].html'
+  ],
+  'Season 2': [
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - a-person-submissions [1474196372046741688].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - aeris-submissions [1474196169298153649].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - aiden-submissions [1474571795649663008].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - alicia-submissions [1474567274076835900].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - alyx-submissions [1474221864694972576].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - bigbouncybear-submissions [1474572554034352178].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - bjorn-submissions [1474196373627994236].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - cristen-submissions [1474196377520050368].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - darth-submissions [1474196379390840884].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - dumbbell-submissions [1474196381387198496].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - eddie-submissions [1474567456474398770].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - epoch-submissions [1474196383266504887].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - fantasy-submissions [1474196385099419740].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - gray-submissions [1474196386244329634].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - heist-submissions [1474196387376664670].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - henke-submissions [1474197108692090963].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - hunter-submissions [1474197110852161770].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - hydro-submissions [1474197111909257381].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - interlinked-submissions [1474207949139214376].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - jesse-submissions [1474211254062288956].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - joker-submissions [1474213567522934975].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - jules-submissions [1474197113708744858].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - justin-submissions [1474558624482197544].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - kaitan-submissions [1474197115315163361].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - kawaiimuski-submissions [1474197116875444330].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - kebab-submissions [1474197118444114133].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - kenny-submissions [1474197413034987623].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - kirøjøy-submissions [1474223084427940034].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - kractus-submissions [1474197414750715995].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - layton-submissions [1474197416617054250].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - leah-submissions [1474197419582296097].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - leslie-submissions [1474197422090752152].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - melo-submissions [1474197424116338689].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - mixie-submissions [1474197425743855659].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - motis-submissions [1474197427165597837].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - mouse-submissions [1474215010505855050].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - new-yorker-submissions [1474206577153147043].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - noor-submissions [1474197429057228861].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - nova-submissions [1474197430730883122].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - pigeon-submissions [1474197595856437399].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - play-submissions [1474197597739815097].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - rouanet-submissions [1474197599782436876].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - sean-submissions [1474558752714658004].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - shinx-submissions [1474197601317552201].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - silent-submissions [1474197602445820086].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - times-submissions [1474556567922671716].html',
+    'Season 2/𝐓𝐫𝐮𝐜𝐞 - Truce SOL 2 Submissions ★ - topanga-submissions [1474197603704111155].html'
   ]
 };
 
 const songOfLifeTheme = ['#F1E0FF', '#C799D3', '#866293', '#61356B', '#331E3C'];
 
 const songOfLifeResolver = (chatlogPath) => {
-  const [, ...fileParts] = chatlogPath.split('/');
+  const [season, ...fileParts] = chatlogPath.split('/');
   const file = fileParts.join('/');
+
+  if (season === 'Season 2') {
+    const normalizedFile = file.replace(/^Season 2\//, '');
+    return `NEEDIMPLEMENT/SOL/Season 2/${normalizedFile}`;
+  }
+
   return `NEEDIMPLEMENT/SOL/${file}`;
 };
 
