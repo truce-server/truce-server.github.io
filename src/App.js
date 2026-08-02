@@ -411,33 +411,6 @@ function AppContent({
   );
 }
 
-function ComingSoon({ onReturnToSeason }) {
-  return (
-    <Box
-      style={{
-        height: '100vh',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundImage: 'linear-gradient(135deg, #0a1f3f 0%, #1e3a5f 50%, #2a5a8f 100%)',
-        color: '#ffffff'
-      }}
-    >
-      <Text size="48px" fw={700} style={{ letterSpacing: '2px', color: '#d4af37' }}>
-        Coming Soon
-      </Text>
-      <Text size="md" mt="xs" c="gray.3">
-        Season 2 is on the way.
-      </Text>
-      <Button mt="xl" variant="light" onClick={onReturnToSeason}>
-        Back to Seasons
-      </Button>
-    </Box>
-  );
-}
-
 function Season3ComingSoon({ onReturnToSeason }) {
   return (
     <Box
