@@ -38,8 +38,8 @@ function ChatlogViewer({ chatlogPath, onGoBack, basePath = 'season-1', resolveCh
   const filename = pathParts[pathParts.length - 1];
   const cleanTitle = filename
     ?.replace(/\.html$/, '')
-    ?.replace(/𝐓𝐫𝐮𝐜𝐞 ✧ - /, '')
-    ?.replace(/[^-]*Archives[^-]*- /, '')
+    ?.replace(/^(?:Truce|Truce S2[^-]*) - [^-]+ - /, '')  // strip "Truce - Category - " prefix
+    ?.replace(/^(?:Truce|Truce S2[^-]*) - /, '')            // strip any remaining "Truce - " prefix
     ?.replace(/\s*\[\d+\]\s*$/, '') || 'Unknown';
 
   const palette = useMemo(() => {

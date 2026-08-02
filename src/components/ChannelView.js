@@ -16,8 +16,8 @@ function ChannelView({ channelName, chatlogs, onSelectChatlog, resolveChatlogPat
   const getChatlogMetadata = (filename) => {
     const cleanTitle = filename
       .replace(/\.html$/, '')
-      .replace(/𝐓𝐫𝐮𝐜𝐞 ✧ - /, '')
-      .replace(/[^-]*Archives[^-]*- /, '')
+      .replace(/^(?:Truce|Truce S2[^-]*) - [^-]+ - /, '')  // strip "Truce - Category - " prefix
+      .replace(/^(?:Truce|Truce S2[^-]*) - /, '')            // strip any remaining "Truce - " prefix
       .replace(/\s*\[\d+\]\s*$/, '');
 
     // Extract ID from filename for sorting

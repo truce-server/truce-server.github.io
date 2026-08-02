@@ -5,6 +5,7 @@ import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 function SeasonSelector({ onSelectSeason }) {
   const [season2Particles, setSeason2Particles] = React.useState([]);
   const [musicNoteParticles, setMusicNoteParticles] = React.useState([]);
+  const [season3Hovered, setSeason3Hovered] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
   const [revealed, setRevealed] = React.useState(false);
   const scrollContainerRef = React.useRef(null);
@@ -317,13 +318,13 @@ function SeasonSelector({ onSelectSeason }) {
             textTransform: 'uppercase'
           }}
         >
-          Choose Your Season
+          Select a Season to Explore
         </Box>
 
         {/* Main container - seasons on top, Song of Life below */}
         <Stack gap="60px" align="center" style={{ marginBottom: '60px' }}>
           {/* Season cards container - side by side */}
-          <Group justify="center" gap="60px" style={{ marginTop: 'clamp(12px, 4vw, 32px)' }}>
+          <Group justify="center" gap="clamp(20px, 3vw, 40px)" style={{ marginTop: 'clamp(12px, 4vw, 32px)' }}>
             {/* Season 1 */}
             <Box style={{ textAlign: 'center', position: 'relative' }}>
             <Box
@@ -333,9 +334,9 @@ function SeasonSelector({ onSelectSeason }) {
               onClick={() => onSelectSeason('season1')}
               className="season-1-image"
               style={{
-                width: 'clamp(220px, 40vw, 420px)',
-                height: 'auto',
-                maxHeight: 'clamp(140px, 24vw, 230px)',
+                width: 'clamp(180px, 25vw, 320px)',
+                height: 'clamp(120px, 16vw, 213px)',
+                objectFit: 'contain',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
                 filter: 'drop-shadow(0 8px 20px rgba(212, 175, 55, 0.3))',
@@ -377,9 +378,9 @@ function SeasonSelector({ onSelectSeason }) {
               onClick={() => onSelectSeason('season2')}
               className="season-2-image"
               style={{
-                width: 'clamp(220px, 40vw, 420px)',
-                height: 'auto',
-                maxHeight: 'clamp(140px, 24vw, 230px)',
+                width: 'clamp(180px, 25vw, 320px)',
+                height: 'clamp(120px, 16vw, 213px)',
+                objectFit: 'contain',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
                 filter: 'drop-shadow(0 8px 20px rgba(212, 175, 55, 0.3))',
@@ -484,9 +485,100 @@ function SeasonSelector({ onSelectSeason }) {
               Season Two
             </Box>
           </Box>
-        </Group>
 
-        {/* Scroll down indicator arrow */}
+          {/* Season 3 */}
+          <Box style={{ textAlign: 'center', position: 'relative', overflow: 'visible' }}>
+            <Box
+              style={{
+                width: 'clamp(180px, 25vw, 320px)',
+                height: 'clamp(120px, 16vw, 213px)',
+                margin: '0 auto 15px',
+                position: 'relative',
+                cursor: 'pointer',
+                display: 'block'
+              }}
+              onClick={() => onSelectSeason('season3')}
+              onMouseEnter={() => setSeason3Hovered(true)}
+              onMouseLeave={() => setSeason3Hovered(false)}
+            >
+              <Box
+                component="img"
+                src="/Season3.png"
+                alt="Season 3"
+                className={`season-3-image${season3Hovered ? ' season-3-image--glitching' : ''}`}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  display: 'block',
+                  position: 'relative',
+                  zIndex: 3,
+                  filter: season3Hovered
+                    ? 'drop-shadow(0 12px 30px rgba(2, 162, 106, 0.45)) drop-shadow(2px 0 3px rgba(255, 0, 100, 0.28)) drop-shadow(-2px 0 3px rgba(0, 255, 200, 0.28))'
+                    : 'drop-shadow(0 8px 20px rgba(212, 175, 55, 0.3))',
+                  animation: season3Hovered ? 'season3Phase 2.2s ease-in-out infinite' : 'none',
+                  transition: 'filter 0.25s ease, transform 0.25s ease, opacity 0.25s ease',
+                  opacity: season3Hovered ? 0.98 : 1
+                }}
+              />
+              <Box
+                component="img"
+                src="/Season3.png"
+                alt=""
+                aria-hidden="true"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  display: 'block',
+                  position: 'absolute',
+                  inset: 0,
+                  zIndex: 2,
+                  pointerEvents: 'none',
+                  mixBlendMode: 'screen',
+                  opacity: season3Hovered ? 0.72 : 0,
+                  transform: 'translate3d(2px, 0, 0)',
+                  filter: 'hue-rotate(-18deg) saturate(1.7) brightness(1.15)'
+                }}
+                className={season3Hovered ? 'season-3-ghost season-3-ghost--red' : 'season-3-ghost'}
+              />
+              <Box
+                component="img"
+                src="/Season3.png"
+                alt=""
+                aria-hidden="true"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  display: 'block',
+                  position: 'absolute',
+                  inset: 0,
+                  zIndex: 1,
+                  pointerEvents: 'none',
+                  mixBlendMode: 'screen',
+                  opacity: season3Hovered ? 0.66 : 0,
+                  transform: 'translate3d(-2px, 0, 0)',
+                  filter: 'hue-rotate(20deg) saturate(1.8) brightness(1.1)'
+                }}
+                className={season3Hovered ? 'season-3-ghost season-3-ghost--cyan' : 'season-3-ghost'}
+              />
+            </Box>
+            <Box
+              style={{
+                fontSize: '24px',
+                fontWeight: 600,
+                color: '#02a26a',
+                letterSpacing: '2px',
+                fontFamily: 'Georgia, serif',
+                fontStyle: 'italic',
+                textTransform: 'uppercase'
+              }}
+            >
+              Season Three
+            </Box>
+          </Box>
+        </Group>
         <Box
           onClick={scrollToSongOfLife}
           style={{
@@ -831,6 +923,180 @@ function SeasonSelector({ onSelectSeason }) {
             }
             50% {
               opacity: 1;
+            }
+          }
+
+          @keyframes subtleGlitch {
+            0% {
+              transform: translate(0, 0) scale(1.02);
+            }
+            10% {
+              transform: translate(-1px, 0.5px) scale(1.02);
+            }
+            20% {
+              transform: translate(1px, -0.5px) scale(1.02);
+            }
+            30% {
+              transform: translate(0, 0) scale(1.02);
+            }
+            40% {
+              transform: translate(-0.5px, 1px) scale(1.025);
+            }
+            50% {
+              transform: translate(0.5px, -1px) scale(1.02);
+            }
+            60% {
+              transform: translate(0, 0) scale(1.02);
+            }
+            70% {
+              transform: translate(-1px, -0.5px) scale(1.025);
+            }
+            80% {
+              transform: translate(1px, 0.5px) scale(1.02);
+            }
+            90% {
+              transform: translate(0, 0) scale(1.02);
+            }
+            100% {
+              transform: translate(0, 0) scale(1.02);
+            }
+          }
+
+          @keyframes season3Phase {
+            0% {
+              opacity: 1;
+              transform: translate3d(0, 0, 0) scale(1);
+              filter: brightness(1) saturate(1);
+            }
+            8% {
+              opacity: 0.92;
+              transform: translate3d(-1px, 0.5px, 0) scale(1.01);
+            }
+            16% {
+              opacity: 0.34;
+              transform: translate3d(2px, -1px, 0) scale(1.015);
+              filter: brightness(1.18) saturate(1.3) blur(0.25px);
+            }
+            28% {
+              opacity: 0.82;
+              transform: translate3d(-2px, 1px, 0) scale(1.01);
+            }
+            40% {
+              opacity: 0.14;
+              transform: translate3d(4px, -2px, 0) scale(1.03);
+              filter: brightness(0.92) saturate(1.7) blur(0.7px);
+            }
+            52% {
+              opacity: 0.74;
+              transform: translate3d(-1px, 0, 0) scale(1.005);
+            }
+            64% {
+              opacity: 0.08;
+              transform: translate3d(-5px, 2px, 0) scale(1.04);
+              filter: brightness(0.85) saturate(1.9) blur(1px);
+            }
+            76% {
+              opacity: 0.88;
+              transform: translate3d(1px, -0.5px, 0) scale(1.01);
+            }
+            88% {
+              opacity: 0.28;
+              transform: translate3d(3px, 1px, 0) scale(1.02);
+              filter: brightness(1.12) saturate(1.4) blur(0.35px);
+            }
+            100% {
+              opacity: 1;
+              transform: translate3d(0, 0, 0) scale(1);
+              filter: brightness(1) saturate(1);
+            }
+          }
+
+          .season-3-ghost {
+            clip-path: inset(0 0 0 0);
+            transition: opacity 0.2s ease;
+          }
+
+          .season-3-ghost--red {
+            animation: season3GhostRed 1.8s ease-in-out infinite;
+          }
+
+          .season-3-ghost--cyan {
+            animation: season3GhostCyan 1.8s ease-in-out infinite;
+          }
+
+          @keyframes season3GhostRed {
+            0%, 100% {
+              opacity: 0;
+              transform: translate3d(1px, 0, 0) skewX(0deg);
+              clip-path: inset(0 0 0 0);
+            }
+            12% {
+              opacity: 0.55;
+              transform: translate3d(4px, -1px, 0) skewX(-4deg);
+              clip-path: inset(10% 0 62% 0);
+            }
+            24% {
+              opacity: 0.15;
+              transform: translate3d(-3px, 1px, 0) skewX(2deg);
+              clip-path: inset(40% 0 22% 0);
+            }
+            36% {
+              opacity: 0.65;
+              transform: translate3d(6px, 0, 0) skewX(-5deg);
+              clip-path: inset(18% 0 48% 0);
+            }
+            52% {
+              opacity: 0.08;
+              transform: translate3d(-6px, 1px, 0) skewX(3deg);
+              clip-path: inset(58% 0 14% 0);
+            }
+            68% {
+              opacity: 0.5;
+              transform: translate3d(3px, -1px, 0) skewX(-3deg);
+              clip-path: inset(26% 0 34% 0);
+            }
+            84% {
+              opacity: 0.18;
+              transform: translate3d(-2px, 0, 0) skewX(1deg);
+              clip-path: inset(70% 0 6% 0);
+            }
+          }
+
+          @keyframes season3GhostCyan {
+            0%, 100% {
+              opacity: 0;
+              transform: translate3d(-1px, 0, 0) skewX(0deg);
+              clip-path: inset(0 0 0 0);
+            }
+            10% {
+              opacity: 0.45;
+              transform: translate3d(-5px, 1px, 0) skewX(3deg);
+              clip-path: inset(16% 0 54% 0);
+            }
+            22% {
+              opacity: 0.1;
+              transform: translate3d(3px, -1px, 0) skewX(-2deg);
+              clip-path: inset(48% 0 20% 0);
+            }
+            34% {
+              opacity: 0.6;
+              transform: translate3d(-7px, 0, 0) skewX(4deg);
+              clip-path: inset(12% 0 42% 0);
+            }
+            50% {
+              opacity: 0.06;
+              transform: translate3d(5px, 1px, 0) skewX(-3deg);
+              clip-path: inset(64% 0 10% 0);
+            }
+            66% {
+              opacity: 0.5;
+              transform: translate3d(-4px, -1px, 0) skewX(2deg);
+              clip-path: inset(30% 0 28% 0);
+            }
+            82% {
+              opacity: 0.16;
+              transform: translate3d(2px, 0, 0) skewX(-1deg);
+              clip-path: inset(74% 0 4% 0);
             }
           }
         `}</style>

@@ -31,48 +31,78 @@ jobs:
         
       - name: Copy chatlog folders to public
         run: |
-          # Copy all chatlog directories from SeasonOneChat to public folder
           mkdir -p public
+
+          # Season 1 — copy flat into public/
           if [ -d "SeasonOneChat" ]; then
-            # Copy contents of SeasonOneChat to public (flattening structure)
             cp -r SeasonOneChat/* public/
           fi
+
+          # Season 2 — keep under public/SeasonTwoChat/ so paths stay scoped
+          if [ -d "SeasonTwoChat" ]; then
+            mkdir -p public/SeasonTwoChat
+            cp -r SeasonTwoChat/* public/SeasonTwoChat/
+          fi
+
           if [ -d "NEEDIMPLEMENT" ]; then
             cp -r NEEDIMPLEMENT public/
           fi
-          # Copy Assets images to public root for React app
+
+          # Assets (logo images)
           if [ -d "Assets" ]; then
             cp Assets/*.png public/ 2>/dev/null || true
           fi
-          
-      - name: Generate sitemap.json
+
+      - name: Generate sitemaps
         run: |
           python3 - << 'PY'
           import os, json
-          
-          # Look in public directory for chatlog folders
+
           public_dir = "public"
-          ignore = {".git", ".github", "workflows", "assets", "css", "js", "node_modules", "src", "build"}
-          
-          folders = [
-              d for d in os.listdir(public_dir)
-              if os.path.isdir(os.path.join(public_dir, d)) and not d.startswith(".") and d not in ignore
+          # Folders to exclude from Season 1 sitemap
+          s1_ignore = {
+            ".git", ".github", "workflows", "assets", "css", "js",
+            "node_modules", "src", "build", "NEEDIMPLEMENT", "SeasonTwoChat"
+          }
+
+          # ── Season 1 sitemap (sitemap.json) ──────────────────────────────
+          s1_folders = [
+            d for d in os.listdir(public_dir)
+            if os.path.isdir(os.path.join(public_dir, d))
+            and not d.startswith(".")
+            and d not in s1_ignore
           ]
+          s1_folders.sort(key=str.lower)
 
-          folders.sort(key=str.lower)
-
-          site = {}
-          for d in folders:
+          s1_site = {}
+          for d in s1_folders:
             folder_path = os.path.join(public_dir, d)
             files = [f for f in os.listdir(folder_path) if f.lower().endswith(".html")]
             files.sort(key=str.lower)
-            site[d] = files
+            s1_site[d] = files
 
           with open("public/sitemap.json", "w", encoding="utf-8") as f:
-            json.dump(site, f, ensure_ascii=False, indent=2)
+            json.dump(s1_site, f, ensure_ascii=False, indent=2)
+          print(f"sitemap.json: {len(s1_site)} folders")
 
-          print("Generated sitemap.json")
-          print(f"Found folders: {folders}")
+          # ── Season 2 sitemap (sitemap-season2.json) ───────────────────────
+          s2_root = os.path.join(public_dir, "SeasonTwoChat")
+          s2_site = {}
+          if os.path.isdir(s2_root):
+            s2_folders = [
+              d for d in os.listdir(s2_root)
+              if os.path.isdir(os.path.join(s2_root, d)) and not d.startswith(".")
+            ]
+            s2_folders.sort(key=str.lower)
+            for d in s2_folders:
+              folder_path = os.path.join(s2_root, d)
+              files = [f for f in os.listdir(folder_path) if f.lower().endswith(".html")]
+              files.sort(key=str.lower)
+              s2_site[d] = files
+
+          with open("public/sitemap-season2.json", "w", encoding="utf-8") as f:
+            json.dump(s2_site, f, ensure_ascii=False, indent=2)
+          print(f"sitemap-season2.json: {len(s2_site)} folders")
           PY
           
       - name: Build React app
