@@ -1,0 +1,2440 @@
+/* Every style in the app. Each season is printed on its own "stock" (paper, ink and friends), set as
+   CSS variables on <html> by useStock(); the values here are the house stock used on the home page.
+   Hover effects are wrapped in (hover: hover) so taps on phones don't leave them stuck on. */
+
+/* ---------------------------------------------------------------------------------------------
+   Fonts (self-hosted, SIL Open Font License; see src/fonts/OFL.txt)
+   --------------------------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/LibreFranklin-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/LibreFranklin-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('../fonts/SourceSerif4-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('../fonts/SourceSerif4-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Tokens and base
+   --------------------------------------------------------------------------------------------- */
+
+:root {
+  /* Stock: overwritten per season. */
+  --paper: #ffffff;
+  --ink: #17181c;
+  --soft: #55534d;
+  --hair: #cccccd;
+  --wash: #f1f1f1;
+  --accent: #d4af37;
+  --field: #ffffff;
+  --visited: #6a4f8f;
+
+  --font-text: 'Libre Franklin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Source Serif 4', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+
+  --rule: 2px;
+  --gutter: 32px;
+  --masthead-h: 52px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--paper);
+  scrollbar-color: var(--ink) var(--wash);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+dl,
+dd {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+h1 {
+  font: 700 2.875rem/1.05 var(--font-display);
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+
+mark {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+kbd {
+  flex-shrink: 0;
+  padding: 2px 5px;
+  border: 1px solid var(--soft);
+  font: 600 0.6875rem/1 var(--font-text);
+  white-space: nowrap;
+}
+
+.lead {
+  max-width: 70ch;
+  color: var(--soft);
+  font-size: 1rem;
+}
+
+.facts {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.only-narrow {
+  display: none;
+}
+
+/* The era colour of the category a page belongs to, as a small square beside its name. */
+.swatch {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid var(--ink);
+  background: var(--c, var(--accent));
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Buttons and fields
+   --------------------------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 14px;
+  border: var(--rule) solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font: 600 0.875rem/1 var(--font-text);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 90ms ease-out, color 90ms ease-out;
+}
+
+.btn--solid {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn:active {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.icon-btn {
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color 90ms ease-out, color 90ms ease-out;
+}
+
+.icon-btn:disabled {
+  border-color: var(--hair);
+  color: var(--soft);
+  cursor: default;
+}
+
+.icon-btn:active:not(:disabled) {
+  background: var(--accent);
+}
+
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .btn--solid:hover {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .icon-btn:hover:not(:disabled) {
+    background: var(--ink);
+    color: var(--paper);
+  }
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 4px 0 10px;
+  border: 1.5px solid var(--ink);
+  background: var(--field);
+  color: var(--ink);
+  cursor: text;
+}
+
+.field:focus-within {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.field > svg {
+  flex-shrink: 0;
+}
+
+.field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 0.875rem;
+  caret-color: var(--ink);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.field input::placeholder {
+  color: var(--soft);
+  opacity: 1;
+}
+
+.field input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.field__clear {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .field__clear:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+}
+
+@media (pointer: coarse) {
+  .btn {
+    min-height: 44px;
+  }
+
+  .icon-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .field {
+    height: 44px;
+  }
+
+  /* 16px keeps iOS from zooming the page when a field is focused. */
+  .field input {
+    font-size: 1rem;
+  }
+
+  .field__clear {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Masthead
+   --------------------------------------------------------------------------------------------- */
+
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  gap: 24px;
+  height: var(--masthead-h);
+  padding: 0 var(--gutter);
+  border-bottom: var(--rule) solid var(--ink);
+  background: var(--paper);
+}
+
+.masthead__brand {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 10px;
+  font: 700 1.3125rem/1 var(--font-display);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.masthead__brand img {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+.masthead__tabs {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.masthead__tabs a {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-left: 1px solid var(--hair);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 90ms ease-out, color 90ms ease-out;
+}
+
+.masthead__tabs a:last-child {
+  border-right: 1px solid var(--hair);
+}
+
+.masthead__tabs a[aria-current='page'] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.masthead__tabs a[aria-current='page'] + a {
+  border-left-color: var(--ink);
+}
+
+.masthead__tabs a:focus-visible {
+  outline-offset: -5px;
+}
+
+.masthead__tabs a[aria-current='page']:focus-visible {
+  outline-color: var(--paper);
+}
+
+.masthead__tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  margin-left: auto;
+}
+
+.masthead__search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: clamp(210px, 23vw, 340px);
+  height: 32px;
+  padding: 0 6px 0 10px;
+  border: 1.5px solid var(--ink);
+  background: var(--field);
+  color: var(--soft);
+  font: inherit;
+  font-size: 0.84375rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.masthead__search svg {
+  flex-shrink: 0;
+  color: var(--ink);
+}
+
+.masthead__search span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.masthead__contents {
+  min-height: 32px;
+  padding: 0 10px;
+  border-width: 1.5px;
+}
+
+@media (hover: hover) {
+  .masthead__tabs a:not([aria-current='page']):hover {
+    background: var(--wash);
+  }
+
+  .masthead__search:hover {
+    background: var(--wash);
+    color: var(--ink);
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Page layout
+   --------------------------------------------------------------------------------------------- */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.page__body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.page__main {
+  flex: 1;
+  min-width: 0;
+  padding: 28px var(--gutter) 72px;
+}
+
+/* The chat reader fills the window and scrolls inside its own frame. */
+.page--fill {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.page--fill .page__main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0;
+}
+
+.season,
+.category,
+.home {
+  max-width: 1560px;
+  margin: 0 auto;
+}
+
+/* ---------------------------------------------------------------------------------------------
+   The season table
+   --------------------------------------------------------------------------------------------- */
+
+.map {
+  display: grid;
+  gap: var(--rule);
+  border: var(--rule) solid var(--ink);
+  background: var(--ink);
+}
+
+.map__era {
+  display: grid;
+  grid-template-columns: 208px minmax(0, 1fr);
+  gap: var(--rule);
+}
+
+.map__head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 12px;
+  background: var(--paper);
+  font: 700 1.0625rem/1.15 var(--font-display);
+}
+
+.map__head small {
+  margin-top: 3px;
+  color: var(--soft);
+  font: 500 0.78125rem/1.3 var(--font-text);
+}
+
+.map__cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rule);
+}
+
+/* A cell's share of the row follows its chat count, but it never gets narrower than its label. */
+.map__cells li {
+  display: flex;
+  flex: var(--n) 1 0%;
+}
+
+.map__cell {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 68px;
+  padding: 9px 12px;
+  background: var(--c);
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 90ms ease-out, color 90ms ease-out;
+}
+
+.map__cell span {
+  font-weight: 500;
+  font-size: 0.78125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.map__cell[aria-current='page'] {
+  background: var(--ink);
+  color: var(--c);
+}
+
+.map__cell:focus-visible {
+  background: var(--ink);
+  color: var(--c);
+  outline-color: var(--c);
+  outline-offset: -6px;
+}
+
+@media (hover: hover) {
+  .map__cell:hover {
+    background: var(--ink);
+    color: var(--c);
+  }
+}
+
+.map__cell:active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* A season with only a few categories: taller cells that say what each one holds. */
+.map__cell--roomy {
+  justify-content: flex-start;
+  gap: 6px;
+  min-height: 148px;
+  padding: 14px 16px 16px;
+  white-space: normal;
+}
+
+.map__cell--roomy strong {
+  font: 700 1.5rem/1.1 var(--font-display);
+  letter-spacing: -0.008em;
+}
+
+.map__cell--roomy span {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.map__cell--roomy .map__about {
+  flex: 1;
+  max-width: 34ch;
+}
+
+.map--roomy .map__cells li {
+  min-width: min(100%, 250px);
+}
+
+/* One era on its own, above a category's title: shows where you are and what sits beside it. */
+.map--strip {
+  margin: 14px 0 28px;
+}
+
+.map__era--compact {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.map__era--compact .map__head {
+  padding: 0 14px;
+  font-size: 0.9375rem;
+  white-space: nowrap;
+}
+
+.map__era--compact .map__cell {
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  padding: 6px 12px;
+  font-size: 0.875rem;
+}
+
+/* Empty versions of the table: while chats load, and for a season that isn't in the archive yet. */
+.map--placeholder .map__cell,
+.map--upcoming .map__cell {
+  flex: var(--n) 1 0%;
+  background: var(--wash);
+}
+
+.map--placeholder .map__head,
+.map--upcoming .map__head {
+  min-height: 68px;
+}
+
+.map--upcoming {
+  border-style: dashed;
+  background: none;
+  gap: 0;
+}
+
+.map--upcoming .map__era,
+.map--upcoming .map__cells {
+  gap: 0;
+}
+
+.map--upcoming .map__era + .map__era {
+  border-top: var(--rule) dashed var(--ink);
+}
+
+.map--upcoming .map__head,
+.map--upcoming .map__cell {
+  background: none;
+}
+
+.map--upcoming .map__head,
+.map--upcoming .map__cell + .map__cell {
+  border-right: var(--rule) dashed var(--ink);
+}
+
+.map--upcoming .map__cell + .map__cell {
+  border-right: 0;
+  border-left: var(--rule) dashed var(--ink);
+}
+
+/* The unlabelled copy on the home page. */
+.minimap {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--rule);
+  min-height: 96px;
+  border: var(--rule) solid var(--ink);
+  background: var(--ink);
+}
+
+.minimap__row {
+  display: flex;
+  flex: 1;
+  gap: var(--rule);
+  min-height: 8px;
+}
+
+.minimap__row span {
+  flex: var(--n) 1 0%;
+  min-width: 3px;
+  background: var(--c);
+}
+
+.minimap--empty {
+  background: var(--wash);
+}
+
+.minimap--upcoming {
+  border-style: dashed;
+  background: none;
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Fact box
+   --------------------------------------------------------------------------------------------- */
+
+.infobox {
+  border: var(--rule) solid var(--ink);
+  background: var(--field);
+}
+
+.infobox__title {
+  padding: 8px 12px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 700 1.0625rem/1.2 var(--font-display);
+  text-align: center;
+}
+
+.infobox__art {
+  display: block;
+  width: 100%;
+  height: 172px;
+  border-bottom: var(--rule) solid var(--ink);
+  object-fit: cover;
+}
+
+.infobox__facts {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.infobox__facts dt,
+.infobox__facts dd {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--hair);
+}
+
+.infobox__facts dt {
+  background: var(--paper);
+  font-weight: 700;
+}
+
+.infobox__facts dt:last-of-type,
+.infobox__facts dd:last-of-type {
+  border-bottom: 0;
+}
+
+.infobox__note {
+  padding: 10px 12px;
+  border-top: 1px solid var(--hair);
+  color: var(--soft);
+  font-size: 0.78125rem;
+  line-height: 1.4;
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Season page and category page
+   --------------------------------------------------------------------------------------------- */
+
+.season__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 318px;
+  gap: 32px;
+  align-items: start;
+}
+
+.season__main .lead {
+  margin: 8px 0 18px;
+}
+
+.season__back {
+  margin-top: 24px;
+}
+
+.season__index {
+  margin-top: 56px;
+}
+
+.season--small .season__index {
+  margin-top: 40px;
+}
+
+.season__index {
+  scroll-margin-top: calc(var(--masthead-h) + 16px);
+}
+
+.season__index h2 {
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: var(--rule) solid var(--ink);
+  font: 700 1.625rem/1.15 var(--font-display);
+  letter-spacing: -0.008em;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .back-link:hover {
+    text-decoration: underline;
+  }
+}
+
+.category__head {
+  margin-bottom: 20px;
+}
+
+.category__head .facts {
+  margin-top: 8px;
+}
+
+.category__head .lead {
+  margin-top: 2px;
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Tables of chats
+   --------------------------------------------------------------------------------------------- */
+
+.chat-list__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-bottom: 12px;
+}
+
+.chat-list__filter {
+  flex: 0 1 320px;
+}
+
+.chat-list__sort {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.chat-list__sort select {
+  height: 44px;
+  padding: 0 10px;
+  border: 1.5px solid var(--ink);
+  border-radius: 0;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.chat-list__status {
+  margin-left: auto;
+  color: var(--soft);
+  font-size: 0.84375rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.chat-table {
+  width: 100%;
+  border: var(--rule) solid var(--ink);
+  border-spacing: 0;
+  background: var(--field);
+  font-variant-numeric: tabular-nums;
+}
+
+.chat-table thead th {
+  position: sticky;
+  top: var(--masthead-h);
+  z-index: 2;
+  padding: 0;
+  border-bottom: var(--rule) solid var(--ink);
+  background: var(--wash);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.chat-table thead th > span,
+.chat-table thead th > button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 9px 12px;
+}
+
+.chat-table thead th > button {
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.chat-table thead th > button svg {
+  color: var(--soft);
+}
+
+.chat-table thead th > button[data-active] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.chat-table thead th > button[data-active] svg {
+  color: inherit;
+}
+
+.chat-table thead th > button:focus-visible {
+  outline-offset: -4px;
+}
+
+.chat-table thead th > button[data-active]:focus-visible {
+  outline-color: var(--paper);
+}
+
+.chat-table thead th.chat-table__end > button {
+  justify-content: flex-end;
+}
+
+.chat-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--hair);
+  vertical-align: baseline;
+}
+
+.chat-table tbody:last-child tr:last-child td {
+  border-bottom: 0;
+}
+
+.chat-table__num {
+  width: 1%;
+  color: var(--soft);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.chat-table__end {
+  text-align: right;
+}
+
+.chat-table__name {
+  overflow-wrap: anywhere;
+}
+
+.chat-table__name a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.chat-table__name a:visited {
+  color: var(--visited);
+}
+
+.chat-table__messages,
+.chat-table__dates {
+  white-space: nowrap;
+}
+
+.chat-table__unit {
+  display: none;
+}
+
+.chat-table__category,
+.chat-table__players,
+.chat-table__none {
+  color: var(--soft);
+}
+
+.chat-table__category .swatch {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.chat-table__row {
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .chat-table thead th > button:not([data-active]):hover {
+    background: var(--hair);
+  }
+
+  .chat-table__row:hover td {
+    background: var(--wash);
+  }
+
+  .chat-table__row:hover .chat-table__name a {
+    text-decoration: underline;
+  }
+}
+
+/* A category's band inside the full index, in its era's colour. */
+.chat-table__group th {
+  padding: 8px 12px;
+  border-top: var(--rule) solid var(--ink);
+  border-bottom: var(--rule) solid var(--ink);
+  background: var(--c, var(--wash));
+  font-weight: 700;
+  text-align: left;
+}
+
+.chat-table tbody:first-of-type .chat-table__group th {
+  border-top: 0;
+}
+
+.chat-table__group th a {
+  font: 700 1.0625rem/1.2 var(--font-display);
+  text-decoration: none;
+}
+
+.chat-table__group th span {
+  margin-left: 12px;
+  font-weight: 500;
+  font-size: 0.8125rem;
+}
+
+@media (hover: hover) {
+  .chat-table__group th a:hover {
+    text-decoration: underline;
+  }
+}
+
+.chat-table__empty td {
+  padding: 28px 12px;
+  color: var(--soft);
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Contents list
+   --------------------------------------------------------------------------------------------- */
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: var(--paper);
+}
+
+.contents__top {
+  display: grid;
+  gap: 10px;
+  padding: 14px 12px 12px;
+  border-bottom: var(--rule) solid var(--ink);
+}
+
+.contents__season {
+  font: 700 1.0625rem/1.2 var(--font-display);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .contents__season:hover {
+    text-decoration: underline;
+  }
+}
+
+.contents__scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) var(--wash);
+}
+
+.contents__era {
+  padding: 7px 12px;
+  border-bottom: var(--rule) solid var(--ink);
+  background: var(--c);
+  font: 700 0.9375rem/1.2 var(--font-display);
+}
+
+.contents section + section .contents__era {
+  border-top: var(--rule) solid var(--ink);
+  margin-top: -1px;
+}
+
+.contents__folder {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--hair);
+}
+
+.contents__folder a {
+  display: flex;
+  flex: 1;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  padding: 8px 8px 8px 12px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+/* The category of the chat you're reading. */
+.contents__folder[data-within] a {
+  font-weight: 800;
+}
+
+.contents__count {
+  color: var(--soft);
+  font-weight: 500;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.contents__folder a[aria-current='page'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.contents__folder a[aria-current='page'] .contents__count {
+  color: inherit;
+}
+
+.contents__folder button {
+  display: grid;
+  flex: 0 0 36px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-left: 1px solid var(--hair);
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.contents__folder button:disabled {
+  color: var(--soft);
+  cursor: default;
+}
+
+.contents__folder a:focus-visible,
+.contents__folder button:focus-visible,
+.contents__chats a:focus-visible {
+  outline-offset: -3px;
+}
+
+.contents__folder a[aria-current='page']:focus-visible,
+.contents__chats a[aria-current='page']:focus-visible {
+  outline-color: var(--paper);
+}
+
+.contents__chats {
+  padding: 4px 0 6px;
+  border-bottom: 1px solid var(--hair);
+  background: var(--wash);
+}
+
+.contents__chats a {
+  display: block;
+  padding: 5px 12px 5px 24px;
+  font-size: 0.84375rem;
+  line-height: 1.35;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.contents__chats a:visited {
+  color: var(--visited);
+}
+
+.contents__chats a[aria-current='page'] {
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+}
+
+.contents__empty {
+  padding: 24px 12px;
+  color: var(--soft);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+@media (hover: hover) {
+  .contents__folder a:not([aria-current='page']):hover,
+  .contents__folder button:not(:disabled):hover {
+    background: var(--wash);
+  }
+
+  .contents__chats a:not([aria-current='page']):hover {
+    background: var(--hair);
+  }
+}
+
+@media (pointer: coarse) {
+  .contents__folder a {
+    padding-block: 12px;
+  }
+
+  .contents__folder button {
+    flex-basis: 48px;
+  }
+
+  .contents__chats a {
+    padding-block: 10px;
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Chat reader
+   --------------------------------------------------------------------------------------------- */
+
+.reader {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.reader__head {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 24px;
+  padding: 12px var(--gutter);
+  border-bottom: var(--rule) solid var(--ink);
+}
+
+.reader__titles {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+.crumbs a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+}
+
+.crumbs svg {
+  flex-shrink: 0;
+  color: var(--soft);
+}
+
+@media (hover: hover) {
+  .crumbs a:hover {
+    text-decoration: underline;
+  }
+}
+
+.reader h1 {
+  margin-top: 4px;
+  overflow: hidden;
+  font-size: 1.625rem;
+  line-height: 1.2;
+  letter-spacing: -0.008em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reader__meta {
+  overflow: hidden;
+  color: var(--soft);
+  font-size: 0.84375rem;
+  font-variant-numeric: tabular-nums;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reader__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.reader__search {
+  width: 250px;
+}
+
+.btn--tool {
+  padding: 0 12px;
+  border-width: 1.5px;
+}
+
+.pager {
+  display: flex;
+  align-items: stretch;
+  border: 1.5px solid var(--ink);
+}
+
+.pager__step {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  min-height: 33px;
+  color: var(--ink);
+}
+
+.pager__step[data-disabled] {
+  color: var(--hair);
+}
+
+.pager__step:focus-visible {
+  outline-offset: -3px;
+}
+
+.pager__count {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-inline: 1.5px solid var(--ink);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (hover: hover) {
+  a.pager__step:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+}
+
+.reader__body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.reader__stage {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--chat-bg);
+}
+
+.reader__frame {
+  display: block;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  background: var(--chat-bg);
+}
+
+/* Loading and error states sit on the chat's own dark ground, so they use its light text. */
+.reader__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  background: var(--chat-bg);
+  color: #e3e5e8;
+  text-align: center;
+}
+
+.reader__overlay-title {
+  font: 700 1.25rem/1.2 var(--font-display);
+}
+
+/* Buttons on the dark ground swap to its light text colour. */
+.reader__overlay .btn {
+  border-color: currentColor;
+  background: transparent;
+  color: inherit;
+}
+
+.reader__overlay .btn--solid {
+  border-color: #e3e5e8;
+  background: #e3e5e8;
+  color: #1e1f22;
+}
+
+@media (hover: hover) {
+  .reader__overlay .btn:hover {
+    border-color: #e3e5e8;
+    background: #e3e5e8;
+    color: #1e1f22;
+  }
+
+  .reader__overlay .btn--solid:hover {
+    background: transparent;
+    color: #e3e5e8;
+  }
+}
+
+.reader__overlay-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.loading-steps {
+  display: flex;
+  gap: 4px;
+}
+
+.loading-steps i {
+  width: 12px;
+  height: 12px;
+  background: currentColor;
+  opacity: 0.25;
+  animation: loadingStep 0.9s steps(1, end) infinite;
+}
+
+.loading-steps i:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.loading-steps i:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.matchbar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+  padding: 6px calc(var(--gutter) - 4px) 6px var(--gutter);
+  border-bottom: var(--rule) solid var(--ink);
+  background: var(--paper);
+}
+
+.matchbar p {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-weight: 600;
+  font-size: 0.84375rem;
+  font-variant-numeric: tabular-nums;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.matchbar .icon-btn {
+  width: 32px;
+  height: 32px;
+}
+
+.reader__results {
+  display: flex;
+  flex: 0 0 320px;
+  flex-direction: column;
+  min-height: 0;
+  border-left: var(--rule) solid var(--ink);
+  background: var(--paper);
+}
+
+.results__status {
+  flex-shrink: 0;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--hair);
+  color: var(--soft);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.results__list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) var(--wash);
+}
+
+.result {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--hair);
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.result__who {
+  display: block;
+  overflow: hidden;
+  color: var(--soft);
+  font-size: 0.78125rem;
+  font-variant-numeric: tabular-nums;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result__text {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.result[data-active='true'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.result[data-active='true'] .result__who {
+  color: inherit;
+}
+
+.result:focus-visible {
+  outline-offset: -3px;
+}
+
+.result[data-active='true']:focus-visible {
+  outline-color: var(--paper);
+}
+
+@media (hover: hover) {
+  .result:not([data-active='true']):hover {
+    background: var(--wash);
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Notices (something went wrong, or isn't here)
+   --------------------------------------------------------------------------------------------- */
+
+.notice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  max-width: 620px;
+  margin: 8vh auto 0;
+  border: var(--rule) solid var(--ink);
+  background: var(--field);
+}
+
+.notice__icon {
+  display: grid;
+  place-items: center;
+  padding: 0 18px;
+  border-right: var(--rule) solid var(--ink);
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.notice__body {
+  padding: 18px 20px 20px;
+}
+
+.notice h1 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.008em;
+}
+
+.notice p {
+  margin-top: 4px;
+  color: var(--soft);
+}
+
+.notice__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Home
+   --------------------------------------------------------------------------------------------- */
+
+.home {
+  width: 100%;
+  padding: 40px var(--gutter) 40px;
+  box-sizing: border-box;
+}
+
+.home h1 {
+  font-size: clamp(2.5rem, 5.2vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.022em;
+}
+
+.home__head .lead {
+  margin-top: 12px;
+  font-size: 1.0625rem;
+}
+
+.seasons {
+  display: grid;
+  gap: var(--rule);
+  margin-top: 28px;
+  border: var(--rule) solid var(--ink);
+  background: var(--ink);
+}
+
+/* Each row is printed on its own season's stock (set inline on the <li>). */
+.season-row {
+  display: grid;
+  grid-template-columns: 296px minmax(0, 1.1fr) minmax(220px, 0.9fr) 64px;
+  min-height: 146px;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.season-row__art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 146px;
+  border-right: var(--rule) solid var(--ink);
+  object-fit: cover;
+}
+
+.season-row__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 16px 24px;
+  transition: background-color 90ms ease-out, color 90ms ease-out;
+}
+
+.season-row__name {
+  font: 700 2rem/1.1 var(--font-display);
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+
+.season-row__name span {
+  font-weight: 400;
+}
+
+.season-row__name span::after {
+  content: ':';
+}
+
+.season-row__facts {
+  margin-top: 4px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.season-row__dates {
+  color: var(--soft);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  transition: color 90ms ease-out;
+}
+
+.season-row__map {
+  display: flex;
+  align-items: stretch;
+  padding: 18px 24px 18px 0;
+  transition: background-color 90ms ease-out;
+}
+
+.season-row__go {
+  display: grid;
+  place-items: center;
+  border-left: var(--rule) solid var(--ink);
+  background: var(--accent);
+  color: var(--ink);
+  transition: background-color 90ms ease-out, color 90ms ease-out;
+}
+
+.season-row:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: -7px;
+}
+
+@media (hover: hover) {
+  .season-row:hover .season-row__text,
+  .season-row:hover .season-row__map {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .season-row:hover .season-row__dates {
+    color: var(--paper);
+  }
+
+  .season-row:hover .season-row__go {
+    background: var(--ink);
+    color: var(--accent);
+  }
+
+  .season-row:hover .minimap {
+    border-color: var(--paper);
+  }
+}
+
+.home__foot {
+  margin-top: 20px;
+  color: var(--soft);
+  font-size: 0.84375rem;
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Search box and drawers (Mantine supplies the behaviour; these classes replace its look)
+   --------------------------------------------------------------------------------------------- */
+
+.palette {
+  border: var(--rule) solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.palette__search {
+  height: 52px;
+  border-radius: 0;
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  caret-color: var(--ink);
+}
+
+.palette__search::placeholder {
+  color: var(--soft);
+  opacity: 1;
+}
+
+.palette__search:focus-visible {
+  outline: 0;
+}
+
+.palette [data-position='left'] {
+  color: var(--ink);
+}
+
+.palette__list {
+  --spotlight-actions-list-padding: 0px;
+
+  padding: 0;
+  border-top: var(--rule) solid var(--ink);
+  border-color: var(--ink);
+  margin-inline-end: 0;
+}
+
+.palette__group {
+  margin-top: 0;
+}
+
+.palette__group::before {
+  display: block;
+  padding: 6px 14px;
+  border-bottom: 1px solid var(--hair);
+  background: var(--wash);
+  color: var(--ink);
+  font: 700 0.8125rem/1.3 var(--font-display);
+  text-transform: none;
+}
+
+.palette__action {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--hair);
+  border-radius: 0;
+  font-size: 0.9375rem;
+}
+
+.palette__label {
+  font-weight: 600;
+}
+
+.palette__description {
+  color: var(--soft);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 1;
+}
+
+.palette__action[data-selected] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.palette__action[data-selected] .palette__description {
+  color: inherit;
+}
+
+.palette mark {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.palette__close {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.palette__empty {
+  padding: 28px 16px;
+  color: var(--soft);
+}
+
+@media (hover: hover) {
+  .palette__action:not([data-selected]):hover {
+    background: var(--wash);
+  }
+}
+
+.sheet {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.sheet__header {
+  flex-shrink: 0;
+  min-height: 48px;
+  padding: 0 6px 0 16px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.sheet__title {
+  font: 700 1.0625rem/1.2 var(--font-display);
+}
+
+.sheet__close {
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
+  color: var(--paper);
+}
+
+.sheet__close:focus-visible {
+  outline-color: var(--paper);
+  outline-offset: -4px;
+}
+
+.sheet__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0;
+}
+
+.sheet__body--search .reader__search {
+  flex-shrink: 0;
+  width: auto;
+  margin: 12px;
+}
+
+@media (hover: hover) {
+  .sheet__close:hover {
+    background: var(--paper);
+    color: var(--ink);
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Season intro: the season's colours wipe in as the rows of its table, then the title lands
+   --------------------------------------------------------------------------------------------- */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  transition: opacity 240ms ease-out;
+}
+
+.intro--leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro__bands {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+
+.intro__band {
+  display: flex;
+  gap: var(--rule);
+  border-bottom: var(--rule) solid var(--ink);
+  background: var(--ink);
+  clip-path: inset(0 100% 0 0);
+  animation: bandIn 560ms var(--ease-out) calc(var(--i) * 50ms) forwards;
+}
+
+.intro__band span {
+  flex: var(--n) 1 0%;
+  background: var(--c);
+}
+
+.intro__plate {
+  position: relative;
+  max-width: calc(100vw - 32px);
+  padding: 20px 32px 18px;
+  border: var(--rule) solid var(--ink);
+  background: var(--paper);
+  text-align: center;
+  animation: plateIn 320ms var(--ease-out) 420ms both;
+}
+
+.intro__title {
+  font: 700 clamp(1.75rem, 5.4vw, 3.5rem)/1.05 var(--font-display);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.intro__label {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.intro__skip {
+  position: absolute;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+@keyframes bandIn {
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes plateIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes loadingStep {
+  0% { opacity: 1; }
+  33% { opacity: 0.25; }
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Narrower screens
+   --------------------------------------------------------------------------------------------- */
+
+@media (max-width: 68.74em) {
+  .season__top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Beside the table there's no room, so the fact box lies flat under it. */
+  .infobox {
+    display: grid;
+    grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .infobox__title {
+    grid-column: 1 / -1;
+  }
+
+  .infobox__art {
+    grid-row: 2 / 4;
+    height: 100%;
+    min-height: 150px;
+    border-right: var(--rule) solid var(--ink);
+    border-bottom: 0;
+  }
+
+  /* Too narrow for the tabs, the Contents button and a search field: search folds down to its icon. */
+  .masthead__search {
+    justify-content: center;
+    width: 36px;
+    padding: 0;
+    color: var(--ink);
+  }
+
+  .masthead__search span,
+  .masthead__search kbd {
+    display: none;
+  }
+
+  /* A season that isn't in yet leads with its art and status; the empty table follows, short. */
+  .season--upcoming .season__top {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .season--upcoming .season__main {
+    display: contents;
+  }
+
+  .season--upcoming .season__main .lead {
+    margin: -8px 0 0;
+  }
+
+  .season--upcoming .infobox {
+    order: 1;
+  }
+
+  .season--upcoming .map {
+    order: 2;
+  }
+
+  .season--upcoming .season__back {
+    order: 3;
+    align-self: flex-start;
+    margin-top: 0;
+  }
+
+  .map--upcoming .map__head,
+  .map--upcoming .map__cell {
+    min-height: 40px;
+  }
+
+  .season-row {
+    grid-template-columns: 220px minmax(0, 1fr) 56px;
+  }
+
+  .season-row__map {
+    display: none;
+  }
+
+  .reader__search {
+    width: 210px;
+  }
+}
+
+
+@media (max-width: 48em) {
+  :root {
+    --gutter: 16px;
+    --masthead-h: 0px;
+  }
+
+  h1 {
+    font-size: 2.125rem;
+  }
+
+  .only-wide {
+    display: none;
+  }
+
+  .only-narrow {
+    display: inline;
+  }
+
+  /* Two rows: the name and the tools, then the season tabs. It scrolls away with the page. */
+  .masthead {
+    position: static;
+    flex-wrap: wrap;
+    gap: 0;
+    height: auto;
+    padding: 0;
+  }
+
+  .masthead__brand {
+    height: 48px;
+    padding-left: var(--gutter);
+    font-size: 1.1875rem;
+  }
+
+  .masthead__tools {
+    height: 48px;
+    padding-right: 8px;
+  }
+
+  .masthead__search,
+  .masthead__contents {
+    height: 40px;
+    min-height: 40px;
+  }
+
+  .masthead__search {
+    width: 40px;
+  }
+
+  .masthead__tabs {
+    order: 3;
+    flex: 0 0 100%;
+    border-top: 1px solid var(--hair);
+  }
+
+  .masthead__tabs a {
+    flex: 1 1 auto;
+    justify-content: center;
+    height: 40px;
+    padding: 0 8px;
+    font-size: 0.8125rem;
+  }
+
+  .masthead__tabs a:first-child {
+    border-left: 0;
+  }
+
+  .masthead__tabs a:last-child {
+    border-right: 0;
+  }
+
+  /* While reading a chat the tabs step aside to leave room for it. */
+  .page--fill .masthead__tabs {
+    display: none;
+  }
+
+  .page__main {
+    padding: 20px var(--gutter) 56px;
+  }
+
+  /* The table's rows stack: the era's name on its own line, then its cells. */
+  .map__era {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .map__head {
+    padding: 8px 10px;
+  }
+
+  .map__cell {
+    min-height: 56px;
+    padding: 8px 10px;
+  }
+
+  .map__era--compact .map__head {
+    padding: 8px 10px;
+  }
+
+  .map--strip {
+    margin: 12px 0 22px;
+  }
+
+  .map--placeholder .map__head {
+    min-height: 36px;
+  }
+
+  .map--upcoming .map__head {
+    display: none;
+  }
+
+  .map--upcoming .map__cell {
+    min-height: 32px;
+  }
+
+  .map__cell--roomy {
+    min-height: 0;
+  }
+
+  .season__index {
+    margin-top: 40px;
+  }
+
+  .infobox {
+    display: block;
+  }
+
+  .infobox__art {
+    height: 150px;
+    min-height: 0;
+    border-right: 0;
+    border-bottom: var(--rule) solid var(--ink);
+  }
+
+  /* Tables of chats become a list: the name, then its numbers on the line below. */
+  .chat-list__filter {
+    flex: 1 1 100%;
+  }
+
+  .chat-list__sort {
+    display: flex;
+  }
+
+  .chat-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .chat-table,
+  .chat-table tbody {
+    display: block;
+  }
+
+  .chat-table__row {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 2px 10px;
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .chat-table tbody:last-child .chat-table__row:last-child {
+    border-bottom: 0;
+  }
+
+  .chat-table__row td {
+    padding: 0;
+    border: 0;
+  }
+
+  .chat-table__num {
+    display: none;
+  }
+
+  .chat-table__name,
+  .chat-table__category,
+  .chat-table__players {
+    grid-column: 1 / -1;
+  }
+
+  .chat-table__name a {
+    font-size: 1rem;
+  }
+
+  .chat-table__messages {
+    text-align: left;
+  }
+
+  .chat-table__unit {
+    display: inline;
+  }
+
+  .chat-table__messages,
+  .chat-table__dates,
+  .chat-table__players,
+  .chat-table__category {
+    color: var(--soft);
+    font-size: 0.84375rem;
+  }
+
+  .chat-table__players:empty {
+    display: none;
+  }
+
+  .chat-table__group,
+  .chat-table__empty {
+    display: block;
+  }
+
+  .chat-table__group th,
+  .chat-table__empty td {
+    display: block;
+  }
+
+  .chat-table__group th span {
+    display: block;
+    margin: 2px 0 0;
+  }
+
+  /* Reader: the title on one line with the tools under it, icons only. */
+  .reader__head {
+    gap: 8px;
+    padding: 10px 12px 10px var(--gutter);
+  }
+
+  .reader__titles {
+    flex-basis: 100%;
+  }
+
+  .reader h1 {
+    margin-top: 2px;
+    font-size: 1.25rem;
+  }
+
+  .reader__tools {
+    flex: 1;
+    flex-wrap: nowrap;
+  }
+
+  .btn--tool {
+    width: 44px;
+    padding: 0;
+  }
+
+  .btn--tool .btn__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .pager {
+    margin-left: auto;
+  }
+
+  .pager__step {
+    width: 42px;
+    min-height: 41px;
+  }
+
+  .matchbar {
+    padding-left: var(--gutter);
+  }
+
+  .matchbar .icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .notice {
+    margin-top: 16px;
+  }
+
+  /* Home: the art on top, the words under it. */
+  .home {
+    padding: 24px var(--gutter) 32px;
+  }
+
+  .seasons {
+    margin-top: 20px;
+  }
+
+  .season-row {
+    grid-template-columns: minmax(0, 1fr) 52px;
+    min-height: 0;
+  }
+
+  .season-row__art {
+    grid-column: 1 / -1;
+    height: 104px;
+    min-height: 0;
+    border-right: 0;
+    border-bottom: var(--rule) solid var(--ink);
+  }
+
+  .season-row__text {
+    padding: 12px 14px 14px;
+  }
+
+  .season-row__name {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Reduced motion: nothing moves, everything still works
+   --------------------------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+
+  .intro__band,
+  .intro__plate {
+    animation: none;
+    clip-path: none;
+  }
+
+  .loading-steps i {
+    animation: none;
+    opacity: 0.6;
+  }
+}

@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-mantine-color-scheme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Truce Server Chatlog Archives - Browse Discord conversations"
-    />
-    <title>Truce Server • Chatlog Archives</title>
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
+    <meta name="description" content="Read the chats from every season of Truce." />
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <title>Truce Archives</title>
+    <style>
+      body { margin: 0; background: #ffffff; color: #17181c; }
+    </style>
     <script>
+      // Old links went through a redirect page that passed the path as ?p=. Restore it before the app starts.
       (function () {
         var params = new URLSearchParams(window.location.search);
         var path = params.get('p');
@@ -20,7 +24,7 @@
     </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>Turn on JavaScript to browse the Truce archives.</noscript>
     <div id="root"></div>
   </body>
 </html>

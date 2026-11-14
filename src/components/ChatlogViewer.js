@@ -1,572 +1,490 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Drawer } from '@mantine/core';
+import { useClipboard, useDebouncedValue, useMediaQuery } from '@mantine/hooks';
 import {
-  Box,
-  Text,
-  Group,
-  Badge,
-  Paper,
-  Loader,
-  Center,
-  Alert,
-  ActionIcon,
-  CopyButton,
-  Tooltip,
-  Button,
-  TextInput,
-  ScrollArea,
-  Stack,
-  Highlight
-} from '@mantine/core';
-import { IconCopy, IconCheck, IconExternalLink, IconArrowLeft, IconSearch } from '@tabler/icons-react';
+  IconAlertTriangle,
+  IconArrowDown,
+  IconArrowUp,
+  IconCheck,
+  IconChevronLeft,
+  IconChevronRight,
+  IconExternalLink,
+  IconLink,
+  IconSearch,
+  IconShare,
+  IconX,
+} from '@tabler/icons-react';
+import { findFolder, folderLabel } from '../seasons';
+import { archiveUrl, chatName, chatSummary, encodePath, formatNumber, playersLabel, pluralize, publicUrl, sortChats } from '../utils/chats';
+import { withAlpha } from '../utils/ui';
 
-function ChatlogViewer({ chatlogPath, onGoBack, basePath = 'season-1', resolveChatlogPath, themeColors }) {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [htmlContent, setHtmlContent] = useState('');
-  const [pendingSearch, setPendingSearch] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-  const [currentResultIndex, setCurrentResultIndex] = useState(0);
-  const [messages, setMessages] = useState([]);
-  const iframeRef = useRef(null);
-  const highlightTimerRef = useRef(null);
-  const scrollStopTimerRef = useRef(null);
-  
-  // Extract info from chatlog path
-  const pathParts = chatlogPath.split('/');
-  const folder = pathParts[0];
-  const filename = pathParts[pathParts.length - 1];
-  const cleanTitle = filename
-    ?.replace(/\.html$/, '')
-    ?.replace(/^(?:Truce|Truce S2[^-]*) - [^-]+ - /, '')  // strip "Truce - Category - " prefix
-    ?.replace(/^(?:Truce|Truce S2[^-]*) - /, '')            // strip any remaining "Truce - " prefix
-    ?.replace(/\s*\[\d+\]\s*$/, '') || 'Unknown';
+const HIGHLIGHT_CLASS = 'chatlog__message-container--highlighted';
+const READY_MESSAGE = 'truce-chat-ready';
+const MAX_LISTED_RESULTS = 100;
+const NO_RESULTS = [];
+const TEXT_SELECTOR = [
+  '.chatlog__content',
+  '.chatlog__embed-title',
+  '.chatlog__embed-description',
+  '.chatlog__embed-field-name',
+  '.chatlog__embed-field-value',
+].join(', ');
 
-  const palette = useMemo(() => {
-    if (!themeColors) {
-      return null;
-    }
+// Added to every export. These only make it fit the frame (margins, overflow, phone sizes) and mark the
+// message a search jumped to; the export's own Discord look is left alone in every season.
+// Everything is !important because the exports' own styles load after these.
+function frameStyles(season) {
+  const highlight = withAlpha(season.accent, 0.22);
+  const css = `
+    html, body { margin: 0 !important; }
+    body { overflow-x: hidden !important; }
+    .chatlog__timestamp a, .chatlog__short-timestamp { pointer-events: none !important; cursor: default !important; text-decoration: none !important; }
+    .chatlog__markdown-pre--multiline { max-width: 100% !important; overflow-x: auto !important; }
+    .${HIGHLIGHT_CLASS} { background-color: ${highlight} !important; }
+    @media (max-width: 600px) {
+      body { font-size: 15px !important; }
+      .preamble { padding: 0.75rem !important; }
+      .preamble__guild-icon { max-width: 48px !important; max-height: 48px !important; }
+      .preamble__entries-container { margin-left: 0.75rem !important; }
+      .preamble__entry { font-size: 1.1rem !important; }
+      .chatlog__message-aside { width: 52px !important; }
+      .chatlog__avatar { width: 32px !important; height: 32px !important; }
+      .chatlog__reply-symbol { margin-left: 26px !important; }
+      .chatlog__embed, .chatlog__attachment-generic, .chatlog__attachment-media { max-width: 100% !important; }
+    }`;
 
-    return {
-      light: themeColors[0],
-      accent: themeColors[1],
-      mid: themeColors[2],
-      dark: themeColors[3],
-      deepest: themeColors[4]
-    };
-  }, [themeColors]);
+  return `<style>${css}</style><base target="_blank">`;
+}
 
-  useEffect(() => {
-    setLoading(true);
-    setError(false);
-    setHtmlContent('');
+// Links open in a new tab, in-page anchors scroll, and the parent hears when the chat has rendered.
+const FRAME_SCRIPT = `<script>
+document.addEventListener('click', function (event) {
+  var link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+  if (!link) return;
+  var href = link.getAttribute('href') || '';
+  event.preventDefault();
+  if (href.charAt(0) === '#') {
+    var target = document.getElementById(href.slice(1));
+    if (target) target.scrollIntoView({ block: 'center' });
+    return;
+  }
+  if (/^javascript:/i.test(href)) return;
+  window.open(link.href, '_blank', 'noopener,noreferrer');
+}, true);
+parent.postMessage({ type: '${READY_MESSAGE}' }, '*');
+</script>`;
 
-    // Fetch the HTML file content directly
-    const fetchChatlog = async () => {
+// The exports are minified without </head> or </body>, so add styles right after <head> and the script at the end.
+function prepareHtml(raw, styles) {
+  const start = raw.slice(0, 4096);
+  const head = /<head[^>]*>/i.exec(start) || /<!doctype[^>]*>/i.exec(start);
+  const at = head ? head.index + head[0].length : 0;
+  return `${raw.slice(0, at)}${styles}${raw.slice(at)}${FRAME_SCRIPT}`;
+}
+
+const cleanName = (name) => name.replace(/\s*\[[^\]]*\]\s*$/, '').trim();
+
+// Built from the iframe's own document the first time someone searches, so the chat is only parsed once.
+function buildIndex(doc) {
+  const items = [];
+  doc.querySelectorAll('.chatlog__message-group').forEach((group) => {
+    const author = cleanName(group.querySelector('.chatlog__author')?.textContent || '');
+    group.querySelectorAll('.chatlog__message-container').forEach((container) => {
+      if (!container.id) return;
+      const text = Array.from(container.querySelectorAll(TEXT_SELECTOR), (node) => node.textContent)
+        .join(' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (!text) return;
+      const stamp = container.querySelector('.chatlog__timestamp, .chatlog__short-timestamp');
+      items.push({
+        id: container.id,
+        author,
+        time: stamp?.getAttribute('title') || stamp?.textContent.trim() || '',
+        text,
+        haystack: `${author} ${text}`.toLowerCase(),
+      });
+    });
+  });
+  return items;
+}
+
+function snippet(text, needle) {
+  const max = 160;
+  if (text.length <= max) return text;
+  const index = text.toLowerCase().indexOf(needle);
+  const start = index > 40 ? index - 40 : 0;
+  const end = Math.min(text.length, start + max);
+  return `${start > 0 ? '…' : ''}${text.slice(start, end)}${end < text.length ? '…' : ''}`;
+}
+
+// The exports keep Discord's own dark ground, so the loading and error states sit on it too.
+const CHAT_BACKGROUND = '#36393e';
+
+/** Wraps each match of `needle` in <mark>. */
+function Marked({ text, needle }) {
+  if (!needle) return text;
+  const lower = text.toLowerCase();
+  const parts = [];
+  let from = 0;
+  let at = lower.indexOf(needle);
+  while (at !== -1) {
+    if (at > from) parts.push(text.slice(from, at));
+    parts.push(<mark key={at}>{text.slice(at, at + needle.length)}</mark>);
+    from = at + needle.length;
+    at = lower.indexOf(needle, from);
+  }
+  if (from < text.length) parts.push(text.slice(from));
+  return parts;
+}
+
+function ShareButton({ url, title }) {
+  const clipboard = useClipboard({ timeout: 2000 });
+  const canShare = typeof navigator !== 'undefined' && typeof navigator.share === 'function';
+
+  const handleClick = async () => {
+    if (canShare) {
       try {
-        const publicUrl = process.env.PUBLIC_URL || '';
-        const resolvedChatlogPath = resolveChatlogPath ? resolveChatlogPath(chatlogPath) : chatlogPath;
-        const safeChatlogPath = resolvedChatlogPath
-          .split('/')
-          .map((segment) => encodeURIComponent(segment))
-          .join('/');
-
-        const isAbsolutePublicUrl = /^https?:\/\//i.test(publicUrl);
-        const normalizedPublicUrl = publicUrl.replace(/\/+$/, '');
-        const baseCandidates = [normalizedPublicUrl, window.location.origin + (!isAbsolutePublicUrl ? normalizedPublicUrl : '')]
-          .filter((base, index, list) => base !== '' ? list.indexOf(base) === index : true);
-
-        const fetchHtml = async (base) => {
-          const url = base ? `${base}/${safeChatlogPath}` : `/${safeChatlogPath}`;
-          const response = await fetch(url, { cache: 'no-store' });
-          const text = await response.text();
-          return { response, text, url };
-        };
-
-        let html = '';
-        let response = null;
-        let lastUrl = '';
-        let resolvedChatlog = false;
-
-        for (const base of baseCandidates) {
-          const result = await fetchHtml(base);
-          response = result.response;
-          html = result.text;
-          lastUrl = result.url;
-
-          const looksLikeAppShell = html.includes('id="root"');
-          if (response.ok && !looksLikeAppShell) {
-            resolvedChatlog = true;
-            break;
-          }
-        }
-
-        if (!response || !response.ok || !resolvedChatlog) {
-          throw new Error(`HTTP error! status: ${response ? response.status : 'unknown'} (${lastUrl})`);
-        }
-
-        // Disable timestamp anchor navigation to avoid hash changes in the iframe
-        html = html
-          .replace(/href=["']?#chatlog__message-container-[^"'\s>]+["']?/g, 'href="javascript:void(0)"')
-          .replace(/href=["']?#chatlog__message-container-[^"'\s>]+/g, 'href="javascript:void(0)"');
-        
-        // Inject CSS to make content fully expandable with scrolling inside iframe
-        const fitToScreenCSS = `
-          <style>
-            html, body {
-              margin: 0 !important;
-              padding: 0 !important;
-              height: 100% !important;
-              width: 100% !important;
-              overflow: auto !important;
-            }
-            body {
-              display: flex;
-              flex-direction: column;
-            }
-            .preamble {
-              padding: 1rem !important;
-              margin: 0 !important;
-              flex-shrink: 0;
-            }
-            .chatlog {
-              padding: 0.5rem 1rem !important;
-              margin: 0 !important;
-              max-height: none !important;
-              height: auto !important;
-              width: 100% !important;
-              overflow-y: auto !important;
-              overflow-x: hidden !important;
-              display: flex;
-              flex-direction: column;
-              flex: 1;
-            }
-            .chatlog__message-group {
-              margin-bottom: 1rem !important;
-              flex-shrink: 0;
-            }
-            .chatlog__message-container.search-highlight {
-              outline: 2px solid rgba(212, 175, 55, 0.9);
-              box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.35);
-              border-radius: 6px;
-              transition: outline 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            }
-            .chatlog__timestamp a,
-            .chatlog__short-timestamp {
-              pointer-events: none !important;
-              cursor: default !important;
-              text-decoration: none !important;
-            }
-            * {
-              box-sizing: border-box;
-            }
-          </style>
-        `;
-
-        const themeCSS = palette ? `
-          <style>
-            body {
-              background: ${palette.deepest} !important;
-              color: ${palette.light} !important;
-            }
-            .preamble {
-              background: ${palette.dark} !important;
-              color: ${palette.light} !important;
-              border-bottom: 1px solid ${palette.mid} !important;
-            }
-            .chatlog__message-group {
-              border-left: 2px solid ${palette.mid} !important;
-              padding-left: 8px !important;
-            }
-            .chatlog__author-name {
-              color: ${palette.accent} !important;
-            }
-            .chatlog__timestamp,
-            .chatlog__short-timestamp {
-              color: ${palette.mid} !important;
-            }
-            .chatlog__content,
-            .chatlog__message,
-            .chatlog__description,
-            .chatlog__embed-description {
-              color: ${palette.light} !important;
-            }
-            .chatlog__reaction {
-              background: ${palette.dark} !important;
-              border-color: ${palette.mid} !important;
-              color: ${palette.light} !important;
-            }
-            .chatlog__embed {
-              background: ${palette.dark} !important;
-              border-color: ${palette.mid} !important;
-            }
-            .chatlog__message-container.search-highlight {
-              outline: 2px solid ${palette.accent} !important;
-              box-shadow: 0 0 0 3px rgba(199, 153, 211, 0.35) !important;
-            }
-            a {
-              color: ${palette.light} !important;
-            }
-          </style>
-        ` : '';
-
-        const linkTargetScript = `
-          <script>
-            document.addEventListener('DOMContentLoaded', function () {
-              document.addEventListener('click', function (event) {
-                var link = event.target.closest('a');
-                if (!link) return;
-                event.preventDefault();
-                event.stopPropagation();
-
-                var href = link.getAttribute('href') || '';
-                if (href.startsWith('#')) {
-                  var target = document.querySelector(href);
-                  if (target && typeof target.scrollIntoView === 'function') {
-                    target.scrollIntoView({ block: 'center' });
-                  }
-                  return;
-                }
-
-                var absolute = link.href || href;
-                window.open(absolute, '_blank', 'noopener,noreferrer');
-              }, true);
-
-              document.querySelectorAll('a').forEach(function (link) {
-                link.setAttribute('target', '_blank');
-                link.setAttribute('rel', 'noopener noreferrer');
-              });
-            });
-          </script>
-        `;
-        
-        // Insert the CSS and base target before the closing head tag
-        html = html.replace(
-          '</head>',
-          fitToScreenCSS + themeCSS + '<base target="_blank" /></head>'
-        );
-        html = html.replace('</body>', linkTargetScript + '</body>');
-        
-        setHtmlContent(html);
-        setLoading(false);
-        setError(false);
-      } catch (err) {
-        console.error('Failed to load chatlog:', err);
-        setLoading(false);
-        setError(true);
+        await navigator.share({ title, url });
+        return;
+      } catch (error) {
+        if (error?.name === 'AbortError') return;
       }
-    };
-
-    fetchChatlog();
-  }, [chatlogPath, resolveChatlogPath, themeColors, palette]);
-
-  // Extract message list from HTML for searching
-  useEffect(() => {
-    if (htmlContent) {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(htmlContent, 'text/html');
-      const containers = Array.from(doc.querySelectorAll('.chatlog__message-container'));
-      const parsedMessages = containers
-        .map((container) => {
-          const id = container.getAttribute('id');
-          const author = container.querySelector('.chatlog__author')?.textContent?.trim() || '';
-          const timestamp = container.querySelector('.chatlog__timestamp')?.textContent?.trim() || '';
-          const content = container.querySelector('.chatlog__content')?.textContent?.trim() || '';
-          if (!id || !content) {
-            return null;
-          }
-          return {
-            id,
-            author,
-            timestamp,
-            text: `${author} ${timestamp} ${content}`.trim(),
-            preview: content
-          };
-        })
-        .filter(Boolean);
-
-      setMessages(parsedMessages);
-      setSearchResults([]);
-      setCurrentResultIndex(0);
     }
-  }, [htmlContent]);
-
-  // Search functionality
-  useEffect(() => {
-    if (searchQuery.trim() === '') {
-      setSearchResults([]);
-      setCurrentResultIndex(0);
-      return;
-    }
-
-    const query = searchQuery.toLowerCase();
-    const results = messages
-      .filter((message) => message.text.toLowerCase().includes(query))
-      .map((message, index) => ({
-        ...message,
-        index
-      }));
-
-    setSearchResults(results);
-    setCurrentResultIndex(0);
-  }, [searchQuery, messages]);
-
-  const scrollToMessage = (messageId) => {
-    const doc = iframeRef.current?.contentWindow?.document;
-    const target = doc?.getElementById(messageId);
-    const iframeWin = iframeRef.current?.contentWindow;
-    if (!target || typeof target.scrollIntoView !== 'function') return;
-
-    target.scrollIntoView({ block: 'center' });
-
-    const applyHighlight = () => {
-      const prevBoxShadow = target.style.boxShadow;
-      const prevBackground = target.style.backgroundColor;
-
-      target.style.boxShadow = '0 0 12px rgba(212, 175, 55, 0.22)';
-      target.style.backgroundColor = 'rgba(212, 175, 55, 0.04)';
-
-      if (highlightTimerRef.current) {
-        window.clearTimeout(highlightTimerRef.current);
-      }
-      highlightTimerRef.current = window.setTimeout(() => {
-        target.style.boxShadow = prevBoxShadow;
-        target.style.backgroundColor = prevBackground;
-      }, 1200);
-    };
-
-    if (!iframeWin) {
-      applyHighlight();
-      return;
-    }
-
-    const onScroll = () => {
-      if (scrollStopTimerRef.current) {
-        iframeWin.clearTimeout(scrollStopTimerRef.current);
-      }
-      scrollStopTimerRef.current = iframeWin.setTimeout(() => {
-        iframeWin.removeEventListener('scroll', onScroll, true);
-        applyHighlight();
-      }, 150);
-    };
-
-    iframeWin.addEventListener('scroll', onScroll, true);
-    onScroll();
+    clipboard.copy(url);
   };
 
-  const [currentFolder, ...currentFileParts] = chatlogPath.split('/');
-  const currentFile = currentFileParts.join('/');
-  const currentUrl = `${window.location.origin}/${basePath}/${encodeURIComponent(currentFolder)}/${encodeURIComponent(currentFile)}`;
+  let label = 'Copy link';
+  if (clipboard.copied) label = 'Link copied';
+  else if (canShare) label = 'Share';
+
+  let Icon = IconLink;
+  if (clipboard.copied) Icon = IconCheck;
+  else if (canShare) Icon = IconShare;
 
   return (
-    <Box style={{ height: '100%', display: 'flex', flexDirection: 'column', width: '100%', minHeight: 0 }}>
-      {/* Header */}
-      <Paper
-        p="sm"
-        mb="xs"
-        radius="md"
-        style={{
-          backgroundColor: palette ? palette.dark : 'var(--mantine-color-dark-6)',
-          border: palette ? `1px solid ${palette.mid}` : undefined,
-          flexShrink: 0,
-          marginTop: '8px'
-        }}
-      >
-        <Group justify="space-between" align="flex-start">
-          <Group align="center" gap="xs">
-            {onGoBack && (
-              <Button 
-                variant="subtle" 
-                size="xs"
-                leftSection={<IconArrowLeft size={12} />}
-                onClick={onGoBack}
-              >
-                Back
-              </Button>
-            )}
-            <Box>
-              <Text size="xs" fw={600}>{cleanTitle}</Text>
-              <Group gap="xs" align="center">
-                <Badge size="xs" variant="light">{folder}</Badge>
-              </Group>
-            </Box>
-          </Group>
-          <Group gap="xs">
-            <CopyButton value={currentUrl}>
-              {({ copied, copy }) => (
-                <Tooltip label={copied ? 'Copied!' : 'Copy link'}>
-                  <ActionIcon 
-                    color={copied ? 'teal' : 'gray'} 
-                    variant="light" 
-                    onClick={copy}
-                    size="xs"
-                  >
-                    {copied ? <IconCheck size={12} /> : <IconCopy size={12} />}
-                  </ActionIcon>
-                </Tooltip>
+    <button
+      type="button"
+      className="btn btn--tool"
+      onClick={handleClick}
+      aria-label={canShare ? 'Share this chat' : 'Copy a link to this chat'}
+      title={label}
+    >
+      <Icon size={16} stroke={2} aria-hidden="true" />
+      <span className="btn__label" aria-live="polite">{label}</span>
+    </button>
+  );
+}
+
+function ChatlogViewer({ season, folder, file, files, info }) {
+  const name = chatName(file);
+  const category = folderLabel(season, folder);
+  const { group } = findFolder(season, folder);
+  const categoryUrl = archiveUrl(season.path, folder);
+  const fileUrl = publicUrl(`/${encodePath(season.resolveChat(folder, file))}`);
+  const shareUrl = `${window.location.origin}${archiveUrl(season.path, folder, file)}`;
+  const details = [info ? chatSummary(file, info) : chatSummary(file, null), playersLabel(info, 4)].filter(Boolean).join(' · ');
+
+  // The chats either side of this one, in the order the category lists them.
+  const siblings = useMemo(() => sortChats(files || [file]), [files, file]);
+  const position = siblings.indexOf(file);
+  const previous = position > 0 ? siblings[position - 1] : null;
+  const next = position >= 0 && position < siblings.length - 1 ? siblings[position + 1] : null;
+
+  const styles = useMemo(() => frameStyles(season), [season]);
+
+  const [load, setLoad] = useState({ status: 'loading', html: '' });
+  const [attempt, setAttempt] = useState(0);
+  const [frameReady, setFrameReady] = useState(false);
+  const iframeRef = useRef(null);
+  const indexRef = useRef(null);
+
+  // Wide screens search from the header and list matches beside the chat; narrow ones use a drawer.
+  const wide = useMediaQuery('(min-width: 62em)', true, { getInitialValueInEffect: false });
+  const phone = useMediaQuery('(max-width: 48em)', false, { getInitialValueInEffect: false });
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [query, setQuery] = useState('');
+  const [debouncedQuery] = useDebouncedValue(query.trim(), 200);
+  const [results, setResults] = useState(NO_RESULTS);
+  const [active, setActive] = useState(-1);
+  const highlightRef = useRef({ element: null, timer: 0 });
+  const listRef = useRef(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    setLoad({ status: 'loading', html: '' });
+    setFrameReady(false);
+    indexRef.current = null;
+
+    fetch(fileUrl, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Request failed with ${response.status}`);
+        return response.text();
+      })
+      .then((text) => {
+        // A missing file can come back as the app's own page, so only accept real exports.
+        if (!text.includes('chatlog__')) throw new Error('Not a chat export');
+        setLoad({ status: 'ready', html: prepareHtml(text, styles) });
+      })
+      .catch((error) => {
+        if (error.name !== 'AbortError') setLoad({ status: 'error', html: '' });
+      });
+
+    return () => controller.abort();
+  }, [fileUrl, styles, attempt]);
+
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.data?.type === READY_MESSAGE && event.source === iframeRef.current?.contentWindow) {
+        setFrameReady(true);
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
+
+  const jumpTo = useCallback((item) => {
+    const element = iframeRef.current?.contentDocument?.getElementById(item.id);
+    if (!element) return;
+    element.scrollIntoView({ block: 'center' });
+    const state = highlightRef.current;
+    window.clearTimeout(state.timer);
+    if (state.element && state.element !== element) state.element.classList.remove(HIGHLIGHT_CLASS);
+    element.classList.add(HIGHLIGHT_CLASS);
+    state.element = element;
+    state.timer = window.setTimeout(() => element.classList.remove(HIGHLIGHT_CLASS), 2200);
+  }, []);
+
+  useEffect(() => {
+    const state = highlightRef.current;
+    return () => window.clearTimeout(state.timer);
+  }, []);
+
+  useEffect(() => {
+    if (!debouncedQuery || !frameReady) {
+      setResults(NO_RESULTS);
+      setActive(-1);
+      return;
+    }
+    const doc = iframeRef.current?.contentDocument;
+    if (!doc) return;
+    if (!indexRef.current) indexRef.current = buildIndex(doc);
+    const needle = debouncedQuery.toLowerCase();
+    const found = indexRef.current.filter((item) => item.haystack.includes(needle));
+    setResults(found.length ? found : NO_RESULTS);
+    setActive(found.length ? 0 : -1);
+    if (found.length) jumpTo(found[0]);
+  }, [debouncedQuery, frameReady, jumpTo]);
+
+  useEffect(() => {
+    listRef.current?.querySelector('[data-active="true"]')?.scrollIntoView({ block: 'nearest' });
+  }, [active]);
+
+  const go = (step) => {
+    if (!results.length) return;
+    const nextIndex = (active + step + results.length) % results.length;
+    setActive(nextIndex);
+    jumpTo(results[nextIndex]);
+  };
+
+  const select = (index) => {
+    setActive(index);
+    jumpTo(results[index]);
+    if (!wide) setDrawerOpen(false);
+  };
+
+  const handleSearchKey = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      go(event.shiftKey ? -1 : 1);
+    } else if (event.key === 'Escape' && query) {
+      event.stopPropagation();
+      setQuery('');
+    }
+  };
+
+  const needle = debouncedQuery.toLowerCase();
+  let status = 'Search messages and names. Enter jumps to the next match.';
+  if (debouncedQuery && !frameReady) status = 'The chat is still loading…';
+  else if (debouncedQuery && results.length === 0) status = 'No messages match.';
+  else if (debouncedQuery) {
+    status = pluralize(results.length, 'match', 'matches');
+    if (results.length > MAX_LISTED_RESULTS) status += ` · showing the first ${MAX_LISTED_RESULTS}`;
+  }
+
+  const searchField = (autoFocus) => (
+    <label className="field reader__search">
+      <IconSearch size={16} stroke={2} aria-hidden="true" />
+      <input
+        type="search"
+        data-autofocus={autoFocus || undefined}
+        value={query}
+        onChange={(event) => setQuery(event.currentTarget.value)}
+        onKeyDown={handleSearchKey}
+        placeholder="Search this chat"
+        aria-label="Search this chat"
+        autoComplete="off"
+      />
+      {query && (
+        <button type="button" className="field__clear" onClick={() => setQuery('')} aria-label="Clear search">
+          <IconX size={14} stroke={2} aria-hidden="true" />
+        </button>
+      )}
+    </label>
+  );
+
+  const resultList = (
+    <>
+      <p className="results__status" aria-live="polite">{status}</p>
+      <div className="results__list" ref={listRef}>
+        {results.slice(0, MAX_LISTED_RESULTS).map((item, index) => (
+          <button
+            key={item.id}
+            type="button"
+            className="result"
+            data-active={index === active}
+            onClick={() => select(index)}
+          >
+            <span className="result__who">{[item.author, item.time].filter(Boolean).join(' · ')}</span>
+            <span className="result__text"><Marked text={snippet(item.text, needle)} needle={needle} /></span>
+          </button>
+        ))}
+      </div>
+    </>
+  );
+
+  const showOverlay = load.status === 'loading' || (load.status === 'ready' && !frameReady);
+  const loadingText = info?.n >= 2000 ? `Loading ${formatNumber(info.n)} messages…` : 'Loading chat…';
+  const showResults = wide && Boolean(debouncedQuery) && load.status === 'ready';
+
+  return (
+    <div className="reader" style={{ '--chat-bg': CHAT_BACKGROUND, '--c': group?.color }}>
+      <header className="reader__head">
+        <div className="reader__titles">
+          <nav className="crumbs" aria-label="Breadcrumb">
+            <Link to={season.path}>{season.label}</Link>
+            <IconChevronRight size={14} stroke={2} aria-hidden="true" />
+            <Link to={categoryUrl}>
+              <i className="swatch" aria-hidden="true" />
+              {category}
+            </Link>
+          </nav>
+          <h1 title={name}>{name}</h1>
+          <p className="reader__meta">{details}</p>
+        </div>
+
+        <div className="reader__tools">
+          {wide ? searchField(false) : (
+            <button type="button" className="btn btn--tool" onClick={() => setDrawerOpen(true)} aria-label="Search this chat" title="Search this chat">
+              <IconSearch size={16} stroke={2} aria-hidden="true" />
+              <span className="btn__label">Search</span>
+            </button>
+          )}
+          <ShareButton url={shareUrl} title={name} />
+          <a className="btn btn--tool" href={fileUrl} target="_blank" rel="noopener noreferrer" aria-label="Open the original file in a new tab" title="Open the original file">
+            <IconExternalLink size={16} stroke={2} aria-hidden="true" />
+            <span className="btn__label">Original</span>
+          </a>
+
+          {siblings.length > 1 && (
+            <nav className="pager" aria-label={`Chats in ${category}`}>
+              {previous ? (
+                <Link className="pager__step" to={archiveUrl(season.path, folder, previous)} aria-label={`Previous chat: ${chatName(previous)}`} title={`Previous: ${chatName(previous)}`}>
+                  <IconChevronLeft size={18} stroke={2} aria-hidden="true" />
+                </Link>
+              ) : (
+                <span className="pager__step" aria-hidden="true" data-disabled><IconChevronLeft size={18} stroke={2} /></span>
               )}
-            </CopyButton>
-            <Tooltip label="Open in new tab">
-              <ActionIcon 
-                variant="light" 
-                onClick={() => {
-                  const publicUrl = process.env.PUBLIC_URL || '';
-                  const resolvedChatlogPath = resolveChatlogPath ? resolveChatlogPath(chatlogPath) : chatlogPath;
-                  window.open(`${publicUrl}/${resolvedChatlogPath}`, '_blank');
-                }}
-                size="xs"
-              >
-                <IconExternalLink size={12} />
-              </ActionIcon>
-            </Tooltip>
-          </Group>
-        </Group>
-      </Paper>
-
-      {/* Main Content with Search Sidebar */}
-      <Box style={{ flex: 1, display: 'flex', gap: '0', minHeight: 0 }}>
-        {/* Chatlog Content Area */}
-        <Box
-          style={{
-            flex: 1,
-            position: 'relative',
-            display: 'flex',
-            flexDirection: 'column',
-            minHeight: 0,
-            backgroundColor: palette ? palette.deepest : '#36393e'
-          }}
-        >
-          {loading && (
-            <Center style={{ 
-              position: 'absolute', 
-              top: '50%', 
-              left: '50%', 
-              transform: 'translate(-50%, -50%)',
-              zIndex: 1
-            }}>
-              <Group>
-                <Loader size="md" />
-                <Text c="dimmed">Loading chatlog...</Text>
-              </Group>
-            </Center>
+              <span className="pager__count">{formatNumber(position + 1)} of {formatNumber(siblings.length)}</span>
+              {next ? (
+                <Link className="pager__step" to={archiveUrl(season.path, folder, next)} aria-label={`Next chat: ${chatName(next)}`} title={`Next: ${chatName(next)}`}>
+                  <IconChevronRight size={18} stroke={2} aria-hidden="true" />
+                </Link>
+              ) : (
+                <span className="pager__step" aria-hidden="true" data-disabled><IconChevronRight size={18} stroke={2} /></span>
+              )}
+            </nav>
           )}
-          
-          {error && !loading && (
-            <Alert 
-              color="red" 
-              title="Failed to load chatlog"
-              style={{ margin: 'var(--mantine-spacing-md)' }}
-            >
-              The chatlog file could not be loaded. Please check if the file exists and try again.
-            </Alert>
+        </div>
+      </header>
+
+      <div className="reader__body">
+        <div className="reader__stage">
+          {debouncedQuery && load.status === 'ready' && (
+            <div className="matchbar">
+              <p>
+                {results.length
+                  ? `${formatNumber(active + 1)} of ${formatNumber(results.length)} for “${debouncedQuery}”`
+                  : `No matches for “${debouncedQuery}”`}
+              </p>
+              <button type="button" className="icon-btn" onClick={() => go(-1)} disabled={!results.length} aria-label="Previous match" title="Previous match">
+                <IconArrowUp size={16} stroke={2} aria-hidden="true" />
+              </button>
+              <button type="button" className="icon-btn" onClick={() => go(1)} disabled={!results.length} aria-label="Next match" title="Next match">
+                <IconArrowDown size={16} stroke={2} aria-hidden="true" />
+              </button>
+              <button type="button" className="icon-btn" onClick={() => setQuery('')} aria-label="Clear search" title="Clear search">
+                <IconX size={16} stroke={2} aria-hidden="true" />
+              </button>
+            </div>
           )}
 
-          {htmlContent && !loading && (
+          {load.status === 'ready' && (
             <iframe
               ref={iframeRef}
-              srcDoc={htmlContent}
+              className="reader__frame"
+              title={`Chat: ${name}`}
+              srcDoc={load.html}
               sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
-              style={{
-                flex: 1,
-                width: '100%',
-                height: '100%',
-                border: 'none',
-                backgroundColor: palette ? palette.deepest : '#36393e'
+              onLoad={() => {
+                // Fallback for the ready message; ignore any load of the empty placeholder document.
+                if (iframeRef.current?.contentDocument?.querySelector('.chatlog')) setFrameReady(true);
               }}
-              title={`Chatlog: ${cleanTitle}`}
             />
           )}
-        </Box>
 
-        {/* Search Sidebar */}
-        <Box style={{
-          width: '240px',
-          borderLeft: palette ? `1px solid ${palette.mid}` : '1px solid var(--mantine-color-dark-5)',
-          backgroundColor: palette ? palette.deepest : 'var(--mantine-color-dark-7)',
-          display: 'flex',
-          flexDirection: 'column',
-          minHeight: 0
-        }}>
-          <Stack p="sm" gap="sm" style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
-            {/* Search Input */}
-            <TextInput
-              placeholder="Search messages..."
-              icon={<IconSearch size={14} />}
-              value={pendingSearch}
-              onChange={(e) => setPendingSearch(e.currentTarget.value)}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter') {
-                  setSearchQuery(pendingSearch);
-                }
-              }}
-              size="sm"
-              styles={palette ? { input: { backgroundColor: palette.dark, color: palette.light, borderColor: palette.mid } } : undefined}
-              rightSection={pendingSearch && (
-                <ActionIcon
-                  size="sm"
-                  variant="transparent"
-                  onClick={() => {
-                    setPendingSearch('');
-                    setSearchQuery('');
-                  }}
-                >
-                  ×
-                </ActionIcon>
-              )}
-            />
+          {showOverlay && (
+            <div className="reader__overlay" role="status">
+              <span className="loading-steps" aria-hidden="true"><i /><i /><i /></span>
+              <p>{loadingText}</p>
+            </div>
+          )}
 
-            {/* Results Count */}
-            {searchResults.length > 0 && (
-              <Text size="xs" c="dimmed">
-                {searchResults.length} results {searchResults.length > 0 && `(${currentResultIndex + 1}/${searchResults.length})`}
-              </Text>
-            )}
+          {load.status === 'error' && (
+            <div className="reader__overlay" role="alert">
+              <IconAlertTriangle size={28} stroke={2} aria-hidden="true" />
+              <p className="reader__overlay-title">This chat didn't load</p>
+              <p>Check your connection and try again.</p>
+              <div className="reader__overlay-actions">
+                <button type="button" className="btn btn--solid" onClick={() => setAttempt((count) => count + 1)}>Try again</button>
+                <Link className="btn" to={categoryUrl}>Back to {category}</Link>
+              </div>
+            </div>
+          )}
+        </div>
 
-            {/* Search Results */}
-            <ScrollArea style={{ flex: 1, overflow: 'hidden' }}>
-              {searchResults.length === 0 && searchQuery && (
-                <Text size="sm" c="dimmed" ta="center" py="md">
-                  No results found
-                </Text>
-              )}
-              {searchResults.map((result, idx) => (
-                <Paper
-                  key={idx}
-                  p="xs"
-                  mb="xs"
-                  radius="sm"
-                  style={{
-                    cursor: 'pointer',
-                    backgroundColor: palette
-                      ? (idx === currentResultIndex ? palette.mid : palette.dark)
-                      : (idx === currentResultIndex ? 'var(--mantine-color-blue-8)' : 'var(--mantine-color-dark-6)'),
-                    border: palette
-                      ? `1px solid ${idx === currentResultIndex ? palette.accent : palette.mid}`
-                      : (idx === currentResultIndex ? '1px solid var(--mantine-color-blue-5)' : '1px solid var(--mantine-color-dark-5)')
-                  }}
-                  onClick={() => {
-                    setCurrentResultIndex(idx);
-                    scrollToMessage(result.id);
-                  }}
-                >
-                  <Text size="xs" c="dimmed" mb={4}>
-                    {result.author} {result.timestamp}
-                  </Text>
-                  <Highlight
-                    highlight={searchQuery}
-                    size="sm"
-                    truncate="end"
-                    weight={500}
-                  >
-                    {result.preview.substring(0, 120)}
-                  </Highlight>
-                </Paper>
-              ))}
-            </ScrollArea>
-          </Stack>
-        </Box>
-      </Box>
-    </Box>
+        {showResults && (
+          <aside className="reader__results" aria-label="Matches in this chat">{resultList}</aside>
+        )}
+      </div>
+
+      <Drawer
+        opened={!wide && drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        position="right"
+        size={phone ? '100%' : 380}
+        title="Search this chat"
+        radius={0}
+        shadow="none"
+        overlayProps={{ backgroundOpacity: 0.35, blur: 0 }}
+        transitionProps={{ duration: 0 }}
+        classNames={{ content: 'sheet', header: 'sheet__header', title: 'sheet__title', body: 'sheet__body sheet__body--search', close: 'sheet__close' }}
+      >
+        {searchField(true)}
+        {resultList}
+      </Drawer>
+    </div>
   );
 }
 

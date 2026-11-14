@@ -20,102 +20,52 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          
-      - name: Install dependencies
-        run: npm ci
-        
-      - name: Copy chatlog folders to public
-        run: |
-          mkdir -p public
+          node-version: '20'
+          cache: 'npm'
 
-          # Season 1 — copy flat into public/
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Copy chat folders into public
+        run: |
+          # Each season keeps its own folder, which is where the app loads chats from.
           if [ -d "SeasonOneChat" ]; then
-            cp -r SeasonOneChat/* public/
+            mkdir -p public/SeasonOneChat
+            cp -r SeasonOneChat/. public/SeasonOneChat/
           fi
 
-          # Season 2 — keep under public/SeasonTwoChat/ so paths stay scoped
           if [ -d "SeasonTwoChat" ]; then
             mkdir -p public/SeasonTwoChat
-            cp -r SeasonTwoChat/* public/SeasonTwoChat/
+            cp -r SeasonTwoChat/. public/SeasonTwoChat/
           fi
 
           if [ -d "NEEDIMPLEMENT" ]; then
-            cp -r NEEDIMPLEMENT public/
+            mkdir -p public/NEEDIMPLEMENT
+            cp -r NEEDIMPLEMENT/. public/NEEDIMPLEMENT/
           fi
 
-          # Assets (logo images)
+          # Original banner and logo images
           if [ -d "Assets" ]; then
             cp Assets/*.png public/ 2>/dev/null || true
           fi
 
-      - name: Generate sitemaps
-        run: |
-          python3 - << 'PY'
-          import os, json
-
-          public_dir = "public"
-          # Folders to exclude from Season 1 sitemap
-          s1_ignore = {
-            ".git", ".github", "workflows", "assets", "css", "js",
-            "node_modules", "src", "build", "NEEDIMPLEMENT", "SeasonTwoChat"
-          }
-
-          # ── Season 1 sitemap (sitemap.json) ──────────────────────────────
-          s1_folders = [
-            d for d in os.listdir(public_dir)
-            if os.path.isdir(os.path.join(public_dir, d))
-            and not d.startswith(".")
-            and d not in s1_ignore
-          ]
-          s1_folders.sort(key=str.lower)
-
-          s1_site = {}
-          for d in s1_folders:
-            folder_path = os.path.join(public_dir, d)
-            files = [f for f in os.listdir(folder_path) if f.lower().endswith(".html")]
-            files.sort(key=str.lower)
-            s1_site[d] = files
-
-          with open("public/sitemap.json", "w", encoding="utf-8") as f:
-            json.dump(s1_site, f, ensure_ascii=False, indent=2)
-          print(f"sitemap.json: {len(s1_site)} folders")
-
-          # ── Season 2 sitemap (sitemap-season2.json) ───────────────────────
-          s2_root = os.path.join(public_dir, "SeasonTwoChat")
-          s2_site = {}
-          if os.path.isdir(s2_root):
-            s2_folders = [
-              d for d in os.listdir(s2_root)
-              if os.path.isdir(os.path.join(s2_root, d)) and not d.startswith(".")
-            ]
-            s2_folders.sort(key=str.lower)
-            for d in s2_folders:
-              folder_path = os.path.join(s2_root, d)
-              files = [f for f in os.listdir(folder_path) if f.lower().endswith(".html")]
-              files.sort(key=str.lower)
-              s2_site[d] = files
-
-          with open("public/sitemap-season2.json", "w", encoding="utf-8") as f:
-            json.dump(s2_site, f, ensure_ascii=False, indent=2)
-          print(f"sitemap-season2.json: {len(s2_site)} folders")
-          PY
-          
+      # `npm run build` first regenerates the chat lists and chat-meta.json from public/
+      # (scripts/build-index.mjs), then copies index.html to 404.html so shared links load directly.
       - name: Build React app
         run: npm run build
-        
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './build'
-          
+
   deploy:
     environment:
       name: github-pages
