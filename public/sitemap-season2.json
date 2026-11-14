@@ -1,8 +1,5 @@
 {
-  "Adlivun 1-on-1s 🌌": [
-    "Truce - Adlivun 1-on-1s 🌌 - hydro-lexi [1491255355198668840].html"
-  ],
-  "Adlivun Archives 🌌": [
+  "Adlivun": [
     "Truce - Adlivun Archives 🌌 - adlivun-announcements [1498853251175677952].html",
     "Truce - Adlivun Archives 🌌 - adlivun-challenges [1498853224130805850].html",
     "Truce - Adlivun Archives 🌌 - adlivun-hall [1498852669119397888].html",
@@ -39,7 +36,10 @@
     "Truce - Adlivun Archives 🌌 - 🧹-clearing-things-up [1492598217249128568].html",
     "Truce - Adlivun Archives 🌌 - 🪱-fallen-angels [1498873556086292571].html"
   ],
-  "Adlivun Archives 🌌 2": [
+  "Adlivun 1-on-1s": [
+    "Truce - Adlivun 1-on-1s 🌌 - hydro-lexi [1491255355198668840].html"
+  ],
+  "Adlivun 2": [
     "Truce - Adlivun Archives 🌌 2 - aperson-henke [1498861412121051216].html",
     "Truce - Adlivun Archives 🌌 2 - aperson-hydro [1487656676600316045].html",
     "Truce - Adlivun Archives 🌌 2 - aperson-lexi [1491255339209723974].html",
@@ -65,7 +65,7 @@
     "Truce - Adlivun Archives 🌌 2 - times-veejay [1491606692507680949].html",
     "Truce - Adlivun Archives 🌌 2 - times-wendi [1487656716114853949].html"
   ],
-  "Adlivun Archives 🌌 3": [
+  "Adlivun 3": [
     "Truce - Adlivun Archives 🌌 3 - hydro-shimon [1495984515951231160].html",
     "Truce - Adlivun Archives 🌌 3 - hydro-silent [1498861452721918125].html",
     "Truce - Adlivun Archives 🌌 3 - hydro-snowman [1487656692333150349].html",
@@ -85,12 +85,7 @@
     "Truce - Adlivun Archives 🌌 3 - snowman-wendi [1487656714923675778].html",
     "Truce - Adlivun Archives 🌌 3 - veejay-wendi [1491606695133319189].html"
   ],
-  "Aiye 1-on-1s 🐝": [
-    "Truce - Aiye 1-on-1s 🐝 - shimon-snap [1493797698569113641].html",
-    "Truce - Aiye 1-on-1s 🐝 - snap-times [1493797727379918979].html",
-    "Truce - Aiye 1-on-1s 🐝 - snap-wendi [1493797729137197106].html"
-  ],
-  "Aiye Archives 🐝": [
+  "Aiye": [
     "Truce - Aiye Archives 🐝 - aiye-announcements [1493794038879485952].html",
     "Truce - Aiye Archives 🐝 - aiye-challenges [1493794098060988446].html",
     "Truce - Aiye Archives 🐝 - aiye-hall [1493794065290887198].html",
@@ -104,7 +99,27 @@
     "Truce - Aiye Archives 🐝 - 🕸️-spidermen [1494405150872305816].html",
     "Truce - Aiye Archives 🐝 - 🫃-hermes-angels [1495082733498536007].html"
   ],
-  "Ayodhya 1-on-1s 🪷": [
+  "Aiye 1-on-1s": [
+    "Truce - Aiye 1-on-1s 🐝 - shimon-snap [1493797698569113641].html",
+    "Truce - Aiye 1-on-1s 🐝 - snap-times [1493797727379918979].html",
+    "Truce - Aiye 1-on-1s 🐝 - snap-wendi [1493797729137197106].html"
+  ],
+  "Ayodhya": [
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - 4️⃣-fantastic-four [1489699769579208867].html",
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - archangel-joe [1487655961421156373].html",
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - ayodhya-announcements [1487604589976092803].html",
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - ayodhya-challenges [1487604562738286632].html",
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - ayodhya-hall [1487604528135278773].html",
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - henke-joe [1487655975916671080].html",
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - jd-joe [1487655983479128185].html",
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - joe-leslie [1487655990416511056].html",
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - joe-nevets [1487655991540453478].html",
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - joe-rich [1487655993423695962].html",
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - joe-shimon [1487655994916864082].html",
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - 🐶-underdogs [1487683610801602590].html",
+    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - 👑-elite-four [1487908434908287168].html"
+  ],
+  "Ayodhya 1-on-1s": [
     "Truce S2_ Rite of Apothea - Ayodhya 1-on-1s 🪷 - archangel-jd [1487655959508680824].html",
     "Truce S2_ Rite of Apothea - Ayodhya 1-on-1s 🪷 - archangel-nevets [1487655963665240155].html",
     "Truce S2_ Rite of Apothea - Ayodhya 1-on-1s 🪷 - archangel-rich [1487655965351346276].html",
@@ -120,30 +135,7 @@
     "Truce S2_ Rite of Apothea - Ayodhya 1-on-1s 🪷 - nevets-shimon [1487656001854509086].html",
     "Truce S2_ Rite of Apothea - Ayodhya 1-on-1s 🪷 - rich-shimon [1487656002793767075].html"
   ],
-  "Ayodhya Archives 🪷": [
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - 4️⃣-fantastic-four [1489699769579208867].html",
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - archangel-joe [1487655961421156373].html",
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - ayodhya-announcements [1487604589976092803].html",
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - ayodhya-challenges [1487604562738286632].html",
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - ayodhya-hall [1487604528135278773].html",
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - henke-joe [1487655975916671080].html",
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - jd-joe [1487655983479128185].html",
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - joe-leslie [1487655990416511056].html",
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - joe-nevets [1487655991540453478].html",
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - joe-rich [1487655993423695962].html",
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - joe-shimon [1487655994916864082].html",
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - 🐶-underdogs [1487683610801602590].html",
-    "Truce S2_ Rite of Apothea - Ayodhya Archives 🪷 - 👑-elite-four [1487908434908287168].html"
-  ],
-  "Euphrates 1-on-1s 🐫": [
-    "Truce - Euphrates 1-on-1s 🐫 - archangel-celestial [1495980969415676094].html",
-    "Truce - Euphrates 1-on-1s 🐫 - archangel-henke [1487655957965049917].html",
-    "Truce - Euphrates 1-on-1s 🐫 - archangel-lexi [1493798254662516938].html",
-    "Truce - Euphrates 1-on-1s 🐫 - archangel-lucas [1491254712807456933].html",
-    "Truce - Euphrates 1-on-1s 🐫 - archangel-silent [1491254716212969512].html",
-    "Truce - Euphrates 1-on-1s 🐫 - archangel-veejay [1493798265420910592].html"
-  ],
-  "Euphrates Archives 🐫": [
+  "Euphrates": [
     "Truce - Euphrates Archives 🐫 - 2️⃣-back-2-back [1495980123315241222].html",
     "Truce - Euphrates Archives 🐫 - archangel-henke-veejay [1498446443134849305].html",
     "Truce - Euphrates Archives 🐫 - archangel-snap [1495980976143073522].html",
@@ -160,15 +152,23 @@
     "Truce - Euphrates Archives 🐫 - snap-veejay [1487656987436257300].html",
     "Truce - Euphrates Archives 🐫 - 🏳️‍🌈-the-last-showmance [1497032926351724544].html"
   ],
-  "Finale Temples 🦋": [
+  "Euphrates 1-on-1s": [
+    "Truce - Euphrates 1-on-1s 🐫 - archangel-celestial [1495980969415676094].html",
+    "Truce - Euphrates 1-on-1s 🐫 - archangel-henke [1487655957965049917].html",
+    "Truce - Euphrates 1-on-1s 🐫 - archangel-lexi [1493798254662516938].html",
+    "Truce - Euphrates 1-on-1s 🐫 - archangel-lucas [1491254712807456933].html",
+    "Truce - Euphrates 1-on-1s 🐫 - archangel-silent [1491254716212969512].html",
+    "Truce - Euphrates 1-on-1s 🐫 - archangel-veejay [1493798265420910592].html"
+  ],
+  "Finale": [
+    "Truce - Finale 🦋 - grand-hall [1487605861785538611].html"
+  ],
+  "Finale Temples": [
     "Truce - Finale Temples 🦋 - hydro-temple [1486859766880931990].html",
     "Truce - Finale Temples 🦋 - lexi-temple [1486852984934633695].html",
     "Truce - Finale Temples 🦋 - wendi-temple [1486865799523209316].html"
   ],
-  "Finale 🦋": [
-    "Truce - Finale 🦋 - grand-hall [1487605861785538611].html"
-  ],
-  "General Archives ☆": [
+  "General": [
     "Truce - General Archives ☆ - eradication [1488362087632605254].html",
     "Truce - General Archives ☆ - fuji-haku [1492559211912237167].html",
     "Truce - General Archives ☆ - fuji-tateyama [1492559370767044878].html",
@@ -183,7 +183,15 @@
     "Truce - General Archives ☆ - wendi [1504310111215161436].html",
     "Truce - General Archives ☆ - 👑-knights [1488369520207986708].html"
   ],
-  "Haridwar 1-on-1s 🦢": [
+  "Haridwar": [
+    "Truce S2_ Rite of Apothea - Haridwar Archives 🦢 - haridwar-announcements [1487606902228516985].html",
+    "Truce S2_ Rite of Apothea - Haridwar Archives 🦢 - haridwar-challenges [1487606976442794055].html",
+    "Truce S2_ Rite of Apothea - Haridwar Archives 🦢 - haridwar-hall [1487606956830097488].html",
+    "Truce S2_ Rite of Apothea - Haridwar Archives 🦢 - 🎨-júnior-da-vincis [1490077093944496258].html",
+    "Truce S2_ Rite of Apothea - Haridwar Archives 🦢 - 💎-the-aquamarines [1488011946321121430].html",
+    "Truce S2_ Rite of Apothea - Haridwar Archives 🦢 - 🔵-popcap [1488349416225116220].html"
+  ],
+  "Haridwar 1-on-1s": [
     "Truce S2_ Rite of Apothea - Haridwar 1-on-1s 🦢 - aperson-jules [1487656678496145478].html",
     "Truce S2_ Rite of Apothea - Haridwar 1-on-1s 🦢 - aperson-nyx [1487656679729270795].html",
     "Truce S2_ Rite of Apothea - Haridwar 1-on-1s 🦢 - hydro-jules [1487656687673278505].html",
@@ -197,19 +205,7 @@
     "Truce S2_ Rite of Apothea - Haridwar 1-on-1s 🦢 - nyx-wendi [1487656708594733147].html",
     "Truce S2_ Rite of Apothea - Haridwar 1-on-1s 🦢 - scaredy-snowman [1487656709731385475].html"
   ],
-  "Haridwar Archives 🦢": [
-    "Truce S2_ Rite of Apothea - Haridwar Archives 🦢 - haridwar-announcements [1487606902228516985].html",
-    "Truce S2_ Rite of Apothea - Haridwar Archives 🦢 - haridwar-challenges [1487606976442794055].html",
-    "Truce S2_ Rite of Apothea - Haridwar Archives 🦢 - haridwar-hall [1487606956830097488].html",
-    "Truce S2_ Rite of Apothea - Haridwar Archives 🦢 - 🎨-júnior-da-vincis [1490077093944496258].html",
-    "Truce S2_ Rite of Apothea - Haridwar Archives 🦢 - 💎-the-aquamarines [1488011946321121430].html",
-    "Truce S2_ Rite of Apothea - Haridwar Archives 🦢 - 🔵-popcap [1488349416225116220].html"
-  ],
-  "Igbodu 1-on-1s 🪻": [
-    "Truce - Igbodu 1-on-1s 🪻 - celestial-harpy [1487656344927600843].html",
-    "Truce - Igbodu 1-on-1s 🪻 - harpy-lucas [1487656349298065448].html"
-  ],
-  "Igbodu Archives 🪻": [
+  "Igbodu": [
     "Truce - Igbodu Archives 🪻 - aqua-celestial [1493798908101660764].html",
     "Truce - Igbodu Archives 🪻 - aqua-harpy [1493798910509056161].html",
     "Truce - Igbodu Archives 🪻 - aqua-hydro [1493798912090308709].html",
@@ -230,7 +226,11 @@
     "Truce - Igbodu Archives 🪻 - 💃-cha-cha-cha [1494541239700160645].html",
     "Truce - Igbodu Archives 🪻 - 🫧-haku-tuah [1493806845330980874].html"
   ],
-  "Jury ☆": [
+  "Igbodu 1-on-1s": [
+    "Truce - Igbodu 1-on-1s 🪻 - celestial-harpy [1487656344927600843].html",
+    "Truce - Igbodu 1-on-1s 🪻 - harpy-lucas [1487656349298065448].html"
+  ],
+  "Jury": [
     "Truce - Jury ☆ - aperson-questions [1505400349891104869].html",
     "Truce - Jury ☆ - archangel-questions [1505400329305329805].html",
     "Truce - Jury ☆ - henke-questions [1505400371160416379].html",
@@ -246,19 +246,7 @@
     "Truce - Jury ☆ - wendi-speech [1505399720451899452].html",
     "Truce - Jury ☆ - ▬▬▬▬▬▬▬▬▬ [1505400287043649626].html"
   ],
-  "Kashi 1-on-1s 🦚": [
-    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - aqua-sim [1487656955928383569].html",
-    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - aqua-snap [1487656957077881123].html",
-    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - aqua-typo [1487656958294233151].html",
-    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - lilo-sim [1487656963784446002].html",
-    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - lilo-snap [1487656965030150266].html",
-    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - lilo-typo [1487656966179258428].html",
-    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - silent-sim [1487656975637418024].html",
-    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - silent-typo [1487656978036560022].html",
-    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - sim-typo [1487656982004633741].html",
-    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - snap-typo [1487656985661800528].html"
-  ],
-  "Kashi Archives 🦚": [
+  "Kashi": [
     "Truce S2_ Rite of Apothea - Kashi Archives 🦚 - aqua-sherm [1487656953223057508].html",
     "Truce S2_ Rite of Apothea - Kashi Archives 🦚 - aqua-veejay [1487656959577555036].html",
     "Truce S2_ Rite of Apothea - Kashi Archives 🦚 - kashi-announcements [1487608006333173870].html",
@@ -279,18 +267,19 @@
     "Truce S2_ Rite of Apothea - Kashi Archives 🦚 - 🕵️‍♂️-the-mafia [1490170827134599248].html",
     "Truce S2_ Rite of Apothea - Kashi Archives 🦚 - 🤠-yeehaw [1489687949963432166].html"
   ],
-  "Mount Fuji 1-on-1s 🌸": [
-    "Truce - Mount Fuji 1-on-1s 🌸 - aperson-typo [1491255342753906849].html",
-    "Truce - Mount Fuji 1-on-1s 🌸 - harpy-lexi [1487656314921291847].html",
-    "Truce - Mount Fuji 1-on-1s 🌸 - harpy-typo [1491255351897751622].html",
-    "Truce - Mount Fuji 1-on-1s 🌸 - harpy-veejay [1491606678280343632].html",
-    "Truce - Mount Fuji 1-on-1s 🌸 - hydro-typo [1491255357987749940].html",
-    "Truce - Mount Fuji 1-on-1s 🌸 - lexi-typo [1491255364153245727].html",
-    "Truce - Mount Fuji 1-on-1s 🌸 - times-typo [1491255371723964626].html",
-    "Truce - Mount Fuji 1-on-1s 🌸 - typo-veejay [1487656988480508105].html",
-    "Truce - Mount Fuji 1-on-1s 🌸 - typo-wendi [1491255375171813447].html"
+  "Kashi 1-on-1s": [
+    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - aqua-sim [1487656955928383569].html",
+    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - aqua-snap [1487656957077881123].html",
+    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - aqua-typo [1487656958294233151].html",
+    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - lilo-sim [1487656963784446002].html",
+    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - lilo-snap [1487656965030150266].html",
+    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - lilo-typo [1487656966179258428].html",
+    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - silent-sim [1487656975637418024].html",
+    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - silent-typo [1487656978036560022].html",
+    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - sim-typo [1487656982004633741].html",
+    "Truce S2_ Rite of Apothea - Kashi 1-on-1s 🦚 - snap-typo [1487656985661800528].html"
   ],
-  "Mount Fuji Archives 🌸": [
+  "Mount Fuji": [
     "Truce - Mount Fuji Archives 🌸 - aperson-scaredy [1487656681658646599].html",
     "Truce - Mount Fuji Archives 🌸 - fuji-announcements [1491249848421187795].html",
     "Truce - Mount Fuji Archives 🌸 - fuji-challenges [1491249885054505111].html",
@@ -308,7 +297,28 @@
     "Truce - Mount Fuji Archives 🌸 - 🥚-clockwork-egg [1492610336791072828].html",
     "Truce - Mount Fuji Archives 🌸 - 🪿-the-silly-goobers [1488231785782317166].html"
   ],
-  "Mount Haku 1-on-1s 🫧": [
+  "Mount Fuji 1-on-1s": [
+    "Truce - Mount Fuji 1-on-1s 🌸 - aperson-typo [1491255342753906849].html",
+    "Truce - Mount Fuji 1-on-1s 🌸 - harpy-lexi [1487656314921291847].html",
+    "Truce - Mount Fuji 1-on-1s 🌸 - harpy-typo [1491255351897751622].html",
+    "Truce - Mount Fuji 1-on-1s 🌸 - harpy-veejay [1491606678280343632].html",
+    "Truce - Mount Fuji 1-on-1s 🌸 - hydro-typo [1491255357987749940].html",
+    "Truce - Mount Fuji 1-on-1s 🌸 - lexi-typo [1491255364153245727].html",
+    "Truce - Mount Fuji 1-on-1s 🌸 - times-typo [1491255371723964626].html",
+    "Truce - Mount Fuji 1-on-1s 🌸 - typo-veejay [1487656988480508105].html",
+    "Truce - Mount Fuji 1-on-1s 🌸 - typo-wendi [1491255375171813447].html"
+  ],
+  "Mount Haku": [
+    "Truce - Mount Haku Archives 🫧 - 3️⃣-the-big-three [1489297480385298452].html",
+    "Truce - Mount Haku Archives 🫧 - haku-announcements [1491249906793578639].html",
+    "Truce - Mount Haku Archives 🫧 - haku-challenges [1491249969909338132].html",
+    "Truce - Mount Haku Archives 🫧 - haku-hall [1491249927681216512].html",
+    "Truce - Mount Haku Archives 🫧 - 🐟-fihmily-guy [1491450657432014960].html",
+    "Truce - Mount Haku Archives 🫧 - 🐧-penguins-of-madagascar [1492626403722789007].html",
+    "Truce - Mount Haku Archives 🫧 - 😠-furious-five [1493432413936943244].html",
+    "Truce - Mount Haku Archives 🫧 - 🦚-kashyts [1491895854670549012].html"
+  ],
+  "Mount Haku 1-on-1s": [
     "Truce - Mount Haku 1-on-1s 🫧 - aqua-archangel [1491254693249421353].html",
     "Truce - Mount Haku 1-on-1s 🫧 - aqua-henke [1491254695216287884].html",
     "Truce - Mount Haku 1-on-1s 🫧 - aqua-shimon [1491254698768994386].html",
@@ -320,31 +330,7 @@
     "Truce - Mount Haku 1-on-1s 🫧 - lilo-shimon [1491254728963915816].html",
     "Truce - Mount Haku 1-on-1s 🫧 - lilo-silent [1487656962341605458].html"
   ],
-  "Mount Haku Archives 🫧": [
-    "Truce - Mount Haku Archives 🫧 - 3️⃣-the-big-three [1489297480385298452].html",
-    "Truce - Mount Haku Archives 🫧 - haku-announcements [1491249906793578639].html",
-    "Truce - Mount Haku Archives 🫧 - haku-challenges [1491249969909338132].html",
-    "Truce - Mount Haku Archives 🫧 - haku-hall [1491249927681216512].html",
-    "Truce - Mount Haku Archives 🫧 - 🐟-fihmily-guy [1491450657432014960].html",
-    "Truce - Mount Haku Archives 🫧 - 🐧-penguins-of-madagascar [1492626403722789007].html",
-    "Truce - Mount Haku Archives 🫧 - 😠-furious-five [1493432413936943244].html",
-    "Truce - Mount Haku Archives 🫧 - 🦚-kashyts [1491895854670549012].html"
-  ],
-  "Mount Tateyama 1-on-1s 🪭": [
-    "Truce - Mount Tateyama 1-on-1s 🪭 - celestial-jules [1491254192113717288].html",
-    "Truce - Mount Tateyama 1-on-1s 🪭 - celestial-leslie [1491254193858810078].html",
-    "Truce - Mount Tateyama 1-on-1s 🪭 - celestial-leslie [1492305544449359912].html",
-    "Truce - Mount Tateyama 1-on-1s 🪭 - celestial-sim [1491254205682417764].html",
-    "Truce - Mount Tateyama 1-on-1s 🪭 - celestial-soda [1487656348031123677].html",
-    "Truce - Mount Tateyama 1-on-1s 🪭 - jules-leslie [1491254210824769586].html",
-    "Truce - Mount Tateyama 1-on-1s 🪭 - jules-sim [1491254215266533516].html",
-    "Truce - Mount Tateyama 1-on-1s 🪭 - jules-soda [1491254220379131915].html",
-    "Truce - Mount Tateyama 1-on-1s 🪭 - leslie-snap [1491254225936584924].html",
-    "Truce - Mount Tateyama 1-on-1s 🪭 - Sim Snap VC [1491263178418688131].html",
-    "Truce - Mount Tateyama 1-on-1s 🪭 - sim-snap [1487656980721041598].html",
-    "Truce - Mount Tateyama 1-on-1s 🪭 - snap-soda [1491254249492058327].html"
-  ],
-  "Mount Tateyama Archives 🪭": [
+  "Mount Tateyama": [
     "Truce - Mount Tateyama Archives 🪭 - celestial-jules-sim-snap-soda [1493669682820022404].html",
     "Truce - Mount Tateyama Archives 🪭 - celestial-nevets [1491254195150524506].html",
     "Truce - Mount Tateyama Archives 🪭 - celestial-rich [1491254196828115195].html",
@@ -368,18 +354,21 @@
     "Truce - Mount Tateyama Archives 🪭 - 🧃-ayo-juice [1492002528068636795].html",
     "Truce - Mount Tateyama Archives 🪭 - 🪷-ajoedhya [1491371636559970396].html"
   ],
-  "Orun 1-on-1s ☁️": [
-    "Truce - Orun 1-on-1s ☁️ - aperson-archangel [1493798243820372098].html",
-    "Truce - Orun 1-on-1s ☁️ - aperson-soda [1493798250720006244].html",
-    "Truce - Orun 1-on-1s ☁️ - archangel-sim [1493798256755478709].html",
-    "Truce - Orun 1-on-1s ☁️ - archangel-soda [1493798262988210219].html",
-    "Truce - Orun 1-on-1s ☁️ - lexi-sim [1493798279018975283].html",
-    "Truce - Orun 1-on-1s ☁️ - lexi-soda [1487656318176333955].html",
-    "Truce - Orun 1-on-1s ☁️ - sim-soda [1491254248065990867].html",
-    "Truce - Orun 1-on-1s ☁️ - sim-veejay [1487656984118427728].html",
-    "Truce - Orun 1-on-1s ☁️ - soda-veejay [1493798284739739708].html"
+  "Mount Tateyama 1-on-1s": [
+    "Truce - Mount Tateyama 1-on-1s 🪭 - celestial-jules [1491254192113717288].html",
+    "Truce - Mount Tateyama 1-on-1s 🪭 - celestial-leslie [1491254193858810078].html",
+    "Truce - Mount Tateyama 1-on-1s 🪭 - celestial-leslie [1492305544449359912].html",
+    "Truce - Mount Tateyama 1-on-1s 🪭 - celestial-sim [1491254205682417764].html",
+    "Truce - Mount Tateyama 1-on-1s 🪭 - celestial-soda [1487656348031123677].html",
+    "Truce - Mount Tateyama 1-on-1s 🪭 - jules-leslie [1491254210824769586].html",
+    "Truce - Mount Tateyama 1-on-1s 🪭 - jules-sim [1491254215266533516].html",
+    "Truce - Mount Tateyama 1-on-1s 🪭 - jules-soda [1491254220379131915].html",
+    "Truce - Mount Tateyama 1-on-1s 🪭 - leslie-snap [1491254225936584924].html",
+    "Truce - Mount Tateyama 1-on-1s 🪭 - Sim Snap VC [1491263178418688131].html",
+    "Truce - Mount Tateyama 1-on-1s 🪭 - sim-snap [1487656980721041598].html",
+    "Truce - Mount Tateyama 1-on-1s 🪭 - snap-soda [1491254249492058327].html"
   ],
-  "Orun Archives ☁️": [
+  "Orun": [
     "Truce - Orun Archives ☁️ - aperson-leslie [1493798245418143998].html",
     "Truce - Orun Archives ☁️ - Archangel Leslie VC [1495221962690138133].html",
     "Truce - Orun Archives ☁️ - archangel-leslie [1487655962495160404].html",
@@ -395,12 +384,23 @@
     "Truce - Orun Archives ☁️ - 👽-the-gnarps [1495492521621590178].html",
     "Truce - Orun Archives ☁️ - 🥴-the-traumabonders [1495240557159645325].html"
   ],
-  "Rite of Apothea ☆": [
+  "Orun 1-on-1s": [
+    "Truce - Orun 1-on-1s ☁️ - aperson-archangel [1493798243820372098].html",
+    "Truce - Orun 1-on-1s ☁️ - aperson-soda [1493798250720006244].html",
+    "Truce - Orun 1-on-1s ☁️ - archangel-sim [1493798256755478709].html",
+    "Truce - Orun 1-on-1s ☁️ - archangel-soda [1493798262988210219].html",
+    "Truce - Orun 1-on-1s ☁️ - lexi-sim [1493798279018975283].html",
+    "Truce - Orun 1-on-1s ☁️ - lexi-soda [1487656318176333955].html",
+    "Truce - Orun 1-on-1s ☁️ - sim-soda [1491254248065990867].html",
+    "Truce - Orun 1-on-1s ☁️ - sim-veejay [1487656984118427728].html",
+    "Truce - Orun 1-on-1s ☁️ - soda-veejay [1493798284739739708].html"
+  ],
+  "Rite of Apothea": [
     "Truce - Rite of Apothea ☆ - chronicles [1487533704699187481].html",
     "Truce - Rite of Apothea ☆ - proclamations [1487533108592119920].html",
     "Truce - Rite of Apothea ☆ - trials [1487533785128898741].html"
   ],
-  "Sacrifice ☆": [
+  "Sacrifice": [
     "Truce - Sacrifice ☆ - ☁️-sacrifice-nine [1495236728016076820].html",
     "Truce - Sacrifice ☆ - 🌌-sacrifice-eighteen [1503192047790592091].html",
     "Truce - Sacrifice ☆ - 🌌-sacrifice-fifteen [1501037795924508682].html",
@@ -432,7 +432,7 @@
     "Truce - Sacrifice ☆ - 🪻-sacrifice-eight [1494512742256873532].html",
     "Truce - Sacrifice ☆ - 🪻-sacrifice-nine [1495236750832832744].html"
   ],
-  "Temple Archives ☆": [
+  "Temples": [
     "Truce - Temple Archives ☆ - alexia-temple [1486855446382907504].html",
     "Truce - Temple Archives ☆ - alyx-temple [1486855868392669194].html",
     "Truce - Temple Archives ☆ - aperson-temple [1487068772597502065].html",
@@ -463,7 +463,16 @@
     "Truce - Temple Archives ☆ - typo-temple [1486865438725111858].html",
     "Truce - Temple Archives ☆ - veejay-temple [1486865608011153468].html"
   ],
-  "Tigris 1-on-1s 🐪": [
+  "Tigris": [
+    "Truce - Tigris Archives 🐪 - tigris-announcements [1495977715319308378].html",
+    "Truce - Tigris Archives 🐪 - tigris-challenges [1495977849062948875].html",
+    "Truce - Tigris Archives 🐪 - tigris-hall [1495977824513953893].html",
+    "Truce - Tigris Archives 🐪 - ⁉️-uhhhhhhhhhhhhhhhh [1496669131238277272].html",
+    "Truce - Tigris Archives 🐪 - 🏳️‍🌈-gay-rites [1497414467426975785].html",
+    "Truce - Tigris Archives 🐪 - 🕙-around-for-30-minutes [1490888449366949919].html",
+    "Truce - Tigris Archives 🐪 - 🦢-top-swans [1496019973552738426].html"
+  ],
+  "Tigris 1-on-1s": [
     "Truce - Tigris 1-on-1s 🐪 - aperson-harpy [1491255336076574770].html",
     "Truce - Tigris 1-on-1s 🐪 - aperson-sim [1493798248337641543].html",
     "Truce - Tigris 1-on-1s 🐪 - harpy-hydro [1491255345417293854].html",
@@ -478,16 +487,7 @@
     "Truce - Tigris 1-on-1s 🐪 - sim-times [1495984529779851445].html",
     "Truce - Tigris 1-on-1s 🐪 - sim-wendi [1495984531789053982].html"
   ],
-  "Tigris Archives 🐪": [
-    "Truce - Tigris Archives 🐪 - tigris-announcements [1495977715319308378].html",
-    "Truce - Tigris Archives 🐪 - tigris-challenges [1495977849062948875].html",
-    "Truce - Tigris Archives 🐪 - tigris-hall [1495977824513953893].html",
-    "Truce - Tigris Archives 🐪 - ⁉️-uhhhhhhhhhhhhhhhh [1496669131238277272].html",
-    "Truce - Tigris Archives 🐪 - 🏳️‍🌈-gay-rites [1497414467426975785].html",
-    "Truce - Tigris Archives 🐪 - 🕙-around-for-30-minutes [1490888449366949919].html",
-    "Truce - Tigris Archives 🐪 - 🦢-top-swans [1496019973552738426].html"
-  ],
-  "Tirupati  Archives 🪔": [
+  "Tirupati": [
     "Truce S2_ Rite of Apothea - Tirupati  Archives 🪔 - 2️⃣-tirupati-hall [1489801289641492480].html",
     "Truce S2_ Rite of Apothea - Tirupati  Archives 🪔 - alexia-alyx [1487656319765713057].html",
     "Truce S2_ Rite of Apothea - Tirupati  Archives 🪔 - alexia-bunny-cookie [1487656321380651159].html",
@@ -508,7 +508,7 @@
     "Truce S2_ Rite of Apothea - Tirupati  Archives 🪔 - tirupati-hall [1487608746594144337].html",
     "Truce S2_ Rite of Apothea - Tirupati  Archives 🪔 - 💀-me-and-the-boys [1489986597280551083].html"
   ],
-  "Tirupati 1-on-1s 🪔": [
+  "Tirupati 1-on-1s": [
     "Truce S2_ Rite of Apothea - Tirupati 1-on-1s 🪔 - alyx-celestial [1487656331883315223].html",
     "Truce S2_ Rite of Apothea - Tirupati 1-on-1s 🪔 - alyx-harpy [1487656334815133818].html",
     "Truce S2_ Rite of Apothea - Tirupati 1-on-1s 🪔 - alyx-lexi [1487656303403728958].html",
