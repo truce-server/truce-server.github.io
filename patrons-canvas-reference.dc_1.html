@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Patrons · Truce Archives</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/truce/tokens.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#070b12}
+.tp-card{transition:border-color 160ms ease-out}
+.tp-card:hover,.tp-card:focus-visible{border-color:#c9a85c !important}
+.tp-card:focus-visible{outline:2px solid #e8cf8f;outline-offset:3px}
+.tp-name{transition:color 160ms ease-out}
+.tp-card:hover .tp-name,.tp-card:focus-visible .tp-name{color:#e8cf8f !important}
+.tp-emblem{transition:transform 320ms cubic-bezier(0.16,1,0.3,1)}
+.tp-card:hover .tp-emblem,.tp-card:focus-visible .tp-emblem{transform:scale(1.07)}
+.tp-nav a{transition:color 120ms ease-out}
+.tp-nav a:hover{color:#ece4d2 !important}
+.tp-tab{transition:color 120ms ease-out,background-color 120ms ease-out}
+.tp-tab:hover{color:#ece4d2 !important}
+.tp-nav a:focus-visible,.tp-tab:focus-visible,.tp-reset:focus-visible,.tp-brand:focus-visible{outline:2px solid #e8cf8f;outline-offset:-2px}
+.tp-search:focus-within{border-color:#c9a85c !important}
+.tp-search input::placeholder{color:#8f8a7c;opacity:1}
+.tp-search input::-webkit-search-cancel-button{display:none}
+.tp-reset:hover{background:#c9a85c !important;color:#070b12 !important}
+@media (max-width:48em){
+.tp-head{flex-wrap:wrap !important;height:auto !important;padding:0 16px !important;gap:0 !important}
+.tp-brand{height:52px}
+.tp-nav{order:3;flex:0 0 100% !important;overflow-x:auto;border-top:1px solid #1a2230}
+.tp-nav a{height:44px !important;padding:0 10px !important}
+.tp-main{padding:32px 16px 64px !important}
+.tp-title{font-size:44px !important}
+.tp-bar{padding:12px !important}
+.tp-search{flex:1 1 100% !important}
+.tp-tabs{overflow-x:auto;flex-wrap:nowrap !important;width:100%}
+.tp-status{margin-left:0 !important}
+.tp-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr)) !important;gap:12px !important}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</helmet>
+<div id="top" style="min-height: 100vh; background: #070b12; color: #ece4d2; font-family: 'Libre Franklin', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.5;">
+<header class="tp-head" style="display: flex; align-items: center; gap: 28px; height: 60px; padding: 0 32px; background: #04070c; border-bottom: 1px solid #1f2836;">
+<a href="#top" class="tp-brand" aria-label="Truce Archives, all seasons" style="display: flex; align-items: center; gap: 10px; color: #ece4d2; font-family: Cinzel, 'Source Serif 4', Georgia, serif; font-size: 17px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap;">
+<img src="/_blob/e7415c0082d2a4f94456fee3b6dda070" alt="" width="30" height="30" style="display: block; width: 30px; height: 30px;">
+<span>Truce Archives</span>
+</a>
+<nav class="tp-nav" aria-label="Archive" style="display: flex; align-items: stretch;">
+<a href="#season-1" style="display: flex; align-items: center; height: 60px; padding: 0 14px; border-bottom: 2px solid transparent; color: #a7a295; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap;">Season 1</a>
+<a href="#season-2" style="display: flex; align-items: center; height: 60px; padding: 0 14px; border-bottom: 2px solid transparent; color: #a7a295; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap;">Season 2</a>
+<a href="#season-3" style="display: flex; align-items: center; height: 60px; padding: 0 14px; border-bottom: 2px solid transparent; color: #a7a295; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap;">Season 3</a>
+<a href="#song-of-life" style="display: flex; align-items: center; height: 60px; padding: 0 14px; border-bottom: 2px solid transparent; color: #a7a295; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap;">Song of Life</a>
+<a href="#top" aria-current="page" style="display: flex; align-items: center; height: 60px; padding: 0 14px; border-bottom: 2px solid #c9a85c; color: #e8cf8f; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap;">Patrons</a>
+</nav>
+</header>
+<main class="tp-main" style="max-width: 1360px; margin: 0 auto; padding: 56px 32px 96px; box-sizing: border-box;">
+<header style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+<p style="margin: 0; color: #c9a85c; font-size: 12px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;">Truce · Seasons 1 to 3</p>
+<h1 class="tp-title" style="margin: 12px 0 0; color: #ece4d2; font-family: Cinzel, 'Source Serif 4', Georgia, serif; font-size: 72px; font-weight: 700; line-height: 1.05; letter-spacing: 0.06em; text-transform: uppercase;">Patrons</h1>
+<div aria-hidden="true" style="display: flex; align-items: center; gap: 12px; width: 260px; margin-top: 18px;">
+<span style="flex-grow: 1; height: 1px; background: #6f5a32;"></span>
+<span style="width: 8px; height: 8px; border: 1px solid #c9a85c; transform: rotate(45deg);"></span>
+<span style="flex-grow: 1; height: 1px; background: #6f5a32;"></span>
+</div>
+<p style="max-width: 60ch; margin: 18px 0 0; color: #9a9586; font-size: 16px;">Every patron a Herald has played, A to Z. Open one to read its abilities.</p>
+<p style="margin: 10px 0 0; color: #ece4d2; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums;">{{factLine}}</p>
+</header>
+<div class="tp-bar" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 40px; padding: 10px 16px; background: #0b121d; border-top: 1px solid #6f5a32; border-bottom: 1px solid #6f5a32;">
+<label class="tp-search" style="display: flex; flex: 0 1 320px; align-items: center; gap: 8px; height: 40px; padding: 0 12px; background: #070b12; border: 1px solid #2c384b; color: #ece4d2; cursor: text;">
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a85c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path></svg>
+<span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;">Search patrons</span>
+<input type="search" value="{{query}}" onChange="{{onQuery}}" placeholder="Search by name, region or franchise" autocomplete="off" spellcheck="false" style="flex-grow: 1; min-width: 0; height: 100%; padding: 0; border: 0; outline: 0; background: transparent; color: #ece4d2; font: inherit; font-size: 14px;">
+</label>
+<div class="tp-tabs" role="group" aria-label="Show patrons from" style="display: flex; flex-wrap: wrap; align-items: stretch;">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="4">
+<button type="button" class="tp-tab" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border: 0; border-bottom: 2px solid {{t.bar}}; background: {{t.bg}}; color: {{t.color}}; font-family: inherit; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; cursor: pointer;">
+<sc-if value="{{t.hasTint}}" hint-placeholder-val="{{true}}"><span aria-hidden="true" style="width: 7px; height: 7px; background: {{t.tint}}; transform: rotate(45deg);"></span></sc-if>
+<span>{{t.label}}</span>
+<span style="color: {{t.countColor}}; font-weight: 500; letter-spacing: 0.04em; font-variant-numeric: tabular-nums;">{{t.count}}</span>
+</button>
+</sc-for>
+</div>
+<p class="tp-status" role="status" style="margin: 0 0 0 auto; color: #9a9586; font-size: 13px; font-variant-numeric: tabular-nums;">{{status}}</p>
+</div>
+<sc-if value="{{hasResults}}" hint-placeholder-val="{{true}}">
+<ul class="tp-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 16px; margin: 28px 0 0; padding: 0; list-style: none;">
+<sc-for list="{{shown}}" as="p" hint-placeholder-count="14">
+<li style="display: flex; min-width: 0;">
+<a href="{{p.href}}" class="tp-card" aria-label="{{p.aria}}" style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0; background: #0a1019; border: 1px solid #2c384b; color: #ece4d2; text-decoration: none;">
+<span aria-hidden="true" style="position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; background: #0c1420; border-bottom: 1px solid #2c384b;">
+<span class="tp-emblem" style="position: absolute; inset: 0; display: grid; place-items: center;">
+<span style="position: absolute; width: 64%; aspect-ratio: 1; border: 1px solid {{p.tint}}; opacity: 0.3; transform: rotate(45deg);"></span>
+<span style="position: absolute; width: 46%; aspect-ratio: 1; border: 1px solid {{p.tint}}; opacity: 0.6; transform: rotate(45deg);"></span>
+<span style="position: relative; color: {{p.tint}}; font-family: Cinzel, 'Source Serif 4', Georgia, serif; font-size: 40px; font-weight: 700; line-height: 1; letter-spacing: 0.04em;">{{p.initials}}</span>
+</span>
+<span style="position: absolute; top: 8px; left: 8px; display: flex; align-items: center; gap: 6px; padding: 4px 7px; background: #070b12; border: 1px solid #2c384b; color: #c8c2b3; font-size: 11px; font-weight: 600; line-height: 1; letter-spacing: 0.1em;">
+<span style="width: 6px; height: 6px; background: {{p.tint}}; transform: rotate(45deg);"></span>{{p.short}}
+</span>
+</span>
+<span style="display: block; padding: 12px 12px 14px;">
+<span class="tp-name" style="display: block; color: #ece4d2; font-family: Cinzel, 'Source Serif 4', Georgia, serif; font-size: 15px; font-weight: 700; line-height: 1.2; letter-spacing: 0.06em; text-transform: uppercase; overflow-wrap: anywhere;">{{p.name}}</span>
+<span style="display: block; margin-top: 4px; color: #958f80; font-size: 11.5px; font-weight: 600; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase;">{{p.origin}}</span>
+</span>
+</a>
+</li>
+</sc-for>
+</ul>
+</sc-if>
+<sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
+<div style="margin-top: 28px; padding: 32px; border: 1px dashed #6f5a32; color: #9a9586; text-align: center;">
+<p style="margin: 0; color: #ece4d2; font-weight: 600;">{{emptyLine}}</p>
+<button type="button" class="tp-reset" onClick="{{reset}}" style="margin-top: 14px; height: 40px; padding: 0 18px; border: 1px solid #c9a85c; background: transparent; color: #e8cf8f; font-family: inherit; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;">Show every patron</button>
+</div>
+</sc-if>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"startSeason":{"editor":"enum","options":["all","season-1","season-2","season-3"],"default":"all"},"$preview":{"width":1440,"height":4800}}'>
+class Component extends DCLogic {
+renderVals() {
+var PATRONS = this._patrons || (this._patrons = [{"id":"abraham-lincoln","name":"Abraham Lincoln","season":"season-2","origin":"American","initials":"AL"},{"id":"achilles","name":"Achilles","season":"season-2","origin":"Greek","initials":"Ac"},{"id":"aesop","name":"Aesop","season":"season-2","origin":"Greek","initials":"Ae"},{"id":"aloy","name":"Aloy","season":"season-3","origin":"Horizon Zero Dawn","initials":"Al"},{"id":"amaterasu","name":"Amaterasu","season":"season-1","origin":"Shinto","initials":"Am"},{"id":"anubis","name":"Anubis","season":"season-1","origin":"Egyptian","initials":"An"},{"id":"ao-guang","name":"Ao Guang","season":"season-2","origin":"Chinese","initials":"AG"},{"id":"arthur-morgan","name":"Arthur Morgan","season":"season-3","origin":"Red Dead Redemption 2","initials":"AM"},{"id":"asmodeus","name":"Asmodeus","season":"season-1","origin":"Christian","initials":"As"},{"id":"azathoth","name":"Azathoth","season":"season-1","origin":"Lovecraft","initials":"Az"},{"id":"baba-yaga","name":"Baba Yaga","season":"season-1","origin":"Slavic","initials":"BY"},{"id":"beowulf","name":"Beowulf","season":"season-2","origin":"Anglo-Saxon","initials":"Be"},{"id":"bowser","name":"Bowser","season":"season-3","origin":"Super Mario Bros.","initials":"Bo"},{"id":"briar-rose","name":"Briar Rose","season":"season-2","origin":"Fr*nch","initials":"BR"},{"id":"brigid","name":"Brigid","season":"season-1","origin":"Celtic","initials":"Br"},{"id":"cernunnos","name":"Cernunnos","season":"season-2","origin":"Celtic","initials":"Ce"},{"id":"chang-e","name":"Chang'e","season":"season-1","origin":"Chinese","initials":"Ch"},{"id":"chernobog","name":"Chernobog","season":"season-1","origin":"Slavic","initials":"Ch"},{"id":"cliodhna","name":"Cliodhna","season":"season-2","origin":"Celtic","initials":"Cl"},{"id":"cthulhu","name":"Cthulhu","season":"season-1","origin":"Lovecraft","initials":"Ct"},{"id":"dante","name":"Dante","season":"season-3","origin":"Limbus Company","initials":"Da"},{"id":"dhanvantari","name":"Dhanvantari","season":"season-1","origin":"Hindu","initials":"Dh"},{"id":"dionysus","name":"Dionysus","season":"season-1","origin":"Greek","initials":"Di"},{"id":"ereshkigal","name":"Ereshkigal","season":"season-2","origin":"Mesopotamian","initials":"Er"},{"id":"finn-mccool","name":"Finn McCool","season":"season-2","origin":"Celtic","initials":"FM"},{"id":"flying-spaghetti-monster","name":"Flying Spaghetti Monster","season":"season-1","origin":"Pastafarianism","initials":"FS"},{"id":"freyja","name":"Freyja","season":"season-1","origin":"Norse","initials":"Fr"},{"id":"gilgamesh","name":"Gilgamesh","season":"season-2","origin":"Mesopotamian","initials":"Gi"},{"id":"glados","name":"GlaDOS","season":"season-3","origin":"Portal","initials":"Gl"},{"id":"hades","name":"Hades","season":"season-1","origin":"Greek","initials":"Ha"},{"id":"hathor","name":"Hathor","season":"season-1","origin":"Egyptian","initials":"Ha"},{"id":"hekate","name":"Hekate","season":"season-1","origin":"Greek","initials":"He"},{"id":"hel","name":"Hel","season":"season-1","origin":"Norse","initials":"He"},{"id":"hermes","name":"Hermes","season":"season-2","origin":"Greek","initials":"He"},{"id":"hornet","name":"Hornet","season":"season-3","origin":"Hollow Knight","initials":"Ho"},{"id":"hua-mulan","name":"Hua Mulan","season":"season-2","origin":"Chinese","initials":"HM"},{"id":"huitzilopochtli","name":"Huitzilopochtli","season":"season-1","origin":"Aztec","initials":"Hu"},{"id":"isis","name":"Isis","season":"season-2","origin":"Egyptian","initials":"Is"},{"id":"izanagi-and-izanami","name":"Izanagi & Izanami","season":"season-2","origin":"Shinto","initials":"II"},{"id":"jaci","name":"Jaci","season":"season-2","origin":"Brazillian","initials":"Ja"},{"id":"jesus-christ","name":"Jesus Christ","season":"season-2","origin":"Judean","initials":"JC"},{"id":"joan-of-arc","name":"Joan of Arc","season":"season-2","origin":"Fr*nch","initials":"JA"},{"id":"joker","name":"Joker","season":"season-3","origin":"Persona","initials":"Jo"},{"id":"jonesy","name":"Jonesy","season":"season-3","origin":"Fortnite","initials":"Jo"},{"id":"jormungandr","name":"Jörmungandr","season":"season-1","origin":"Norse","initials":"Jö"},{"id":"king-arthur","name":"King Arthur","season":"season-2","origin":"Celtic","initials":"KA"},{"id":"king-dice","name":"King Dice","season":"season-3","origin":"Cuphead","initials":"KD"},{"id":"kirby","name":"Kirby","season":"season-3","origin":"Kirby","initials":"Ki"},{"id":"krishna","name":"Krishna","season":"season-2","origin":"Hindu","initials":"Kr"},{"id":"la-llorona","name":"La Llorona","season":"season-2","origin":"Mexican","initials":"LL"},{"id":"lakshmi","name":"Lakshmi","season":"season-2","origin":"Hindu","initials":"La"},{"id":"lampiao","name":"Lampião","season":"season-2","origin":"Brazilian","initials":"La"},{"id":"lilith","name":"Lilith","season":"season-1","origin":"Christian","initials":"Li"},{"id":"loki","name":"Loki","season":"season-1","origin":"Norse","initials":"Lo"},{"id":"lucifer","name":"Lucifer","season":"season-1","origin":"Christian","initials":"Lu"},{"id":"ludus","name":"Ludus","season":"season-1","origin":"Apotheionic","initials":"Lu"},{"id":"malenia","name":"Malenia","season":"season-3","origin":"Elden Ring","initials":"Ma"},{"id":"master-chief","name":"Master Chief","season":"season-3","origin":"Halo","initials":"MC"},{"id":"mercy","name":"Mercy","season":"season-3","origin":"Overwatch","initials":"Me"},{"id":"mettaton","name":"Mettaton","season":"season-3","origin":"Undertale","initials":"Me"},{"id":"monika","name":"Monika","season":"season-3","origin":"Doki Doki Literature Club","initials":"Mo"},{"id":"mother-horse-eyes","name":"Mother Horse Eyes","season":"season-2","origin":"The Interface Series","initials":"MH"},{"id":"nanook","name":"Nanook","season":"season-2","origin":"Inuit","initials":"Na"},{"id":"the-narrator","name":"The Narrator","season":"season-3","origin":"The Stanley Parable","initials":"Na"},{"id":"ne-zha","name":"Ne Zha","season":"season-1","origin":"Chinese","initials":"NZ"},{"id":"noob","name":"Noob","season":"season-3","origin":"Roblox","initials":"No"},{"id":"nyarlathotep","name":"Nyarlathotep","season":"season-2","origin":"Lovecraftian","initials":"Ny"},{"id":"oya","name":"Oya","season":"season-1","origin":"Yoruba","initials":"Oy"},{"id":"phoenix-wright","name":"Phoenix Wright","season":"season-3","origin":"Ace Attorney","initials":"PW"},{"id":"pop-fizz","name":"Pop Fizz","season":"season-3","origin":"Skylanders","initials":"PF"},{"id":"poseidon","name":"Poseidon","season":"season-1","origin":"Greek","initials":"Po"},{"id":"quetzalcoatl","name":"Quetzalcoatl","season":"season-1","origin":"Aztec","initials":"Qu"},{"id":"ra","name":"Ra","season":"season-1","origin":"Egyptian","initials":"Ra"},{"id":"rell","name":"Rell","season":"season-3","origin":"League of Legends","initials":"Re"},{"id":"ryujin","name":"Ryūjin","season":"season-2","origin":"Shinto","initials":"Ry"},{"id":"scaramouche","name":"Scaramouche","season":"season-3","origin":"Genshin Impact","initials":"Sc"},{"id":"scheherazade","name":"Scheherazade","season":"season-2","origin":"Persian","initials":"Sc"},{"id":"set","name":"Set","season":"season-1","origin":"Egyptian","initials":"Se"},{"id":"shezmu","name":"Shezmu","season":"season-2","origin":"Egyptian","initials":"Sh"},{"id":"springtrap","name":"Springtrap","season":"season-3","origin":"Five Nights at Freddy's","initials":"Sp"},{"id":"steve","name":"Steve","season":"season-3","origin":"Minecraft","initials":"St"},{"id":"sun-wukong","name":"Sun Wukong","season":"season-1","origin":"Chinese","initials":"SW"},{"id":"sunflower","name":"Sunflower","season":"season-3","origin":"Plants Vs. Zombies","initials":"Su"},{"id":"susanoo","name":"Susanoo","season":"season-1","origin":"Shinto","initials":"Su"},{"id":"thanh-giong","name":"Thánh Gióng","season":"season-2","origin":"Vietnamese","initials":"TG"},{"id":"wu-zetian","name":"Wu Zetian","season":"season-2","origin":"Chinese","initials":"WZ"},{"id":"yemoja","name":"Yemọja","season":"season-1","origin":"Yoruba","initials":"Ye"},{"id":"yong-yo-kyo","name":"Yong, Yo, Kyo","season":"season-2","origin":"Korean","initials":"YY"},{"id":"zeus","name":"Zeus","season":"season-1","origin":"Greek","initials":"Ze"}]);
+var SEASONS = [{"id":"season-1","label":"Season 1","name":"The Apotheion","originLabel":"Region"},{"id":"season-2","label":"Season 2","name":"Rite of Apothea","originLabel":"Region"},{"id":"season-3","label":"Season 3","name":"Beyond the Veil","originLabel":"Franchise"}];
+var TINT = { 'season-1': '#d4af37', 'season-2': '#a8d4f0', 'season-3': '#19b97c' };
+var self = this;
+var st = this.state || {};
+var season = st.season || this.props.startSeason || 'all';
+var query = st.query || '';
+var strip = function (s) { return String(s || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); };
+var q = strip(query).trim();
+var byId = {};
+SEASONS.forEach(function (s) { byId[s.id] = s; });
+var counts = {};
+PATRONS.forEach(function (p) { counts[p.season] = (counts[p.season] || 0) + 1; });
+var shown = PATRONS.filter(function (p) {
+return (season === 'all' || p.season === season) && (!q || strip(p.name).indexOf(q) !== -1 || strip(p.origin).indexOf(q) !== -1);
+}).map(function (p) {
+var s = byId[p.season];
+return {
+name: p.name, origin: p.origin, initials: p.initials, tint: TINT[p.season],
+short: 'S' + s.label.replace(/\D/g, ''), href: '#patron-' + p.id,
+aria: p.name + ', ' + s.label + ' patron, ' + s.originLabel + ': ' + p.origin
+};
+});
+var opts = [{ id: 'all', label: 'All', count: PATRONS.length }].concat(SEASONS.filter(function (s) { return counts[s.id]; }).map(function (s) {
+return { id: s.id, label: s.label, count: counts[s.id], tint: TINT[s.id] };
+}));
+var tabs = opts.map(function (o) {
+var on = o.id === season;
+return {
+label: o.label, count: o.count.toLocaleString('en-US'), tint: o.tint || '', hasTint: !!o.tint,
+pressed: on ? 'true' : 'false',
+color: on ? '#e8cf8f' : '#a7a295', countColor: on ? '#c9a85c' : '#8f8a7c',
+bar: on ? '#c9a85c' : 'transparent', bg: on ? '#121c2b' : 'transparent',
+pick: function () { self.setState({ season: o.id }); }
+};
+});
+var total = PATRONS.length;
+var nSeasons = opts.length - 1;
+var plural = function (n, one) { return n.toLocaleString('en-US') + ' ' + one + (n === 1 ? '' : 's'); };
+return {
+factLine: plural(total, 'patron') + ' · ' + plural(nSeasons, 'season'),
+tabs: tabs,
+shown: shown,
+hasResults: shown.length > 0,
+empty: shown.length === 0,
+query: query,
+status: shown.length === total ? 'Showing all ' + plural(total, 'patron') : 'Showing ' + shown.length.toLocaleString('en-US') + ' of ' + plural(total, 'patron'),
+emptyLine: 'No patrons match “' + query + '”' + (season !== 'all' ? ' in ' + byId[season].label : '') + '.',
+onQuery: function (e) { self.setState({ query: e.target.value }); },
+reset: function () { self.setState({ query: '', season: 'all' }); },
+true: true,
+false: false
+};
+}
+}
+</script>
+</body>
+</html>

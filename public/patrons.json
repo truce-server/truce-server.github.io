@@ -1,0 +1,4809 @@
+{
+ "source": [
+  {
+   "id": "season-1",
+   "sheet": "Patrons | Truce S1: The Apotheion"
+  },
+  {
+   "id": "season-2",
+   "sheet": "Patrons | Truce S2: Rite of Apothea"
+  },
+  {
+   "id": "season-3",
+   "sheet": "Patrons | Truce S3: Beyond the Veil"
+  }
+ ],
+ "seasons": [
+  {
+   "id": "season-1",
+   "label": "Season 1",
+   "name": "The Apotheion",
+   "originLabel": "Region",
+   "rules": []
+  },
+  {
+   "id": "season-2",
+   "label": "Season 2",
+   "name": "Rite of Apothea",
+   "originLabel": "Region",
+   "rules": [
+    "Format-changing abilities must be used within the first hour after challenge results. Only ONE format-changing ability may be active at once."
+   ]
+  },
+  {
+   "id": "season-3",
+   "label": "Season 3",
+   "name": "Beyond the Veil",
+   "originLabel": "Franchise",
+   "rules": [
+    "Format-changing abilities must be used within 12 hours after challenge results. *With an exception for Mettaton, which must be used the round before it activates. Only ONE format-changing ability may be active at once."
+   ]
+  }
+ ],
+ "patrons": [
+  {
+   "id": "abraham-lincoln",
+   "name": "Abraham Lincoln",
+   "letter": "A",
+   "season": "season-2",
+   "origin": "American",
+   "gender": "M",
+   "image": "/images/patrons/abraham-lincoln.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Domain Expansion: We The People",
+     "blocks": [
+      {
+       "p": "Once per game, Lincoln transforms the sacrifice into a House of Representatives. Lincoln is immune for the duration of this ability."
+      },
+      {
+       "h": "Pre-Merge"
+      },
+      {
+       "p": "Each realm (including Lincoln's) elects one representative."
+      },
+      {
+       "p": "Those representatives form the House and gain a private council chat with Lincoln for the rest of the sacrifice."
+      },
+      {
+       "p": "Representatives will be the only deciding votes within each active sacrifice."
+      },
+      {
+       "p": "If the House vote ties, Lincoln casts a tie-breaker vote."
+      },
+      {
+       "p": "Once, before results are finalized, Lincoln may veto the House's decision and force an immediate revote among the representatives."
+      },
+      {
+       "h": "Merge"
+      },
+      {
+       "p": "All Heralds (including Lincoln) vote for up to two representatives."
+      },
+      {
+       "p": "The two representatives carry on the elimination as usual, with the previous tie-breaker condition in effect."
+      },
+      {
+       "p": "Heralds may attempt to impeach Lincoln to cancel the ability use without refund."
+      },
+      {
+       "p": "Impeachment must be unanimous and any vote for a representative, aside from Lincoln's, will override it."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "flag",
+       "value": "Format-changing"
+      },
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Honest Abe",
+     "blocks": [
+      {
+       "p": "Each round, Lincoln may choose to publicly reveal his vote before votes are locked. This decision must be made by the ability deadline, not the voting deadline."
+      },
+      {
+       "p": "Once revealed, the targeted Herald will receive one additional vote against them."
+      },
+      {
+       "p": "This additional vote cannot be redirected, reduced, negated, or otherwise manipulated by any ability."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "Only Abraham's Realm is notified."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "achilles",
+   "name": "Achilles",
+   "letter": "A",
+   "season": "season-2",
+   "origin": "Greek",
+   "gender": "M",
+   "image": "/images/patrons/achilles.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "The Heel",
+     "blocks": [
+      {
+       "p": "For a vote against Achilles to count, the submitting Herald must explicitly specify that their vote is against him. A vote cast against Achilles without this specification does not count. A vote cast against any other Herald with this specification also does not count."
+      },
+      {
+       "p": "If a specified vote successfully lands on Achilles, it counts as 1.5 votes."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "Votes cast against Achilles (without Achilles included) appear as (null). Likewise for votes cast against other Patrons, meant for Achilles."
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Doomed Yaoi",
+     "blocks": [
+      {
+       "p": "Once per game, Achilles may designate a willing Herald as his Patroclus. At the end of the current cycle, this Herald becomes his lover, and while bonded, neither Achilles nor his Patroclus may vote for the other. Whenever they both vote for the same target, that target receives one additional vote."
+      },
+      {
+       "p": "Additionally, once per game, if either Achilles or his Patroclus would be eliminated, the other may sacrifice themselves in their place, granting the targeted lover immunity for that round while taking their spot in the elimination."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "All effects are private between Achilles and Patroclus, except the sacrifice, which is announced to Achilles’ Realm."
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aesop",
+   "name": "Aesop",
+   "letter": "A",
+   "season": "season-2",
+   "origin": "Greek",
+   "gender": "M",
+   "image": "/images/patrons/aesop.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Wolf in Sheep's Clothing",
+     "blocks": [
+      {
+       "p": "When Aesop assists in sacrificing an alliance member through votes, he gains one vote shield."
+      },
+      {
+       "p": "Aesop gains 0.5 votes against a Herald if they are an alliance member and are currently cursed by him."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Fablemark",
+     "blocks": [
+      {
+       "p": "Each day, Aesop may select one Herald to receive a Fablemark. Upon doing so, Aesop chooses a literary form, and for the next 24 hours, the chosen Herald must communicate publicly only in that assigned style. This may include rhyming couplets, limericks, haikus, iambic pentameter, Shakespearean prose, alliterative verse, or acrostic form."
+      },
+      {
+       "p": "The Herald must make a reasonable effort to adhere to the assigned literary form for the duration of the effect. Failure to comply will result in a strike of possible disqualification."
+      },
+      {
+       "p": "Aesop may not target the same Herald and may not use the same form twice in a row."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aloy",
+   "name": "Aloy",
+   "letter": "A",
+   "season": "season-3",
+   "origin": "Horizon Zero Dawn",
+   "gender": "F",
+   "image": "/images/patrons/aloy.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Focus Mode",
+     "blocks": [
+      {
+       "p": "Once per realm, Aloy may choose to track a Herald. Aloy will learn of every vote the Herald has placed in the current realm, last realm, and the vote they place in the following sacrifice they attend."
+      },
+      {
+       "p": "Aloy is notified of all votes placed and who they were placed upon, even if there were multiple placed at once."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Warrior of Nora",
+     "blocks": [
+      {
+       "p": "Aloy has access to a quiver of 7 arrows at the start of the game."
+      },
+      {
+       "p": "She may use one arrow per round to impair another Herald, causing them to lose their ability to vote for the round."
+      },
+      {
+       "p": "Any subsequent targeting of the same Herald will instead place one extra vote upon them in the upcoming Sacrifice. This vote will not carry over if the Herald does not attend a Sacrifice and Aloy will instead lose the arrow with no effects inflicted on its target."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "amaterasu",
+   "name": "Amaterasu",
+   "letter": "A",
+   "season": "season-1",
+   "origin": "Shinto",
+   "gender": "F",
+   "image": "/images/patrons/amaterasu.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Divine Illumination",
+     "blocks": [
+      {
+       "p": "Amaterasu sheds light on all the votes, revealing who each Herald voted for as they are announced. This ability may be used up to two times per game."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Yata no Kagami",
+     "blocks": [
+      {
+       "p": "Once per game, Amaterasu may choose to place her mirror upon herself or another Herald before votes are announced. During that elimination, any votes cast against the mirror's bearer are reflected back onto the original voters."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "anubis",
+   "name": "Anubis",
+   "letter": "A",
+   "season": "season-1",
+   "origin": "Egyptian",
+   "gender": "M",
+   "image": "/images/patrons/anubis.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Scales of Justice",
+     "blocks": [
+      {
+       "p": "This ability must be used in the challenge round, and will go into effect in the elimination round."
+      },
+      {
+       "p": "Once per game, Anubis may split the battlefield into two sides of his choice. Heralds on each side may only cast their vote against Heralds on their own side. This ability may only be activated when the total number of Heralds is even. At the end of voting, the Herald with the most votes on each side is eliminated (double elimination). If either side’s vote ends in a tie, Anubis alone decides which of the tied Heralds is eliminated from that side."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Necropolis",
+     "blocks": [
+      {
+       "p": "This ability must be used in the challenge round, and will go into effect in the elimination round."
+      },
+      {
+       "p": "Once per game, Anubis prepares transports for all Heralds to his domain. During the next elimination, no abilities or items that grant immunity or resurrection may be used. Anubis cannot be voted for during this round."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "ao-guang",
+   "name": "Ao Guang",
+   "letter": "A",
+   "season": "season-2",
+   "origin": "Chinese",
+   "gender": "M",
+   "image": "/images/patrons/ao-guang.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Ruyi Jingu Bang",
+     "blocks": [
+      {
+       "p": "Twice per game, Ao Guang may intimidate another Herald. An intimidated Herald immediately loses any effects that grant them immunity, prevent them from being voted, or otherwise protect them from elimination. They also cannot gain new protections, be swapped, or be revived by any ability."
+      },
+      {
+       "p": "This does not affect immunity earned from challenges."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Dragon King of the East Sea",
+     "blocks": [
+      {
+       "p": "Once per game, Ao Guang may force the next challenge to become a deadly test of skill. The following round, whichever Herald is last in the challenge will be sacrificed."
+      },
+      {
+       "p": "Upon activation, Ao Guang will be given information on what the challenge is before it is released."
+      },
+      {
+       "h": "Pre-Merge"
+      },
+      {
+       "p": "The worst performing member in the ultimate losing realms will be eliminated."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "flag",
+       "value": "Format-changing"
+      },
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "arthur-morgan",
+   "name": "Arthur Morgan",
+   "letter": "A",
+   "season": "season-3",
+   "origin": "Red Dead Redemption 2",
+   "gender": "M",
+   "image": "/images/patrons/arthur-morgan.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Dead Eye",
+     "blocks": [
+      {
+       "p": "Arthur's true vote can never be blocked, redirected, or stolen. Whenever a Herald attempts to manipulate Arthur’s vote, Arthur gains a vote parchment instead, up to a maximum of 5 per game."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Peter, the Horse is Here",
+     "blocks": [
+      {
+       "p": "Once per game, Arthur may replace himself with his horse at a Sacrifice. This replacement may not be reversed and must be done before ability deadline."
+      },
+      {
+       "p": "Upon activation, the horse will block any votes Arthur receives that Sacrifice."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Malenia A1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "asmodeus",
+   "name": "Asmodeus",
+   "letter": "A",
+   "season": "season-1",
+   "origin": "Christian",
+   "gender": "M",
+   "image": "/images/patrons/asmodeus.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Sadism",
+     "blocks": [
+      {
+       "p": "If the Herald Asmodeus voted for is eliminated at the end of the round, Asmodeus gains 2 extra votes next round. If not, Asmodeus receives 1 vote against themselves next round."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Masochism",
+     "blocks": [
+      {
+       "p": "If Asmodeus survives a round after receiving any votes, they gain 1 extra vote next round for every 2 votes received that round (rounded down). These votes will be accrued even if Asmodeus is immune. The extra votes accrued do not have to be used in the next round, and are cumulative."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "azathoth",
+   "name": "Azathoth",
+   "letter": "A",
+   "season": "season-1",
+   "origin": "Lovecraft",
+   "gender": "M",
+   "image": "/images/patrons/azathoth.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Primordial Urge",
+     "blocks": [
+      {
+       "p": "Whenever Azathoth votes during an elimination, the abyssal well of chaos opens up and casts an extra on a random Herald; if the Herald that random vote was casted to is eliminated, Azathoth gains a vote parchment as well as immunity next round."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Abyssal Idiot",
+     "blocks": [
+      {
+       "p": "Azathoth is not affected by abilities that restrict, block, or alter his communication. If an ability transports ALL Heralds into new communication spaces, Azathoth maintains his previous channels and also gains the new ones. He may send messages to Heralds in these channels, though they cannot reply."
+      },
+      {
+       "p": "Azathoth may choose whether or not to activate this ability each time it would apply, allowing him to benefit from positive communication effects."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "baba-yaga",
+   "name": "Baba Yaga",
+   "letter": "B",
+   "season": "season-1",
+   "origin": "Slavic",
+   "gender": "F",
+   "image": "/images/patrons/baba-yaga.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Дикая поездка ([a] wild ride)",
+     "blocks": [
+      {
+       "p": "Once per round, Baba Yaga snatches up one of the Heralds, making them completely unable to participate in that round’s challenge. If a Herald has already participated in the challenge, their challenge attempt is nullified. She may not choose the same Herald twice in a row. This ability may be used on Heralds outside of her realm."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Избушка на курьих ножках ([a] hen-legged hut)",
+     "blocks": [
+      {
+       "p": "Two times per game, Baba Yaga may invite (kidnap) one Herald to visit her in the chicken hut. The visitor is immune to all abilities targeting them during that round. However, the silly hut’s wandering nature causes all of the visitor’s votes that round to be randomized among eligible Heralds."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "beowulf",
+   "name": "Beowulf",
+   "letter": "B",
+   "season": "season-2",
+   "origin": "Anglo-Saxon",
+   "gender": "M",
+   "image": "/images/patrons/beowulf.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Monster Hunter",
+     "blocks": [
+      {
+       "p": "Once per game, Beowulf may place a public bounty on any one Herald. This bounty is announced to all Heralds and remains active until the end of the elimination."
+      },
+      {
+       "p": "If the marked Herald is eliminated while the bounty is active, every Herald who cast a vote against them that round receives one Vote Parchment. Upon their elimination, Beowulf also claims any items the bountied Herald possessed at the time of their death."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Battle-Forged",
+     "blocks": [
+      {
+       "p": "Each time Beowulf places within the top 20% of total game scores in a challenge, he gains one stack of Grit. In team challenges that do not include individual scores, the condition required for Beowulf to earn a stack of Grit will be specified at the start of the challenge."
+      },
+      {
+       "p": "During merge, Beowulf must place within the top two of an individual challenge to gain two stacks of Grit (equivalent to one extra vote)."
+      },
+      {
+       "p": "Beowulf may accumulate an unlimited number of Grit stacks and may spend Grit at any time. Each stack spent grants 0.5 of a vote for that sacrifice."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bowser",
+   "name": "Bowser",
+   "letter": "B",
+   "season": "season-3",
+   "origin": "Super Mario Bros.",
+   "gender": "M",
+   "image": "/images/patrons/bowser.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Sorry, but your Princess is in another castle",
+     "blocks": [
+      {
+       "p": "Twice per game, Bowser can kidnap a Herald and lock them in his castle for one round. While they are kidnapped, the Herald loses their ability to vote, participate in the challenge, and communicate with other players, but is also immune from being eliminated. This ability goes into effect the round after it is activated."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Malenia A1"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Bowser Jr.",
+     "blocks": [
+      {
+       "p": "Bowser shares his Temple with his son, Bowser Jr., who is occasionally possessed by a former Herald. When called upon, Bowser Jr. may assist Bowser in challenges, including replacing Bowser’s score with his own if it is higher, and may also cast a vote in the Sacrifice."
+      },
+      {
+       "p": "However, Bowser Jr. is a fat chud and takes a two round nap after helping. He cannot be summoned until he wakes."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "briar-rose",
+   "name": "Briar Rose",
+   "letter": "B",
+   "season": "season-2",
+   "origin": "Fr*nch",
+   "gender": "F",
+   "image": "/images/patrons/briar-rose.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Spindle Prick",
+     "blocks": [
+      {
+       "p": "At any sacrifice, Briar Rose may chose to abstain from voting. If she does, she gains one vote shield."
+      },
+      {
+       "p": "She may expend three vote shields at once to gain a one-time-use of Sleeping Beauty."
+      },
+      {
+       "h": "Sleeping Beauty"
+      },
+      {
+       "p": "Once per game, Briar Rose may fall into an enchanted Slumber. While asleep, she cannot be influenced by any abilities or items, cannot use any abilities, cannot be voted, and cannot vote. She may still communicate with other Heralds."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "All effects are private, except Sleeping Beauty, which is announced to Briar Rose’s Realm."
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Briar Enchantment",
+     "blocks": [
+      {
+       "p": "Three times per game, Sleeping Beauty may enchant one Herald for the next sacrifice."
+      },
+      {
+       "p": "During that sacrifice, any votes that Herald casts against her are redirected to random eligible Heralds instead. The enchantment expires at the end of the sacrifice."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "brigid",
+   "name": "Brigid",
+   "letter": "B",
+   "season": "season-1",
+   "origin": "Celtic",
+   "gender": "F",
+   "image": "/images/patrons/brigid.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Hearthfire Ward",
+     "blocks": [
+      {
+       "p": "Two times per game, Brigid shields another Herald, burning away half (rounded up) of the votes they’ve received this round."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Cross of Charity",
+     "blocks": [
+      {
+       "p": "At any point, Brigid may offer her cross to another Herald. The bearer of the cross gains Brigid’s protection and will be revived once upon elimination. When the cross bearer is eventually revived, Brigid gains one vote parchment for each round that the Herald survived while carrying the cross. The vote parchments are granted only when the revival occurs, and only Brigid receives them."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "cernunnos",
+   "name": "Cernunnos",
+   "letter": "C",
+   "season": "season-2",
+   "origin": "Celtic",
+   "gender": "M",
+   "image": "/images/patrons/cernunnos.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Lord of the Wild Things",
+     "blocks": [
+      {
+       "p": "Three times per game, Cernunnos may place his Stag upon a Herald."
+      },
+      {
+       "p": "For that round, any votes cast by the Stag’s holder are reflected back onto themselves instead."
+      },
+      {
+       "p": "The Stag acts as a status effect."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Tree of Life",
+     "blocks": [
+      {
+       "p": "Twice per game, Cernunnos may call upon the Tree of Life, choosing himself and one other Herald."
+      },
+      {
+       "p": "During that sacrifice, for each unique Herald who casts a vote against either of them, one vote is removed from that target’s total."
+      },
+      {
+       "p": "The effect acts individually on both Cernunnos and his chosen Herald."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chang-e",
+   "name": "Chang'e",
+   "letter": "C",
+   "season": "season-1",
+   "origin": "Chinese",
+   "gender": "F",
+   "image": "/images/patrons/chang-e.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Elixir of Immortality",
+     "blocks": [
+      {
+       "p": "Chang’e may only be eliminated by \"true\" votes. Any votes influenced by abilities or items do not count against her."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Journey to the Moon",
+     "blocks": [
+      {
+       "p": "Once per game, Chang'e chooses herself and one other Herald to isolate themselves on the moon. While isolated Chang'e and her partner cannot be influenced by any abilities or items, cannot use any abilities, cannot be voted, and cannot vote."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "chernobog",
+   "name": "Chernobog",
+   "letter": "C",
+   "season": "season-1",
+   "origin": "Slavic",
+   "gender": "M",
+   "image": "/images/patrons/chernobog.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Spreading Darkness",
+     "blocks": [
+      {
+       "p": "Chernobog may store votes he receives during eliminations, holding up to 5 at any time. Stored votes are converted into Shadow Votes, which act similarly to a vote parchment. These votes still count against him when cast, so he must survive them to claim them. At any elimination, Chernobog may spend up to 3 Shadow Votes in addition to his normal vote."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Enshrouded",
+     "blocks": [
+      {
+       "p": "Once per game, Chernobog may choose to either keep the votes he received that round, or revert to the number of votes he had received in the previous elimination."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "cliodhna",
+   "name": "Cliodhna",
+   "letter": "C",
+   "season": "season-2",
+   "origin": "Celtic",
+   "gender": "F",
+   "image": "/images/patrons/cliodhna.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Queen of Banshees",
+     "blocks": [
+      {
+       "p": "Once per game, Cliodhna may call all spirits to one realm. Upon activation, this call closes all one on one chats, all alliance chats, all sacrifice chats, and trumps all communication and isolation abilities. Heralds may only converse with each other in the Glandore chat. Sacrifice will conclude as usual, though sacrifice results will be public for all Heralds."
+      },
+      {
+       "p": "During this call, Cliodhna receives periodic updates on the votes of each realm, including only the number of votes each Herald is receiving. Her Herald may choose to have Cliodhna expose this information to the Glandore chat at any point."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Immune to Gilgamesh A2 but not FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Birds of Cliodhna",
+     "blocks": [
+      {
+       "p": "Cliodhna commands three magical birds. She may assign each bird to a Herald, granting them a minor passive ability for as long as the bird remains with them."
+      },
+      {
+       "p": "Alternatively, she may keep a bird for herself, gaining its effect. She may only benefit from one bird at a time."
+      },
+      {
+       "p": "Once per round, Cliodhna may recall any of her birds. Recalled birds become inactive and grant no effects until reassigned."
+      },
+      {
+       "p": "Each bird may be reassigned only once per cycle. Birds begin inactive and provide no effects until assigned."
+      },
+      {
+       "h": "Robin"
+      },
+      {
+       "p": "Passively blocks 1 vote from the bearer each sacrifice."
+      },
+      {
+       "h": "Bluetit"
+      },
+      {
+       "p": "Passively cures the first negative ability that would affect the bearer."
+      },
+      {
+       "h": "Goldfinch"
+      },
+      {
+       "p": "Passively prevents the bearer from being affected by information-revealing abilities."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cthulhu",
+   "name": "Cthulhu",
+   "letter": "C",
+   "season": "season-1",
+   "origin": "Lovecraft",
+   "gender": "M",
+   "image": "/images/patrons/cthulhu.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "In Wake, Dreaming",
+     "blocks": [
+      {
+       "p": "Twice per game, Cthulhu may banish a Herald of their choice to oblivion. That Herald is completely cut off from communicating with any other Heralds until the end of the elimination. Cthulhu, however, will be kind enough to keep them company."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Incomprehensible",
+     "blocks": [
+      {
+       "p": "Three times per game, Cthulhu may select a Herald to descend into madness. The afflicted appears to receive two extra votes each round, but they are hallucinations and cannot eliminate them. After Elimination, the Herald is shown two names of who “voted” for them (randomized from real and fake votes). This madness lasts until cured and may be used on Heralds outside of Cthulhu's realm."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "dante",
+   "name": "Dante",
+   "letter": "D",
+   "season": "season-3",
+   "origin": "Limbus Company",
+   "gender": "NB",
+   "image": "/images/patrons/dante.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Follow the Star",
+     "blocks": [
+      {
+       "p": "Once per game, Dante may choose to turn back the clock after the votes have been read. This ability must be used before the next round's challenge results are released."
+      },
+      {
+       "p": "Upon activation, the results of the Sacrifice will be nullified, and all Heralds will have their abilities reverted to the state they were in at the end of the most recent challenge."
+      },
+      {
+       "p": "A new 24-hour period will begin, in which votes must be replaced and abilities may be used."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Unpaid Interns",
+     "blocks": [
+      {
+       "p": "During the first realm, Dante may choose up to four Heralds to become Sinners. All four selections must be made before the first realm ends."
+      },
+      {
+       "p": "Dante gains a permanent 1-on-1 chat with each Sinner, which persists through tribe swaps and communication restrictions."
+      },
+      {
+       "p": "For each Sinner who survives until Merge, Dante receives one additional vote parchment. These parchments expire when used."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dhanvantari",
+   "name": "Dhanvantari",
+   "letter": "D",
+   "season": "season-1",
+   "origin": "Hindu",
+   "gender": "M",
+   "image": "/images/patrons/dhanvantari.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Ayurvedic Cleanse",
+     "blocks": [
+      {
+       "p": "Three times per game, Dhanvantari may target himself or another Herald to cleanse them of all negative effects. Dhanvantari receives two vote parchments for healing another Herald."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Amrita",
+     "blocks": [
+      {
+       "p": "Each round, Dhanvantari bestows a Herald with a bowl of divine nectar. Each bowl blocks one vote cast against its holder. Heralds may stockpile bowls and choose when to use them. If a Herald accumulates 7 bowls, they may enlighten, exchanging all bowls to grant both themselves and Dhanvantari immunity for the round."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "dionysus",
+   "name": "Dionysus",
+   "letter": "D",
+   "season": "season-1",
+   "origin": "Greek",
+   "gender": "M",
+   "image": "/images/patrons/dionysus.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "A Toast!",
+     "blocks": [
+      {
+       "p": "Once per game, Dionysus raises a toast. Any Herald may choose to join him. Doing so publicly reveals that they have toasted with Dionysus. In return, they receive a random gift from the god’s table. Dionysus then selects two of the gifts handed out that round to duplicate for himself. Heralds who choose to toast with Dionysus cannot vote for him that round."
+      },
+      {
+       "p": "Possible gifts include:"
+      },
+      {
+       "p": "🃏 Tarot Cards (35%) – 1/4 chance of gaining immunity for the round and a 3/4 chance of receiving two extra votes against you."
+      },
+      {
+       "p": "📜 Extra Vote Parchment (25%) – Grants one additional vote during an elimination."
+      },
+      {
+       "p": "🧪 Cure Potion (20%) – Removes any negative ability or item effects. Using this item refunds the ability back to the Herald who targeted you."
+      },
+      {
+       "p": "🔮 Crystal Ball (15%) – Reveals the chosen Herald's Patron."
+      },
+      {
+       "p": "🔥 Phoenix Feather (5%) – Refunds one ability use. Can be used on other Patrons. This can only be used once per Herald."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Feast of Fools",
+     "blocks": [
+      {
+       "p": "Once per game, Dionysus plans a banquet. The next round, this banquet closes all one on one chats, all alliance chats, and trumps all communication isolation abilities. Heralds can only converse with each other in the banquet chat. This ability affects all realms, though each realm will have their individual banquet."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "ereshkigal",
+   "name": "Ereshkigal",
+   "letter": "E",
+   "season": "season-2",
+   "origin": "Mesopotamian",
+   "gender": "F",
+   "image": "/images/patrons/ereshkigal.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Queen of the Underworld",
+     "blocks": [
+      {
+       "p": "Ereshkigal possesses only one Patron ability of her own. At any point, she may assume the form of any dead Herald, temporarily gaining that Herald's items and Patron abilities in the exact state they were in at the time of their death. This Herald is randomized. If she uses any gained item or Patron ability while transformed, she is locked into that form for the next three full cycles and may not change forms during that time. If she does not use any gained abilities or items during a cycle, she returns to her normal state at the end of that cycle and may not assume that Herald's form again."
+      },
+      {
+       "p": "Passive abilities that trigger automatically while she is transformed function as normal but do not count as using a gained ability unless explicitly stated. Ereshkigal may also voluntarily remain in a transformation for the next three cycles without using any abilities, though she may not switch forms during that time."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Commune with the Dead",
+     "blocks": [
+      {
+       "p": "While not transformed, Ereshkigal may, once per round, ask one eliminated Herald a single question. Their answer will be given to her, truthful or otherwise."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "finn-mccool",
+   "name": "Finn McCool",
+   "letter": "F",
+   "season": "season-2",
+   "origin": "Celtic",
+   "gender": "M",
+   "image": "/images/patrons/finn-mccool.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Salmon of Knowedge",
+     "blocks": [
+      {
+       "p": "Twice per Realm, Finn McCool may submit an enhanced Patron list containing any Heralds, including those outside of his Realm."
+      },
+      {
+       "p": "Instead of learning whether his list is entirely correct, Finn is told individually whether each Herald listed has been correctly identified."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Giant's Causeway",
+     "blocks": [
+      {
+       "p": "Once per realm, Finn McCool may force another Herald to play a Hex Game. Please refer to #china on either the Truce website or the channel list for an explanation of the game."
+      },
+      {
+       "p": "If Finn McCool wins the game, the challenged Herald will be up for elimination regardless of whether or not they have received immunity."
+      },
+      {
+       "p": "If the challenged Herald wins, Finn McCool cannot vote for them in the next sacrifice they interact in."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "flying-spaghetti-monster",
+   "name": "Flying Spaghetti Monster",
+   "letter": "F",
+   "season": "season-1",
+   "origin": "Pastafarianism",
+   "gender": "M",
+   "image": "/images/patrons/flying-spaghetti-monster.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Unintelligent Design",
+     "blocks": [
+      {
+       "p": "FSM can never cast more than two votes per elimination. However, his votes, no matter how they are obtained, are absolute, counting as \"true,\" ignoring immunity (except challenge wins) and any effects that shield, redirect, or make a Herald unelectable for voting."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Celebration of Ramendan",
+     "blocks": [
+      {
+       "p": "Whenever FSM is affected by an ability, he immediately gains a vote parchment, and one vote is removed from his final vote count at the end of the elimination. This effect activates up to twice per round."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "freyja",
+   "name": "Freyja",
+   "letter": "F",
+   "season": "season-1",
+   "origin": "Norse",
+   "gender": "F",
+   "image": "/images/patrons/freyja.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Seiðr’s Gaze",
+     "blocks": [
+      {
+       "p": "Twice per game, before an elimination is announced, Freyja may glimpse the future and reveal to all Heralds who will be eliminated, their total vote count, and what abilities were used during the round. Use of this ability extends the voting period by two hours. After activating Seiðr’s Gaze, Freyja cannot gain any new votes for the remainder of the round."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "A Death Worthy of Valhalla",
+     "blocks": [
+      {
+       "p": "If Freyja is eliminated, she will return for one day during the next elimination, bringing with her all previously eliminated members of the Norse pantheon. During this day, each of them acts as a normal Herald but cannot be voted against. If a majority of the revived Norse pantheon votes correctly during this elimination, Freyja is fully revived."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "gilgamesh",
+   "name": "Gilgamesh",
+   "letter": "G",
+   "season": "season-2",
+   "origin": "Mesopotamian",
+   "gender": "M",
+   "image": "/images/patrons/gilgamesh.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "King of Uruk",
+     "blocks": [
+      {
+       "p": "Once per game, Gilgamesh may change the Sacrifice format."
+      },
+      {
+       "p": "Each Herald will rank all other Heralds. The highest-ranked Herald in each Realm becomes a Champion of Uruk. Gilgamesh automatically holds this title, but must still be ranked. During the merge, only Gilgamesh and the top-ranked player earn the title."
+      },
+      {
+       "p": "The title holders must agree on one Herald to be sacrificed from each eligible realm. Heralds will only be in control of their own realm's elimination. Only Heralds outside of the top 30% are eligible for sacrifice. If the title holders fail to reach agreement, both are automatically sacrificed."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "flag",
+       "value": "Format-changing"
+      },
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Royal Decree",
+     "blocks": [
+      {
+       "p": "Twice per game, Gilgamesh may issue a Royal Decree upon another Herald, placing them in chains for the remainder of the round."
+      },
+      {
+       "p": "While chained, that Herald cannot activate any Patron abilities. Any abilities they previously activated this round (excluding format-changing abilities) are cancelled and refunded."
+      },
+      {
+       "p": "This ability cannot stop revivals."
+      },
+      {
+       "p": "Refer to the \"Extra Information\" page for other exclusions."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "glados",
+   "name": "GlaDOS",
+   "letter": "G",
+   "season": "season-3",
+   "origin": "Portal",
+   "gender": "F",
+   "image": "/images/patrons/glados.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Core Personality Traits",
+     "blocks": [
+      {
+       "p": "Each round, GlaDOS may choose one of her Personality Cores in order to receive a benefit. If she does so, she must also choose a Corrupted Core that will give her a drawback."
+      },
+      {
+       "p": "She cannot choose the same combination of two Cores for two rounds in a row, nor can she choose the same individual Core for three rounds in a row."
+      },
+      {
+       "p": "Personality Cores"
+      },
+      {
+       "h": "Anger Core"
+      },
+      {
+       "p": "GlaDOS may choose two Heralds to each receive one penalty vote this round."
+      },
+      {
+       "h": "Curiosity Core"
+      },
+      {
+       "p": "GlaDOS may ask one yes-or-no question to the hosts, with limitations. The hosts may refuse to answer any question that is too game-breaking or does not have a definitive answer, and if so GlaDOS may attempt to ask a different question instead."
+      },
+      {
+       "h": "Morality Core"
+      },
+      {
+       "p": "GlaDOS may give up her next eligible vote to receive a voting parchment that does not expire until it is used. There cannot be more than 3 parchments that were created this way in play at a time."
+      },
+      {
+       "p": "Corrupted Cores"
+      },
+      {
+       "h": "Intelligence Dampening Core"
+      },
+      {
+       "p": "GlaDOS receives a -20% penalty to her performance in the challenge this round, or a special penalty if the challenge does not accomodate this."
+      },
+      {
+       "h": "Adventure Core"
+      },
+      {
+       "p": "GlaDOS receives one penalty vote in the next round in which she is not immune."
+      },
+      {
+       "h": "Central Core"
+      },
+      {
+       "p": "GlaDOS chooses one of three facts about herself to have publicly revealed at the end of the round: who she voted for last round, the advantages she currently has in her possession, or a unique fact chosen each round by the hosts."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "All cores are Private, except Curiosity Core, which is Public."
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Portal Gun",
+     "blocks": [
+      {
+       "p": "Each round, GlaDOS can open a portal to another Herald."
+      },
+      {
+       "p": "GlaDOS may send up to a total of 300 words worth of messages to any Herald (through any communication restriction), and they may send up to 300 total words worth of messages back. GlaDOS and the Herald may also send one advantage each through the portal."
+      },
+      {
+       "p": "In addition, if the Herald agrees and both GlaDOS and the other Herald are not immune, GlaDOS may choose that either the other Herald receives the first vote that GlaDOS would have received this round, or vice versa."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hades",
+   "name": "Hades",
+   "letter": "H",
+   "season": "season-1",
+   "origin": "Greek",
+   "gender": "M",
+   "image": "/images/patrons/hades.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Charon's Favor",
+     "blocks": [
+      {
+       "p": "Once per round, Hades may choose an eliminated Herald to ask a single question. Their answer, truthful or otherwise, will be delivered privately to Hades."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Orpheus and Eurydice",
+     "blocks": [
+      {
+       "p": "Once per game, Hades may offer a deal to a living Herald of his choice. If they accept, Hades will revive any previously eliminated Herald they request. If the Herald breaks the deal, knowingly or not, both they and the revived soul are instantly eliminated."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "hathor",
+   "name": "Hathor",
+   "letter": "H",
+   "season": "season-1",
+   "origin": "Egyptian",
+   "gender": "F",
+   "image": "/images/patrons/hathor.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Chain of Love",
+     "blocks": [
+      {
+       "p": "This ability must be used in the challenge round, and will go into effect in the elimination round."
+      },
+      {
+       "p": "Once per game, Hathor may replace the elimination with a Chain of Love. Hathor gains immunity and begins the chain by choosing one player as her love, granting them immunity. That player then chooses another to declare as their love, and so on, until only one player remains unchosen. The unchosen player is eliminated. Players who have immunity from the challenge do not participate in the Chain of Love."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Spell of the Sistrum",
+     "blocks": [
+      {
+       "p": "Three times per game, Hathor entrances another Herald for the round, forcing them to only communicate in chats where she is present. These do not have to be preexisting chats."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "hekate",
+   "name": "Hekate",
+   "letter": "H",
+   "season": "season-1",
+   "origin": "Greek",
+   "gender": "F",
+   "image": "/images/patrons/hekate.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Curse Bearer",
+     "blocks": [
+      {
+       "p": "Once per day, Hekate may place a mischievous curse upon a Herald, though she cannot target the same Herald two days in a row. The curse is randomly selected from her list and lasts for 24 hours. These curses are playful in nature; such as forcing the Herald to speak only in GIFs, emojis, or in the third person. Hekate may curse Heralds outside her own realm. Only Hekate and the afflicted Herald will know which curse has been cast."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Keeper of Secrets",
+     "blocks": [
+      {
+       "p": "At the start of the game, Hekate receives three keys. Each key can be used at any time to reveal the details of the next immunity challenge. If Hekate uses a key, only she learns the details. If she gives a key to another Herald and they use it, both Hekate and that Herald learn the details. Used keys are lost, and Hekate may give away as many keys as she wishes."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "hel",
+   "name": "Hel",
+   "letter": "H",
+   "season": "season-1",
+   "origin": "Norse",
+   "gender": "F",
+   "image": "/images/patrons/hel.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Fenrir",
+     "blocks": [
+      {
+       "p": "Hel is accompanied by her younger brother Fenrir. During eliminations, Fenrir can cast half a vote (can be increased to maximum of 1.5 votes), benefits from any items Hel receives or uses, and passively decreases Hel’s final vote count received by one. If Hel is about to be eliminated, she can sacrifice Fenrir to save herself at the cost of this ability. Fenrir can only be brought back through Helheim."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Helheim",
+     "blocks": [
+      {
+       "p": "Once per game, Hel may temporarily restore all eliminated Heralds for the next elimination. These eliminated Heralds may cast votes and communicate normally, but cannot use abilities or benefit from items. If Fenrir has been sacrificed and the Herald Hel voted against is eliminated this round, Fenrir is revived."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "hermes",
+   "name": "Hermes",
+   "letter": "H",
+   "season": "season-2",
+   "origin": "Greek",
+   "gender": "M",
+   "image": "/images/patrons/hermes.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Whispers on Winged Sandals",
+     "blocks": [
+      {
+       "p": "Once per day, the Herald of Hermes may compose an anonymous message of up to 300 characters to any one other Herald. Hermes delivers the message without revealing the sender’s identity. The recipient may reply with a message of up to 300 characters."
+      },
+      {
+       "p": "This ability goes through all communication interferences."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Godspeed",
+     "blocks": [
+      {
+       "p": "Hermes passively receives a 15% reduction to his recorded time in all timed challenges. This applies even if a single time is recorded for the entire Realm."
+      },
+      {
+       "p": "Before results are finalized, Hermes may forfeit this reduction. If he does, he instead applies a 20% increase to the recorded time of a chosen Herald or Realm for that challenge."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "This ability is private. If used on another Herald / Realm, that Herald / Realm is notified."
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hornet",
+   "name": "Hornet",
+   "letter": "H",
+   "season": "season-3",
+   "origin": "Hollow Knight",
+   "gender": "F",
+   "image": "/images/patrons/hornet.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Hunter's Crest",
+     "blocks": [
+      {
+       "p": "Each time Hornet attends a Sacrifice and receives no votes, she gains one Silk stack, up to a maximum of 4 stacks. For each Silk stack she has, her vote counts for 0.5 more. Only full votes will be placed."
+      },
+      {
+       "p": "If Hornet attends a Sacrifice and receives at least one vote, she loses all of her Silk stacks."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Bind",
+     "blocks": [
+      {
+       "p": "Once per game, Hornet can choose a new item to bind to her shell."
+      },
+      {
+       "h": "Mask Shard"
+      },
+      {
+       "p": "Hornet blocks 3 votes from herself this round, and permanently blocks one vote from herself every round for the rest of the game."
+      },
+      {
+       "h": "Spool Fragment"
+      },
+      {
+       "p": "Hornet gains 2 Silk stacks immediately, and can permanently hold up to 6 instead of up to 4."
+      },
+      {
+       "h": "Memory Locket"
+      },
+      {
+       "p": "Hornet no longer loses her Silk stacks if she receives a vote at this tribal, and permanently now only loses 1 Silk stack upon receiving votes at tribal rather than losing them all."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Malenia A1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hua-mulan",
+   "name": "Hua Mulan",
+   "letter": "H",
+   "season": "season-2",
+   "origin": "Chinese",
+   "gender": "F",
+   "image": "/images/patrons/hua-mulan.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "War Cry",
+     "blocks": [
+      {
+       "p": "Three times per game, Mulan may inspire two Heralds of her choice. For the round, those Heralds receive a 20% increase to their scores in any challenge they participate in."
+      },
+      {
+       "p": "Additionally, they gain one temporary vote parchment for the round."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Indomitable Spirit",
+     "blocks": [
+      {
+       "p": "Twice per game, after challenge results are revealed, Mulan may call for a retrial. Any challenge penalties will be removed during the second attempt."
+      },
+      {
+       "p": "Pre-Merge:"
+      },
+      {
+       "p": "If activated, only Mulan’s Realm will redo the challenge in a slightly modified version (for example, with new questions, answers, or variations). The results of this retrial replace her Realm’s original challenge result."
+      },
+      {
+       "p": "If the challenge was a Live Challenge, Mulan must choose one of the Realms that originally won the challenge. Her Realm will then face that Realm in the modified retrial."
+      },
+      {
+       "p": "Merge:"
+      },
+      {
+       "p": "After results are revealed, Mulan may select one Herald to redo the challenge in a slightly modified version. If that Herald wins Immunity from the retrial, Mulan will also receive Immunity for that round."
+      },
+      {
+       "p": "If the challenge was a Live Challenge, the selected Herald will compete against the original winner. If Mulan selects the original winner, they will instead compete against the second-place finisher."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Immune to Gilgamesh A2 but not FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "huitzilopochtli",
+   "name": "Huitzilopochtli",
+   "letter": "H",
+   "season": "season-1",
+   "origin": "Aztec",
+   "gender": "M",
+   "image": "/images/patrons/huitzilopochtli.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Altar of the Sun",
+     "blocks": [
+      {
+       "p": "By the end of round three of the first swap, Huitzilopochtli must designate three Heralds as sacrifices. If a chosen Herald is eliminated, Huitzilopochtli permanently gains one voting power and acquires any items that Herald possessed."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Xiuhcoatl",
+     "blocks": [
+      {
+       "p": "Once per game, Huitzilopochtli may bestow a powerful weapon upon his Herald. For the next three rounds, half of the votes he casts (rounded down) each round are carried over and added to the next round, stacking cumulatively."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "isis",
+   "name": "Isis",
+   "letter": "I",
+   "season": "season-2",
+   "origin": "Egyptian",
+   "gender": "F",
+   "image": "/images/patrons/isis.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Mistress of Magic",
+     "blocks": [
+      {
+       "p": "Once per round, Isis may privately offer another Herald a choice. That Herald must either surrender their vote for that sacrifice to Isis, allowing her to cast it on their behalf, or accept a Curse known only to Isis."
+      },
+      {
+       "p": "This curse lasts until the end of the round. The same Herald cannot be chosen twice in a row."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "The Last Stand of Osiris",
+     "blocks": [
+      {
+       "p": "Once per game, Isis may designate another Herald as her Osiris."
+      },
+      {
+       "p": "While designated, Isis mirrors her Osiris's blessings: she mirrors all items they possess and benefits from any abilities that target them. This does not include any passives the Herald possesses."
+      },
+      {
+       "p": "In return, Osiris is revived once upon death. After his revival, the bond between Isis and her Osiris is broken."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "All effects are private. Osiris is aware of his role. Revivals are announced only to Isis’ Realm."
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "izanagi-and-izanami",
+   "name": "Izanagi & Izanami",
+   "letter": "I",
+   "season": "season-2",
+   "origin": "Shinto",
+   "gender": "M / F",
+   "image": "/images/patrons/izanagi-and-izanami.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Ame-no-Nuboko",
+     "blocks": [
+      {
+       "p": "Before elimination, the Herald selects to be accompanied by either Izanagi or Izanami; upon selection, one of the following effects activates for the challenge round:"
+      },
+      {
+       "p": "Izanagi: Upon challenge win, provide one vote parchment to any Herald of your choice. Izanagi may not select the same Herald two rounds in a row."
+      },
+      {
+       "p": "Izanami: Upon challenge loss, reduce your final vote count in the following elimination round by two."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private",
+       "as": "Izanami"
+      },
+      {
+       "kind": "visibility",
+       "value": "User and target",
+       "as": "Izanagi"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC",
+       "as": "Izanagi"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1",
+       "as": "Izanami"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Harai/Yomi",
+     "blocks": [
+      {
+       "p": "Effect changes depending on who the Herald is accompanied by:"
+      },
+      {
+       "p": "Harai (Izanagi): Once per game, Izanagi performs a cleansing ritual and selects up to three Heralds. They all gain an extra vote parchment and immunity to any negative effects next round."
+      },
+      {
+       "p": "Yomi (Izanami): Once per game, Izanami casts a terrible shadow; during elimination, all votes and negative effects cast against her are null, with the votes redirected to whoever she sees fit."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private",
+       "as": "Izanami"
+      },
+      {
+       "kind": "visibility",
+       "value": "User and target",
+       "as": "Izanagi"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC",
+       "as": "Izanagi"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1",
+       "as": "Izanami"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "jaci",
+   "name": "Jaci",
+   "letter": "J",
+   "season": "season-2",
+   "origin": "Brazillian",
+   "gender": "F",
+   "image": "/images/patrons/jaci.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Lunar Phases",
+     "blocks": [
+      {
+       "p": "Jaci's power is dictated by the phase of the Moon she chooses to embody. At any point during a round, she may enter one of three Moon Phases. Once chosen, she is locked into that phase for two full cycles and may not select the same phase consecutively."
+      },
+      {
+       "p": "Each phase grants two total uses of its corresponding ability. These uses may be activated at any time while she remains in that phase. Once both uses of a phase have been expended, that phase may not be selected again for the remainder of the game."
+      },
+      {
+       "p": "Each of these abilities may be used on herself once."
+      },
+      {
+       "h": "Waning Crescent"
+      },
+      {
+       "p": "Twice per game, Jaci may block 2 votes from a single Herald during a sacrifice."
+      },
+      {
+       "h": "Quarter Moon"
+      },
+      {
+       "p": "Twice per game, Jaci may block one quarter of a Herald's total vote count (rounded down)."
+      },
+      {
+       "h": "Waxing Gibbous"
+      },
+      {
+       "p": "Twice per game, Jaci may block one half of a Herald's total vote count (rounded down)."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Full Moon",
+     "blocks": [
+      {
+       "p": "Three times per game, Jaci and one chosen Herald may only be eliminated by true votes during that sacrifice. Any votes created by abilities or items, unless otherwise stated, will not count against them."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "jesus-christ",
+   "name": "Jesus Christ",
+   "letter": "J",
+   "season": "season-2",
+   "origin": "Judean",
+   "gender": "M",
+   "image": "/images/patrons/jesus-christ.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Crucifixion",
+     "blocks": [
+      {
+       "p": "If Jesus is sacrificed, he returns to the game three days later and unlocks the ability Divine Punishment."
+      },
+      {
+       "h": "Divine Punishment"
+      },
+      {
+       "p": "Three times per game, Jesus may target a single Herald, who is then permanently unable to vote or use abilities."
+      },
+      {
+       "p": "This effect may be undone if the Herald is directly affected by any Patron ability, including format-changes, at which point the Herald returns to their normal state."
+      },
+      {
+       "p": "Jesus will be notified at the start of the following cycle if his chosen Herald has been freed, and he may immediately select a different Herald to be affected. Jesus may not choose the same Herald twice."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "Revival is all realms and the divine punishment is only known between him and the target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "The Father",
+     "blocks": [
+      {
+       "p": "Once per realm, Jesus may ask the Lord a single yes-or-no question. The Lord will provide a truthful answer, which is given privately to Jesus and not revealed to any other Heralds."
+      },
+      {
+       "p": "Questions must be answerable and clearly defined; if a question is vague, cannot be definitively answered, or is majorly game breaking, the Lord may choose to deny it."
+      },
+      {
+       "p": "Additionally, if Jesus ever uses the Lord's name in vain, he will automatically lose this ability."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "joan-of-arc",
+   "name": "Joan of Arc",
+   "letter": "J",
+   "season": "season-2",
+   "origin": "Fr*nch",
+   "gender": "F",
+   "image": "/images/patrons/joan-of-arc.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Tribunal of Sacred Fire",
+     "blocks": [
+      {
+       "p": "Twice per game, Joan of Arc may initiate a Witch Trial against a single Herald. This opens a public channel visible to all Heralds, where the accused must defend themselves and answer questions posed by other players."
+      },
+      {
+       "p": "All Heralds may vote to Save, Sacrifice, or Abstain. Votes may be changed at any time until either all Heralds have voted or one hour before the sacrifice deadline, at which point the current majority will determine the Witch's fate."
+      },
+      {
+       "p": "If the majority of the non-abstainees chooses to Sacrifice, the targeted Herald is eliminated and the sacrifice for their realm is completed."
+      },
+      {
+       "p": "This ability nullifies any immunity the targeted Herald may possess, excluding challenge immunity."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "flag",
+       "value": "Format-changing"
+      },
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Voices of Heaven",
+     "blocks": [
+      {
+       "p": "Twice per game, Joan of Arc may be granted complete omniscience over the current cycle's trajectory."
+      },
+      {
+       "p": "For the remainder of that cycle, she will receive full knowledge of: all votes placed, as they are cast, all patron abilities and items used, all passive abilities that activate, the exact number of votes on each Herald at all times, and which Herald(s) will ultimately be sacrificed."
+      },
+      {
+       "p": "This revelation includes all hidden and cross-Realm activity."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "joker",
+   "name": "Joker",
+   "letter": "J",
+   "season": "season-3",
+   "origin": "Persona",
+   "gender": "M",
+   "image": "/images/patrons/joker.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Arcana Wildcard",
+     "blocks": [
+      {
+       "p": "Joker is accompanied by Arsene every round. Arsene awakens into Satanael and Raoul under certain conditions; These conditions are revealed to Joker privately."
+      },
+      {
+       "p": "Joker will lose the ability of the former versions of Arsene, only benefiting from one ability at a time."
+      },
+      {
+       "h": "Arsene"
+      },
+      {
+       "p": "The persona is the reflection of the self. You must awaken in order to reach greater heights, inmate."
+      },
+      {
+       "h": "Satanael"
+      },
+      {
+       "p": "Joker permanently gains an additional vote. This vote is counted as a true vote."
+      },
+      {
+       "h": "Raoul"
+      },
+      {
+       "p": "Joker is able to steal a vote from another Herald every round. The vote stolen is counted as a true vote."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "Unlocks of both Satanael and Raoul are Private. Satanael is Private. \nRaoul's Steal a Vote is private to the User & Target."
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Take your Heart",
+     "blocks": [
+      {
+       "p": "Twice per game, Joker may send a calling card targeting another Herald. One round after activation, the targeted Herald loses access to all of their Patron's abilities, as well as all items, for the duration of that round."
+      },
+      {
+       "p": "This ability is announced publicly to all realms upon activation and cannot be removed in any way."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "jonesy",
+   "name": "Jonesy",
+   "letter": "J",
+   "season": "season-3",
+   "origin": "Fortnite",
+   "gender": "M",
+   "image": "/images/patrons/jonesy.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Boogie Bomb",
+     "blocks": [
+      {
+       "p": "Once per round, Jonesy may throw a boogie bomb at a Herald. The targeted Herald may only communicate with Fortnite emote GIFs or GIFs that are related to dancing for the next 24 hours. They cannot send GIFs that include text within them."
+      },
+      {
+       "p": "Heralds who violate this rule will receive a strike from Production and have their true vote revoked for the remainder of the round."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Queue up, Squad",
+     "blocks": [
+      {
+       "p": "Once per game, Jonesy may designate one of his current alliances as his \"squad\". This squad can have no more than four people within it, including Jonesy."
+      },
+      {
+       "p": "The squad will benefit from the following effects:"
+      },
+      {
+       "p": "The squad chat will persist through realm swaps, allowing for cross-realm communication."
+      },
+      {
+       "p": "If all squad members make the action to vote together, the targeted Herald will receive a singular additional penalty vote."
+      },
+      {
+       "p": "The alliance is notified when a squad member receives three or more votes during a Sacrifice, but not the targeted member."
+      },
+      {
+       "p": "At any point, including after the ability deadline, Jonesy may choose to transfer all votes off of a squad member and place them upon himself."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "jormungandr",
+   "name": "Jörmungandr",
+   "letter": "J",
+   "season": "season-1",
+   "origin": "Norse",
+   "gender": "M",
+   "image": "/images/patrons/jormungandr.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Ouroboros",
+     "blocks": [
+      {
+       "p": "Once per round, Jörmungandr may fortify himself. Each time he fortifies, he gains one layer of protection, blocking one vote cast against him. Fortifications stack and remain until used, carrying over between rounds."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Titanic Presence",
+     "blocks": [
+      {
+       "p": "Jörmungandr cannot be voted by the same Herald two rounds in a row. Heralds will not be notified if they have voted for Jörmungandr twice in a row, rather their vote will just not count."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "king-arthur",
+   "name": "King Arthur",
+   "letter": "K",
+   "season": "season-2",
+   "origin": "Celtic",
+   "gender": "M",
+   "image": "/images/patrons/king-arthur.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Knights of the Round Table",
+     "blocks": [
+      {
+       "p": "Once per game, King Arthur may convene the Round Table. He invites three Heralds of his choosing; each must accept or decline individually. If an invitation is declined, Arthur may invite another Herald until three have accepted."
+      },
+      {
+       "p": "The Round Table forms a permanent cross-Realm private chat between Arthur and its members. It remains active for the rest of the game, unless only one member remains."
+      },
+      {
+       "p": "Council members are automatically notified within the chat if any member receives three or more votes during an elimination."
+      },
+      {
+       "p": "Arthur may disband and reform the Round Table once per game."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Excalibur",
+     "blocks": [
+      {
+       "p": "Twice per game, Arthur may strike one Herald. For the remainder of the round, any votes that Herald receives will be multiplied by 1.5 (rounded up)."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "king-dice",
+   "name": "King Dice",
+   "letter": "K",
+   "season": "season-3",
+   "origin": "Cuphead",
+   "gender": "M",
+   "image": "/images/patrons/king-dice.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "A Flick of the Wrist",
+     "blocks": [
+      {
+       "p": "Once per round, King Dice may roll a die, subjecting himself to a unique effect corresponding to the number rolled."
+      },
+      {
+       "p": "Alternatively, King Dice may offer another Herald the opportunity to roll the die. If they accept, King Dice may not roll the die himself for that round."
+      },
+      {
+       "p": "Once per game, before the die is rolled, King Dice may choose what number it will land on that round, regardless of who rolls it."
+      },
+      {
+       "p": "6 - Your Patron will be revealed if a specific, randomly selected Herald within your realm votes for you."
+      },
+      {
+       "p": "5 - You will receive two penalty votes in the next eligible round. These votes will not stack if this effect is triggered multiple times."
+      },
+      {
+       "p": "4 - You cannot be affected by vote-blocking abilities or items for the current round."
+      },
+      {
+       "p": "3 - You will receive information about one living Patron, but not their identity."
+      },
+      {
+       "p": "2 - You gain a temporary vote parchment, which expires at the end of the current round."
+      },
+      {
+       "p": "1 - You obtain one of 46 abilities within the game at random for the current round."
+      },
+      {
+       "p": "You may not obtain Arthur's \"Peter, the Horse is Here.\" You may only use a format-changing ability once."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "King Dice's own rolls are Private. If he offers the dice to another Herald, only the rolling Herald learns what they gained from the dice. King Dice will learn whether they have accepted the offer or not. \nAll abilities gained from rolling a 1 follow their normal visibility."
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Malenia A1"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "All Bets Are Off",
+     "blocks": [
+      {
+       "p": "Once per realm, King Dice may reroll one random effect of his choosing within 12 hours of it occurring. This may include, but is not limited to, effects from A Flick of the Wrist, random effects from other abilities, random elements of challenges, tribe swaps, and the outcome of Rocks."
+      },
+      {
+       "p": "If King Dice attempts to reroll a random effect that did not actually occur, his ability is consumed for the realm and nothing happens."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "Rerolling tribes will be Public to All Realms. Otherwise visibility is dependent on what is being rerolled."
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kirby",
+   "name": "Kirby",
+   "letter": "K",
+   "season": "season-3",
+   "origin": "Kirby",
+   "gender": "NB",
+   "image": "/images/patrons/kirby.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Copy",
+     "blocks": [
+      {
+       "p": "Once per game, if the Herald Kirby voted for is successfully sacrificed, Kirby may choose to learn their Patron and replace Copy with one of their abilities for the remainder of the game."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Succ",
+     "blocks": [
+      {
+       "p": "Each Sacrifice that Kirby receives at least one vote in and survives, Kirby gains one vote parchment. These parchments do not expire and may be played at any time."
+      },
+      {
+       "p": "If more than 3 parchments gained from this ability are played in the same round, any parchments beyond the first 3 are still consumed but are nullified."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "krishna",
+   "name": "Krishna",
+   "letter": "K",
+   "season": "season-2",
+   "origin": "Hindu",
+   "gender": "M",
+   "image": "/images/patrons/krishna.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Nyaaya",
+     "blocks": [
+      {
+       "p": "Once per game, Krishna may divide the battlefield into two equal sides of his choosing, creating two temporary realms if used pre-merge. He assigns which Heralds are placed on each side, and during the elimination, Heralds may only vote for and communicate with others on their own side."
+      },
+      {
+       "p": "This ability can only be activated if both sides will contain an equal number of Patrons, and at the end of voting, the Herald with the most votes on each side is eliminated."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Immune to Gilgamesh A2 but not FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Semi-Omniscience",
+     "blocks": [
+      {
+       "p": "Krishna is notified whenever a Patron ability is activated and which Patron activated it, regardless of whether the ability is public or private."
+      },
+      {
+       "p": "This ability excludes any passives."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la-llorona",
+   "name": "La Llorona",
+   "letter": "L",
+   "season": "season-2",
+   "origin": "Mexican",
+   "gender": "F",
+   "image": "/images/patrons/la-llorona.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "La Venganza de La Madre",
+     "blocks": [
+      {
+       "p": "If La Llorona is sacrificed, she may choose one Herald to haunt for the next three rounds, following them through any swaps or format changes."
+      },
+      {
+       "p": "While haunting, La Llorona may speak freely within her Realm as though she were still an active Herald. She may not participate in challenges."
+      },
+      {
+       "p": "She retains her one guaranteed true vote during sacrifices, but she may not receive votes or be affected by abilities."
+      },
+      {
+       "p": "If the haunted Herald is eliminated during this time, La Llorona immediately takes their place in the game and gains a permanent +1 to her voting power."
+      },
+      {
+       "p": "This revival may occur only once. This ability overrides all others."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Immune to Gilgamesh A2 but not FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Hambre que Lo Abarca Todo",
+     "blocks": [
+      {
+       "p": "At any point during the two Realm phases, La Llorona may designate two Heralds from any Realm as her children."
+      },
+      {
+       "p": "If one of her Children is eliminated, La Llorona gains a one-time use of one of the dead Herald's abilities. This ability is chosen at random between their two abilities. The borrowed ability may be stored and used at any time."
+      },
+      {
+       "p": "When her first Child is eliminated, La Llorona must immediately decide, within that same round, whether to keep her remaining Child or choose a new one."
+      },
+      {
+       "p": "Once the second Realm phase has concluded, she may not change her children."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lakshmi",
+   "name": "Lakshmi",
+   "letter": "L",
+   "season": "season-2",
+   "origin": "Hindu",
+   "gender": "F",
+   "image": "/images/patrons/lakshmi.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Curse of Abundance",
+     "blocks": [
+      {
+       "p": "Twice per game, Lakshmi may choose up to three Heralds. During that sacrifice, the total number of votes each of those Heralds casts is reduced by half, rounded down."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Blessing of Fortune",
+     "blocks": [
+      {
+       "p": "Three times per game, Lakshmi may bestow a blessing upon another Herald, removing all curses and negative effects from them. For each curse or negative effect successfully removed, Lakshmi receives one vote parchment."
+      },
+      {
+       "p": "Additionally, Lakshmi herself is protected from all negative effects caused by targeted abilities or items, excluding extra votes."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lampiao",
+   "name": "Lampião",
+   "letter": "L",
+   "season": "season-2",
+   "origin": "Brazilian",
+   "gender": "M",
+   "image": "/images/patrons/lampiao.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Burn Your House Down",
+     "blocks": [
+      {
+       "p": "Each round, during the challenge phase, Lampião may visit one Herald and douse them in gasoline. If, during a following challenge, Lampião chooses to visit that same Herald again, the gasoline ignites. That Herald will receive three additional votes at the upcoming sacrifice."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Lock My Balls in Your Nightstand",
+     "blocks": [
+      {
+       "p": "Once per game, Lampião may lock his \"hidden gift\" in another Herald's nighstand."
+      },
+      {
+       "p": "While a Herald possess both of Lampião's balls, they will receive two additional votes at every sacrifice."
+      },
+      {
+       "p": "The hidden gift is concealed within one of that Herald's accessible channels. If the Herald discovers it, they may immediately pass it to a different Herald of their choice; they will still recieve the additional votes for that current round. Beginning the following round, the new Herald will receive the additional votes until they get rid of Lampião's balls."
+      },
+      {
+       "p": "Lampião may choose to split his balls and give them to separate Heralds, instead forcing 1 vote upon them both. He may reclaim one or both of these balls at any time, though reclaiming will remove their effect."
+      },
+      {
+       "p": "Lampião will always be informed of who has his balls."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lilith",
+   "name": "Lilith",
+   "letter": "L",
+   "season": "season-1",
+   "origin": "Christian",
+   "gender": "F",
+   "image": "/images/patrons/lilith.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Darkness of Night",
+     "blocks": [
+      {
+       "p": "Once per realm, Lilith envelops the game in darkness. That round, individual votes are not revealed; only the final elimination is shown. At the end of the round, Lilith privately learns how many votes each Herald received."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Mother of Lilim",
+     "blocks": [
+      {
+       "p": "At any point in the game, Lilith may forcibly claim another Herald as her Child. Once bound, Lilith mirrors her Child's blessings: she duplicates all items they possess and benefits from any abilities that target them. The bond is one-sided; the Child gains no benefits in return, and cannot use their ability on Lilith unless she allows it."
+      },
+      {
+       "p": "If her Child is eliminated, Lilith may immediately claim a new one at the cost of her vote for that round."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "loki",
+   "name": "Loki",
+   "letter": "L",
+   "season": "season-1",
+   "origin": "Norse",
+   "gender": "M",
+   "image": "/images/patrons/loki.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Eavesdrop",
+     "blocks": [
+      {
+       "p": "Every other round, Loki may eavesdrop on a one-on-one chat between two other Heralds, receiving the last 30 messages sent."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Shape-Changer",
+     "blocks": [
+      {
+       "p": "Once per game, Loki may choose any patron, dead or alive, and duplicate one of their abilities, whether or not it has been used. He must use that ability in the same round."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "lucifer",
+   "name": "Lucifer",
+   "letter": "L",
+   "season": "season-1",
+   "origin": "Christian",
+   "gender": "M",
+   "image": "/images/patrons/lucifer.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Pride and Prejudice",
+     "blocks": [
+      {
+       "p": "Whenever Lucifer places in the top three of an immunity challenge, he receives two additional votes for the elimination. He also gains one additional vote when targeting a Herald who voted against him in the previous elimination. These votes are not cumulative and last one round."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Fall from Grace",
+     "blocks": [
+      {
+       "p": "Lucifer does not have one daily vote. Instead, he begins the game with a pool of 15 true votes. He may spend up to 3 votes per Elimination from this pool, and can also choose to cast 0 votes. Once all 15 votes are used, he must rely solely on votes gained from Pride and Prejudice."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "ludus",
+   "name": "Ludus",
+   "letter": "L",
+   "season": "season-1",
+   "origin": "Apotheionic",
+   "gender": "NB",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Amica",
+     "blocks": [
+      {
+       "p": "Ludus is accompanied by their father, Amica, Apotheionic God of Unity. To reward unity, any time Ludus attends an elimination and at least 80% of the votes fall onto the eliminated Herald, Amica grants Ludus a vote parchment. Ludus must be within this majority to gain the vote."
+      },
+      {
+       "p": "Every round, Ludus may choose to gamble one vote parchment to double it. However, if they do so and the eliminated Herald receives under 70% of the total votes, they must sacrifice Amica. Amica can only be revived if Ludus sacrifices their ability to vote at future elimination."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "The Rogue's Roulette",
+     "blocks": [
+      {
+       "p": "This ability must be used in the challenge round, and will go into effect in the elimination round."
+      },
+      {
+       "p": "Once per game, Ludus may choose to randomly shuffle around the Patrons of every Herald for one round. If a Herald uses an ability of their new Patron that round, one random ability from their old Patron will be unusable for the next two rounds when their old Patron returns. This applies to everyone except for Ludus. Before using this ability, Ludus may create a list of three Patrons for themself. They will be randomly given one of these three."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "malenia",
+   "name": "Malenia",
+   "letter": "M",
+   "season": "season-3",
+   "origin": "Elden Ring",
+   "gender": "F",
+   "image": "/images/patrons/malenia.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Blade of Miquella",
+     "blocks": [
+      {
+       "p": "Twice per game, Malenia may strike down another Herald. While Malenia lives, that Herald cannot have any votes against them blocked, receive immunity, or otherwise gain protection from elimination. They also cannot be swapped or revived by any ability."
+      },
+      {
+       "p": "This does not affect immunity earned from challenges."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "The Goddess of Rot",
+     "blocks": [
+      {
+       "p": "Once per realm, Malenia may forcibly challenge another Herald to a duel. Malenia may choose what the duel entails, subject to Production veto."
+      },
+      {
+       "p": "Upon initiating the duel, the targeted Herald is infected with Scarlet Rot, preventing them from using abilities or items for a limited duration. The duration will depend on when the duel is initiated:"
+      },
+      {
+       "p": "Challenge Phase: The infection lasts for the remainder of the current round and the entirety of the following round."
+      },
+      {
+       "p": "Sacrifice Phase: The infection takes effect at the start of the following round and lasts for its entirety."
+      },
+      {
+       "p": "The Scarlet Rot is removed in the infected Herald wins their duel, is cured of negative effects, or if Malenia is sacrificed."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "master-chief",
+   "name": "Master Chief",
+   "letter": "M",
+   "season": "season-3",
+   "origin": "Halo",
+   "gender": "M",
+   "image": "/images/patrons/master-chief.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Objective: Survive",
+     "blocks": [
+      {
+       "p": "Once per game, Master Chief may change the format of the following round to mimic Control. All Heralds will be brought into a single public chat for the duration of the round."
+      },
+      {
+       "p": "Heralds will be tasked with completing five mini-challenges, number 1 through 5. At the same time, Heralds must rank each of their peers from 1 (best) to X (worst), based on personal preference."
+      },
+      {
+       "p": "Once the challenge deadline has passed, a purge gauntlet will proceed. In randomized order, the challenges scores will be revealed."
+      },
+      {
+       "p": "The bottom X%, adjusted to the population size of the game, will be eliminated, continuing until the final challenge."
+      },
+      {
+       "p": "After all five challenges have been completed, the Herald with the highest score on the fifth and final announced challenge will be declared the winner. Rankings will be released in tandem."
+      },
+      {
+       "p": "The winner must then choose whether the Heralds ranked above or below them are eligible for elimination. All eligible Heralds will then participate in a normal Sacrifice vote. If only one Herald is made eligible for elimination, they are eliminated without a vote."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "flag",
+       "value": "Format-changing"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Cortana, I Need You",
+     "blocks": [
+      {
+       "p": "Cortana passively provides Master Chief with a description of each challenge one round before it occurs. When Master Chief uses Objective: Survive, Cortana also informs him of the unique challenge associated with the ability."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mercy",
+   "name": "Mercy",
+   "letter": "M",
+   "season": "season-3",
+   "origin": "Overwatch",
+   "gender": "F",
+   "image": "/images/patrons/mercy.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Caduceus Staff",
+     "blocks": [
+      {
+       "p": "Every round, Mercy may choose to give up her vote at the next Sacrifice she attends to enhance an ally of her choice in one of two ways."
+      },
+      {
+       "h": "Heal Beam"
+      },
+      {
+       "p": "She may clear any negative effects currently affecting the chosen ally and grant them immunity to future negative effects for the remainder of the round. Any abilities blocked by this effect are refunded to their user at the end of the round."
+      },
+      {
+       "h": "Power Enhancement"
+      },
+      {
+       "p": "She may grant the chosen ally a 1.5x booster to their true votes this round, rounded up."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Resurrect",
+     "blocks": [
+      {
+       "p": "Once per game, Mercy may resurrect a Herald who was Sacrificed in the previous round. After resurrecting the Herald, Mercy becomes susceptible to damage, causing any votes she receives at her next Sacrifice to count for 1.5x their normal value, rounded up."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Malenia A1"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mettaton",
+   "name": "Mettaton",
+   "letter": "M",
+   "season": "season-3",
+   "origin": "Undertale",
+   "gender": "M",
+   "image": "/images/patrons/mettaton.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Up Next, Our Feature Presentation",
+     "blocks": [
+      {
+       "p": "Once per game, Mettaton may trigger a transformation, changing the format of the following round into the iconic game show: Family Feud."
+      },
+      {
+       "p": "Before activation, Mettaton splits all Heralds into two teams of his choice and must choose a team to join himself. All 1-on-1s will be closed, with each team receiving a separate chat in which they may discuss their answers."
+      },
+      {
+       "p": "Heralds will then compete in a game show-like format, submitting answers to themes given to them by the Host. Any Herald may answer on behalf of their team. After three strikes, the opposing team is given an opportunity to play."
+      },
+      {
+       "p": "To determine which team goes first, each team will volunteer a Herald to participate in a live, reaction-time-based question."
+      },
+      {
+       "p": "After the game show has concluded, only the losing team must eliminate one of their members."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "flag",
+       "value": "Format-changing",
+       "mark": "*"
+      },
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Alphys",
+     "blocks": [
+      {
+       "p": "At the start of each round, Alphys passively provides Mettaton with shtatishtics about the game. These include:"
+      },
+      {
+       "ul": [
+        "The final vote totals for every Sacrifice that occurred during the previous round, regardless of whether Mettaton attended.",
+        "The number and name of every alliance made during the previous round, with \"Unnamed\" listed for alliances without a name. Mettaton is also informed of the realm in which each alliance was made.",
+        "The number of times Mettaton and his Herald's name were mentioned during the previous round."
+       ]
+      },
+      {
+       "p": "Additionally, each round, Mettaton may inquire how many times a Herald has said a specific word up until that point in the game."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "monika",
+   "name": "Monika",
+   "letter": "M",
+   "season": "season-3",
+   "origin": "Doki Doki Literature Club",
+   "gender": "F",
+   "image": "/images/patrons/monika.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Doomscroll",
+     "blocks": [
+      {
+       "p": "Twice per game, Monika may scroll through the files of a previous round. She learns how every Herald voted, what items were used, and which abilities were used during that round."
+      },
+      {
+       "p": "After viewing the files, Monika may choose to upload them, allowing all Heralds to see what occurred during the previous round."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "All information is Private until Monika chooses to make it Public to All Realms."
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Corrupted Files",
+     "blocks": [
+      {
+       "p": "Once per game, Monika may corrupt the files of the game."
+      },
+      {
+       "p": "During the following round, the true challenge winners will not be publicly revealed, and all realms will attend a Sacrifice regardless of the actual challenge outcome. Votes will be cast and read aloud in every realm, and abilities may be used as normal; however, any abilities used will be expended even if the user's realm was immune."
+      },
+      {
+       "p": "Abilities that would reveal challenge results, vote totals, or any other information concealed by Corrupted Files are disabled for the duration of the round."
+      },
+      {
+       "p": "Only Heralds from realms that truly lost the challenge will be eliminated."
+      },
+      {
+       "p": "Monika will be informed of the true challenge results and which realms genuinely face elimination."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "flag",
+       "value": "Format-changing"
+      },
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mother-horse-eyes",
+   "name": "Mother Horse Eyes",
+   "letter": "M",
+   "season": "season-2",
+   "origin": "The Interface Series",
+   "gender": "F",
+   "image": "/images/patrons/mother-horse-eyes.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Flesh Interface",
+     "blocks": [
+      {
+       "p": "Once per day, Mother Horse Eyes may offer LSD to a single Herald. Any Herald who accepts receives a temporary boost in the current challenge, and Mother Horse Eyes cannot vote against them in the first sacrifice in which they interact."
+      },
+      {
+       "p": "For each Herald who accepts her offer, Mother Horse Eyes privately gains one stack in her Flesh Interface, which she may spend once at any time to apply all accumulated votes to a single target."
+      },
+      {
+       "p": "The number of Heralds who have accepted her offer and the size of the Flesh Interface are hidden from all other Heralds."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "Only the selected individuals are notified. No one is notified when the ability is cashed out."
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Home",
+     "blocks": [
+      {
+       "p": "Twice per game, Mother Horse Eyes may visit another Herald, isolating them within her Home for the remainder of the cycle. The targeted Herald will be given an hour after this activation before they are isolated from all other Heralds."
+      },
+      {
+       "p": "While confined, the Herald cannot speak or react in any chats, including tribe chat, private messages, alliances, or Patron-granted channels. They can still read all messages sent to them, but cannot respond directly."
+      },
+      {
+       "p": "Mother Horse Eyes may optionally relay messages between her Herald and the confined Herald, granting the victim a little bit of company in the quiet."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nanook",
+   "name": "Nanook",
+   "letter": "N",
+   "season": "season-2",
+   "origin": "Inuit",
+   "gender": "M",
+   "image": "/images/patrons/nanook.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Thrill of the Hunt",
+     "blocks": [
+      {
+       "p": "Whenever Nanook votes incorrectly during an elimination, the chosen Herald gains a Prey mark. If Nanook votes for that same Herald in a future elimination, he may consume any number of their Prey marks to cast additional votes, gaining one extra vote per mark spent. If he does not choose to consume a Prey mark, he may place another."
+      },
+      {
+       "p": "Nanook may transfer and consolidate Prey marks from multiple Heralds onto a single Herald. No Herald may ever hold more than four Prey marks at a time and a Herald is notified upon reaching this maximum."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "All effects are private until a Herald receives max prey marks. In which they are notified."
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Winter Hide",
+     "blocks": [
+      {
+       "p": "Nanook cannot be eliminated through a standard majority vote. Instead, he possesses a pool of 20 HP. Votes against him reduce this HP, and once it reaches zero, he is eliminated."
+      },
+      {
+       "p": "If Nanook’s HP is depleted during a round in which he was not the majority vote recipient, the Herald who received the majority of votes that round is eliminated alongside him."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "All effects are private. Upon elimination, it is revealed that Nanook’s HP has run out."
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-narrator",
+   "name": "The Narrator",
+   "letter": "N",
+   "season": "season-3",
+   "origin": "The Stanley Parable",
+   "gender": "M",
+   "image": "/images/patrons/the-narrator.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Two Doors",
+     "blocks": [
+      {
+       "p": "Once per game, during the challenge, The Narrator may nominate one Herald for sacrifice."
+      },
+      {
+       "p": "Once challenge results are revealed, the top performing Herald will then nominate a second Herald. During that Sacrifice, only the two nominations may be voted for. The nominees themselves may not vote."
+      },
+      {
+       "h": "Pre-Merge"
+      },
+      {
+       "p": "The Narrator must nominate one Herald from every available realm. After challenge results, only the realms who face a Sacrifice will have their Herald nominated. The top performing member of each losing realm will nominate a second Herald."
+      },
+      {
+       "p": "Only the two nominations in each realm may be voted for."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "flag",
+       "value": "Format-changing"
+      },
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Adventure Line",
+     "blocks": [
+      {
+       "p": "Each round, The Narrator may attempt to narrate another Herald. The Narrator chooses one thing that they must do that round (subject to veto by production). If the Herald disobeys, then The Narrator steals their true vote this round."
+      },
+      {
+       "p": "If The Narrator attempts to guide someone not attending a Sacrifice, he will instead steal their next eligible true vote."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ne-zha",
+   "name": "Ne Zha",
+   "letter": "N",
+   "season": "season-1",
+   "origin": "Chinese",
+   "gender": "M",
+   "image": "/images/patrons/ne-zha.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Recklessness",
+     "blocks": [
+      {
+       "p": "Ne Zha may give himself an extra vote during an elimination at the expense of having an extra vote cast upon himself, up to 3 votes per round."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Child God of War",
+     "blocks": [
+      {
+       "p": "Every round, Ne Zha may select a game, puzzle, or contest of his choice and challenge another Herald to a duel. The challenged Herald is only told they have been challenged and may either accept or decline; if they decline, Ne Zha may choose a different opponent. If the duel is accepted, the winner cannot be voted by the loser that round and gains a vote parchment. This ability may be used on Heralds outside of his realm."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "noob",
+   "name": "Noob",
+   "letter": "N",
+   "season": "season-3",
+   "origin": "Roblox",
+   "gender": "NB",
+   "image": "/images/patrons/noob.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "End of the Obby",
+     "blocks": [
+      {
+       "p": "Each round, Noob can equip one of the following Coils:"
+      },
+      {
+       "h": "Speed"
+      },
+      {
+       "p": "In time-based challenges, your final time is improved by 15%."
+      },
+      {
+       "h": "Gravity"
+      },
+      {
+       "p": "Become immune to abilities decreasing or redirecting your true vote."
+      },
+      {
+       "h": "Regen"
+      },
+      {
+       "p": "Decrease final vote count by 1. If two or more votes were received last round, gain 1 parchment."
+      },
+      {
+       "p": "If Noob correctly votes for at least three consecutive rounds, Noob will instead use the Fusion Coil, granting the properties of all three."
+      },
+      {
+       "p": "Fusion Coil is lost if Noob votes incorrectly."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Remember Our Policies",
+     "blocks": [
+      {
+       "p": "Once per realm, Noob selects a Herald that violated Community Standards: for the rest of the round, all of their bonus votes are invalid and they must communicate using hashtags (#). The suspended Herald will additionally lose access to any alliance chats for the duration of the effect."
+      },
+      {
+       "p": "Heralds who purposely violate this rule will receive a strike from Production and have their true vote revoked for the remainder of the round."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nyarlathotep",
+   "name": "Nyarlathotep",
+   "letter": "N",
+   "season": "season-2",
+   "origin": "Lovecraftian",
+   "gender": "M",
+   "image": "/images/patrons/nyarlathotep.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "A Minor Adjustment",
+     "blocks": [
+      {
+       "p": "Once per game, Nyarlathotep may completely randomize the composition of the realms for the following round. At the conclusion of the cycle, the game returns to its original structure."
+      },
+      {
+       "p": "Pre-Merge:"
+      },
+      {
+       "p": "Upon activation, Nyarlathotep selects one Herald he wishes to be placed with and one Herald he wants to avoid. The remaining realm assignments are randomized accordingly. This process occurs privately, and only the final realm compositions are revealed."
+      },
+      {
+       "p": "Merge:"
+      },
+      {
+       "p": "Rather than swapping realms, Nyarlathotep divides the merged realm into two temporary factions for the cycle. He again selects one Herald to remain with him and one Herald to be separated from him. He will also choose which half will be odd, if necessary."
+      },
+      {
+       "p": "Each faction conducts its own vote, and the Herald who receives the most votes within each faction advances to a final revote. All remaining Heralds then participate in this revote, excluding those within it, and the Herald who receives the majority of votes in the final revote is sacrificed."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Immune to Gilgamesh A2 but not FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Crawling Insight",
+     "blocks": [
+      {
+       "p": "Once per round, Nyarlathotep may privately ask production how many times a Herald has used a specific word in public or private game channels."
+      },
+      {
+       "p": "Production will respond with the total number of occurrences of that exact word used by the chosen Herald up to that point in the game."
+      },
+      {
+       "p": "Patron names that contain multiple words count as a single exception and may be queried in full (for example, \"Mother Horse Eyes\" may be asked about even though it contains more than one word)."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oya",
+   "name": "Oya",
+   "letter": "O",
+   "season": "season-1",
+   "origin": "Yoruba",
+   "gender": "F",
+   "image": "/images/patrons/oya.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Sword of Change",
+     "blocks": [
+      {
+       "p": "When Oya is eliminated, she must immediately strike, choosing a Realm (pre-merge) or a Herald (post-merge) to curse with a penalty in the current challenge. In the following round, Oya returns as a normal Champion but cannot be targeted by votes, items, or abilities. If the chosen Herald is eliminated (or if the chosen Realm loses the challenge) that round, Oya is fully revived."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Wild Storm",
+     "blocks": [
+      {
+       "p": "Whenever Oya casts her vote, lightning strikes two other random heralds (excluding Oya and anyone in an alliance chat with her), casting an extra vote on them. Twice per game, Oya can concentrate the storm, having full control over where all three votes go."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "phoenix-wright",
+   "name": "Phoenix Wright",
+   "letter": "P",
+   "season": "season-3",
+   "origin": "Ace Attorney",
+   "gender": "M",
+   "image": "/images/patrons/phoenix-wright.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Ace Investigator",
+     "blocks": [
+      {
+       "p": "Phoenix may optionally submit a guess of a Patron alongside his vote."
+      },
+      {
+       "p": "If Phoenix correctly guesses the Patron of the Herald he votes for, his true vote counts as triple that round. If his guess is incorrect, his true vote counts for 0 and he loses access to this ability for the remainder of the realm."
+      },
+      {
+       "p": "Phoenix may not send Patron list guesses."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Objection!",
+     "blocks": [
+      {
+       "p": "Once per game, Phoenix may bring a Herald to trial. That round, the chosen Herald will be brought forth into a public channel, where they must defend their case before a jury of their peers."
+      },
+      {
+       "p": "The accused Herald must appoint another Herald as their lawyer. Phoenix and the lawyer will then take turns vetoing Heralds from serving on the jury until the required number of jurors has been selected. The number of jurors required is determined by Production based on the number of Heralds currently alive."
+      },
+      {
+       "p": "During the trial, Phoenix and the jury may question the accused, while the accused and their lawyer may defend their case. Once questioning has concluded, the jury must unanimously choose Guilty or Not Guilty. If the jury fails to reach a unanimous decision, the jury itself will be put up for elimination, with Heralds outside of the trial voting to determine which juror is eliminated."
+      },
+      {
+       "p": "If the jury finds the accused Guilty, they are immediately sacrificed. If the jury finds them Not Guilty, the Sacrifice returns to its normal format."
+      },
+      {
+       "p": "The trial will only end once the Jury has come to a unanimous decision, or when the elimination deadline has passed."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "flag",
+       "value": "Format-changing"
+      },
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pop-fizz",
+   "name": "Pop Fizz",
+   "letter": "P",
+   "season": "season-3",
+   "origin": "Skylanders",
+   "gender": "M",
+   "image": "/images/patrons/pop-fizz.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "The Motion of the Potion",
+     "blocks": [
+      {
+       "p": "Pop Fizz has access to three different potions. Each round, he may drink one potion and give one potion to another Herald. He may not drink the same potion two rounds in a row."
+      },
+      {
+       "p": "If Pop Fizz both drinks and gives away a potion during the same round, he cannot use this ability during the following round."
+      },
+      {
+       "h": "Orange Potion"
+      },
+      {
+       "p": "Allows the target Herald to view the 20 most recent relevant messages in any 1-on-1."
+      },
+      {
+       "h": "Green Potion"
+      },
+      {
+       "p": "Cures the first negative ability affecting the target Herald."
+      },
+      {
+       "h": "Purple Potion"
+      },
+      {
+       "p": "Blocks the first two votes the target Herald receives during a Sacrifice."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "Personal potions are Private. If given to another Herald only the User & Target are notified."
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Malenia A1"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Holy Shit It's MrBeast",
+     "blocks": [
+      {
+       "p": "Once per realm, Pop Fizz may transform into his Beast Mode."
+      },
+      {
+       "p": "While in Beast Mode, he gains a 30% boost to any challenge score, or a special boost if the challenge does not accomodate."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "poseidon",
+   "name": "Poseidon",
+   "letter": "P",
+   "season": "season-1",
+   "origin": "Greek",
+   "gender": "M",
+   "image": "/images/patrons/poseidon.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Charybdis",
+     "blocks": [
+      {
+       "p": "This ability must be used in the challenge round, and will go into effect in the elimination round."
+      },
+      {
+       "p": "Once per game, Poseidon may summon Charybdis. For the duration of this round, no Herald may use Patron abilities. If a Herald attempted to use an ability earlier this round, that ability has no effect and is not consumed, but is publicly announced."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Ruthlessness",
+     "blocks": [
+      {
+       "p": "Up to three times per game, immediately after an elimination in which he receives votes, Poseidon may choose to learn which Heralds voted against him. If he does, up to three of those Heralds are randomly selected. Each selected Herald begins the next round with 1 penalty vote that cannot be blocked or removed."
+      },
+      {
+       "p": "Additionally, when Poseidon is eliminated, he may choose one Herald. That Herald begins the next round with 1 penalty vote and cannot use their Patron ability during that round."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "quetzalcoatl",
+   "name": "Quetzalcoatl",
+   "letter": "Q",
+   "season": "season-1",
+   "origin": "Aztec",
+   "gender": "M",
+   "image": "/images/patrons/quetzalcoatl.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "The Gift of Thought",
+     "blocks": [
+      {
+       "p": "Once per round, Quetzalcoatl may gain insight into another Herald. He may ask one question from the following categories about the chosen Herald: Patron, remaining ability uses, number of alliances, inventory, or their most recent vote. The same Herald cannot be targeted in consecutive rounds."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Venus Before Sunrise",
+     "blocks": [
+      {
+       "p": "Once per game, Quetzalcoatl may create a celestial pathway between him and an allied herald; this pathway serves as a special communication chat that cannot be infiltrated and is unaffected by abilities that affect communication. Additionally, this pathway automatically notifies either party if they have received three or more votes during an elimination, and gifts each a vote parchment if they both survive."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "ra",
+   "name": "Ra",
+   "letter": "R",
+   "season": "season-1",
+   "origin": "Egyptian",
+   "gender": "M",
+   "image": "/images/patrons/ra.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Unmatched Power of the Sun",
+     "blocks": [
+      {
+       "p": "Twice per game, Ra selects a target to blind, losing their ability to vote as well as deactivating their abilities that round."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Castigation of the Enemies of the Godhead",
+     "blocks": [
+      {
+       "p": "This ability must be used in the challenge round, and will go into effect in the elimination round."
+      },
+      {
+       "p": "Once per game, Ra brings the heralds before his court; during the elimination, Heralds are only able to cast their true votes, and any vote parchments or extra votes are inactive until the following elimination. During this round, Ra cannot be selected for voting, and all heralds from the Egyptian pantheon gain a second true vote."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "rell",
+   "name": "Rell",
+   "letter": "R",
+   "season": "season-3",
+   "origin": "League of Legends",
+   "gender": "F",
+   "image": "/images/patrons/rell.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Magnet Storm",
+     "blocks": [
+      {
+       "p": "Three times per game, Rell may pull another Herald, forcing the targeted Herald to cast all of their available votes against her during the following Sacrifice."
+      },
+      {
+       "p": "If Rell survives the Sacrifice, she gains a number of vote parchments equal to half the number of votes she received from the targeted Herald, rounded up."
+      },
+      {
+       "p": "This calculation is made using the number of votes cast before any votes are blocked."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Shattering Strike",
+     "blocks": [
+      {
+       "p": "Once per realm, Rell may stun another Herald, preventing them from participating in the challenge."
+      },
+      {
+       "p": "She may use this ability twice during Merge."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ryujin",
+   "name": "Ryūjin",
+   "letter": "R",
+   "season": "season-2",
+   "origin": "Shinto",
+   "gender": "M",
+   "image": "/images/patrons/ryujin.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Depths of Lake Biwa",
+     "blocks": [
+      {
+       "p": "Once per game, Ryūjin may activate Depths of Lake Biwa, which takes effect in the beginning of the following round."
+      },
+      {
+       "p": "During this round, the true challenge winners will not be publicly revealed, and all realms will attend a sacrifice regardless of the actual challenge outcome. Votes will be cast and read aloud in every realm, and abilities may be used as normal; however, any abilities used will be expended even if that realm does not genuinely face elimination. Abilities that would reveal challenge results, vote totals, or any information concealed by Depths of Lake Biwa are disabled for the duration of the round."
+      },
+      {
+       "p": "Only that realms that truly lost the challenge will have their Herald eliminated."
+      },
+      {
+       "p": "Ryūjin will be informed of the true challenge results and which realms genuinely face elimination."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Immune to Gilgamesh A2 but not FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Drowning Tempest",
+     "blocks": [
+      {
+       "p": "Twice per game, Ryujin may summon a deafening storm. For the remainder of the round, any Herald who activates a Patron ability (excluding automatic passives) immediately receives three penalty votes in the sacrifice."
+      },
+      {
+       "p": "Ryujin is exempt from this effect."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "scaramouche",
+   "name": "Scaramouche",
+   "letter": "S",
+   "season": "season-3",
+   "origin": "Genshin Impact",
+   "gender": "M",
+   "image": "/images/patrons/scaramouche.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Kabukimono",
+     "blocks": [
+      {
+       "p": "Scaramouche is immune to all non-true votes (i.e. extra votes, stolen votes). He can only be eliminated by true votes."
+      },
+      {
+       "p": "Once per game he may transfer this passive to another Herald for the remainder of the round."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Shouki no Kami",
+     "blocks": [
+      {
+       "p": "Each round, Scaramouche may offer his vote to another Herald. If the Herald accepts, they cast Scaramouche’s vote on his behalf, and Scaramouche gains one piece of his armor."
+      },
+      {
+       "p": "After gaining five pieces of armor, therefore completing the set, Scaramouche gains immunity for the following round."
+      },
+      {
+       "p": "His immunity is publicly announced to all realms."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "All offers are private to the User & Target until Scaramouche achieves immunity, in which All Realms are notified."
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "scheherazade",
+   "name": "Scheherazade",
+   "letter": "S",
+   "season": "season-2",
+   "origin": "Persian",
+   "gender": "F",
+   "image": "/images/patrons/scheherazade.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "One Thousand and One Nights",
+     "blocks": [
+      {
+       "p": "Throughout the game, Scheherazade may use her 1001 currency to purchase a wide array of abilities. This currency cannot be restored."
+      },
+      {
+       "p": "150 - Scheherazade can block one vote."
+      },
+      {
+       "p": "200 - Scheherazade can cast an additional true vote."
+      },
+      {
+       "p": "400 - Scheheraade can reveal the challenge before the challenge occurs. However, she must spend an extra 100 to disclose the details of the challenge to any one else."
+      },
+      {
+       "p": "500 - Scheherazade can use the ability of any other patron. She may buy a \"once per\" ability one time. She may not buy \"The Heel\". This ability expires at the end of the round. She may not buy format-changing abilities."
+      },
+      {
+       "p": "750 - Scheherazade can nullify any ability usage by another patron."
+      },
+      {
+       "p": "1001 - Scheherazade may replace the effects of One Thousand and One Nights with the ability of any other Patron. This replicates the effects, original number of uses, and any other functions of the ability. She may not by \"The Heel\". She may buy format-changing abilities."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "All effects are private, except when an ability use is stopped. The targeted Herald is notified."
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Cliffhanger",
+     "blocks": [
+      {
+       "p": "Scheherazade cannot be voted by the same Herald two rounds in a row. Heralds will not be notified if they have voted for Scheherazade twice in a row, rather their vote will just be nullified."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "Nullified votes appear as (null)."
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "set",
+   "name": "Set",
+   "letter": "S",
+   "season": "season-1",
+   "origin": "Egyptian",
+   "gender": "M",
+   "image": "/images/patrons/set.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Osiris' Bane",
+     "blocks": [
+      {
+       "p": "Once per realm, Set may mark another Herald for death. A marked Herald immediately loses any immunity they possess that round and cannot be revived by any means. This effect overrides all revival abilities. This ability may be used on Heralds outside of his realm."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Let The Chaos Reign",
+     "blocks": [
+      {
+       "p": "Twice per game, Set plunges the entire game into chaos. Each Herald receives two randomized curses from Set’s list and must choose one to endure. These curses are severe, such as being forced to lose the next immunity challenge or being unable to use their ability for a round. If a Herald refuses to choose, their votes are fully randomized that round."
+      },
+      {
+       "p": "Set is exempt from his own ability and is informed of which curses each Herald accepts."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "shezmu",
+   "name": "Shezmu",
+   "letter": "S",
+   "season": "season-2",
+   "origin": "Egyptian",
+   "gender": "M",
+   "image": "/images/patrons/shezmu.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "The Slaughter",
+     "blocks": [
+      {
+       "p": "Once per game, Shezmu alters the format of the cycle to mimic that of Eradication."
+      },
+      {
+       "p": "For an explanation of what \"Eradication\" is, please ping @Rikav."
+      },
+      {
+       "p": "This ability affects all Realms."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "flag",
+       "value": "Format-changing"
+      },
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Blood Tithe",
+     "blocks": [
+      {
+       "p": "For each sacrifice Shezmu attends, his voting power permanently increases by 0.5."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "springtrap",
+   "name": "Springtrap",
+   "letter": "S",
+   "season": "season-3",
+   "origin": "Five Nights at Freddy's",
+   "gender": "M",
+   "image": "/images/patrons/springtrap.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "I Always Come Back",
+     "blocks": [
+      {
+       "p": "One round after William Afton is sacrificed, he is revived as Springtrap. Upon revival, he unlocks the Jumpscare ability."
+      },
+      {
+       "h": "Jumpscare"
+      },
+      {
+       "p": "Each round, Springtrap may jumpscare another Herald. The targeted Herald permanently loses their ability to vote, as well as any extra votes they currently possess."
+      },
+      {
+       "p": "The effect can be removed if the targeted Herald is affected by any other ability, including ones used before Jumpscare within the same round."
+      },
+      {
+       "p": "Springtrap cannot jumpscare the same Herald more than once. Only one Herald may be affected by Jumpscare at a time."
+      },
+      {
+       "p": "Once the current target is affected by another ability and the effect is removed, Springtrap is notified and may jumpscare another Herald."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "Revival is Public to All Realms. Jumpscare is private to the User & Target."
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Malenia A1"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Killing Spree",
+     "blocks": [
+      {
+       "p": "If Springtrap votes correctly in three consecutive Sacrifices, he gains one vote parchment. For each consecutive Sacrifice afterward that he continues to vote correctly, he gains another vote parchment."
+      },
+      {
+       "p": "If Springtrap votes incorrectly, he loses all vote parchments and other stored items, and his correct-vote chain resets. He must once again vote correctly in three consecutive Sacrifices to begin gaining vote parchments."
+      },
+      {
+       "p": "When Springtrap is revived, his vote chain resets."
+      },
+      {
+       "p": "Springtrap may give his vote parchments to other players, but they will still be lost if his vote chain is broken or he is revived."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "steve",
+   "name": "Steve",
+   "letter": "S",
+   "season": "season-3",
+   "origin": "Minecraft",
+   "gender": "M",
+   "image": "/images/patrons/steve.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Crafting Table",
+     "blocks": [
+      {
+       "p": "Steve does not possess a true vote. Instead, he has a pool of iron and diamonds. He starts the game with 5 iron, and may spend his resources on the following tools. Steve may not hold more than 1 tool of each type at a time, but may hold multiple different tools at the same time. Steve's tools break after he uses them once."
+      },
+      {
+       "h": "Shovel (1 iron)"
+      },
+      {
+       "p": "Steve receives a 15% performance boost in the challenge this round, or a special boost if the challenge does not accomodate. Enchantment: 30% boost, +1 durability"
+      },
+      {
+       "h": "Iron Sword (2 iron)"
+      },
+      {
+       "p": "Steve may cast a vote this round. Enchantment: +1 vote cast, +1 durability"
+      },
+      {
+       "h": "Iron Pickaxe (3 iron)"
+      },
+      {
+       "p": "At the end of this round, Steve gains 1 diamond. Enchantment: Mine 2 iron in addition to the 1 diamond, +1 durability'"
+      },
+      {
+       "h": "Iron Helmet (5 iron)"
+      },
+      {
+       "p": "Steve blocks the first 2 non-true votes he would receive this round. Enchantment: 4 non-true votes blocked"
+      },
+      {
+       "h": "Diamond Sword (2 diamonds)"
+      },
+      {
+       "p": "Steve may cast a vote this round. It counts as 3 votes. Enchantment: +1 durability"
+      },
+      {
+       "h": "Enchanting Table (2 diamonds)"
+      },
+      {
+       "p": "Steve enchants one of his tools."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Malenia A1"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Off-Camera Mining",
+     "blocks": [
+      {
+       "p": "Each round Steve receives 1 Iron."
+      },
+      {
+       "p": "For each consecutive round where Steve earns Challenge Immunity, the amount of Iron gained increases by 1."
+      },
+      {
+       "p": "Steve receives 2 Iron a round for his first immunity, 3 for his second, 4 for his third, and so on."
+      },
+      {
+       "p": "Once Steve loses immunity, the chain resets."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sun-wukong",
+   "name": "Sun Wukong",
+   "letter": "S",
+   "season": "season-1",
+   "origin": "Chinese",
+   "gender": "M",
+   "image": "/images/patrons/sun-wukong.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Plucking Hairs",
+     "blocks": [
+      {
+       "p": "Once per game, Sun Wukong makes two clones of himself. During the next elimination, any Heralds that vote for Sun Wukong have a 2/3rds chance to mistakenly vote for a clone."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "mmm, monke",
+     "blocks": [
+      {
+       "p": "Twice per game, Sun Wukong may taunt another Herald, forcing them to cast all their votes onto him. If Sun Wukong survives that elimination, he duplicates all the taunted herald’s votes to use for himself the following round."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "sunflower",
+   "name": "Sunflower",
+   "letter": "S",
+   "season": "season-3",
+   "origin": "Plants Vs. Zombies",
+   "gender": "F",
+   "image": "/images/patrons/sunflower.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Garden Grower",
+     "blocks": [
+      {
+       "p": "Every other round, Sunflower gains 50 sun. She can spend the sun in the following ways:"
+      },
+      {
+       "h": "Scaredy-Shroom (25)"
+      },
+      {
+       "p": "If Sunflower receives no votes this round, her true vote counts as 2 votes. If she receives any votes, it counts as 0 instead."
+      },
+      {
+       "h": "Potato Mine (25)"
+      },
+      {
+       "p": "Sunflower picks a Herald. Starting next round, the first round where the Herald she picked gets any votes, everyone who voted for that Herald gets one penalty vote."
+      },
+      {
+       "h": "Hypno-Shroom (75)"
+      },
+      {
+       "p": "Sunflower picks two Heralds. The true vote of the first Herald is redirected into the second Herald."
+      },
+      {
+       "h": "Cherry Bomb (150)"
+      },
+      {
+       "p": "Sunflower picks a Herald: they receive 3 penalty votes this round."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "All items are Private except Potato Bomb which is revealed to the User & Target."
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Here Comes the Sun",
+     "blocks": [
+      {
+       "p": "Three times per game, Sunflower may bestow a blessing upon another Herald, removing all curses and negative effects from them as well as granting them immunity from negative effects for the remainder of the round."
+      },
+      {
+       "p": "For each curse or negative effect successfully removed, Sunflower receives one expendable vote block."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "susanoo",
+   "name": "Susanoo",
+   "letter": "S",
+   "season": "season-1",
+   "origin": "Shinto",
+   "gender": "M",
+   "image": "/images/patrons/susanoo.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Sword of the Gathering Clouds of Heaven",
+     "blocks": [
+      {
+       "p": "Once per game, after challenge results are announced, Susanoo may unsheathe his divine blade, instantly winning himself the immunity."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Orochi no Shi",
+     "blocks": [
+      {
+       "p": "Susanoo starts with eight barrels of sake. Four of the barrels, when consumed, remove two votes from the recipient's final vote count; the other four are poisoned and add two votes to the recipient's final vote count when consumed. Susanoo can use the barrels on himself or distribute them to other Heralds. The recipient will not know the contents of the barrel until consumed."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "thanh-giong",
+   "name": "Thánh Gióng",
+   "letter": "T",
+   "season": "season-2",
+   "origin": "Vietnamese",
+   "gender": "M",
+   "image": "/images/patrons/thanh-giong.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Heavenfall",
+     "blocks": [
+      {
+       "p": "Twice per game, Thánh Gióng calls upon a savior from the heavens. This savior descends upon the battlefield, able to assist in both the challenge and talk with other Heralds in Thánh Gióng's channels. This savior ascends back to the heavens at the end of the round."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Public to all realms"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Iron Horse",
+     "blocks": [
+      {
+       "p": "Once per game, Thánh Gióng may mount his Iron Horse and escape the current sacrifice."
+      },
+      {
+       "p": "Pre-Merge:"
+      },
+      {
+       "p": "Thánh Gióng may leave his current Realm's sacrifice and instead join another Realm's active sacrifice. He becomes a temporary member of that Realm for the remainder of the cycle. He may vote in the sacrifice but cannot receive votes."
+      },
+      {
+       "p": "Merge and Two Realms:"
+      },
+      {
+       "p": "Thánh Gióng may remove himself from the current sacrifice entirely. For the remainder of the cycle, he is isolated form all communication and may not vote, receive votes, or be affected by Patron abilities."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Unique",
+       "note": "Any affected Realms are notified."
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      },
+      {
+       "kind": "flag",
+       "value": "Affected by Ao Guang A1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "wu-zetian",
+   "name": "Wu Zetian",
+   "letter": "W",
+   "season": "season-2",
+   "origin": "Chinese",
+   "gender": "F",
+   "image": "/images/patrons/wu-zetian.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "The Only Woman Emperor in Chinese History",
+     "blocks": [
+      {
+       "p": "Wu Zetian does not possess a traditional vote. Instead, she commands a personal army represented by a pool of 20 troops, each troop worth 0.5 of a vote. In order to cast a vote at a sacrifice, Wu Zetian must deploy troops from her army. She may spend up to 6 troops in a single round (equivalent to 3 votes)."
+      },
+      {
+       "p": "She may also abstain from voting, spending 0 troops."
+      },
+      {
+       "p": "If Wu Zetian votes correctly, she retains half of the troops spent that round (rounded down if necessary). If she votes incorrectly, she loses the full amount of troops she committed."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Imperial Duel",
+     "blocks": [
+      {
+       "p": "Each round, Wu Zetian may issue an Imperial Duel to a Herald outside of her realm (after merge, she may challenge anyone). To do so, she secretly gambles up to 8 troops. The challenged Herald must agree to the terms of the duel, though they will not know how many troops Wu Zetian has risked."
+      },
+      {
+       "p": "If Wu Zetian wins, she gains troops equal to half the amount she gambled (rounded up) and retains all troops she wagered. If she loses, she forfeits the full amount of troops she committed."
+      },
+      {
+       "p": "If Wu Zetian's army is ever reduced to zero troops, she may still issue a final desperate gamble to regain 2 troops. However, should she lose this duel, the victorious Herald will seize control of her vote for that round. If the victorious Herald resides in a separate realm, Wu Zetian instead loses her vote entirely for that sacrifice."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "User and target"
+      },
+      {
+       "kind": "flag",
+       "value": "Usable outside realm",
+       "note": "excluding FC"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "yemoja",
+   "name": "Yemọja",
+   "letter": "Y",
+   "season": "season-1",
+   "origin": "Yoruba",
+   "gender": "F",
+   "image": "/images/patrons/yemoja.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Mother of All",
+     "blocks": [
+      {
+       "p": "During elimination, Yemọja may redirect up to two votes from a target Herald onto herself. If at least one vote is successfully redirected, and both Yemọja and the target Herald survive the elimination, she gains one Seashell. Each Seashell can block one vote. Seashells may be stacked and freely given to other Heralds."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Ogun Guard",
+     "blocks": [
+      {
+       "p": "Once per game, Yemọja selects another Herald to encase in a water barrier; for that round, the target's final vote count is reduced by the number of different heralds that vote for them. Yemọja gains immunity next round if the target survives; otherwise, she receives a vote parchment."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "yong-yo-kyo",
+   "name": "Yong, Yo, Kyo",
+   "letter": "Y",
+   "season": "season-2",
+   "origin": "Korean",
+   "gender": "M",
+   "image": "/images/patrons/yong-yo-kyo.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "Sky, Water, and Earth",
+     "blocks": [
+      {
+       "p": "Each round, YYK’s Herald may adopt one of three stances. They remain stanceless until a stance is chosen. YYK cannot remain in the same stance for two rounds in a row."
+      },
+      {
+       "h": "Yong"
+      },
+      {
+       "p": "Select one Herald. They may view their vote for that round as soon as it is cast, and it updates if they change it."
+      },
+      {
+       "h": "Yo"
+      },
+      {
+       "p": "YYK gains a temporary vote parchment that round."
+      },
+      {
+       "h": "Kyo"
+      },
+      {
+       "p": "Blocks one vote cast against YYK that round."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    },
+    {
+     "key": "A2",
+     "name": "Elemental Trinity",
+     "blocks": [
+      {
+       "p": "Once per realm, YYK may choose to take on every stance for the remainder of the round."
+      },
+      {
+       "p": "Use of this ability doubles each of their stats."
+      },
+      {
+       "h": "Yong"
+      },
+      {
+       "p": "Select two Heralds. They may view their vote for that round as soon as it is cast, and it updates if they change it."
+      },
+      {
+       "h": "Yo"
+      },
+      {
+       "p": "YYK gains two temporary vote parchments that round."
+      },
+      {
+       "h": "Kyo"
+      },
+      {
+       "p": "Blocks two votes cast against YYK that round."
+      }
+     ],
+     "tags": [
+      {
+       "kind": "visibility",
+       "value": "Private"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "zeus",
+   "name": "Zeus",
+   "letter": "Z",
+   "season": "season-1",
+   "origin": "Greek",
+   "gender": "M",
+   "image": "/images/patrons/zeus.webp",
+   "abilities": [
+    {
+     "key": "A1",
+     "name": "God's Command",
+     "blocks": [
+      {
+       "p": "This ability must be used in the challenge round, and will go into effect in the elimination round."
+      },
+      {
+       "p": "Once per game, Zeus executes his divine order. He selects three Heralds, and during that elimination, only those three may receive votes. Abilities and items may still be used on any Herald, but only the chosen three are eligible for elimination."
+      }
+     ],
+     "tags": []
+    },
+    {
+     "key": "A2",
+     "name": "Thunder Bringer",
+     "blocks": [
+      {
+       "p": "Each round, Zeus may offer Heralds the option to give him their true vote. Upon giving their vote to Zeus, they lose control over where it goes. All votes given to Zeus are doubled, and he may target a single Herald to direct all of these votes against. Any Herald who gives their vote to Zeus cannot be voted by him in the next elimination round. Heralds cannot give up their vote twice in a row."
+      }
+     ],
+     "tags": []
+    }
+   ]
+  }
+ ]
+}

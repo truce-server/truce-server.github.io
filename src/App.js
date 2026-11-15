@@ -2,14 +2,17 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { MantineProvider } from '@mantine/core';
 import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate, useNavigationType } from 'react-router-dom';
 import Home from './components/Home';
+import PatronsPage from './components/PatronsPage';
 import SeasonArchive from './components/SeasonArchive';
 import Season3Teaser from './components/Season3Teaser';
 import SeasonIntro from './components/SeasonIntro';
 import { ALL_SEASONS, SEASONS, SEASON_THREE_PATH } from './seasons';
+import { PATRONS_PATH } from './utils/patrons';
 import { prefersReducedMotion } from './utils/ui';
 import '@mantine/core/styles.css';
 import '@mantine/spotlight/styles.css';
 import './styles/global.css';
+import './styles/patrons.css';
 
 // Mantine only supplies behaviour here (the search box and the drawers); every surface is styled in global.css.
 const theme = {
@@ -21,12 +24,14 @@ const theme = {
 };
 
 // New pages start at the top; Back/Forward keep the browser's own scroll restoration.
+// A patron's dialog opens over the grid (`overGrid`), so the grid stays where it was.
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
   const navigationType = useNavigationType();
+  const overGrid = Boolean(state?.overGrid);
   useEffect(() => {
-    if (navigationType === 'PUSH') window.scrollTo(0, 0);
-  }, [pathname, navigationType]);
+    if (navigationType === 'PUSH' && !overGrid) window.scrollTo(0, 0);
+  }, [pathname, navigationType, overGrid]);
   return null;
 }
 
@@ -57,6 +62,8 @@ function AppRoutes() {
           />
         ))}
         <Route path={`${SEASON_THREE_PATH}/*`} element={<Season3Teaser />} />
+        {/* One route for the grid and for a patron's dialog over it, so the grid never remounts. */}
+        <Route path={`${PATRONS_PATH}/:id?`} element={<PatronsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       {intro && <SeasonIntro key={intro.id} season={intro} onDone={finishIntro} />}

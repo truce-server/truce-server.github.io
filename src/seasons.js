@@ -12,6 +12,15 @@ export const HOUSE_STOCK = {
   accent: '#d4af37', field: '#ffffff', visited: '#6a4f8f',
 };
 
+/**
+ * The stock the Patrons pages are printed on: night, with cream ink. The gold trim and the rest of their
+ * palette are in styles/patrons.css. `accent` is the dim gold so selected text stays legible on it.
+ */
+export const PATRONS_STOCK = {
+  paper: '#070b12', ink: '#ece4d2', soft: '#9a9586', hair: '#2c384b', wash: '#0b121d',
+  accent: '#6f5a32', field: '#070b12', visited: '#e8cf8f',
+};
+
 const TRIBE_FULL = 'Tribe hall, group chats and 1-on-1s.';
 const TRIBE_CHANNELS_FULL = 'Tribe channels, group chats and 1-on-1s.';
 

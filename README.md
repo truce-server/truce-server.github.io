@@ -48,7 +48,23 @@ it holds. All of it comes from `src/seasons.js`:
   shades between them. Change these to change the whole season's look.
 - `art` is the picture in the fact box and on the home page.
 
-The fonts (Libre Franklin and Source Serif 4) are served from `src/fonts/`.
+The fonts (Libre Franklin, Source Serif 4, and Cinzel for the Patrons pages) are served from `src/fonts/`.
+
+## Patrons
+
+`/patrons` lists every patron a Herald has played, A to Z, with a season filter and a search. The season
+and the search are kept in the address (`/patrons?season=season-3&q=halo`), so a filtered list can be shared.
+
+- The list is `public/patrons.json`, copied from the Truce Archives design system (`assets/Data/patrons.json`,
+  made from the three Patron sheets). To update it, replace that file; keep names and origins as the sheets
+  wrote them.
+- The Patrons pages are printed in night and gold instead of a season's paper: `PATRONS_STOCK` in
+  `src/seasons.js` and everything in `src/styles/patrons.css`. Each card takes its season's colour from
+  `src/seasons.js`.
+- Each patron's own page (`/patrons/<id>`) is a placeholder until it's designed. When it is, put the
+  "Open one to read its abilities." line back at the end of the lead on `/patrons`.
+- Patrons have no portraits yet; the diamonds and initials stand in. Add an `image` (a path in `public/`)
+  to a patron and the card shows it instead.
 
 ## Images
 

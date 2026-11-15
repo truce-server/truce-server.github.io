@@ -12,6 +12,18 @@ export const MOD_KEY = typeof navigator !== 'undefined'
   ? '⌘'
   : 'Ctrl';
 
+/**
+ * Scrolls a row that scrolls sideways (tabs on a phone) just enough to show `item` in full.
+ * Only the row moves, never the page, and nothing happens when the row fits.
+ */
+export function revealInRow(row, item) {
+  if (!row || !item || row.scrollWidth <= row.clientWidth) return;
+  const bounds = row.getBoundingClientRect();
+  const box = item.getBoundingClientRect();
+  if (box.left < bounds.left) row.scrollLeft -= bounds.left - box.left;
+  else if (box.right > bounds.right) row.scrollLeft += box.right - bounds.right;
+}
+
 export function prefersReducedMotion() {
   return typeof window !== 'undefined'
     && typeof window.matchMedia === 'function'

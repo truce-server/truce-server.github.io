@@ -428,11 +428,13 @@ kbd {
   margin-left: auto;
 }
 
+/* It may give up width (its label ellipsizes) when the tabs and the Contents button leave little room. */
 .masthead__search {
   display: flex;
   align-items: center;
   gap: 8px;
   width: clamp(210px, 23vw, 340px);
+  min-width: 0;
   height: 32px;
   padding: 0 6px 0 10px;
   border: 1.5px solid var(--ink);
@@ -2157,6 +2159,21 @@ kbd {
     width: 40px;
   }
 
+  /* With the Patrons tab beside the name, Contents folds to its icon like search (the label stays for screen readers). */
+  .masthead__contents {
+    width: 40px;
+    padding: 0;
+  }
+
+  .masthead__contents-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
   .masthead__tabs {
     order: 3;
     flex: 0 0 100%;
@@ -2179,9 +2196,32 @@ kbd {
     border-right: 0;
   }
 
+  /* The Patrons tab stays on the first row, between the name and the tools. */
+  .masthead__tabs + .masthead__tabs {
+    order: 1;
+    flex: 0 0 auto;
+    height: 48px;
+    margin-left: auto;
+    border-top: 0;
+  }
+
+  .masthead__tabs + .masthead__tabs a {
+    height: 48px;
+    border-left: 1px solid var(--hair);
+  }
+
+  .masthead__tabs + .masthead__tabs + .masthead__tools {
+    order: 2;
+    margin-left: 0;
+  }
+
   /* While reading a chat the tabs step aside to leave room for it. */
   .page--fill .masthead__tabs {
     display: none;
+  }
+
+  .page--fill .masthead__tabs + .masthead__tabs + .masthead__tools {
+    margin-left: auto;
   }
 
   .page__main {
