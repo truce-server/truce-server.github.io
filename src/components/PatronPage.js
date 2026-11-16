@@ -2,7 +2,7 @@ import React, { useId, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Modal } from '@mantine/core';
 import { useWindowEvent } from '@mantine/hooks';
-import { IconArrowLeft, IconEye, IconHeart, IconShield, IconSword } from '@tabler/icons-react';
+import { IconArrowLeft, IconBan, IconEye, IconHeart, IconShield, IconSword } from '@tabler/icons-react';
 import Masthead from './Masthead';
 import { PatronEmblem, PatronsRule } from './PatronCard';
 import { openSearch } from './SearchPalette';
@@ -142,7 +142,7 @@ function PatronStats({ patron }) {
 
 /**
  * The top half, on the patron's portrait: the way back, then the season, the name, the region or franchise,
- * the lore and the class and stats. The sharp portrait sits on the right and a dimmed, blurred copy of it fills
+ * a Banned tag for a banned patron, the lore and the class and stats. The sharp portrait sits on the right and a dimmed, blurred copy of it fills
  * the rest. A patron without a portrait gets the card's emblem in its place.
  */
 function PatronHero({ patron, season, titleId, closeTo, onClose }) {
@@ -198,6 +198,12 @@ function PatronHero({ patron, season, titleId, closeTo, onClose }) {
               {patron.name}
             </Modal.Title>
             {patron.origin && <p className="patron-hero__origin">{season.originLabel}: {patron.origin}</p>}
+            {patron.banned && (
+              <p className="patron-hero__banned">
+                <IconBan size={14} stroke={2} aria-hidden="true" />
+                Banned
+              </p>
+            )}
           </div>
           <PatronsRule className="patrons-rule--season" />
           <p className={lore ? 'patron-hero__lore' : 'patron-hero__lore patron-hero__lore--soon'}>{lore || LORE_SOON}</p>

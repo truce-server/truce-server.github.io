@@ -2,10 +2,11 @@
 // copied from the Truce Archives design system (assets/Data/patrons.json). The file holds `seasons`
 // ({ id, label, name, originLabel, rules }) and `patrons` ({ id, name, season, origin, gender, image, abilities }).
 //
-// Three more fields feed the patron's page, and each is optional:
-//   class  "offence", "defence" or "support", shown as an icon and a label
-//   stats  { offence, defence, difficulty, survivability, utility, support }, whole numbers from 1 to 5
-//   lore   two to four sentences of plain text; without it the page says the lore is coming soon
+// Four more fields are the site's own (the sheets don't have them), and each is optional:
+//   class   "offence", "defence" or "support", shown as an icon and a label
+//   stats   { offence, defence, difficulty, survivability, utility, support }, whole numbers from 1 to 5
+//   lore    two to four sentences of plain text; without it the page says the lore is coming soon
+//   banned  true for a banned patron, whose card and page then carry a Banned tag
 // The class and stats panel only shows when a patron has both.
 
 import { ALL_SEASONS } from '../seasons';

@@ -57,7 +57,7 @@ and the search are kept in the address (`/patrons?season=season-3&q=halo`), so a
 
 - The list is `public/patrons.json`, copied from the Truce Archives design system (`assets/Data/patrons.json`,
   made from the three Patron sheets). To update it, replace that file; keep names and origins as the sheets
-  wrote them, and carry over each patron's `class`, `stats` and `lore` (below), which the sheets don't have.
+  wrote them, and carry over each patron's `class`, `stats`, `lore` and `banned` (below), which the sheets don't have.
 - The Patrons pages are printed in night and gold instead of a season's paper: `PATRONS_STOCK` in
   `src/seasons.js` and everything in `src/styles/patrons.css`. Each card takes its season's colour from
   `src/seasons.js`. Their top bar is the same masthead as every other page (`src/components/Masthead.js`),
@@ -67,11 +67,12 @@ and the search are kept in the address (`/patrons?season=season-3&q=halo`), so a
   it was. `src/components/PatronPage.js` draws it.
 - Each patron's portrait is their `image` (`public/images/patrons/<id>.webp`, with a `-sm` copy for the cards).
   A patron without one gets the diamonds and initials instead.
-- Three fields in `patrons.json` feed the patron's page:
+- Four fields in `patrons.json` are the site's own:
   - `class`: `"offence"`, `"defence"` or `"support"`.
   - `stats`: `offence`, `defence`, `difficulty`, `survivability`, `utility` and `support`, each a whole number
     from 1 to 5.
   - `lore`: two to four sentences. Until a patron has some, their page says "Lore coming soon, stay tuned."
+  - `banned`: `true` for a banned patron. Their card and their page get a red "Banned" tag.
 
 ## Images
 

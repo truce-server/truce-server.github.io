@@ -1313,6 +1313,7 @@
    "origin": "Greek",
    "gender": "M",
    "image": "/images/patrons/dionysus.webp",
+   "banned": true,
    "class": "support",
    "stats": {
     "offence": 2,
@@ -1752,6 +1753,7 @@
    "origin": "Greek",
    "gender": "M",
    "image": "/images/patrons/hades.webp",
+   "banned": true,
    "class": "support",
    "stats": {
     "offence": 2,

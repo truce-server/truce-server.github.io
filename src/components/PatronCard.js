@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { IconBan } from '@tabler/icons-react';
 import { publicUrl } from '../utils/chats';
 import { initials, nameTier, patronImageSmall, patronPath, seasonKey, seasonTint } from '../utils/patrons';
 
@@ -53,13 +54,18 @@ export function PatronEmblem({ name, tint, image, sizes = '(max-width: 48em) 50v
 }
 
 /**
- * One patron in the grid: the portrait well with its season badge, then the name and the region or franchise.
- * The whole card is the link. It opens the patron's page over the grid, keeping the grid's filters (`search`)
- * in the address; `overGrid` tells the page the grid is one step back in history. The badge says the season
- * in words, so it's never told by colour alone. Long names get smaller rather than breaking a word.
+ * One patron in the grid: the portrait well with its season badge (and a Banned tag in the other corner for a
+ * banned patron), then the name and the region or franchise. The whole card is the link. It opens the patron's
+ * page over the grid, keeping the grid's filters (`search`) in the address; `overGrid` tells the page the grid
+ * is one step back in history. The badges say what they mean in words, so neither is told by colour alone.
+ * Long names get smaller rather than breaking a word.
  */
 function PatronCard({ patron, season, search = '' }) {
-  const label = [`${patron.name}, ${season.label} patron`, patron.origin && `${season.originLabel}: ${patron.origin}`]
+  const label = [
+    `${patron.name}, ${season.label} patron`,
+    patron.banned && 'banned',
+    patron.origin && `${season.originLabel}: ${patron.origin}`,
+  ]
     .filter(Boolean)
     .join(', ');
 
@@ -78,6 +84,12 @@ function PatronCard({ patron, season, search = '' }) {
           <i />
           {seasonKey(season.label)}
         </span>
+        {patron.banned && (
+          <span className="patron-card__badge patron-card__badge--banned">
+            <IconBan size={11} stroke={2.5} />
+            Banned
+          </span>
+        )}
       </span>
       <span className="patron-card__text">
         <span className={`patron-card__name patron-card__name--t${nameTier(patron.name)}`}>{patron.name}</span>

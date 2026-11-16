@@ -51,6 +51,11 @@
   --pt-hero-origin: #b5b0a2;
   --pt-lore: #d9d2c1;
 
+  /* A banned patron's tag. Red, and it always says "Banned" in words too. */
+  --pt-ban: #ef7d73;
+  --pt-ban-line: #8a3530;
+  --pt-ban-bg: #1a0a0b;
+
   /* Season themes for a patron's page: the abilities, and the season line and rule in the hero. Gold stays
      for the site's own navigation. Song of Life has no patrons, so it has no theme. */
 
@@ -454,6 +459,21 @@ html:has(.patrons-page) {
   transform: rotate(45deg);
 }
 
+/* A banned patron's tag, in the well's other top corner. */
+.patron-card__badge--banned {
+  right: 8px;
+  left: auto;
+  gap: 4px;
+  border-color: var(--pt-ban-line);
+  background: var(--pt-ban-bg);
+  color: var(--pt-ban);
+  text-transform: uppercase;
+}
+
+.patron-card__badge--banned svg {
+  flex-shrink: 0;
+}
+
 .patron-card__text {
   display: block;
   padding: 12px 12px 14px;
@@ -712,6 +732,26 @@ html:has(.patrons-page) {
   font: 600 13px/1.4 var(--font-text);
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+/* A banned patron: a red tag under the region or franchise. */
+.patron-hero__banned {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  margin-top: 16px;
+  padding: 5px 9px;
+  border: 1px solid var(--pt-ban-line);
+  background: var(--pt-ban-bg);
+  color: var(--pt-ban);
+  font: 600 12px/1.2 var(--font-text);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.patron-hero__banned svg {
+  flex-shrink: 0;
 }
 
 .patron-hero .patrons-rule {

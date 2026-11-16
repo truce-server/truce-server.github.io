@@ -98,6 +98,14 @@ test('every patron has a class and six whole-number stats from 1 to 5', () => {
   });
 });
 
+test('a banned flag, where a patron has one, is true or false', () => {
+  const banned = data.patrons.filter((patron) => 'banned' in patron);
+  expect(banned.length).toBeGreaterThan(0);
+  banned.forEach((patron) => {
+    expect({ id: patron.id, type: typeof patron.banned }).toEqual({ id: patron.id, type: 'boolean' });
+  });
+});
+
 test('every portrait the list names is on disk at both sizes', () => {
   const publicDir = path.join(__dirname, '../../public');
   const withImage = data.patrons.filter((patron) => patron.image);
