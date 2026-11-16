@@ -57,14 +57,21 @@ and the search are kept in the address (`/patrons?season=season-3&q=halo`), so a
 
 - The list is `public/patrons.json`, copied from the Truce Archives design system (`assets/Data/patrons.json`,
   made from the three Patron sheets). To update it, replace that file; keep names and origins as the sheets
-  wrote them.
+  wrote them, and carry over each patron's `class`, `stats` and `lore` (below), which the sheets don't have.
 - The Patrons pages are printed in night and gold instead of a season's paper: `PATRONS_STOCK` in
   `src/seasons.js` and everything in `src/styles/patrons.css`. Each card takes its season's colour from
-  `src/seasons.js`.
-- Each patron's own page (`/patrons/<id>`) is a placeholder until it's designed. When it is, put the
-  "Open one to read its abilities." line back at the end of the lead on `/patrons`.
-- Patrons have no portraits yet; the diamonds and initials stand in. Add an `image` (a path in `public/`)
-  to a patron and the card shows it instead.
+  `src/seasons.js`. Their top bar is the same masthead as every other page (`src/components/Masthead.js`),
+  printed on that stock.
+- Opening a patron (`/patrons/<id>`) shows their own page full screen over the list: their portrait, name, lore,
+  class and stats, then both abilities in their season's colours. "All patrons" or Esc goes back to the list as
+  it was. `src/components/PatronPage.js` draws it.
+- Each patron's portrait is their `image` (`public/images/patrons/<id>.webp`, with a `-sm` copy for the cards).
+  A patron without one gets the diamonds and initials instead.
+- Three fields in `patrons.json` feed the patron's page:
+  - `class`: `"offence"`, `"defence"` or `"support"`.
+  - `stats`: `offence`, `defence`, `difficulty`, `survivability`, `utility` and `support`, each a whole number
+    from 1 to 5.
+  - `lore`: two to four sentences. Until a patron has some, their page says "Lore coming soon, stay tuned."
 
 ## Images
 

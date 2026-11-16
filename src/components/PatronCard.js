@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { publicUrl } from '../utils/chats';
-import { initials, patronImageSmall, patronPath, seasonKey, seasonTint } from '../utils/patrons';
+import { initials, nameTier, patronImageSmall, patronPath, seasonKey, seasonTint } from '../utils/patrons';
 
-/** The gold rule under a Patrons title: a line, a small diamond, a line. */
-export function PatronsRule() {
+/**
+ * The rule under a Patrons title: a line, a small diamond, a line. Gold, or the patron's season colours on their
+ * page (`className="patrons-rule--season"`).
+ */
+export function PatronsRule({ className }) {
   return (
-    <div className="patrons-rule" aria-hidden="true">
+    <div className={className ? `patrons-rule ${className}` : 'patrons-rule'} aria-hidden="true">
       <span />
       <i />
       <span />
@@ -51,9 +54,9 @@ export function PatronEmblem({ name, tint, image, sizes = '(max-width: 48em) 50v
 
 /**
  * One patron in the grid: the portrait well with its season badge, then the name and the region or franchise.
- * The whole card is the link. It opens the patron's dialog over the grid, keeping the grid's filters (`search`)
+ * The whole card is the link. It opens the patron's page over the grid, keeping the grid's filters (`search`)
  * in the address; `overGrid` tells the page the grid is one step back in history. The badge says the season
- * in words, so it's never told by colour alone.
+ * in words, so it's never told by colour alone. Long names get smaller rather than breaking a word.
  */
 function PatronCard({ patron, season, search = '' }) {
   const label = [`${patron.name}, ${season.label} patron`, patron.origin && `${season.originLabel}: ${patron.origin}`]
@@ -77,7 +80,7 @@ function PatronCard({ patron, season, search = '' }) {
         </span>
       </span>
       <span className="patron-card__text">
-        <span className="patron-card__name">{patron.name}</span>
+        <span className={`patron-card__name patron-card__name--t${nameTier(patron.name)}`}>{patron.name}</span>
         {patron.origin && <span className="patron-card__origin">{patron.origin}</span>}
       </span>
     </Link>

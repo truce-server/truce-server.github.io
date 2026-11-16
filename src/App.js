@@ -24,7 +24,7 @@ const theme = {
 };
 
 // New pages start at the top; Back/Forward keep the browser's own scroll restoration.
-// A patron's dialog opens over the grid (`overGrid`), so the grid stays where it was.
+// A patron's page opens full screen over the grid (`overGrid`), so the grid stays where it was.
 function ScrollToTop() {
   const { pathname, state } = useLocation();
   const navigationType = useNavigationType();
@@ -62,7 +62,7 @@ function AppRoutes() {
           />
         ))}
         <Route path={`${SEASON_THREE_PATH}/*`} element={<Season3Teaser />} />
-        {/* One route for the grid and for a patron's dialog over it, so the grid never remounts. */}
+        {/* One route for the grid and for a patron's page over it, so the grid never remounts. */}
         <Route path={`${PATRONS_PATH}/:id?`} element={<PatronsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

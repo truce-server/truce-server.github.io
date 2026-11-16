@@ -1,9 +1,10 @@
-import React, { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useId, useLayoutEffect, useMemo, useRef } from 'react';
 import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { IconSearch, IconX } from '@tabler/icons-react';
-import PatronsBar from './PatronsBar';
+import Masthead from './Masthead';
 import PatronCard, { PatronCardPlaceholder, PatronsRule } from './PatronCard';
-import PatronDialog from './PatronDialog';
+import PatronPage from './PatronPage';
+import SearchPalette, { openSearch, useEverySeasonSearch } from './SearchPalette';
 import { PATRONS_STOCK } from '../seasons';
 import { useJson } from '../hooks/useJson';
 import { useStock } from '../hooks/useStock';
@@ -96,7 +97,7 @@ function SeasonTabs({ options, value, onChange }) {
 /**
  * Every patron a Herald has played, A to Z, in one grid. The season and the search live in the address
  * (?season=season-3&q=halo), so a filtered list can be shared and survives opening a patron.
- * /patrons/:id is the same page with that patron's dialog open over the grid.
+ * /patrons/:id is the same page with that patron's own page open full screen over the grid.
  */
 function PatronsPage() {
   const [params, setParams] = useSearchParams();
@@ -105,6 +106,8 @@ function PatronsPage() {
   const navigate = useNavigate();
   const { data, error } = useJson(publicUrl(PATRONS_URL));
   const searchRef = useRef(null);
+  // The top bar's search (Ctrl/Cmd K) finds chats in every season, as on the home page.
+  const { actions: chatActions } = useEverySeasonSearch();
 
   useStock(PATRONS_STOCK);
 
@@ -150,11 +153,8 @@ function PatronsPage() {
 
   const options = data ? [{ id: 'all', label: 'All', count: patrons.length }, ...seasons] : [];
 
-  // The patron in the address, if any. The last one shown stays in the dialog while it fades out.
+  // The patron in the address, if any.
   const openPatron = (id && patrons.find((item) => item.id === id)) || null;
-  const [lastPatron, setLastPatron] = useState(openPatron);
-  if (openPatron && openPatron !== lastPatron) setLastPatron(openPatron);
-  const dialogPatron = openPatron || lastPatron;
 
   useEffect(() => {
     document.title = [openPatron?.name, 'Patrons', 'Truce Archives'].filter(Boolean).join(' · ');
@@ -216,14 +216,14 @@ function PatronsPage() {
 
   return (
     <div className="page patrons-page">
-      <PatronsBar />
+      <Masthead current="patrons" onSearch={openSearch} searchLabel="Search every season" />
 
       <main className="patrons-main">
         <header className="patrons-hero">
           <p className="patrons-hero__eyebrow">{data ? `Truce · ${seasonSpan(seasons)}` : BLANK}</p>
           <h1 className="patrons-hero__title">Patrons</h1>
           <PatronsRule />
-          <p className="patrons-hero__lead">Every patron a Herald has played, A to Z.</p>
+          <p className="patrons-hero__lead">Every patron a Herald has played, A to Z. Open one to read its abilities.</p>
           <p className="patrons-hero__facts">
             {data ? `${pluralize(patrons.length, 'patron')} · ${pluralize(seasons.length, 'season')}` : BLANK}
           </p>
@@ -242,12 +242,14 @@ function PatronsPage() {
         {body}
       </main>
 
-      <PatronDialog
-        patron={dialogPatron}
-        season={dialogPatron ? seasonsById[dialogPatron.season] : null}
-        opened={Boolean(openPatron)}
+      <PatronPage
+        patron={openPatron}
+        season={openPatron ? seasonsById[openPatron.season] : null}
+        closeTo={{ pathname: PATRONS_PATH, search: location.search }}
         onClose={closePatron}
       />
+
+      <SearchPalette actions={chatActions} placeholder="Search every season: chats, categories or players" />
     </div>
   );
 }

@@ -1,7 +1,20 @@
 import fs from 'fs';
 import path from 'path';
 import data from '../../public/patrons.json';
-import { filterPatrons, fold, initials, patronImageSmall, seasonKey, seasonSpan, sortPatrons, tagLabel } from './patrons';
+import {
+  PATRON_CLASSES,
+  STAT_KEYS,
+  STAT_MAX,
+  filterPatrons,
+  fold,
+  initials,
+  nameTier,
+  patronImageSmall,
+  seasonKey,
+  seasonSpan,
+  sortPatrons,
+  tagLabel,
+} from './patrons';
 
 test('initials follow the plate rule', () => {
   expect(initials('Abraham Lincoln')).toBe('AL');
@@ -44,9 +57,45 @@ test('a portrait has a card-sized copy beside it', () => {
   expect(patronImageSmall('/images/patrons/izanagi-and-izanami.webp')).toBe('/images/patrons/izanagi-and-izanami-sm.webp');
 });
 
-test('a tag reads as its value, with its note in brackets', () => {
+test('a tag reads as its value and mark, with its note and who it applies to in brackets', () => {
   expect(tagLabel({ kind: 'flag', value: 'Format-changing' })).toBe('Format-changing');
+  expect(tagLabel({ kind: 'flag', value: 'Format-changing', mark: '*' })).toBe('Format-changing*');
   expect(tagLabel({ kind: 'flag', value: 'Usable outside realm', note: 'excluding FC' })).toBe('Usable outside realm (excluding FC)');
+  expect(tagLabel({ kind: 'flag', value: 'Usable outside realm', note: 'excluding FC', as: 'Izanagi' }))
+    .toBe('Usable outside realm (excluding FC) (as Izanagi)');
+  expect(tagLabel({ kind: 'visibility', value: 'Private', as: 'Izanami' }, { withNote: false })).toBe('Private (as Izanami)');
+  expect(tagLabel({ kind: 'visibility', value: 'Unique', note: 'Nullified votes appear as (null).' }, { withNote: false }))
+    .toBe('Unique');
+});
+
+test("a name's size step comes from its longest word, so no word is split", () => {
+  expect(nameTier('Hornet')).toBe(1);
+  expect(nameTier('Krishna')).toBe(1);
+  expect(nameTier('Izanagi & Izanami')).toBe(1);
+  expect(nameTier('Yong, Yo, Kyo')).toBe(1);
+  expect(nameTier("Chang'e")).toBe(1);
+  expect(nameTier('Yemọja')).toBe(1);
+  expect(nameTier('Yemọja'.normalize('NFD'))).toBe(1);
+  expect(nameTier('Amaterasu')).toBe(2);
+  expect(nameTier('Flying Spaghetti Monster')).toBe(2);
+  expect(nameTier('Scaramouche')).toBe(3);
+  expect(nameTier('Jörmungandr')).toBe(3);
+  expect(nameTier('Scheherazade')).toBe(3);
+  expect(nameTier('Nyarlathotep')).toBe(3);
+  expect(nameTier('Huitzilopochtli')).toBe(4);
+});
+
+test('every patron has a class and six whole-number stats from 1 to 5', () => {
+  data.patrons.forEach((patron) => {
+    expect({ id: patron.id, class: PATRON_CLASSES.includes(patron.class) }).toEqual({ id: patron.id, class: true });
+    expect({ id: patron.id, keys: Object.keys(patron.stats || {}).sort() }).toEqual({ id: patron.id, keys: [...STAT_KEYS].sort() });
+    STAT_KEYS.forEach((key) => {
+      const value = patron.stats[key];
+      expect({ id: patron.id, key, ok: Number.isInteger(value) && value >= 1 && value <= STAT_MAX })
+        .toEqual({ id: patron.id, key, ok: true });
+    });
+    if ('lore' in patron) expect(typeof patron.lore).toBe('string');
+  });
 });
 
 test('every portrait the list names is on disk at both sizes', () => {

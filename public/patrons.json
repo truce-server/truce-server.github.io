@@ -49,6 +49,15 @@
    "origin": "American",
    "gender": "M",
    "image": "/images/patrons/abraham-lincoln.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 3,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 4,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -138,6 +147,15 @@
    "origin": "Greek",
    "gender": "M",
    "image": "/images/patrons/achilles.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 3,
+    "defence": 3,
+    "difficulty": 3,
+    "survivability": 3,
+    "utility": 1,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -200,6 +218,15 @@
    "origin": "Greek",
    "gender": "M",
    "image": "/images/patrons/aesop.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 2,
+    "defence": 2,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 2,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -255,6 +282,15 @@
    "origin": "Horizon Zero Dawn",
    "gender": "F",
    "image": "/images/patrons/aloy.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 2,
+    "survivability": 2,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -313,6 +349,15 @@
    "origin": "Shinto",
    "gender": "F",
    "image": "/images/patrons/amaterasu.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 3,
+    "defence": 4,
+    "difficulty": 2,
+    "survivability": 2,
+    "utility": 4,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -344,6 +389,15 @@
    "origin": "Egyptian",
    "gender": "M",
    "image": "/images/patrons/anubis.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 3,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -381,6 +435,15 @@
    "origin": "Chinese",
    "gender": "M",
    "image": "/images/patrons/ao-guang.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 5,
+    "defence": 1,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 3,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -443,6 +506,15 @@
    "origin": "Red Dead Redemption 2",
    "gender": "M",
    "image": "/images/patrons/arthur-morgan.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 3,
+    "defence": 4,
+    "difficulty": 1,
+    "survivability": 3,
+    "utility": 1,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -491,6 +563,15 @@
    "origin": "Christian",
    "gender": "M",
    "image": "/images/patrons/asmodeus.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 1,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -522,6 +603,15 @@
    "origin": "Lovecraft",
    "gender": "M",
    "image": "/images/patrons/azathoth.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 3,
+    "defence": 2,
+    "difficulty": 1,
+    "survivability": 2,
+    "utility": 3,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -556,6 +646,15 @@
    "origin": "Slavic",
    "gender": "F",
    "image": "/images/patrons/baba-yaga.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 3,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -587,6 +686,15 @@
    "origin": "Anglo-Saxon",
    "gender": "M",
    "image": "/images/patrons/beowulf.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 2,
+    "survivability": 2,
+    "utility": 2,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -642,6 +750,15 @@
    "origin": "Super Mario Bros.",
    "gender": "M",
    "image": "/images/patrons/bowser.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 3,
+    "defence": 2,
+    "difficulty": 3,
+    "survivability": 3,
+    "utility": 3,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -694,6 +811,15 @@
    "origin": "Fr*nch",
    "gender": "F",
    "image": "/images/patrons/briar-rose.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 1,
+    "defence": 5,
+    "difficulty": 3,
+    "survivability": 4,
+    "utility": 1,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -752,6 +878,15 @@
    "origin": "Celtic",
    "gender": "F",
    "image": "/images/patrons/brigid.webp",
+   "class": "support",
+   "stats": {
+    "offence": 2,
+    "defence": 1,
+    "difficulty": 2,
+    "survivability": 1,
+    "utility": 1,
+    "support": 5
+   },
    "abilities": [
     {
      "key": "A1",
@@ -783,6 +918,15 @@
    "origin": "Celtic",
    "gender": "M",
    "image": "/images/patrons/cernunnos.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 3,
+    "defence": 4,
+    "difficulty": 3,
+    "survivability": 3,
+    "utility": 1,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -850,6 +994,15 @@
    "origin": "Chinese",
    "gender": "F",
    "image": "/images/patrons/chang-e.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 1,
+    "defence": 4,
+    "difficulty": 1,
+    "survivability": 4,
+    "utility": 1,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -881,6 +1034,15 @@
    "origin": "Slavic",
    "gender": "M",
    "image": "/images/patrons/chernobog.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 3,
+    "difficulty": 3,
+    "survivability": 3,
+    "utility": 1,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -912,6 +1074,15 @@
    "origin": "Celtic",
    "gender": "F",
    "image": "/images/patrons/cliodhna.webp",
+   "class": "support",
+   "stats": {
+    "offence": 1,
+    "defence": 3,
+    "difficulty": 4,
+    "survivability": 3,
+    "utility": 4,
+    "support": 5
+   },
    "abilities": [
     {
      "key": "A1",
@@ -992,6 +1163,15 @@
    "origin": "Lovecraft",
    "gender": "M",
    "image": "/images/patrons/cthulhu.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 3,
+    "defence": 1,
+    "difficulty": 4,
+    "survivability": 1,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1023,6 +1203,15 @@
    "origin": "Limbus Company",
    "gender": "NB",
    "image": "/images/patrons/dante.webp",
+   "class": "support",
+   "stats": {
+    "offence": 2,
+    "defence": 3,
+    "difficulty": 4,
+    "survivability": 4,
+    "utility": 5,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1084,6 +1273,15 @@
    "origin": "Hindu",
    "gender": "M",
    "image": "/images/patrons/dhanvantari.webp",
+   "class": "support",
+   "stats": {
+    "offence": 2,
+    "defence": 3,
+    "difficulty": 2,
+    "survivability": 3,
+    "utility": 1,
+    "support": 5
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1115,6 +1313,15 @@
    "origin": "Greek",
    "gender": "M",
    "image": "/images/patrons/dionysus.webp",
+   "class": "support",
+   "stats": {
+    "offence": 2,
+    "defence": 3,
+    "difficulty": 2,
+    "survivability": 2,
+    "utility": 4,
+    "support": 4
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1164,6 +1371,15 @@
    "origin": "Mesopotamian",
    "gender": "F",
    "image": "/images/patrons/ereshkigal.webp",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 2,
+    "difficulty": 5,
+    "survivability": 2,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1208,6 +1424,15 @@
    "origin": "Celtic",
    "gender": "M",
    "image": "/images/patrons/finn-mccool.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1263,6 +1488,15 @@
    "origin": "Pastafarianism",
    "gender": "M",
    "image": "/images/patrons/flying-spaghetti-monster.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 3,
+    "difficulty": 1,
+    "survivability": 3,
+    "utility": 1,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1294,6 +1528,15 @@
    "origin": "Norse",
    "gender": "F",
    "image": "/images/patrons/freyja.webp",
+   "class": "support",
+   "stats": {
+    "offence": 2,
+    "defence": 3,
+    "difficulty": 4,
+    "survivability": 4,
+    "utility": 5,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1325,6 +1568,15 @@
    "origin": "Mesopotamian",
    "gender": "M",
    "image": "/images/patrons/gilgamesh.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 3,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1394,6 +1646,15 @@
    "origin": "Portal",
    "gender": "F",
    "image": "/images/patrons/glados.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 2,
+    "difficulty": 5,
+    "survivability": 2,
+    "utility": 4,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1491,6 +1752,15 @@
    "origin": "Greek",
    "gender": "M",
    "image": "/images/patrons/hades.webp",
+   "class": "support",
+   "stats": {
+    "offence": 2,
+    "defence": 1,
+    "difficulty": 3,
+    "survivability": 1,
+    "utility": 4,
+    "support": 4
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1522,6 +1792,15 @@
    "origin": "Egyptian",
    "gender": "F",
    "image": "/images/patrons/hathor.webp",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 4,
+    "difficulty": 3,
+    "survivability": 3,
+    "utility": 4,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1556,6 +1835,15 @@
    "origin": "Greek",
    "gender": "F",
    "image": "/images/patrons/hekate.webp",
+   "class": "support",
+   "stats": {
+    "offence": 2,
+    "defence": 2,
+    "difficulty": 2,
+    "survivability": 2,
+    "utility": 4,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1587,6 +1875,15 @@
    "origin": "Norse",
    "gender": "F",
    "image": "/images/patrons/hel.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 3,
+    "defence": 4,
+    "difficulty": 3,
+    "survivability": 5,
+    "utility": 3,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1618,6 +1915,15 @@
    "origin": "Greek",
    "gender": "M",
    "image": "/images/patrons/hermes.webp",
+   "class": "support",
+   "stats": {
+    "offence": 2,
+    "defence": 3,
+    "difficulty": 2,
+    "survivability": 3,
+    "utility": 4,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1676,6 +1982,15 @@
    "origin": "Hollow Knight",
    "gender": "F",
    "image": "/images/patrons/hornet.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 3,
+    "difficulty": 3,
+    "survivability": 4,
+    "utility": 1,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1742,6 +2057,15 @@
    "origin": "Chinese",
    "gender": "F",
    "image": "/images/patrons/hua-mulan.webp",
+   "class": "support",
+   "stats": {
+    "offence": 2,
+    "defence": 3,
+    "difficulty": 3,
+    "survivability": 3,
+    "utility": 3,
+    "support": 4
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1813,6 +2137,15 @@
    "origin": "Aztec",
    "gender": "M",
    "image": "/images/patrons/huitzilopochtli.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 5,
+    "defence": 1,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 2,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1844,6 +2177,15 @@
    "origin": "Egyptian",
    "gender": "F",
    "image": "/images/patrons/isis.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 2,
+    "difficulty": 3,
+    "survivability": 3,
+    "utility": 3,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1909,6 +2251,15 @@
    "origin": "Shinto",
    "gender": "M / F",
    "image": "/images/patrons/izanagi-and-izanami.webp",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 4,
+    "difficulty": 4,
+    "survivability": 3,
+    "utility": 2,
+    "support": 4
+   },
    "abilities": [
     {
      "key": "A1",
@@ -1996,6 +2347,15 @@
    "origin": "Brazillian",
    "gender": "F",
    "image": "/images/patrons/jaci.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 1,
+    "defence": 4,
+    "difficulty": 3,
+    "survivability": 4,
+    "utility": 1,
+    "support": 4
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2079,6 +2439,15 @@
    "origin": "Judean",
    "gender": "M",
    "image": "/images/patrons/jesus-christ.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 3,
+    "survivability": 5,
+    "utility": 3,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2148,6 +2517,15 @@
    "origin": "Fr*nch",
    "gender": "F",
    "image": "/images/patrons/joan-of-arc.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 5,
+    "defence": 1,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 5,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2213,6 +2591,15 @@
    "origin": "Persona",
    "gender": "M",
    "image": "/images/patrons/joker.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 5,
+    "defence": 1,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 3,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2283,6 +2670,15 @@
    "origin": "Fortnite",
    "gender": "M",
    "image": "/images/patrons/jonesy.webp",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 1,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 3,
+    "support": 4
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2350,6 +2746,15 @@
    "origin": "Norse",
    "gender": "M",
    "image": "/images/patrons/jormungandr.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 1,
+    "defence": 5,
+    "difficulty": 1,
+    "survivability": 5,
+    "utility": 1,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2381,6 +2786,15 @@
    "origin": "Celtic",
    "gender": "M",
    "image": "/images/patrons/king-arthur.webp",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 1,
+    "difficulty": 2,
+    "survivability": 2,
+    "utility": 3,
+    "support": 4
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2441,6 +2855,15 @@
    "origin": "Cuphead",
    "gender": "M",
    "image": "/images/patrons/king-dice.webp",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 2,
+    "difficulty": 5,
+    "survivability": 3,
+    "utility": 4,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2526,6 +2949,15 @@
    "origin": "Kirby",
    "gender": "NB",
    "image": "/images/patrons/kirby.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 2,
+    "survivability": 3,
+    "utility": 3,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2574,6 +3006,15 @@
    "origin": "Hindu",
    "gender": "M",
    "image": "/images/patrons/krishna.webp",
+   "class": "support",
+   "stats": {
+    "offence": 4,
+    "defence": 2,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 5,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2630,6 +3071,15 @@
    "origin": "Mexican",
    "gender": "F",
    "image": "/images/patrons/la-llorona.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 3,
+    "defence": 1,
+    "difficulty": 4,
+    "survivability": 4,
+    "utility": 3,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2710,6 +3160,15 @@
    "origin": "Hindu",
    "gender": "F",
    "image": "/images/patrons/lakshmi.webp",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 3,
+    "difficulty": 2,
+    "survivability": 4,
+    "utility": 2,
+    "support": 4
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2764,6 +3223,15 @@
    "origin": "Brazilian",
    "gender": "M",
    "image": "/images/patrons/lampiao.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 5,
+    "defence": 1,
+    "difficulty": 3,
+    "survivability": 1,
+    "utility": 2,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2827,6 +3295,15 @@
    "origin": "Christian",
    "gender": "F",
    "image": "/images/patrons/lilith.webp",
+   "class": "support",
+   "stats": {
+    "offence": 2,
+    "defence": 2,
+    "difficulty": 3,
+    "survivability": 3,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2861,6 +3338,15 @@
    "origin": "Norse",
    "gender": "M",
    "image": "/images/patrons/loki.webp",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 2,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2892,6 +3378,15 @@
    "origin": "Christian",
    "gender": "M",
    "image": "/images/patrons/lucifer.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 5,
+    "defence": 1,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 1,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2922,6 +3417,15 @@
    "season": "season-1",
    "origin": "Apotheionic",
    "gender": "NB",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 1,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -2959,6 +3463,15 @@
    "origin": "Elden Ring",
    "gender": "F",
    "image": "/images/patrons/malenia.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 5,
+    "defence": 1,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 3,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3023,6 +3536,15 @@
    "origin": "Halo",
    "gender": "M",
    "image": "/images/patrons/master-chief.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 3,
+    "defence": 3,
+    "difficulty": 4,
+    "survivability": 4,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3083,6 +3605,15 @@
    "origin": "Overwatch",
    "gender": "F",
    "image": "/images/patrons/mercy.webp",
+   "class": "support",
+   "stats": {
+    "offence": 2,
+    "defence": 1,
+    "difficulty": 2,
+    "survivability": 1,
+    "utility": 2,
+    "support": 5
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3148,6 +3679,15 @@
    "origin": "Undertale",
    "gender": "M",
    "image": "/images/patrons/mettaton.webp",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 3,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 5,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3220,6 +3760,15 @@
    "origin": "Doki Doki Literature Club",
    "gender": "F",
    "image": "/images/patrons/monika.webp",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 2,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 4,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3285,6 +3834,15 @@
    "origin": "The Interface Series",
    "gender": "F",
    "image": "/images/patrons/mother-horse-eyes.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 4,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3344,6 +3902,15 @@
    "origin": "Inuit",
    "gender": "M",
    "image": "/images/patrons/nanook.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 4,
+    "defence": 4,
+    "difficulty": 3,
+    "survivability": 5,
+    "utility": 1,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3397,6 +3964,15 @@
    "origin": "The Stanley Parable",
    "gender": "M",
    "image": "/images/patrons/the-narrator.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 2,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3465,6 +4041,15 @@
    "origin": "Chinese",
    "gender": "M",
    "image": "/images/patrons/ne-zha.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 2,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 1,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3496,6 +4081,15 @@
    "origin": "Roblox",
    "gender": "NB",
    "image": "/images/patrons/noob.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 2,
+    "defence": 3,
+    "difficulty": 3,
+    "survivability": 4,
+    "utility": 3,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3568,6 +4162,15 @@
    "origin": "Lovecraftian",
    "gender": "M",
    "image": "/images/patrons/nyarlathotep.webp",
+   "class": "support",
+   "stats": {
+    "offence": 2,
+    "defence": 2,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3639,6 +4242,15 @@
    "origin": "Yoruba",
    "gender": "F",
    "image": "/images/patrons/oya.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 3,
+    "survivability": 4,
+    "utility": 2,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3670,6 +4282,15 @@
    "origin": "Ace Attorney",
    "gender": "M",
    "image": "/images/patrons/phoenix-wright.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 5,
+    "survivability": 2,
+    "utility": 3,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3737,6 +4358,15 @@
    "origin": "Skylanders",
    "gender": "M",
    "image": "/images/patrons/pop-fizz.webp",
+   "class": "support",
+   "stats": {
+    "offence": 1,
+    "defence": 4,
+    "difficulty": 3,
+    "survivability": 4,
+    "utility": 3,
+    "support": 4
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3811,6 +4441,15 @@
    "origin": "Greek",
    "gender": "M",
    "image": "/images/patrons/poseidon.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 3,
+    "defence": 2,
+    "difficulty": 2,
+    "survivability": 2,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3848,6 +4487,15 @@
    "origin": "Aztec",
    "gender": "M",
    "image": "/images/patrons/quetzalcoatl.webp",
+   "class": "support",
+   "stats": {
+    "offence": 1,
+    "defence": 2,
+    "difficulty": 2,
+    "survivability": 2,
+    "utility": 5,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3879,6 +4527,15 @@
    "origin": "Egyptian",
    "gender": "M",
    "image": "/images/patrons/ra.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 3,
+    "defence": 3,
+    "difficulty": 2,
+    "survivability": 2,
+    "utility": 3,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3913,6 +4570,15 @@
    "origin": "League of Legends",
    "gender": "F",
    "image": "/images/patrons/rell.webp",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 1,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 3,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -3967,6 +4633,15 @@
    "origin": "Shinto",
    "gender": "M",
    "image": "/images/patrons/ryujin.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 3,
+    "defence": 2,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4034,6 +4709,15 @@
    "origin": "Genshin Impact",
    "gender": "M",
    "image": "/images/patrons/scaramouche.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 1,
+    "defence": 4,
+    "difficulty": 3,
+    "survivability": 4,
+    "utility": 2,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4089,6 +4773,15 @@
    "origin": "Persian",
    "gender": "F",
    "image": "/images/patrons/scheherazade.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 3,
+    "defence": 4,
+    "difficulty": 5,
+    "survivability": 4,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4159,6 +4852,15 @@
    "origin": "Egyptian",
    "gender": "M",
    "image": "/images/patrons/set.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 5,
+    "defence": 1,
+    "difficulty": 2,
+    "survivability": 2,
+    "utility": 4,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4193,6 +4895,15 @@
    "origin": "Egyptian",
    "gender": "M",
    "image": "/images/patrons/shezmu.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 2,
+    "survivability": 2,
+    "utility": 3,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4244,6 +4955,15 @@
    "origin": "Five Nights at Freddy's",
    "gender": "M",
    "image": "/images/patrons/springtrap.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 3,
+    "survivability": 5,
+    "utility": 2,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4318,6 +5038,15 @@
    "origin": "Minecraft",
    "gender": "M",
    "image": "/images/patrons/steve.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 3,
+    "defence": 2,
+    "difficulty": 5,
+    "survivability": 3,
+    "utility": 2,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4408,6 +5137,15 @@
    "origin": "Chinese",
    "gender": "M",
    "image": "/images/patrons/sun-wukong.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 3,
+    "defence": 4,
+    "difficulty": 3,
+    "survivability": 3,
+    "utility": 1,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4439,6 +5177,15 @@
    "origin": "Plants Vs. Zombies",
    "gender": "F",
    "image": "/images/patrons/sunflower.webp",
+   "class": "support",
+   "stats": {
+    "offence": 3,
+    "defence": 2,
+    "difficulty": 4,
+    "survivability": 2,
+    "utility": 3,
+    "support": 4
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4516,6 +5263,15 @@
    "origin": "Shinto",
    "gender": "M",
    "image": "/images/patrons/susanoo.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 3,
+    "defence": 4,
+    "difficulty": 3,
+    "survivability": 3,
+    "utility": 1,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4547,6 +5303,15 @@
    "origin": "Vietnamese",
    "gender": "M",
    "image": "/images/patrons/thanh-giong.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 2,
+    "defence": 4,
+    "difficulty": 2,
+    "survivability": 3,
+    "utility": 2,
+    "support": 3
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4610,6 +5375,15 @@
    "origin": "Chinese",
    "gender": "F",
    "image": "/images/patrons/wu-zetian.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 4,
+    "defence": 1,
+    "difficulty": 5,
+    "survivability": 2,
+    "utility": 1,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4668,6 +5442,15 @@
    "origin": "Yoruba",
    "gender": "F",
    "image": "/images/patrons/yemoja.webp",
+   "class": "support",
+   "stats": {
+    "offence": 1,
+    "defence": 3,
+    "difficulty": 3,
+    "survivability": 3,
+    "utility": 1,
+    "support": 5
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4699,6 +5482,15 @@
    "origin": "Korean",
    "gender": "M",
    "image": "/images/patrons/yong-yo-kyo.webp",
+   "class": "defence",
+   "stats": {
+    "offence": 3,
+    "defence": 3,
+    "difficulty": 2,
+    "survivability": 3,
+    "utility": 3,
+    "support": 1
+   },
    "abilities": [
     {
      "key": "A1",
@@ -4779,6 +5571,15 @@
    "origin": "Greek",
    "gender": "M",
    "image": "/images/patrons/zeus.webp",
+   "class": "offence",
+   "stats": {
+    "offence": 5,
+    "defence": 2,
+    "difficulty": 3,
+    "survivability": 2,
+    "utility": 4,
+    "support": 2
+   },
    "abilities": [
     {
      "key": "A1",

@@ -1,7 +1,8 @@
-/* The Patrons pages: every patron as a roster card, printed in night and gold. Everything here is scoped to
-   .patrons-page, or to .patron-dialog, which Mantine renders in a portal outside the page; the page's stock
-   (PATRONS_STOCK in src/seasons.js) paints <html> to match. Square corners, 1px rules, no shadows or
-   gradients, as everywhere else. Hover effects sit in (hover: hover), as in global.css. */
+/* The Patrons pages: every patron as a roster card, printed in night and gold, and each patron's own page over
+   the grid. Everything here is scoped to .patrons-page, or to .patron-overlay, which Mantine renders in a portal
+   outside the page; the page's stock (PATRONS_STOCK in src/seasons.js) paints <html> to match. Square corners,
+   1px rules, no shadows, as everywhere else; the only gradients are the fades over a patron's portrait, which
+   keep the text on it readable. Hover effects sit in (hover: hover), as in global.css. */
 
 /* ---------------------------------------------------------------------------------------------
    Cinzel, for titles and names (self-hosted, SIL Open Font License; see src/fonts/README.md)
@@ -26,11 +27,11 @@
 }
 
 /* ---------------------------------------------------------------------------------------------
-   Tokens (the dialog sits outside the page, so it takes them too)
+   Tokens (a patron's page sits outside the grid's, so it takes them too)
    --------------------------------------------------------------------------------------------- */
 
 .patrons-page,
-.patron-dialog {
+.patron-overlay {
   --pt-void: #070b12;
   --pt-night: #04070c;
   --pt-panel: #0b121d;
@@ -38,7 +39,6 @@
   --pt-card: #0a1019;
   --pt-well: #0c1420;
   --pt-line: #2c384b;
-  --pt-line-nav: #1f2836;
   --pt-gold: #c9a85c;
   --pt-gold-light: #e8cf8f;
   --pt-gold-dim: #6f5a32;
@@ -48,11 +48,77 @@
   --pt-origin: #958f80;
   --pt-count: #8f8a7c;
   --pt-chip: #c8c2b3;
+  --pt-hero-origin: #b5b0a2;
+  --pt-lore: #d9d2c1;
+
+  /* Season themes for a patron's page: the abilities, and the season line and rule in the hero. Gold stays
+     for the site's own navigation. Song of Life has no patrons, so it has no theme. */
+
+  /* Season 1 · The Apotheion (gold) */
+  --pt-s1-bg: #16110a;
+  --pt-s1-card: #211a10;
+  --pt-s1-line: #3d311d;
+  --pt-s1-mid: #8a6d2a;
+  --pt-s1-accent: #d4af37;
+  --pt-s1-light: #ecd48a;
+  --pt-s1-soft: #b8ad95;
+
+  /* Season 2 · Rite of Apothea (ice and navy) */
+  --pt-s2-bg: #0c1a2e;
+  --pt-s2-card: #10223b;
+  --pt-s2-line: #24395a;
+  --pt-s2-mid: #4f7aa0;
+  --pt-s2-accent: #a8d4f0;
+  --pt-s2-light: #d3eafa;
+  --pt-s2-soft: #a3b3c6;
+
+  /* Season 3 · Beyond the Veil (green) */
+  --pt-s3-bg: #081d16;
+  --pt-s3-card: #0c281f;
+  --pt-s3-line: #1d4536;
+  --pt-s3-mid: #167a56;
+  --pt-s3-accent: #19b97c;
+  --pt-s3-light: #8fe3bf;
+  --pt-s3-soft: #9fb8ad;
 
   /* Letters outside Cinzel's set (the ọ in Yemọja) fall through to the next family. */
   --font-pt-display: 'Cinzel', 'Source Serif 4', Georgia, serif;
 
   color-scheme: dark;
+}
+
+/* A patron's page sets data-season, and reads only these. */
+[data-season='season-1'] {
+  --pt-season-bg: var(--pt-s1-bg);
+  --pt-season-card: var(--pt-s1-card);
+  --pt-season-line: var(--pt-s1-line);
+  --pt-season-mid: var(--pt-s1-mid);
+  --pt-season-accent: var(--pt-s1-accent);
+  --pt-season-light: var(--pt-s1-light);
+  --pt-season-soft: var(--pt-s1-soft);
+  --pt-season-track: #d4af372e; /* accent at 18%: empty stat segments */
+}
+
+[data-season='season-2'] {
+  --pt-season-bg: var(--pt-s2-bg);
+  --pt-season-card: var(--pt-s2-card);
+  --pt-season-line: var(--pt-s2-line);
+  --pt-season-mid: var(--pt-s2-mid);
+  --pt-season-accent: var(--pt-s2-accent);
+  --pt-season-light: var(--pt-s2-light);
+  --pt-season-soft: var(--pt-s2-soft);
+  --pt-season-track: #a8d4f02e;
+}
+
+[data-season='season-3'] {
+  --pt-season-bg: var(--pt-s3-bg);
+  --pt-season-card: var(--pt-s3-card);
+  --pt-season-line: var(--pt-s3-line);
+  --pt-season-mid: var(--pt-s3-mid);
+  --pt-season-accent: var(--pt-s3-accent);
+  --pt-season-light: var(--pt-s3-light);
+  --pt-season-soft: var(--pt-s3-soft);
+  --pt-season-track: #19b97c2e;
 }
 
 .patrons-page {
@@ -66,66 +132,8 @@ html:has(.patrons-page) {
   scrollbar-color: var(--accent) var(--paper);
 }
 
-/* ---------------------------------------------------------------------------------------------
-   Top bar
-   --------------------------------------------------------------------------------------------- */
-
-.patrons-bar {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  gap: 28px;
-  height: 60px;
-  padding: 0 32px;
-  border-bottom: 1px solid var(--pt-line-nav);
-  background: var(--pt-night);
-}
-
-.patrons-bar__brand {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  gap: 10px;
-  color: var(--pt-text);
-  font: 700 17px/1 var(--font-pt-display);
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.patrons-bar__brand img {
-  display: block;
-  width: 30px;
-  height: 30px;
-}
-
-/* Runs 1px past the bar so the current link's gold underline sits on the bar's own rule. */
-.patrons-bar__nav {
-  display: flex;
-  align-self: stretch;
-  margin-bottom: -1px;
-}
-
-.patrons-bar__nav a {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  padding: 0 14px;
-  border-bottom: 2px solid transparent;
-  color: var(--pt-text-mute);
-  font: 600 12px/1 var(--font-text);
-  letter-spacing: 0.14em;
-  text-decoration: none;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: color 120ms ease-out;
-}
-
-.patrons-bar__nav a[aria-current='page'] {
-  border-bottom-color: var(--pt-gold);
-  color: var(--pt-gold-light);
-}
+/* The top bar is the site's masthead (Masthead.js, global.css), printed on the Patrons stock like every
+   other page's is printed on its season's. */
 
 /* ---------------------------------------------------------------------------------------------
    Page and title
@@ -451,18 +459,23 @@ html:has(.patrons-page) {
   padding: 12px 12px 14px;
 }
 
-/* Long names wrap (a long single word takes a hyphen where it can) and are never cut short. */
+/* Names wrap between words, never inside one: a name with a long word is set smaller (nameTier in utils/patrons.js). */
 .patron-card__name {
   display: block;
   color: var(--pt-text);
   font: 700 15px/1.2 var(--font-pt-display);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  overflow-wrap: anywhere;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphenate-limit-chars: 10 4 4;
+  overflow-wrap: normal;
   transition: color 160ms ease-out;
+}
+
+.patron-card__name--t3 {
+  font-size: 13px;
+}
+
+.patron-card__name--t4 {
+  font-size: 11.5px;
 }
 
 .patron-card__origin {
@@ -530,143 +543,420 @@ html:has(.patrons-page) {
 }
 
 /* ---------------------------------------------------------------------------------------------
-   Patron dialog: the portrait on the left, the abilities scrolling on the right. Mantine supplies the
-   behaviour; these classes replace its look. On phones it fills the screen (see the end of this file).
+   A patron's page, full screen over the grid. Mantine supplies the behaviour and the box that
+   scrolls (the dialog itself); these classes replace its look. The hero is the patron's portrait
+   with their name, lore and stats; the abilities sit below on their season's colours (data-season,
+   at the top of this file). Tablets and phones are at the end of this file.
    --------------------------------------------------------------------------------------------- */
 
-.patron-dialog__content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border: 1px solid var(--pt-gold-dim);
+.patron-overlay__content {
   border-radius: 0;
-  background: var(--pt-panel);
+  background: var(--pt-void);
   color: var(--pt-text);
   box-shadow: none;
   font-family: var(--font-text);
-}
-
-/* Only the right-hand column scrolls, so the portrait and the close button stay put. */
-.patron-dialog__layout {
-  display: grid;
-  flex: 1 1 auto;
-  grid-template-columns: 300px minmax(0, 1fr);
-  grid-template-rows: minmax(0, 1fr);
-  min-height: 0;
-}
-
-.patron-dialog__portrait {
-  position: relative;
-  align-self: start;
-  aspect-ratio: 4 / 5;
-  margin: 28px 0 28px 28px;
-  overflow: hidden;
-  border: 1px solid var(--pt-line);
-  background: var(--pt-well);
-}
-
-.patron-dialog__portrait .patron-emblem__initials {
-  font-size: 72px;
-}
-
-/* The wide right gutter keeps text that scrolls up from passing under the close button. */
-.patron-dialog__main {
-  min-height: 0;
-  padding: 28px 64px 36px 32px;
-  overflow-y: auto;
+  font-size: 15px;
+  line-height: 1.5;
   overscroll-behavior: contain;
-  scrollbar-color: var(--pt-gold-dim) transparent;
+  scrollbar-color: var(--pt-gold-dim) var(--pt-void);
 }
 
-.patron-dialog__close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: 1px solid var(--pt-line);
-  background: var(--pt-void);
-  color: var(--pt-text-soft);
-  cursor: pointer;
-  transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out;
-}
-
-.patron-dialog__eyebrow {
+/* At least as tall as the window, with the abilities' colour running to the bottom. */
+.patron-page {
   display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* Hero ------------------------------------------------------------------------------------------ */
+
+.patron-hero {
+  position: relative;
+  min-height: 760px;
+  overflow: hidden;
+  background: var(--pt-night);
+}
+
+/* The portrait again, dimmed and blurred to fill the hero. It runs 48px past every edge so the blur
+   doesn't thin out at them. */
+.patron-hero__backdrop {
+  position: absolute;
+  top: -48px;
+  left: -48px;
+  width: calc(100% + 96px);
+  max-width: none;
+  height: calc(100% + 96px);
+  object-fit: cover;
+  filter: blur(32px) brightness(0.28) saturate(1.1);
+}
+
+/* Darkens the left, where the text sits. */
+.patron-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(4, 7, 12, 0.95) 0%, rgba(4, 7, 12, 0.86) 36%, rgba(4, 7, 12, 0.35) 58%, rgba(4, 7, 12, 0) 72%);
+}
+
+/* The portrait at its own 4:5, as tall as the hero, its left edge fading into the backdrop. */
+.patron-hero__portrait {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 30%);
+}
+
+/* A patron without a portrait (Ludus): the card's emblem, in the season's colour, at the portrait's size. */
+.patron-hero__portrait--emblem {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.patron-hero__portrait--emblem .patron-emblem__initials {
+  font-size: 128px;
+}
+
+/* Runs the hero into the abilities below. */
+.patron-hero__fade {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+  background: linear-gradient(180deg, transparent, var(--pt-season-bg));
+}
+
+/* Lines up with the text column below it. */
+.patron-hero__back {
+  position: absolute;
+  top: 28px;
+  left: max(32px, calc((100% - 1360px) / 2 + 32px));
+  z-index: 2;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--pt-gold);
+  color: var(--pt-chip);
+  font: 600 12px/1.5 var(--font-text);
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 120ms ease-out;
+}
+
+.patron-hero__back svg {
+  flex-shrink: 0;
+}
+
+.patron-hero__content {
+  position: relative;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 120px 32px 72px;
+}
+
+.patron-hero__column {
+  max-width: 600px;
+}
+
+/* The diamond stays by the first line when the season's name wraps. */
+.patron-hero__season {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--pt-season-accent);
   font: 600 12px/1.5 var(--font-text);
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-.patron-dialog__eyebrow i {
+.patron-hero__season i {
   flex-shrink: 0;
-  width: 7px;
-  height: 7px;
-  background: var(--tint);
+  width: 8px;
+  height: 8px;
+  margin-top: 5px;
+  background: var(--pt-season-accent);
   transform: rotate(45deg);
 }
 
-.patron-dialog__title {
-  margin: 10px 0 0;
+/* Never breaks inside a word: the size comes from the longest word (nameTier in utils/patrons.js). */
+.patron-hero__name {
+  margin: 14px 0 0;
   padding: 0;
   color: var(--pt-text);
-  font: 700 40px/1.08 var(--font-pt-display);
-  letter-spacing: 0.06em;
+  font: 700 88px/1 var(--font-pt-display);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
   text-wrap: balance;
 }
 
-.patron-dialog__origin {
-  margin-top: 8px;
-  color: var(--pt-origin);
-  font: 600 12px/1.4 var(--font-text);
+.patron-hero__name--t2 {
+  font-size: 68px;
+}
+
+.patron-hero__name--t3 {
+  font-size: 52px;
+}
+
+.patron-hero__name--t4 {
+  font-size: 44px;
+}
+
+.patron-hero__origin {
+  margin-top: 14px;
+  color: var(--pt-hero-origin);
+  font: 600 13px/1.4 var(--font-text);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.patron-hero .patrons-rule {
+  width: 220px;
+}
+
+/* The season's colours for the rule, in place of gold. */
+.patrons-rule--season span {
+  background: var(--pt-season-mid);
+}
+
+.patrons-rule--season i {
+  border-color: var(--pt-season-accent);
+}
+
+.patron-hero__lore {
+  max-width: 56ch;
+  margin-top: 20px;
+  color: var(--pt-lore);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* Until a patron's lore is written. */
+.patron-hero__lore--soon {
+  color: var(--pt-text-mute);
+}
+
+/* Class and stats ------------------------------------------------------------------------------ */
+
+.patron-stats {
+  display: flex;
+  margin-top: 32px;
+  border: 1px solid var(--pt-line);
+  background: rgba(10, 16, 25, 0.9);
+}
+
+.patron-stats__class {
+  display: flex;
+  flex: 0 0 168px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 22px 16px;
+  border-right: 1px solid var(--pt-line);
+  text-align: center;
+}
+
+/* The class icon on a diamond. */
+.patron-stats__emblem {
+  position: relative;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  color: var(--pt-season-accent);
+}
+
+.patron-stats__emblem::before {
+  content: '';
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--pt-season-accent);
+  background: var(--pt-void);
+  transform: rotate(45deg);
+}
+
+.patron-stats__emblem svg {
+  position: relative;
+}
+
+.patron-stats__label {
+  color: var(--pt-text-mute);
+  font: 600 11px/1.2 var(--font-text);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.patron-stats__class-name {
+  margin-top: 4px;
+  color: var(--pt-text);
+  font: 700 20px/1.1 var(--font-pt-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.patron-stats__body {
+  flex: 1;
+  min-width: 0;
+  padding: 18px 22px 20px;
+}
+
+.patron-stats__heading {
+  color: var(--pt-text-mute);
+  font: 600 11px/1.2 var(--font-text);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.patron-stats__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.patron-stats__row {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 12px;
+}
+
+.patron-stats__row dt {
+  color: var(--pt-text-mute);
+  font: 600 11.5px/1.2 var(--font-text);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.patron-dialog__head .patrons-rule {
-  width: 180px;
-  margin-top: 18px;
+/* Five segments, lit up to the value. */
+.patron-stats__bar {
+  display: flex;
+  gap: 3px;
+}
+
+.patron-stats__seg {
+  flex: 1;
+  height: 8px;
+  background: var(--pt-season-track);
+}
+
+.patron-stats__seg--on {
+  background: var(--pt-season-accent);
+}
+
+.patron-stats__value {
+  color: var(--pt-text);
+  font: 600 14px/1 var(--font-text);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Abilities ------------------------------------------------------------------------------------ */
+
+.patron-abilities {
+  flex: 1;
+  padding: 24px 0 96px;
+  background: var(--pt-season-bg);
+}
+
+.patron-abilities__inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.patron-abilities__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.patron-abilities__title {
+  color: var(--pt-text);
+  font: 700 36px/1.1 var(--font-pt-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.patron-abilities__head .patrons-rule {
+  width: 200px;
+}
+
+/* Both cards in a row are as tall as the taller. */
+.patron-abilities__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
 }
 
 .patron-ability {
-  margin-top: 28px;
-}
-
-.patron-ability + .patron-ability {
-  padding-top: 26px;
-  border-top: 1px solid var(--pt-line);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 28px 28px 32px;
+  border: 1px solid var(--pt-season-line);
+  border-top: 2px solid var(--pt-season-mid);
+  background: var(--pt-season-card);
 }
 
 .patron-ability__head {
   display: flex;
-  align-items: baseline;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
 }
 
-.patron-ability__key {
+/* A1 or A2 on a diamond. */
+.patron-ability__badge {
+  position: relative;
+  display: grid;
   flex-shrink: 0;
-  padding: 4px 7px;
-  border: 1px solid var(--pt-gold-dim);
-  color: var(--pt-gold);
-  font: 600 11px/1 var(--font-text);
-  letter-spacing: 0.1em;
-  transform: translateY(-2px);
+  place-items: center;
+  width: 60px;
+  height: 60px;
+}
+
+.patron-ability__badge::before {
+  content: '';
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--pt-season-accent);
+  background: var(--pt-season-bg);
+  transform: rotate(45deg);
+}
+
+.patron-ability__badge span {
+  position: relative;
+  color: var(--pt-season-light);
+  font: 700 15px/1 var(--font-pt-display);
+  letter-spacing: 0.04em;
+}
+
+.patron-ability__heading {
+  min-width: 0;
+}
+
+.patron-ability__kicker {
+  color: var(--pt-season-accent);
+  font: 600 11px/1.2 var(--font-text);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 /* Cinzel sets lowercase as small capitals, so names read as titles without forcing uppercase. */
 .patron-ability__name {
-  color: var(--pt-gold-light);
-  font: 600 19px/1.25 var(--font-pt-display);
+  margin-top: 6px;
+  color: var(--pt-season-light);
+  font: 600 24px/1.2 var(--font-pt-display);
   letter-spacing: 0.04em;
   overflow-wrap: anywhere;
 }
@@ -675,7 +965,7 @@ html:has(.patrons-page) {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 12px;
+  margin-top: 18px;
 }
 
 .patron-tag {
@@ -683,8 +973,8 @@ html:has(.patrons-page) {
   align-items: center;
   gap: 6px;
   padding: 5px 8px;
-  border: 1px solid var(--pt-line);
-  background: var(--pt-void);
+  border: 1px solid var(--pt-season-mid);
+  background: var(--pt-season-bg);
   color: var(--pt-chip);
   font: 600 11px/1.2 var(--font-text);
   letter-spacing: 0.08em;
@@ -692,44 +982,45 @@ html:has(.patrons-page) {
 }
 
 .patron-tag--visibility {
-  border-color: var(--pt-gold-dim);
-  color: var(--pt-gold-light);
+  color: var(--pt-season-light);
 }
 
 .patron-tag svg {
   flex-shrink: 0;
-  color: var(--pt-gold);
+  color: var(--pt-season-accent);
 }
 
+/* A few notes break the line where the sheet did. */
 .patron-ability__note {
-  margin-top: 8px;
-  color: var(--pt-text-soft);
+  margin-top: 10px;
+  color: var(--pt-season-soft);
   font-size: 13px;
   line-height: 1.5;
+  white-space: pre-line;
 }
 
 .patron-ability__body {
-  max-width: 68ch;
-  margin-top: 14px;
+  margin-top: 18px;
   color: var(--pt-text);
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .patron-ability__body > * + * {
   margin-top: 10px;
 }
 
+/* h4 isn't in global.css's margin reset, so it's set here. */
 .patron-ability__subhead {
-  margin: 18px 0 0;
-  color: var(--pt-gold);
+  margin: 0;
+  color: var(--pt-season-accent);
   font: 600 12px/1.4 var(--font-text);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.patron-ability__body > .patron-ability__subhead + * {
-  margin-top: 6px;
+.patron-ability__body > * + .patron-ability__subhead {
+  margin-top: 18px;
 }
 
 .patron-ability__list {
@@ -742,25 +1033,21 @@ html:has(.patrons-page) {
 }
 
 .patron-ability__list li::marker {
-  color: var(--pt-gold);
+  color: var(--pt-season-accent);
 }
 
-/* The season's rule for format-changing abilities, after the abilities that are. */
-.patron-dialog__rules {
+/* The season's rule for format-changing abilities, under the cards. */
+.patron-rules {
   max-width: 68ch;
-  margin-top: 32px;
+  margin: 32px auto 0;
   padding: 14px 16px;
-  border: 1px dashed var(--pt-gold-dim);
-  color: var(--pt-text-soft);
+  border: 1px dashed var(--pt-season-mid);
+  color: var(--pt-season-soft);
   font-size: 13px;
   line-height: 1.55;
 }
 
-.patron-dialog__rules .patron-ability__subhead {
-  margin-top: 0;
-}
-
-.patron-dialog__rules p {
+.patron-rules p {
   margin-top: 6px;
 }
 
@@ -768,15 +1055,16 @@ html:has(.patrons-page) {
    Hover and focus
    --------------------------------------------------------------------------------------------- */
 
-.patrons-bar__brand:focus-visible,
-.patrons-bar__nav a:focus-visible,
 .patrons-tab:focus-visible,
 .patrons-search__clear:focus-visible,
-.patrons-button:focus-visible,
-.patron-dialog__close:focus-visible,
-.patron-dialog__main:focus-visible {
+.patrons-button:focus-visible {
   outline: 2px solid var(--pt-gold-light);
   outline-offset: -2px;
+}
+
+.patron-hero__back:focus-visible {
+  outline: 2px solid var(--pt-gold-light);
+  outline-offset: 2px;
 }
 
 .patron-card:focus-visible {
@@ -790,7 +1078,6 @@ html:has(.patrons-page) {
 }
 
 @media (hover: hover) {
-  .patrons-bar__nav a:not([aria-current='page']):hover,
   .patrons-tab:not([aria-pressed='true']):hover {
     color: var(--pt-text);
   }
@@ -799,13 +1086,13 @@ html:has(.patrons-page) {
     border-color: var(--pt-gold);
   }
 
-  .patron-card:hover .patron-card__name {
+  .patron-card:hover .patron-card__name,
+  .patron-hero__back:hover {
     color: var(--pt-gold-light);
   }
 
   .patrons-button:hover,
-  .patrons-search__clear:hover,
-  .patron-dialog__close:hover {
+  .patrons-search__clear:hover {
     border-color: var(--pt-gold);
     background: var(--pt-gold);
     color: var(--pt-void);
@@ -844,10 +1131,65 @@ html:has(.patrons-page) {
   .patrons-button {
     height: 44px;
   }
+}
 
-  .patron-dialog__close {
-    width: 44px;
-    height: 44px;
+/* ---------------------------------------------------------------------------------------------
+   Tablets: a patron's portrait takes a fixed share of the width, and their stats panel stacks
+   --------------------------------------------------------------------------------------------- */
+
+@media (max-width: 68.74em) {
+  .patron-hero__scrim {
+    background: linear-gradient(90deg, rgba(4, 7, 12, 0.95) 0%, rgba(4, 7, 12, 0.86) 48%, rgba(4, 7, 12, 0) 70%);
+  }
+
+  .patron-hero__portrait {
+    width: 44%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-position: center top;
+  }
+
+  .patron-hero__portrait--emblem .patron-emblem__initials {
+    font-size: 96px;
+  }
+
+  .patron-hero__column {
+    max-width: calc(56% - 40px);
+  }
+
+  .patron-hero__name--t1 {
+    font-size: min(64px, 6.4vw);
+  }
+
+  .patron-hero__name--t2 {
+    font-size: min(50px, 5vw);
+  }
+
+  .patron-hero__name--t3 {
+    font-size: min(40px, 4vw);
+  }
+
+  .patron-hero__name--t4 {
+    font-size: min(34px, 3.3vw);
+  }
+
+  .patron-stats {
+    flex-direction: column;
+  }
+
+  .patron-stats__class {
+    flex: 0 0 auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--pt-line);
+    text-align: left;
+  }
+
+  .patron-stats__body {
+    padding: 16px;
   }
 }
 
@@ -856,37 +1198,8 @@ html:has(.patrons-page) {
    --------------------------------------------------------------------------------------------- */
 
 @media (max-width: 48em) {
-  /* Two rows: the name, then every link in a row that runs edge to edge and scrolls sideways. */
-  .patrons-bar {
-    flex-wrap: wrap;
-    gap: 0;
-    height: auto;
-    padding: 0 16px;
-  }
-
-  .patrons-bar__brand {
-    height: 52px;
-  }
-
-  .patrons-bar__nav {
-    order: 3;
-    flex: 0 0 calc(100% + 32px);
-    align-self: auto;
-    margin: 0 -16px -1px;
-    padding: 0 6px;
-    overflow-x: auto;
-    border-top: 1px solid var(--pt-line-nav);
-    scrollbar-width: none;
-  }
-
-  .patrons-bar__nav::-webkit-scrollbar,
   .patrons-tabs::-webkit-scrollbar {
     display: none;
-  }
-
-  .patrons-bar__nav a {
-    height: 44px;
-    padding: 0 10px;
   }
 
   .patrons-main {
@@ -921,63 +1234,89 @@ html:has(.patrons-page) {
     gap: 12px;
   }
 
-  /* The dialog fills the screen and scrolls as one: a small portrait beside the name, abilities below. */
-  .patron-dialog__content {
-    border: 0;
+  /* A patron's page: the portrait framed beside the name, then everything else full width below it. */
+  .patron-hero {
+    min-height: 0;
   }
 
-  .patron-dialog__layout {
-    display: block;
-    overflow-y: auto;
-    overscroll-behavior: contain;
+  .patron-hero__scrim {
+    background: rgba(4, 7, 12, 0.6);
   }
 
-  .patron-dialog__portrait {
-    float: left;
-    width: 104px;
-    margin: 20px 14px 12px 16px;
+  .patron-hero__fade {
+    height: 120px;
   }
 
-  .patron-dialog__portrait .patron-emblem__initials {
-    font-size: 32px;
+  .patron-hero__back {
+    top: 16px;
+    left: 16px;
+    padding: 8px 10px;
+    background: rgba(4, 7, 12, 0.78);
   }
 
-  .patron-dialog__main {
-    padding: 20px 16px 48px;
-    overflow: visible;
+  .patron-hero__content {
+    padding: 64px 16px 44px;
   }
 
-  /* Sits beside the portrait rather than wrapping under it; everything after it starts below. */
-  .patron-dialog__head {
-    display: flow-root;
-    min-height: 130px;
-    padding-right: 48px;
+  .patron-hero__column {
+    max-width: none;
   }
 
-  .patron-dialog__head ~ * {
-    clear: both;
+  .patron-hero__portrait {
+    top: 64px;
+    right: 16px;
+    width: 38%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    border: 1px solid var(--pt-line);
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
-  .patron-dialog__eyebrow {
-    align-items: flex-start;
-    letter-spacing: 0.1em;
+  .patron-hero__portrait--emblem {
+    background: var(--pt-well);
   }
 
-  .patron-dialog__eyebrow i {
-    margin-top: 5px;
+  .patron-hero__portrait--emblem .patron-emblem__initials {
+    font-size: 40px;
   }
 
-  .patron-dialog__title {
-    margin-top: 6px;
-    font-size: 26px;
+  /* At least as tall as the portrait beside it, so the rule and the lore start below the picture. */
+  .patron-hero__id {
+    max-width: 58%;
+    min-height: calc((100vw - 32px) * 0.38 * 1.25);
   }
 
-  .patron-dialog__head .patrons-rule {
-    width: 120px;
-    margin-top: 12px;
+  .patron-hero__name--t1 {
+    font-size: min(8.7vw, 64px);
   }
 
-  .patron-ability__name {
-    font-size: 17px;
+  .patron-hero__name--t2 {
+    font-size: min(6.1vw, 50px);
+  }
+
+  .patron-hero__name--t3 {
+    font-size: min(5.1vw, 40px);
+  }
+
+  .patron-hero__name--t4 {
+    font-size: min(4.1vw, 34px);
+  }
+
+  .patron-abilities {
+    padding: 24px 0 64px;
+  }
+
+  .patron-abilities__inner {
+    padding: 0 16px;
+  }
+
+  .patron-abilities__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .patron-ability {
+    padding: 22px 18px 26px;
   }
 }
