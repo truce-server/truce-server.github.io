@@ -3417,6 +3417,7 @@
    "season": "season-1",
    "origin": "Apotheionic",
    "gender": "NB",
+   "image": "/images/patrons/ludus.webp",
    "class": "support",
    "stats": {
     "offence": 3,

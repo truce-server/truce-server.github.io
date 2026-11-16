@@ -610,7 +610,7 @@ html:has(.patrons-page) {
   mask-image: linear-gradient(90deg, transparent 0%, #000 30%);
 }
 
-/* A patron without a portrait (Ludus): the card's emblem, in the season's colour, at the portrait's size. */
+/* A patron without a portrait: the card's emblem, in the season's colour, at the portrait's size. */
 .patron-hero__portrait--emblem {
   -webkit-mask-image: none;
   mask-image: none;
